@@ -117,6 +117,7 @@
   'Terms and Conditions' => 'الشروط والأحكام',
   'Privacy Policy' => 'سياسة الخصوصية',
   'FAQ' => 'الأسئلة الشائعة',
+  'Faqs' => 'الأسئلة الشائعة',
   'Custom Page' => 'صفحة مخصصة',
   'Manage Section' => 'إدارة القسم',
   'Slider' => 'المنزلق',

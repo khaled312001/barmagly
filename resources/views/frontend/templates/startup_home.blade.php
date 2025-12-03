@@ -361,7 +361,7 @@
                                 <li><a href="{{ route('services') }}">{{ __('translate.Services') }}</a></li>
                                 <li><a href="{{ route('privacy-policy') }}">{{ __('translate.Privacy Policy') }}</a></li>
                                 <li><a href="{{ route('terms-conditions') }}">{{ __('translate.Terms & Conditions') }}</a></li>
-                                <li><a href="{{ route('faq') }}">{{__('Faqs')}}</a></li>
+                                <li><a href="{{ route('faq') }}">{{ __('translate.Faqs') }}</a></li>
                             </ul>
                         </div>
                     </div>
