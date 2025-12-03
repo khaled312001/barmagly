@@ -3,3 +3,5 @@
 .DS_Store
 /vendor
 .env
+optech_laravel_cc_full_source_code/sql/database.sql
+*.sql
