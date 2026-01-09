@@ -7,7 +7,7 @@
 
 @section('new-layout')
 
-    <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+    <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             <h1 class="post__title">{{ __('translate.My Cart') }}</h1>
             <nav class="breadcrumbs">
@@ -21,9 +21,9 @@
     </div>
     <!-- End breadcrumb -->
 
-    <div class="Jovero-cart-section">
+    <div class="Barmagly-cart-section">
         <div class="container">
-            <div class="Jovero-cart-list">
+            <div class="Barmagly-cart-list">
                 <table>
                     <thead>
                     <tr>
@@ -45,7 +45,7 @@
                         @endphp
                         <tr data-aos="fade-up" data-aos-duration="400">
                             <td>
-                                <div class="Jovero-cart-thumb">
+                                <div class="Barmagly-cart-thumb">
                                     <i class="ri-close-line delete-cart-item" data-id="{{ $cart->id }}"
                                        data-url="{{ route('cart.delete', $cart->id) }}"></i>
                                     <img src="{{ getImageOrPlaceholder($cart->product->thumbnail_image, '125x135') }}" alt="Image">
@@ -57,10 +57,10 @@
                             </td>
                             <td>{!! $cart->product->price_display !!}</td>
                             <td>
-                                <div class="Jovero-product-number">
-                                    <span class="Jovero-product-minus" data-id="{{ $cart->id }}"><i class="ri-subtract-line"></i></span>
+                                <div class="Barmagly-product-number">
+                                    <span class="Barmagly-product-minus" data-id="{{ $cart->id }}"><i class="ri-subtract-line"></i></span>
                                     <input type="text" class="number" id="quantity-{{ $cart->id }}" value="{{ $cart->quantity }}"/>
-                                    <span class="Jovero-product-plus" data-id="{{ $cart->id }}"><i class="ri-add-line"></i></span>
+                                    <span class="Barmagly-product-plus" data-id="{{ $cart->id }}"><i class="ri-add-line"></i></span>
                                 </div>
                             </td>
                             <td class="price total-price" id="price-{{ $cart->id }}"
@@ -75,22 +75,22 @@
     </div>
     <!-- End section -->
 
-    <div class="section Jovero-section-padding-bottom">
+    <div class="section Barmagly-section-padding-bottom">
         <div class="container">
-            <div class="Jovero-cart-total">
+            <div class="Barmagly-cart-total">
                 <h5>{{ __('translate.Cart Totals') }}</h5>
-                <div class="Jovero-cart-total-item sub_total">
+                <div class="Barmagly-cart-total-item sub_total">
                     <p>{{ __('translate.Subtotal') }}:</p>
                     <p>{{ currency($subtotal) }}</p>
                 </div>
 
-                <div class="Jovero-cart-total-item total_sale">
+                <div class="Barmagly-cart-total-item total_sale">
                     <p>{{ __('translate.Total') }}:</p>
                     <p><span>{{ currency($subtotal) }}</span></p>
                 </div>
 
                 @if($carts->isNotEmpty())
-                <a class="Jovero-default-btn rt-mt-40" data-aos="fade-up" data-aos-duration="800" href="{{ route('checkout.index') }}"
+                <a class="Barmagly-default-btn rt-mt-40" data-aos="fade-up" data-aos-duration="800" href="{{ route('checkout.index') }}"
                    data-text="{{ __('translate.Proceed to Checkout') }}"><span class="btn-wraper">{{ __('translate.Proceed to Checkout') }}</span></a>
                 @endif
             </div>
@@ -118,7 +118,7 @@
 
         // Cart Item Button
         document.addEventListener("DOMContentLoaded", function() {
-            document.querySelectorAll(".Jovero-product-minus, .Jovero-product-plus").forEach(span => {
+            document.querySelectorAll(".Barmagly-product-minus, .Barmagly-product-plus").forEach(span => {
                 span.addEventListener("click", function() {
                     const itemId = this.getAttribute("data-id");
                     const quantityElement = document.getElementById(`quantity-${itemId}`);
@@ -126,14 +126,14 @@
                     const unitPrice = parseFloat(priceElement.getAttribute('data-unit-price'));
                     let currentQuantity = parseInt(quantityElement.value);
 
-                    if (this.classList.contains("Jovero-product-minus")) {
+                    if (this.classList.contains("Barmagly-product-minus")) {
                         if (currentQuantity > 1) {
                             currentQuantity--;
                         } else {
                             toastr.error('Quantity must be at least 1');
                             return;
                         }
-                    } else if (this.classList.contains("Jovero-product-plus")) {
+                    } else if (this.classList.contains("Barmagly-product-plus")) {
                         currentQuantity++;
                     }
 

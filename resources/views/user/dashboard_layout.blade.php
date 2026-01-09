@@ -44,18 +44,18 @@
                         @csrf
                         @method('DELETE')
                         <div class="d_profile_setting_from_item">
-                            <div class="Jovero-checkout-field">
+                            <div class="Barmagly-checkout-field">
                                 <label>{{ __('translate.Current Password*') }}</label>
                                 <input type="password" placeholder="Current Password" name="password">
 
                             </div>
                         </div>
                         <div class="d_profile_setting_from_btn">
-                            <button class="Jovero-default-btn red" data-text="{{ __('translate.Delete Account') }}">
+                            <button class="Barmagly-default-btn red" data-text="{{ __('translate.Delete Account') }}">
                                 <span class="btn-wraper">{{ __('translate.Delete Account') }}</span>
                             </button>
 
-                            <button class="Jovero-default-btn two" type="button" data-text="{{ __('translate.Cancel') }}" data-bs-dismiss="modal">
+                            <button class="Barmagly-default-btn two" type="button" data-text="{{ __('translate.Cancel') }}" data-bs-dismiss="modal">
                                 <span class="btn-wraper">{{ __('translate.Cancel') }}</span>
                             </button>
 
@@ -102,12 +102,12 @@
                     <div class="d_profile_setting_from_btn">
                         <form method="get" action="{{ route('user.logout') }}">
                             @csrf
-                            <button class="Jovero-default-btn red" data-text="{{ __('translate.Logout') }}">
+                            <button class="Barmagly-default-btn red" data-text="{{ __('translate.Logout') }}">
                                 <span class="btn-wraper">{{ __('translate.Logout') }}</span>
                             </button>
                         </form>
 
-                        <button class="Jovero-default-btn two" data-text="Cancel" data-bs-dismiss="modal">
+                        <button class="Barmagly-default-btn two" data-text="Cancel" data-bs-dismiss="modal">
                             <span class="btn-wraper">{{ __('translate.Cancel') }}</span>
                         </button>
                     </div>
@@ -127,11 +127,11 @@
         </div>
     </div>
 
-    <header class="site-header Jovero-header-section" id="sticky-menu">
-        <div class="Jovero-header-top bg-light1">
+    <header class="site-header Barmagly-header-section" id="sticky-menu">
+        <div class="Barmagly-header-top bg-light1">
             <div class="container">
-                <div class="Jovero-header-info-wrap">
-                    <div class="Jovero-header-info dark-color ">
+                <div class="Barmagly-header-info-wrap">
+                    <div class="Barmagly-header-info dark-color ">
                         <ul>
                             <li><i class="ri-map-pin-2-fill"></i>{{ $footer->address }}</li>
                             <li><a href="tel:{{ $footer->phone }}"><i class="ri-phone-fill"></i>{{ $footer->phone }}</a>
@@ -141,7 +141,7 @@
                         </ul>
                     </div>
 
-                    <div class="Jovero-header-info-right two">
+                    <div class="Barmagly-header-info-right two">
                         <div class="cur_lun_login_item ">
                             <span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -199,28 +199,28 @@
 
     </header>
 
-    <div class="Jovero-header-search-section">
+    <div class="Barmagly-header-search-section">
         <div class="container">
-            <div class="Jovero-header-search-box">
+            <div class="Barmagly-header-search-box">
                 <input type="search" placeholder="Search here...">
                 <button id="header-search" type="button"><i class="ri-search-line"></i></button>
                 <p>Type above and press Enter to search. Press Close to cancel.</p>
             </div>
         </div>
-        <div class="Jovero-header-search-close">
+        <div class="Barmagly-header-search-close">
             <i class="ri-close-line"></i>
         </div>
     </div>
 
     <div class="search-overlay"></div>
     <!--End index-header-section -->
-    <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+    <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             @yield('breadcrumb')
         </div>
     </div>
     <!-- End breadcrumb -->
-    <div class="section Jovero-section-padding">
+    <div class="section Barmagly-section-padding">
         <div class="container">
             <div class="dashbord_bg">
                 <div class="row">

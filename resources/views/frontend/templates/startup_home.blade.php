@@ -6,11 +6,11 @@
 @endsection
 @section('front-content')
 
-    <header class="site-header Jovero-header-section header-four" id="sticky-menu">
-        <div class="Jovero-header-top dark-bg">
+    <header class="site-header Barmagly-header-section header-four" id="sticky-menu">
+        <div class="Barmagly-header-top dark-bg">
             <div class="container">
-                <div class="Jovero-header-info-wrap">
-                    <div class="Jovero-header-info ">
+                <div class="Barmagly-header-info-wrap">
+                    <div class="Barmagly-header-info ">
                         <ul>
                             <li><i class="ri-map-pin-2-fill"></i>{{ $footer->address }}</li>
                             <li><a href="tel:{{ $footer->phone }}"><i class="ri-phone-fill"></i>{{ $footer->phone }}</a></li>
@@ -18,7 +18,7 @@
                         </ul>
                     </div>
 
-                    <div class="Jovero-header-info-right">
+                    <div class="Barmagly-header-info-right">
                         <div class="cur_lun_login_item">
                           <span>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +73,7 @@
                 </div>
             </div>
         </div>
-        <div class="Jovero-header-bottom">
+        <div class="Barmagly-header-bottom">
             <div class="container">
                 <nav class="navbar site-navbar" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="flex-direction: row-reverse !important; direction: rtl !important;" @endif>
                     <!-- Brand Logo-->
@@ -88,13 +88,13 @@
 
 
                     <div class="header-btn header-btn-l1 {{ Session::get('lang_dir', 'right_to_left') == 'right_to_left' ? 'me-auto' : 'ms-auto' }} d-none d-xs-inline-flex">
-                        <div class="Jovero-header-icon">
-                            <div class="Jovero-header-search">
+                        <div class="Barmagly-header-icon">
+                            <div class="Barmagly-header-search">
                                 <i class="ri-search-line"></i>
                             </div>
                             @include('frontend.templates.layouts._cart')
 
-                            <a class="Jovero-default-btn Jovero-header-btn" href="{{ route('contact-us') }}" data-text="{{ __('translate.Get in Touch') }}"><span
+                            <a class="Barmagly-default-btn Barmagly-header-btn" href="{{ route('contact-us') }}" data-text="{{ __('translate.Get in Touch') }}"><span
                                     class="btn-wraper">{{ __('translate.Get in Touch') }}</span></a>
                         </div>
                     </div>
@@ -127,19 +127,19 @@
             : getTranslatedValue($pricingContent, 'package_information', $currentLang);
     @endphp
 
-    <div class="Jovero-hero-section4 bg-cover">
+    <div class="Barmagly-hero-section4 bg-cover">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex align-items-center">
-                    <div class="Jovero-hero-content dark-color">
+                    <div class="Barmagly-hero-content dark-color">
                         <h5>{{ getTranslatedValue($heroSection, 'heading', $currentLang) }}</h5>
                         <h1>{{ getTranslatedValue($heroSection, 'description', $currentLang) }}</h1>
                         <p>{{ getTranslatedValue($heroSection, 'small_description', $currentLang) }}</p>
-                        <div class="Jovero-extra-mt">
-                            <div class="Jovero-btn-wrap">
-                                <a class="Jovero-default-btn" href="{{ getTranslatedValue($heroSection,'left_button_url', $currentLang) }}" data-text="{{ getTranslatedValue($heroSection,'left_button_text', $currentLang) }}"><span
+                        <div class="Barmagly-extra-mt">
+                            <div class="Barmagly-btn-wrap">
+                                <a class="Barmagly-default-btn" href="{{ getTranslatedValue($heroSection,'left_button_url', $currentLang) }}" data-text="{{ getTranslatedValue($heroSection,'left_button_text', $currentLang) }}"><span
                                         class="btn-wraper">{{ getTranslatedValue($heroSection,'left_button_text', $currentLang) }}</span></a>
-                                <a class="Jovero-default-btn Jovero-light-btn" href="{{ getTranslatedValue($heroSection,'right_button_url', $currentLang) }}" data-text="{{ getTranslatedValue($heroSection,'right_button_text', $currentLang) }}">
+                                <a class="Barmagly-default-btn Barmagly-light-btn" href="{{ getTranslatedValue($heroSection,'right_button_url', $currentLang) }}" data-text="{{ getTranslatedValue($heroSection,'right_button_text', $currentLang) }}">
                                     <span class="btn-wraper">
                                         {{ getTranslatedValue($heroSection,'right_button_text', $currentLang) }}
                                     </span>
@@ -149,7 +149,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800">
-                    <div class="Jovero-hero-thumb">
+                    <div class="Barmagly-hero-thumb">
                         <img src="{{ asset(getImage($heroSection, 'hero_image')) }}" alt="Image">
                     </div>
                 </div>
@@ -158,22 +158,22 @@
     </div>
     <!-- End section -->
 
-    <div class="section Jovero-section-padding2">
+    <div class="section Barmagly-section-padding2">
         <div class="container">
-            <div class="Jovero-section-title center">
+            <div class="Barmagly-section-title center">
                 <h2>{{ getTranslatedValue($serviceSection, 'heading', $currentLang) }}</h2>
             </div>
             <div class="row">
                 @foreach($listings as $listing)
                 <div class="col-lg-6" data-aos="fade-up" data-aos-duration="600">
-                    <div class="Jovero-iconbox-wrap style-two border_all">
-                        <div class="Jovero-iconbox-icon">
+                    <div class="Barmagly-iconbox-wrap style-two border_all">
+                        <div class="Barmagly-iconbox-icon">
                             <img src="{{ asset($listing->thumb_image) }}" alt="Image">
                         </div>
-                        <div class="Jovero-iconbox-data">
+                        <div class="Barmagly-iconbox-data">
                             <h5>{{ $listing->title ?? $listing->translate?->title }} </h5>
                             <p>{{ $listing->short_description ?? $listing->translate?->short_description }}</p>
-                            <a class="Jovero-icon-btn" href="{{ route('service', $listing->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
+                            <a class="Barmagly-icon-btn" href="{{ route('service', $listing->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
                                 <span>{{ __('translate.Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
                         </div>
                     </div>
@@ -187,21 +187,21 @@
     @include('frontend.templates.layouts.about_us_section')
     <!-- End section -->
 
-    <div class="section Jovero-section-padding">
+    <div class="section Barmagly-section-padding">
         <div class="container">
-            <div class="Jovero-section-title center">
+            <div class="Barmagly-section-title center">
                 <h2>{{ __('translate.Explore our recent projects') }}</h2>
             </div>
             <div class="row">
                 @foreach($projects as $index => $project)
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="600">
-                    <div class="Jovero-portfolio-wrap">
-                        <div class="Jovero-portfolio-thumb Jovero-portfolio-thumb-main">
+                    <div class="Barmagly-portfolio-wrap">
+                        <div class="Barmagly-portfolio-thumb Barmagly-portfolio-thumb-main">
                             <img src="{{ asset($project->thumb_image) }}" alt="" class="full-img">
-                            <a class="Jovero-portfolio-btn" href="{{ route('portfolio.show', $project->slug) }}">
+                            <a class="Barmagly-portfolio-btn" href="{{ route('portfolio.show', $project->slug) }}">
                                 <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
                             </a>
-                            <div class="Jovero-portfolio-data">
+                            <div class="Barmagly-portfolio-data">
                                 <a href="{{ route('portfolio.show', $project->slug) }}">
                                     <h4>{{ $project->title ?? $project->translate?->title }}</h4>
                                 </a>
@@ -213,8 +213,8 @@
                     </div>
                 </div>
                 @endforeach
-                <div class="Jovero-center-btn">
-                    <a class="Jovero-default-btn" href="{{ route('portfolio') }}" data-text="{{ __('translate.View Our All Project') }}"><span
+                <div class="Barmagly-center-btn">
+                    <a class="Barmagly-default-btn" href="{{ route('portfolio') }}" data-text="{{ __('translate.View Our All Project') }}"><span
                             class="btn-wraper">{{ __('translate.View Our All Project') }}</span></a>
                 </div>
             </div>
@@ -222,25 +222,25 @@
     </div>
     <!-- End section -->
 
-    <div class="section Jovero-section-padding2 dark-bg Jovero-pricing">
+    <div class="section Barmagly-section-padding2 dark-bg Barmagly-pricing">
         <div class="container">
-            <div class="Jovero-section-title center light-color">
+            <div class="Barmagly-section-title center light-color">
                 <h2>{{ getTranslatedValue($pricingContent, 'heading', $currentLang) }}</h2>
             </div>
             <div class="row">
                 @if(is_array($packageInformation))
                     @foreach($packageInformation as $packageKey => $package)
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="{{ $loop->iteration == 1 ? '500' : ($loop->iteration == 2 ? '700' : '900') }}">
-                    <div class="Jovero-pricing-wrap Jovero-pricing2 {{ $loop->iteration == 2 ? 'active' : '' }}">
-                        <div class="Jovero-pricing-header">
+                    <div class="Barmagly-pricing-wrap Barmagly-pricing2 {{ $loop->iteration == 2 ? 'active' : '' }}">
+                        <div class="Barmagly-pricing-header">
                             <h4>{{ $package['title'] ?? '' }}</h4>
                         </div>
-                        <div class="Jovero-pricing-price">
+                        <div class="Barmagly-pricing-price">
                             <h2>${{ $package['price'] ?? '0' }}<span>/{{ __('translate.month') }}</span></h2>
                         </div>
                         <p>{{ $package['description'] ?? '' }}</p>
-                        <a class="Jovero-pricing-btn" href="{{ route('contact-us') }}">{{ __('translate.Select This Plan') }}</a>
-                        <div class="Jovero-pricing-feature">
+                        <a class="Barmagly-pricing-btn" href="{{ route('contact-us') }}">{{ __('translate.Select This Plan') }}</a>
+                        <div class="Barmagly-pricing-feature">
                             <ul>
                                 @if(isset($package['features']) && is_array($package['features']))
                                     @foreach($package['features'] as $featureKey => $feature)
@@ -268,22 +268,22 @@
     @include('frontend.templates.layouts.faq')
     <!-- End FAQ section -->
 
-    <div class="section Jovero-section-padding">
+    <div class="section Barmagly-section-padding">
         <div class="container">
-            <div class="Jovero-section-title center">
+            <div class="Barmagly-section-title center">
                 <h2>{{ getTranslatedValue($blogContent, 'heading', $currentLang) }}</h2>
             </div>
             <div class="row">
                 @foreach($blogPosts->take(3) as $blog)
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="600">
-                    <div class="Jovero-blog-wrap">
+                    <div class="Barmagly-blog-wrap">
                         <a href="{{ route('blog', $blog->slug) }}">
-                            <div class="Jovero-blog-thumb">
+                            <div class="Barmagly-blog-thumb">
                                 <img src="{{ asset($blog->image) }}" alt="Blog Image">
                             </div>
                         </a>
-                        <div class="Jovero-blog-content reduced-padding">
-                            <div class="Jovero-blog-meta">
+                        <div class="Barmagly-blog-content reduced-padding">
+                            <div class="Barmagly-blog-meta">
                                 <ul>
                                     <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->name ?? $blog->category->translate?->name }}</a></li>
                                     <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->created_at->format('d F Y') }}</a></li>
@@ -292,15 +292,15 @@
                             <a href="{{ route('blog', $blog->slug) }}">
                                 <h4>{{ $blog->title ?? $blog->translate->title }}</h4>
                             </a>
-                            <a class="Jovero-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
+                            <a class="Barmagly-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
                                 <span>{{ __('translate.Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
                 @endforeach
             </div>
-            <div class="Jovero-center-btn">
-                <a class="Jovero-default-btn" href="{{ route('blogs') }}" data-text="{{ getTranslatedValue($blogContent, 'button_text', $currentLang) }}">
+            <div class="Barmagly-center-btn">
+                <a class="Barmagly-default-btn" href="{{ route('blogs') }}" data-text="{{ getTranslatedValue($blogContent, 'button_text', $currentLang) }}">
                     <span class="btn-wraper">{{ getTranslatedValue($blogContent, 'button_text', $currentLang) }}</span>
                 </a>
             </div>
@@ -308,17 +308,17 @@
     </div>
     <!-- Footer  -->
 
-    <footer class="Jovero-footer-section bg-light1">
+    <footer class="Barmagly-footer-section bg-light1">
         <div class="container">
-            <div class="Jovero-footer-top Jovero-section-padding">
+            <div class="Barmagly-footer-top Barmagly-section-padding">
                 <div class="row">
                     <div class="col-xl-4 col-lg-12">
-                        <div class="Jovero-footer-textarea dark-color">
+                        <div class="Barmagly-footer-textarea dark-color">
                             <a href="{{ route('home') }}">
                                 <img src="{{ asset($general_setting->logo) }}" alt="">
                             </a>
                             <p>{{ $footer->about_us }}</p>
-                            <div class="Jovero-footer-info dark-color">
+                            <div class="Barmagly-footer-info dark-color">
                                 <ul>
                                     <li><a href="tel:{{ $footer->phone }}"><i class="ri-phone-fill"></i>{{ $footer->phone }}</a></li>
                                     <li><a href="mailto:{{ $footer->email }}"><i class="ri-mail-fill"></i>{{ $footer->email }}</a></li>
@@ -327,8 +327,8 @@
                         </div>
                     </div>
                     <div class="col-xl-2 offset-xl-1 col-md-4">
-                        <div class="Jovero-footer-menu dark-color">
-                            <div class="Jovero-footer-title dark-color">
+                        <div class="Barmagly-footer-menu dark-color">
+                            <div class="Barmagly-footer-title dark-color">
                                 <h5>{{ __('translate.Quick Links') }}</h5>
                             </div>
                             <ul>
@@ -341,8 +341,8 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-5">
-                        <div class="Jovero-footer-menu dark-color">
-                            <div class="Jovero-footer-title dark-color">
+                        <div class="Barmagly-footer-menu dark-color">
+                            <div class="Barmagly-footer-title dark-color">
                                 <h5>{{ __('translate.Services') }}</h5>
                             </div>
                             <ul>
@@ -353,8 +353,8 @@
                         </div>
                     </div>
                     <div class="col-xl-2 col-md-3">
-                        <div class="Jovero-footer-menu dark-color mb-0">
-                            <div class="Jovero-footer-title dark-color">
+                        <div class="Barmagly-footer-menu dark-color mb-0">
+                            <div class="Barmagly-footer-title dark-color">
                                 <h5>{{ __('translate.Information') }}</h5>
                             </div>
                             <ul>
@@ -367,8 +367,8 @@
                     </div>
                 </div>
             </div>
-            <div class="Jovero-footer-bottom center one">
-                <div class="Jovero-copywright dark-color">
+            <div class="Barmagly-footer-bottom center one">
+                <div class="Barmagly-copywright dark-color">
                     <p>{{ $footer->copyright }}</p>
                 </div>
             </div>

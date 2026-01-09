@@ -10,7 +10,7 @@
 <main class="bg-offWhite">
 
         <!-- Breadcrumb -->
-      <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+      <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             <h1 class="post__title">{{ __('translate.Privacy Policy') }}</h1>
             <nav class="breadcrumbs">
@@ -30,7 +30,7 @@
         <div>
           <div class="row">
             <div class="co-auto">
-              <div class="content-details Jovero-service-details-item">
+              <div class="content-details Barmagly-service-details-item">
 
                 {!! clean($privacy_policy->description) !!}
               </div>

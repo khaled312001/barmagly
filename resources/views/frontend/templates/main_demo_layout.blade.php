@@ -10,17 +10,17 @@
     @unless(Route::is('contact-us'))
         @include('frontend.templates.layouts.main_demo_cta')
     @endunless
-<footer class="Jovero-footer-section dark-bg">
+<footer class="Barmagly-footer-section dark-bg">
     <div class="container">
-        <div class="Jovero-footer-top Jovero-section-padding">
+        <div class="Barmagly-footer-top Barmagly-section-padding">
             <div class="row">
                 <div class="col-xl-4 col-lg-12">
-                    <div class="Jovero-footer-textarea light-color">
+                    <div class="Barmagly-footer-textarea light-color">
                         <a href="{{ route('home') }}">
                             <img src="{{ asset($general_setting->logo) }}" alt="Logo">
                         </a>
                         <p>{{ $footer->about_us }}</p>
-                        <div class="Jovero-social-icon-box">
+                        <div class="Barmagly-social-icon-box">
                             <ul>
                                 <li>
                                     <a href="{{ @$footer->facebook }}">
@@ -47,8 +47,8 @@
                     </div>
                 </div>
                 <div class="col-xl-2 offset-xl-1 col-md-4">
-                    <div class="Jovero-footer-menu">
-                        <div class="Jovero-footer-title">
+                    <div class="Barmagly-footer-menu">
+                        <div class="Barmagly-footer-title">
                             <h5>{{ __('translate.Quick Links') }}</h5>
                         </div>
                         <ul>
@@ -61,8 +61,8 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-5">
-                    <div class="Jovero-footer-menu">
-                        <div class="Jovero-footer-title">
+                    <div class="Barmagly-footer-menu">
+                        <div class="Barmagly-footer-title">
                             <h5>{{ __('translate.Services') }}</h5>
                         </div>
                         <ul>
@@ -73,8 +73,8 @@
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-3">
-                    <div class="Jovero-footer-menu mb-0">
-                        <div class="Jovero-footer-title">
+                    <div class="Barmagly-footer-menu mb-0">
+                        <div class="Barmagly-footer-title">
                             <h5>{{ __('translate.Information') }}</h5>
                         </div>
                         <ul>
@@ -86,8 +86,8 @@
                 </div>
             </div>
         </div>
-        <div class="Jovero-footer-bottom center">
-            <div class="Jovero-copywright">
+        <div class="Barmagly-footer-bottom center">
+            <div class="Barmagly-copywright">
                 <p>  {{ $footer->copyright }}</p>
             </div>
         </div>

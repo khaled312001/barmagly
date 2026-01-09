@@ -1,6 +1,6 @@
 @extends('master_layout')
 @section('new-layout')
-    <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+    <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             <h1 class="post__title">{{ __($pageTitle) }}</h1>
             <nav class="breadcrumbs">
@@ -12,15 +12,15 @@
             </nav>
         </div>
     </div>
-    <div class="section Jovero-section-padding2">
+    <div class="section Barmagly-section-padding2">
         <div class="container">
             <div class="row">
                 @foreach($teams as $team)
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="400">
-                    <div class="Jovero-team-wrap border_all">
-                        <div class="Jovero-team-thumb">
+                    <div class="Barmagly-team-wrap border_all">
+                        <div class="Barmagly-team-thumb">
                             <img src="{{ asset($team->image) }}" alt="">
-                            <div class="Jovero-social-icon-box style-three position">
+                            <div class="Barmagly-social-icon-box style-three position">
                                 <ul>
                                     <li>
                                         <a href="{{ $team->linkedin }}" target="_blank">
@@ -40,7 +40,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="Jovero-team-data">
+                        <div class="Barmagly-team-data">
                             <a href="{{ route('teamPerson', $team->slug) }}">
                                 <h5>{{ $team->translate->name }}</h5>
                             </a>

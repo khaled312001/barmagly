@@ -4,8 +4,8 @@
   <body class="{{ Session::get('lang_dir', 'right_to_left') == 'right_to_left' ? 'rtl' : 'ltr' }}">
 
     <!-- Menu Start -->
-    <div class="Jovero-preloader-wrap">
-        <div class="Jovero-preloader">
+    <div class="Barmagly-preloader-wrap">
+        <div class="Barmagly-preloader">
             <div></div>
             <div></div>
             <div></div>

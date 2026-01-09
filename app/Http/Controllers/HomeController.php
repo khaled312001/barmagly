@@ -47,7 +47,7 @@ class HomeController extends Controller
         // Determine selected theme
         $selected_theme = $theme_setting && in_array($theme_setting->value, $supported_themes)
             ? $theme_setting->value
-            : 'main_demo';
+            : 'startup_home';
 
         if ($request->has('theme')) {
             $requested_theme = $request->input('theme');
@@ -122,8 +122,8 @@ class HomeController extends Controller
             'tech_company' => 'frontend.templates.tech_company',
         ];
 
-        // Default to main_demo if theme is not found
-        $view_template = $theme_view_mapping[$selected_theme] ?? 'frontend.templates.main_demo';
+        // Default to startup_home if theme is not found
+        $view_template = $theme_view_mapping[$selected_theme] ?? 'frontend.templates.startup_home';
 
         return view($view_template, $view_data);
     }

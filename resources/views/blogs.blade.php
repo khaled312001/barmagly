@@ -6,7 +6,7 @@
 @endsection
 @section('new-layout')
 <!-- Main Start -->
-<div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+<div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
     <div class="container">
         <h1 class="post__title">{{ __('translate.Blogs') }}</h1>
         <nav class="breadcrumbs">
@@ -25,20 +25,20 @@
 <!-- End breadcrumb -->
 @if(!$isGrid)
 <!-- Non Grid Blogs Start -->
-<div class="section Jovero-section-padding">
+<div class="section Barmagly-section-padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 @forelse($blogs as $blog)
                     <div data-aos="fade-up" data-aos-duration="600">
-                    <div class="Jovero-blog-wrap">
+                    <div class="Barmagly-blog-wrap">
                         <a href="{{ route('blog', $blog->slug) }}">
-                            <div class="Jovero-blog-thumb Jovero-blog-thumb-big">
+                            <div class="Barmagly-blog-thumb Barmagly-blog-thumb-big">
                                 <img src="{{ asset($blog->image) }}" alt="Blog Image">
                             </div>
                         </a>
-                        <div class="Jovero-blog-content">
-                            <div class="Jovero-blog-meta">
+                        <div class="Barmagly-blog-content">
+                            <div class="Barmagly-blog-meta">
                                 <ul>
                                     <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->translate?->name }}</a></li>
                                     <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->created_at->format('d F Y') }}</a></li>
@@ -50,7 +50,7 @@
                             <p>
                                 {!! Str::limit(clean($blog->translate->description), 180, '...') !!}
                             </p>
-                            <a class="Jovero-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
+                            <a class="Barmagly-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
                                 <span>{{ __('translate.Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
 
 
                 @if($blogs->hasPages())
-                        <div class="Jovero-navigation">
+                        <div class="Barmagly-navigation">
                             <nav class="navigation pagination" aria-label="Posts">
                                 <div class="nav-links">
                                     @if($blogs->onFirstPage())
@@ -124,19 +124,19 @@
 <!-- Non Grid Blogs End -->
 
 <!-- Grid Blogs Start -->
-<div class="section Jovero-section-padding Jovero-blog-grid">
+<div class="section Barmagly-section-padding Barmagly-blog-grid">
     <div class="container">
         <div class="row">
             @foreach($blogs as $blog)
             <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="600">
-                <div class="Jovero-blog-wrap">
+                <div class="Barmagly-blog-wrap">
                     <a href="{{ route('blog', $blog->slug) }}">
-                        <div class="Jovero-blog-thumb ">
+                        <div class="Barmagly-blog-thumb ">
                             <img src="{{ asset($blog->image) }}" alt="Image Blog">
                         </div>
                     </a>
-                    <div class="Jovero-blog-content">
-                        <div class="Jovero-blog-meta">
+                    <div class="Barmagly-blog-content">
+                        <div class="Barmagly-blog-meta">
                             <ul>
                                 <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->translate?->name }}</a></li>
                                 <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->created_at->format('d F Y') }}</a></li>
@@ -145,7 +145,7 @@
                         <a href="{{ route('blog', $blog->slug) }}">
                             <h4>{{ $blog->translate->title }}</h4>
                         </a>
-                        <a class="Jovero-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
+                        <a class="Barmagly-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
                             <span>
                                 {{ __('translate.Learn More') }}
                             </span> <i class="icon-hide ri-arrow-right-line"></i>
@@ -157,7 +157,7 @@
         </div>
 
         @if($blogs->hasPages())
-            <div class="Jovero-navigation">
+            <div class="Barmagly-navigation">
                 <nav class="navigation pagination center" aria-label="Posts">
                     <div class="nav-links">
                         @if($blogs->onFirstPage())

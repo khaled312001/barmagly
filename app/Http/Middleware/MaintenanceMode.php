@@ -19,7 +19,7 @@ class MaintenanceMode
 
         $maintenance_status = GlobalSetting::where('key', 'maintenance_status')->first();
 
-        if($maintenance_status->value == 1){
+        if($maintenance_status && $maintenance_status->value == 1){
             return response()->view('maintenance');
         }
 

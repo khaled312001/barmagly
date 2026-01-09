@@ -151,6 +151,12 @@ Route::group(['as'=> 'admin.', 'prefix' => 'admin'],function (){
             Route::put('store/{key}/{id?}', 'store')->name('store');
         });
 
+        // Menu Management
+        Route::controller(\App\Http\Controllers\Admin\MenuManagementController::class)->name('menu-management.')->group(function () {
+            Route::get('/menu-management', 'index')->name('index');
+            Route::put('/menu-management/update', 'update')->name('update');
+        });
+
 
 
 

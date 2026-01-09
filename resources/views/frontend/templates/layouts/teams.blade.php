@@ -3,18 +3,18 @@
     $currentLang = session()->get('front_lang');
     $expertTeamContent = getContent('expert_feature_section.content', true);
 @endphp
-<div class="section Jovero-section-padding2">
+<div class="section Barmagly-section-padding2">
     <div class="container">
-        <div class="Jovero-section-title center">
+        <div class="Barmagly-section-title center">
             <h2>{{ getTranslatedValue($expertTeamContent, 'heading', $currentLang) }}</h2>
         </div>
         <div class="row">
             @foreach($teams->take(4) as $team)
                 <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="400">
-                    <div class="Jovero-team-wrap border_all">
-                        <div class="Jovero-team-thumb">
+                    <div class="Barmagly-team-wrap border_all">
+                        <div class="Barmagly-team-thumb">
                             <img src="{{ asset($team->image) }}" alt="Image">
-                            <div class="Jovero-social-icon-box style-three position">
+                            <div class="Barmagly-social-icon-box style-three position">
                                 <ul>
                                     <li>
                                         <a href="{{ $team->facebook }}" target="_blank">
@@ -34,7 +34,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="Jovero-team-data">
+                        <div class="Barmagly-team-data">
                             <a href="{{ route('teamPerson', $team->slug) }}">
                                 <h5>{{ $team->translate->name }}</h5>
                             </a>

@@ -11,7 +11,7 @@
 <main class="bg-offWhite">
     <!-- Breadcrumb -->
         <!-- Breadcrumb -->
-        <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+        <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
           <div class="container">
               <h1 class="post__title">{{ __('translate.Terms and Condition') }}</h1>
               <nav class="breadcrumbs">
@@ -31,7 +31,7 @@
         <div>
           <div class="row">
             <div class="co-auto">
-              <div class="Jovero-service-details-item">
+              <div class="Barmagly-service-details-item">
                 {!! clean($terms_conditions->description) !!}
               </div>
             </div>

@@ -20,7 +20,7 @@
 
 @section('content')
 <!-- Main Start -->
-<div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+<div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
     <div class="container">
         <h1 class="post__title">{{ $blog->translate?->title }}</h1>
         <nav class="breadcrumbs">
@@ -34,15 +34,15 @@
 </div>
 <!-- End breadcrumb -->
 
-<div class="section Jovero-section-padding">
+<div class="section Barmagly-section-padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <div class="Jovero-blog-thumb single-blog" data-aos="fade-up" data-aos-duration="800">
+                <div class="Barmagly-blog-thumb single-blog" data-aos="fade-up" data-aos-duration="800">
                     <img src="{{ asset($blog->image) }}" alt="Blog Image">
                 </div>
-                <div class="Jovero-single-post-content-wrap">
-                    <div class="Jovero-single-post-meta">
+                <div class="Barmagly-single-post-content-wrap">
+                    <div class="Barmagly-single-post-meta">
                         <ul>
                             <li><a href=""><i class="ri-calendar-fill"></i>{{ __($blog->created_at->format('d M Y')) }}</a></li>
                             <li><a href=""><i class="ri-bookmark-fill"></i>{{ $blog->category->translate?->name }}</a></li>
@@ -54,8 +54,8 @@
                             {!! clean($blog->translate?->description) !!}
                         </p>
 
-                        <div class="Jovero-single-post-tag-wrap">
-                            <div class="Jovero-blog-tags">
+                        <div class="Barmagly-single-post-tag-wrap">
+                            <div class="Barmagly-blog-tags">
                                 <ul>
                                     @if ($blog->tags)
                                         @foreach (json_decode($blog->tags) as $blog_tag)
@@ -66,7 +66,7 @@
                             </div>
                         </div>
 
-                        <div class="Jovero-post-navigation">
+                        <div class="Barmagly-post-navigation">
                             @if($previous)
                                 <a href="{{ route('blog', $previous->slug) }}" class="nav-previous">
                                     <i class="ri-arrow-left-line"></i> {{ __('translate.Previous Post') }}
@@ -89,16 +89,16 @@
                             @endif
                         </div>
 
-                        <div class="Jovero-post-comment">
+                        <div class="Barmagly-post-comment">
                             <h3>{{ __('translate.Comments:') }}</h3>
                             <ul>
                                 @foreach ($blog_comments as $blog_comment)
                                 <li>
-                                    <div class="Jovero-post-comment-wrap">
-                                        <div class="Jovero-post-comment-thumb">
+                                    <div class="Barmagly-post-comment-wrap">
+                                        <div class="Barmagly-post-comment-thumb">
                                             <img src="{{ asset($general_setting->default_avatar) }}" alt="">
                                         </div>
-                                        <div class="Jovero-post-comment-data">
+                                        <div class="Barmagly-post-comment-data">
                                             <p>
                                                 {{ html_decode($blog_comment->comment) }}
                                             </p>
@@ -110,14 +110,14 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <div class="Jovero-comment-box">
+                        <div class="Barmagly-comment-box">
                             <h3>{{ __('translate.Leave a comments:') }}</h3>
                             <form action="{{ route('store-blog-comment', $blog->id) }}" method="POST">
                                 @csrf
-                                <div class="Jovero-comment-box-form">
+                                <div class="Barmagly-comment-box-form">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <div class="Jovero-comment-form">
+                                            <div class="Barmagly-comment-form">
                                                 <input
                                                     type="text"
                                                     id="name"
@@ -128,7 +128,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div class="Jovero-comment-form">
+                                            <div class="Barmagly-comment-form">
                                                 <input
                                                     type="email"
                                                     id="email"
@@ -139,7 +139,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="Jovero-comment-form">
+                                    <div class="Barmagly-comment-form">
                                        <textarea
                                            id="desc"
                                            name="comment"
@@ -147,7 +147,7 @@
                                        >{{ old('comment') }}
                                        </textarea>
                                     </div>
-                                    <div class="Jovero-check">
+                                    <div class="Barmagly-check">
                                         <input type="checkbox" id="css">
                                         <label for="css">
                                             {{ __('translate.Save my name, email, and website in this browser for the next time I comment') }}.
@@ -160,7 +160,7 @@
                                         </div>
                                     @endif
 
-                                    <button id="Jovero-default-btn" type="submit" data-text="Send Message">
+                                    <button id="Barmagly-default-btn" type="submit" data-text="Send Message">
                                         <span class="btn-wraper">
                                             {{ __('translate.Send Message') }}
                                         </span>

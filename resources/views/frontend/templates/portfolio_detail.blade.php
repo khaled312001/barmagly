@@ -10,7 +10,7 @@
         $currentLang = session()->get('front_lang');
         $getSidebarCTAData = getContent('main_demo_sidebar_cta_section.content', true);
     @endphp
-    <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image)}})">
+    <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image)}})">
         <div class="container">
             <h1 class="post__title">{{ $project->title ?? $project->translate->title }}</h1>
             <nav class="breadcrumbs">
@@ -23,21 +23,21 @@
         </div>
     </div>
 
-    <div class="section Jovero-section-padding">
+    <div class="section Barmagly-section-padding">
         <div class="container">
 
-            <div class="Jovero-pd-wrap">
+            <div class="Barmagly-pd-wrap">
                 <div class="row">
                     <div class="col-xl-8 col-lg-7">
-                        <div class="Jovero-pd-thumb" data-aos="fade-up" data-aos-duration="800">
+                        <div class="Barmagly-pd-thumb" data-aos="fade-up" data-aos-duration="800">
                 <img src="{{ asset($project->thumb_image) }}" alt="Dardnak Image">
             </div>
-                        <div class="Jovero-pd-content-wrap">
-                            <div class="Jovero-service-details-item">
+                        <div class="Barmagly-pd-content-wrap">
+                            <div class="Barmagly-service-details-item">
                                 {!! clean($project->translate->description) !!}
                             </div>
 
-                            <div class="Jovero-pd-content-item">
+                            <div class="Barmagly-pd-content-item">
                                 <div class="row">
                                     @foreach($project->gallery as $gallery)
                                     <div class="col-md-6" data-aos="fade-up" data-aos-duration="600">
@@ -49,26 +49,26 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-5">
-                        <div class="Jovero-pd-sidebar-wrap">
-                            <div class="Jovero-pd-sidebar">
+                        <div class="Barmagly-pd-sidebar-wrap">
+                            <div class="Barmagly-pd-sidebar">
                                 <h5>{{ __('translate.Project Details') }}</h5>
-                                <div class="Jovero-pd-sidebar-item">
+                                <div class="Barmagly-pd-sidebar-item">
                                     <span>{{ __('translate.Client:') }}</span>
                                     <p>{{ __($project->translate?->client_name) }}</p>
                                 </div>
-                                <div class="Jovero-pd-sidebar-item">
+                                <div class="Barmagly-pd-sidebar-item">
                                     <span>{{ __('translate.Category:') }}</span>
                                     <p>{{ $project->category?->translate->name }}</p>
                                 </div>
-                                <div class="Jovero-pd-sidebar-item">
+                                <div class="Barmagly-pd-sidebar-item">
                                     <span>{{ __('translate.Date:') }}</span>
                                     <p>{{ $project->project_date }}</p>
                                 </div>
-                                <div class="Jovero-pd-sidebar-item">
+                                <div class="Barmagly-pd-sidebar-item">
                                     <span>{{ __('translate.Website:') }}</span>
                                     <a href="{{ $project->website_url }}" target="_blank">{{ $project->website_url }}</a>
                                 </div>
-                                <div class="Jovero-social-icon-box">
+                                <div class="Barmagly-social-icon-box">
                                     <ul>
                                         @if($project->project_fb)
                                             <li>
@@ -102,9 +102,9 @@
                                 </div>
 
                             </div>
-                            <div class="Jovero-service-contact" data-aos="fade-up" data-aos-duration="800">
+                            <div class="Barmagly-service-contact" data-aos="fade-up" data-aos-duration="800">
 
-                                <div class="Jovero-service-contact-icon">
+                                <div class="Barmagly-service-contact-icon">
                                     <span>
                                         <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g clip-path="url(#clip0_541_338)">
@@ -130,20 +130,20 @@
                                 </div>
                                 <h3>{{ getTranslatedValue($getSidebarCTAData, 'heading', $currentLang) }}</h3>
                                 <p>{{ getTranslatedValue($getSidebarCTAData,'description', $currentLang) }}</p>
-                                <a class="Jovero-default-btn" href="{{ route('contact-us') }}" data-text="{{ getTranslatedValue($getSidebarCTAData,'button_text', $currentLang) }}"><span
+                                <a class="Barmagly-default-btn" href="{{ route('contact-us') }}" data-text="{{ getTranslatedValue($getSidebarCTAData,'button_text', $currentLang) }}"><span
                                         class="btn-wraper">{{ getTranslatedValue($getSidebarCTAData,'button_text', $currentLang) }}</span></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="Jovero-post-navigation2">
+            <div class="Barmagly-post-navigation2">
                 @if($previousProject)
                     <a href="{{ route('portfolio.show', $previousProject->slug) }}" class="p-nav-previous">
-                        <div class="Jovero-post-icon">
+                        <div class="Barmagly-post-icon">
                             <i class="ri-arrow-left-s-line"></i>
                         </div>
-                        <div class="Jovero-post-data">
+                        <div class="Barmagly-post-data">
                             <p>{{ __('translate.Prev Project') }}</p>
                             <h5>{{ __($previousProject->translate->title) }}</h5>
                         </div>
@@ -152,11 +152,11 @@
 
                 @if($nextProject)
                     <a href="{{ route('portfolio.show', $nextProject->slug) }}" class="p-nav-next">
-                        <div class="Jovero-post-data">
+                        <div class="Barmagly-post-data">
                             <p>{{ __('translate.Next Project') }}</p>
                             <h5>{{ __($nextProject->translate->title) }}</h5>
                         </div>
-                        <div class="Jovero-post-icon">
+                        <div class="Barmagly-post-icon">
                             <i class="ri-arrow-right-s-line"></i>
                         </div>
                     </a>

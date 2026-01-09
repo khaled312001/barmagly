@@ -11,7 +11,7 @@
         $getSidebarCTAData = getContent('main_demo_sidebar_cta_section.content', true);
     @endphp
     <!-- Page Update -->
-    <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image)}})">
+    <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image)}})">
         <div class="container">
             <h1 class="post__title">{{ __($service->translate->title) }}</h1>
             <nav class="breadcrumbs">
@@ -25,21 +25,21 @@
     </div>
     <!-- End breadcrumb -->
 
-    <div class="section Jovero-section-padding">
+    <div class="section Barmagly-section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="Jovero-service-details-wrap">
-                        <img data-aos="fade-up" data-aos-duration="800" src="{{ asset($service->background_image) }}" alt="" class="Jovero-service-details-img">
-                        <div class="Jovero-service-details-item">
+                    <div class="Barmagly-service-details-wrap">
+                        <img data-aos="fade-up" data-aos-duration="800" src="{{ asset($service->background_image) }}" alt="" class="Barmagly-service-details-img">
+                        <div class="Barmagly-service-details-item">
                             <h3>{{ __('translate.Overview') }}</h3>
                              {!! clean($service->translate->description) !!}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="Jovero-service-sidebar">
-                        <div class="Jovero-service-menu">
+                    <div class="Barmagly-service-sidebar">
+                        <div class="Barmagly-service-menu">
                             <ul>
                                 @foreach($showServices as $service)
                                 <li><a href="{{ route('service', $service->slug) }}">{{ __($service->title) }} <i class="ri-arrow-right-up-line"></i></a></li>
@@ -47,8 +47,8 @@
                             </ul>
                         </div>
 
-                        <div class="Jovero-service-contact" data-aos="fade-up" data-aos-duration="800">
-                            <div class="Jovero-service-contact-icon">
+                        <div class="Barmagly-service-contact" data-aos="fade-up" data-aos-duration="800">
+                            <div class="Barmagly-service-contact-icon">
                                <span>
                                 <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_541_338)">
@@ -75,7 +75,7 @@
                             </div>
                             <h3> {{ getTranslatedValue($getSidebarCTAData,'heading', $currentLang) }}</h3>
                             <p>{{ getTranslatedValue($getSidebarCTAData,'description', $currentLang) }}</p>
-                            <a class="Jovero-default-btn" href="{{ getTranslatedValue($getSidebarCTAData,'button_link', $currentLang) }}" data-text="{{ getTranslatedValue($getSidebarCTAData,'button_text', $currentLang) }}">
+                            <a class="Barmagly-default-btn" href="{{ getTranslatedValue($getSidebarCTAData,'button_link', $currentLang) }}" data-text="{{ getTranslatedValue($getSidebarCTAData,'button_text', $currentLang) }}">
                                 <span class="btn-wraper">{{ getTranslatedValue($getSidebarCTAData,'button_text', $currentLang) }}</span>
                             </a>
                         </div>

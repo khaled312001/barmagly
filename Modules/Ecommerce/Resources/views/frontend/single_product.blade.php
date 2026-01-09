@@ -6,7 +6,7 @@
 @endsection
 
 @section('new-layout')
-    <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image)  }})">
+    <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image)  }})">
         <div class="container">
             <h1 class="post__title">{{ __($pageTitle) }}</h1>
             <nav class="breadcrumbs">
@@ -20,14 +20,14 @@
     </div>
     <!-- End breadcrumb -->
 
-    <div class="section Jovero-section-padding-top">
+    <div class="section Barmagly-section-padding-top">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="Jovero-tab-slider" data-aos="fade-up" data-aos-duration="800">
+                    <div class="Barmagly-tab-slider" data-aos="fade-up" data-aos-duration="800">
                         @if(count($product->galleries) > 0)
-                            <div class="Jovero-tabs-container">
-                                <div class="Jovero-tabs-wrapper">
+                            <div class="Barmagly-tabs-container">
+                                <div class="Barmagly-tabs-wrapper">
                                     @foreach($product->galleries as $gallery)
                                         <div id="item{{ $loop->index + 1 }}" class="tabContent">
                                             <img src="{{ asset($gallery->image) }}" alt="Image">
@@ -35,7 +35,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <ul class="Jovero-tabs-menu">
+                            <ul class="Barmagly-tabs-menu">
                                 @foreach($product->galleries as $gallery)
                                     <li {{ $loop->first ? 'class=active' : '' }}>
                                         <a href="#item{{ $loop->index + 1 }}">
@@ -45,14 +45,14 @@
                                 @endforeach
                             </ul>
                         @else
-                            <div class="Jovero-tabs-container">
-                                <div class="Jovero-tabs-wrapper">
+                            <div class="Barmagly-tabs-container">
+                                <div class="Barmagly-tabs-wrapper">
                                     <div id="item1" class="tabContent active">
                                         <img src="{{ asset($product->thumbnail_image) }}" alt="Default Image">
                                     </div>
                                 </div>
                             </div>
-                            <ul class="Jovero-tabs-menu">
+                            <ul class="Barmagly-tabs-menu">
                                 <li class="active">
                                     <a href="#item1">
                                         <img src="{{ asset($product->thumbnail_image) }}" alt="Default Image">
@@ -63,21 +63,21 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="Jovero-details-content">
+                    <div class="Barmagly-details-content">
                         <h2>{{ html_decode($pageTitle) }}</h2>
                         <h6>{!! $product->price_display !!}</h6>
                         <p>{!! clean($product->translate?->short_description) !!}</p>
-                        <div class="Jovero-product-wrap">
-                            <div class="Jovero-product-number">
-                                <span class="Jovero-product-minus minus quantity__minus"><i class="ri-subtract-line"></i></span>
+                        <div class="Barmagly-product-wrap">
+                            <div class="Barmagly-product-number">
+                                <span class="Barmagly-product-minus minus quantity__minus"><i class="ri-subtract-line"></i></span>
                                     <input type="text" value="1" name="quantity" class="quantity__input"/>
-                                <span class="Jovero-product-plus plus quantity__plus"><i class="ri-add-line"></i></span>
+                                <span class="Barmagly-product-plus plus quantity__plus"><i class="ri-add-line"></i></span>
                             </div>
-                            <a class="Jovero-product-btn cart-add-btn" href="javascript;" data-product-id="{{ $product->id }}" data-text="{{ __('translate.Add to Cart') }}">
+                            <a class="Barmagly-product-btn cart-add-btn" href="javascript;" data-product-id="{{ $product->id }}" data-text="{{ __('translate.Add to Cart') }}">
                                 <span class="btn-wraper">{{ __('translate.Add to Cart') }}</span>
                             </a>
                         </div>
-                        <div class="Jovero-product-info">
+                        <div class="Barmagly-product-info">
                             <h5>{{ __('translate.Quick info') }}</h5>
                             <ul>
                                 <li><span>{{ __('translate.Category') }}: </span>
@@ -104,9 +104,9 @@
     </div>
     <!-- End section -->
 
-    <div class="section Jovero-section-padding">
+    <div class="section Barmagly-section-padding">
         <div class="container">
-            <div class="Jovero-product-tab">
+            <div class="Barmagly-product-tab">
                 <ul class="nav nav-pills" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
@@ -190,13 +190,13 @@
 
                                 <div class="write_review_box_form_item">
                                     <div class="write_review_box_form_inner">
-                                        <div class="Jovero-checkout-field mb-0">
+                                        <div class="Barmagly-checkout-field mb-0">
                                             <label>{{ __('translate.Write your message') }}</label>
                                             <textarea name="reviews" id="reviews" required></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" class="Jovero-default-btn" id="submit-review"
+                                <button type="button" class="Barmagly-default-btn" id="submit-review"
                                         data-text="{{ __('translate.Submit Review') }}">
                                         <span class="btn-wraper">
                                             {{ __('translate.Submit Review') }}
@@ -212,16 +212,16 @@
     </div>
     <!-- End section -->
     @if($relatedProducts->isNotEmpty())
-        <div class="Jovero-related-product-section mt-5">
+        <div class="Barmagly-related-product-section mt-5">
         <div class="container">
-            <div class="Jovero-section-title center">
+            <div class="Barmagly-section-title center">
                 <h2>{{ __('translate.Latest products') }}</h2>
             </div>
             <div class="row">
                 @foreach($relatedProducts as $relateProduct)
                 <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="400">
-                    <div class="Jovero-shop-wrap" id="wishlist-item-{{ $relateProduct->id }}">
-                        <div class="Jovero-shop-thumb">
+                    <div class="Barmagly-shop-wrap" id="wishlist-item-{{ $relateProduct->id }}">
+                        <div class="Barmagly-shop-thumb">
                             <a href="{{ route('product.view', parameters: $relateProduct->slug) }}">
                                 <img src="{{ asset($relateProduct->thumbnail_image) }}" alt="">
                             </a>
@@ -239,10 +239,10 @@
                                     </svg>
                                     </span>
                                 </a>
-                    <a class="Jovero-shop-btn cart-add-btn" data-product-id="{{ $relateProduct->id }}" data-text="Add to Cart"><span class="btn-wraper">{{ __('translate.Add to
+                    <a class="Barmagly-shop-btn cart-add-btn" data-product-id="{{ $relateProduct->id }}" data-text="Add to Cart"><span class="btn-wraper">{{ __('translate.Add to
                   Cart') }}</span></a>
                         </div>
-                        <div class="Jovero-shop-data">
+                        <div class="Barmagly-shop-data">
                             <a href="{{ route('product.view', $relateProduct->slug) }}">
                                 <h5>{{ $relateProduct->translate->name }}</h5>
                             </a>

@@ -42,8 +42,12 @@
 .admin-menu {
     background: #14212b;
     height: 100%;
+    min-height: 100%;
+    flex: 1;
     scrollbar-width: none;
-    overflow: scroll;
+    -ms-overflow-style: none;
+    overflow-y: auto;
+    overflow-x: hidden;
     transition: all 0.3s ease;
     border-right: 1px solid #e8edff;
 }

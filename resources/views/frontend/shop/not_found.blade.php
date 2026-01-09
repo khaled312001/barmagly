@@ -18,7 +18,7 @@
                         <span>{{ __('translate.Thank you') }}</span>
                     </p>
                 </div>
-                <a class="Jovero-default-btn" href="{{ route('product.shop') }}"
+                <a class="Barmagly-default-btn" href="{{ route('product.shop') }}"
                    data-text="{{ __('translate.Back to Shop') }}">
                     <span class="btn-wraper">{{ __('translate.Back to Shop') }}</span>
                 </a>

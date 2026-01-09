@@ -9,7 +9,7 @@
 <main class="bg-offWhite">
     <!-- Breadcrumb -->
         <!-- Breadcrumb -->
-        <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+        <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
           <div class="container">
               <h1 class="post__title">{{ $custom_page->page_name }}</h1>
               <nav class="breadcrumbs">
@@ -29,7 +29,7 @@
         <div>
           <div class="row">
             <div class="co-auto">
-              <div class="content-details Jovero-service-details-item">
+              <div class="content-details Barmagly-service-details-item">
                 {!! clean($custom_page->description) !!}
               </div>
             </div>

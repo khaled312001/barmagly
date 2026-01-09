@@ -8,7 +8,7 @@
     @csrf
     <div class="row">
         <div class="col-lg-6">
-            <div class="Jovero-main-field">
+            <div class="Barmagly-main-field">
                 <input
                     type="text"
                     id="name"
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="Jovero-main-field">
+            <div class="Barmagly-main-field">
                 <input
                     type="text"
                     id="phone"
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-lg-12">
-            <div class="Jovero-main-field">
+            <div class="Barmagly-main-field">
                 <input
                     type="email"
                     id="email"
@@ -41,18 +41,18 @@
             </div>
         </div>
         <div class="col-lg-12">
-            <div class="Jovero-main-field">
+            <div class="Barmagly-main-field">
                 <textarea name="message" placeholder="{{ __('translate.Message') }}">{{ old('message') ? trim(old('message')) : '' }}</textarea>
             </div>
         </div>
 
     @if($general_setting->recaptcha_status==1)
-            <div class="Jovero-main-field">
+            <div class="Barmagly-main-field">
                 <div class="g-recaptcha" data-sitekey="{{ $general_setting->recaptcha_site_key }}"></div>
             </div>
         @endif
         <div class="col-lg-12">
-            <button id="Jovero-main-form-btn" type="submit" data-text="{{ getTranslatedValue($contactContent, 'button_text', $currentLang) }}">
+            <button id="Barmagly-main-form-btn" type="submit" data-text="{{ getTranslatedValue($contactContent, 'button_text', $currentLang) }}">
                 <span class="btn-wraper">{{ getTranslatedValue($contactContent, 'button_text', $currentLang) }}</span>
             </button>
         </div>

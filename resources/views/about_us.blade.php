@@ -7,7 +7,7 @@
 @endsection
 
 @section('new-layout')
-    <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+    <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             <h1 class="post__title">{{ __($pageTitle) }}</h1>
             <nav class="breadcrumbs">
@@ -31,12 +31,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="Jovero-thumb extra-mr">
+                    <div class="Barmagly-thumb extra-mr">
                         <img data-aos="fade-up" data-aos-duration="600" src="{{ asset(getImage($aboutUsContent, 'image_1')) }}" alt="">
-                        <div class="Jovero-thumb-position" data-aos="fade-up" data-aos-duration="800">
+                        <div class="Barmagly-thumb-position" data-aos="fade-up" data-aos-duration="800">
                             <img src="{{ asset(getImage($aboutUsContent, 'image_2')) }}" alt="">
                         </div>
-                        <div class="Jovero-shape1">
+                        <div class="Barmagly-shape1">
                             <span>
                                 <svg width="133" height="200" viewBox="0 0 133 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.20001 68.8C0.500012 68.8 0 69.4001 0 70.1001C0 70.8001 0.500012 71.4 1.20001 71.4C1.90001 71.4 2.5 70.8001 2.5 70.1001C2.5 69.4001 1.90001 68.8 1.20001 68.8Z" fill="#0A165E" fill-opacity="0.2"/>
@@ -191,7 +191,7 @@
 
                             </span>
                         </div>
-                        <div class="Jovero-shape2">
+                        <div class="Barmagly-shape2">
                             <span>
                                 <svg width="104" height="107" viewBox="0 0 104 107" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.19995 45.5C0.499951 45.5 0 46 0 46.7C0 47.4 0.499951 48 1.19995 48C1.89995 48 2.5 47.4 2.5 46.7C2.5 46 1.89995 45.5 1.19995 45.5Z" fill="#0A165E" fill-opacity="0.2"/>
@@ -272,18 +272,18 @@
                     </div>
                 </div>
                 <div class="col-lg-6 d-flex align-items-center">
-                    <div class="Jovero-default-content ml40">
+                    <div class="Barmagly-default-content ml40">
                         <h2>{{ getTranslatedValue($aboutUsContent, 'heading', $currentLang) }}</h2>
                         <p>{{ getTranslatedValue($aboutUsContent, 'description', $currentLang) }}</p>
-                        <div class="Jovero-icon-list">
+                        <div class="Barmagly-icon-list">
                             <ul>
                                 <li><i class="ri-check-line"></i>{{ getTranslatedValue($aboutUsContent, 'feature_text_1', $currentLang) }}</li>
                                 <li><i class="ri-check-line"></i>{{ getTranslatedValue($aboutUsContent, 'feature_text_2', $currentLang) }}</li>
                                 <li><i class="ri-check-line"></i>{{ getTranslatedValue($aboutUsContent, 'feature_text_3', $currentLang) }}</li>
                             </ul>
                         </div>
-                        <div class="Jovero-extra-mt">
-                            <a class="Jovero-default-btn" href="{{ route('contact-us') }}" data-text="{{ getTranslatedValue($aboutUsContent, 'button_text', $currentLang) }}"><span class="btn-wraper">
+                        <div class="Barmagly-extra-mt">
+                            <a class="Barmagly-default-btn" href="{{ route('contact-us') }}" data-text="{{ getTranslatedValue($aboutUsContent, 'button_text', $currentLang) }}"><span class="btn-wraper">
                                 {{ getTranslatedValue($aboutUsContent, 'button_text', $currentLang) }}
                             </span>
                             </a>
@@ -298,12 +298,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 order-lg-2">
-                    <div class="Jovero-thumb extra-ml">
+                    <div class="Barmagly-thumb extra-ml">
                         <img data-aos="fade-up" data-aos-duration="600" src="{{ asset(getImage($agencyFeatureSection,'image_1')) }}" alt="">
-                        <div class="Jovero-thumb-position2" data-aos="fade-up" data-aos-duration="800">
+                        <div class="Barmagly-thumb-position2" data-aos="fade-up" data-aos-duration="800">
                             <img src="{{ asset(getImage($agencyFeatureSection,'image_2')) }}" alt="">
                         </div>
-                        <div class="Jovero-shape3">
+                        <div class="Barmagly-shape3">
                             <span>
                                 <svg width="133" height="200" viewBox="0 0 133 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M131.8 68.8C132.5 68.8 133 69.4001 133 70.1001C133 70.8001 132.5 71.4 131.8 71.4C131.1 71.4 130.5 70.8001 130.5 70.1001C130.5 69.4001 131.1 68.8 131.8 68.8Z" fill="#0A165E" fill-opacity="0.2"/>
@@ -458,7 +458,7 @@
 
                             </span>
                         </div>
-                        <div class="Jovero-shape4">
+                        <div class="Barmagly-shape4">
                             <span>
                                 <svg width="104" height="107" viewBox="0 0 104 107" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M102.8 45.5C103.5 45.5 104 46 104 46.7C104 47.4 103.5 48 102.8 48C102.1 48 101.5 47.4 101.5 46.7C101.5 46 102.1 45.5 102.8 45.5Z" fill="#0A165E" fill-opacity="0.2"/>
@@ -539,14 +539,14 @@
                     </div>
                 </div>
                 <div class="col-lg-6 d-flex align-items-center">
-                    <div class="Jovero-default-content mr40">
+                    <div class="Barmagly-default-content mr40">
                         <h2>{{ getTranslatedValue($agencyFeatureSection,'heading', $currentLang) }}</h2>
-                        <div class="Jovero-extra-mt">
-                            <div class="Jovero-iconbox-wrap2 rt-mb-35">
-                                <div class="Jovero-iconbox-icon2">
+                        <div class="Barmagly-extra-mt">
+                            <div class="Barmagly-iconbox-wrap2 rt-mb-35">
+                                <div class="Barmagly-iconbox-icon2">
                                     <img src="{{ asset(getImage($agencyFeatureSection, 'image_3')) }}" alt="">
                                 </div>
-                                <div class="Jovero-iconbox-data2">
+                                <div class="Barmagly-iconbox-data2">
                                     <a href="{{ getTranslatedValue($agencyFeatureSection,'feature_1_url', $currentLang) }}">
                                         <h5>{{ getTranslatedValue($agencyFeatureSection,'feature_1_heading', $currentLang) }}</h5>
                                     </a>
@@ -554,22 +554,22 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="Jovero-iconbox-wrap2 rt-mb-35">
-                                <div class="Jovero-iconbox-icon2">
+                            <div class="Barmagly-iconbox-wrap2 rt-mb-35">
+                                <div class="Barmagly-iconbox-icon2">
                                     <img src="{{ asset(getImage($agencyFeatureSection, 'image_4')) }}" alt="">
                                 </div>
-                                <div class="Jovero-iconbox-data2">
+                                <div class="Barmagly-iconbox-data2">
                                     <a href="{{ getTranslatedValue($agencyFeatureSection,'feature_2_url', $currentLang) }}">
                                         <h5>{{ getTranslatedValue($agencyFeatureSection,'feature_2_heading', $currentLang) }}</h5>
                                     </a>
                                     <p>{{ getTranslatedValue($agencyFeatureSection,'feature_description_2', $currentLang) }}</p>
                                 </div>
                             </div>
-                            <div class="Jovero-iconbox-wrap2 mb-0">
-                                <div class="Jovero-iconbox-icon2">
+                            <div class="Barmagly-iconbox-wrap2 mb-0">
+                                <div class="Barmagly-iconbox-icon2">
                                     <img src="{{ asset(getImage($agencyFeatureSection, 'image_5')) }}" alt="">
                                 </div>
-                                <div class="Jovero-iconbox-data2">
+                                <div class="Barmagly-iconbox-data2">
                                     <a href="{{ getTranslatedValue($agencyFeatureSection,'feature_3_url', $currentLang) }}">
                                         <h5>{{ getTranslatedValue($agencyFeatureSection,'feature_3_heading', $currentLang) }}</h5>
                                     </a>
@@ -583,50 +583,50 @@
         </div>
     </div>
 
-    <div class="Jovero-counter-section3">
+    <div class="Barmagly-counter-section3">
         <div class="container">
-            <div id="Jovero-counter2"></div>
-            <div class="Jovero-counter-wrap3">
-                <div class="Jovero-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_1', $currentLang) }}">
-                    <div class="Jovero-counter-icon3">
+            <div id="Barmagly-counter2"></div>
+            <div class="Barmagly-counter-wrap3">
+                <div class="Barmagly-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_1', $currentLang) }}">
+                    <div class="Barmagly-counter-icon3">
                         <img src="{{ asset(getImage($counterContent, 'image_1')) }}" alt="">
                     </div>
-                    <div class="Jovero-counter-right">
-                        <div class="Jovero-counter-number3">
-                            <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_1', $currentLang) }}" class="Jovero-counter">{{ getTranslatedValue($counterContent, 'counter_1', $currentLang) }}</span>+
+                    <div class="Barmagly-counter-right">
+                        <div class="Barmagly-counter-number3">
+                            <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_1', $currentLang) }}" class="Barmagly-counter">{{ getTranslatedValue($counterContent, 'counter_1', $currentLang) }}</span>+
                         </div>
                         <p>{{ getTranslatedValue($counterContent, 'title_1', $currentLang) }}</p>
                     </div>
                 </div>
-                <div class="Jovero-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_2', $currentLang) }}">
-                    <div class="Jovero-counter-icon3">
+                <div class="Barmagly-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_2', $currentLang) }}">
+                    <div class="Barmagly-counter-icon3">
                         <img src="{{ asset(getImage($counterContent, 'image_2')) }}" alt="">
                     </div>
-                    <div class="Jovero-counter-right">
-                        <div class="Jovero-counter-number3">
-                            <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_2', $currentLang) }}" class="Jovero-counter">{{ getTranslatedValue($counterContent, 'counter_2', $currentLang) }}</span>+
+                    <div class="Barmagly-counter-right">
+                        <div class="Barmagly-counter-number3">
+                            <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_2', $currentLang) }}" class="Barmagly-counter">{{ getTranslatedValue($counterContent, 'counter_2', $currentLang) }}</span>+
                         </div>
                         <p>{{ getTranslatedValue($counterContent, 'title_2', $currentLang) }}</p>
                     </div>
                 </div>
-                <div class="Jovero-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_3', $currentLang) }}">
-                    <div class="Jovero-counter-icon3">
+                <div class="Barmagly-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_3', $currentLang) }}">
+                    <div class="Barmagly-counter-icon3">
                         <img src="{{ asset(getImage($counterContent, 'image_3')) }}" alt="">
                     </div>
-                    <div class="Jovero-counter-right">
-                        <div class="Jovero-counter-number3">
-                            <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_3', $currentLang) }}" class="Jovero-counter">{{ getTranslatedValue($counterContent, 'counter_3', $currentLang) }}</span>+
+                    <div class="Barmagly-counter-right">
+                        <div class="Barmagly-counter-number3">
+                            <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_3', $currentLang) }}" class="Barmagly-counter">{{ getTranslatedValue($counterContent, 'counter_3', $currentLang) }}</span>+
                         </div>
                         <p>{{ getTranslatedValue($counterContent, 'title_3', $currentLang) }}</p>
                     </div>
                 </div>
-                <div class="Jovero-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_4', $currentLang) }}">
-                    <div class="Jovero-counter-icon3">
+                <div class="Barmagly-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_4', $currentLang) }}">
+                    <div class="Barmagly-counter-icon3">
                         <img src="{{ asset(getImage($counterContent, 'image_4')) }}" alt="">
                     </div>
-                    <div class="Jovero-counter-right">
-                        <div class="Jovero-counter-number3">
-                            <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_4', $currentLang) }}" class="Jovero-counter">{{ getTranslatedValue($counterContent, 'counter_4', $currentLang) }}</span>%
+                    <div class="Barmagly-counter-right">
+                        <div class="Barmagly-counter-number3">
+                            <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_4', $currentLang) }}" class="Barmagly-counter">{{ getTranslatedValue($counterContent, 'counter_4', $currentLang) }}</span>%
                         </div>
                         <p>{{ getTranslatedValue($counterContent, 'title_4', $currentLang) }}</p>
                     </div>
@@ -637,7 +637,7 @@
     <!-- End Counter section -->
 
     <div class="container">
-        <div class="Jovero-divider"></div>
+        <div class="Barmagly-divider"></div>
     </div>
 
     @include('frontend.templates.layouts.teams')

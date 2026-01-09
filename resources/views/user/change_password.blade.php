@@ -26,7 +26,7 @@
                         @csrf
                         @method('PUT')
                     <div class="d_profile_setting_from_item">
-                        <div class="Jovero-checkout-field">
+                        <div class="Barmagly-checkout-field">
                             <label>{{ __('translate.Current Password*') }}</label>
                             <input
                                 type="password"
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="d_profile_setting_from_item">
-                        <div class="Jovero-checkout-field">
+                        <div class="Barmagly-checkout-field">
                             <label>{{ __('translate.New Password*') }}</label>
                             <input
                                 type="password"
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="d_profile_setting_from_item">
-                        <div class="Jovero-checkout-field">
+                        <div class="Barmagly-checkout-field">
                             <label>{{ __('translate.Confirm Password*') }}</label>
                             <input
                                 type="password"
@@ -59,11 +59,11 @@
                         </div>
                     </div>
                     <div class="d_profile_setting_from_btn">
-                        <button class="Jovero-default-btn" data-text="{{ __('translate.Update Password') }}">
+                        <button class="Barmagly-default-btn" data-text="{{ __('translate.Update Password') }}">
                             <span class="btn-wraper">{{ __('translate.Update Password') }}</span>
                         </button>
 
-                        <a href="" class="Jovero-default-btn two" data-text="{{ __('translate.Cancel') }}">
+                        <a href="" class="Barmagly-default-btn two" data-text="{{ __('translate.Cancel') }}">
                             <span class="btn-wraper">{{ __('translate.Cancel') }}</span>
                         </a>
 

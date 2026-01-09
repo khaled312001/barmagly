@@ -1,16 +1,16 @@
-$flaticon_Jovero-font: "flaticon_Jovero";
+$flaticon_Barmagly-font: "flaticon_Barmagly";
 
 @font-face {
-    font-family: $flaticon_Jovero-font;
-    src: url("./flaticon_Jovero.woff2?1af72611aeacce1e3d034c502313dfa7") format("woff2"),
-url("./flaticon_Jovero.woff?1af72611aeacce1e3d034c502313dfa7") format("woff"),
-url("./flaticon_Jovero.eot?1af72611aeacce1e3d034c502313dfa7#iefix") format("embedded-opentype"),
-url("./flaticon_Jovero.ttf?1af72611aeacce1e3d034c502313dfa7") format("truetype"),
-url("./flaticon_Jovero.svg?1af72611aeacce1e3d034c502313dfa7#flaticon_Jovero") format("svg");
+    font-family: $flaticon_Barmagly-font;
+    src: url("./flaticon_Barmagly.woff2?1af72611aeacce1e3d034c502313dfa7") format("woff2"),
+url("./flaticon_Barmagly.woff?1af72611aeacce1e3d034c502313dfa7") format("woff"),
+url("./flaticon_Barmagly.eot?1af72611aeacce1e3d034c502313dfa7#iefix") format("embedded-opentype"),
+url("./flaticon_Barmagly.ttf?1af72611aeacce1e3d034c502313dfa7") format("truetype"),
+url("./flaticon_Barmagly.svg?1af72611aeacce1e3d034c502313dfa7#flaticon_Barmagly") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
-    font-family: flaticon_Jovero !important;
+    font-family: flaticon_Barmagly !important;
     font-style: normal;
     font-weight: normal !important;
     font-variant: normal;
@@ -20,7 +20,7 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
     -moz-osx-font-smoothing: grayscale;
 }
 
-$flaticon_Jovero-map: (
+$flaticon_Barmagly-map: (
     "gear": "\f101",
     "customer-support": "\f102",
     "money-bag": "\f103",
@@ -37,41 +37,41 @@ $flaticon_Jovero-map: (
 );
 
 .flaticon-gear:before {
-    content: map-get($flaticon_Jovero-map, "gear");
+    content: map-get($flaticon_Barmagly-map, "gear");
 }
 .flaticon-customer-support:before {
-    content: map-get($flaticon_Jovero-map, "customer-support");
+    content: map-get($flaticon_Barmagly-map, "customer-support");
 }
 .flaticon-money-bag:before {
-    content: map-get($flaticon_Jovero-map, "money-bag");
+    content: map-get($flaticon_Barmagly-map, "money-bag");
 }
 .flaticon-developer:before {
-    content: map-get($flaticon_Jovero-map, "developer");
+    content: map-get($flaticon_Barmagly-map, "developer");
 }
 .flaticon-password:before {
-    content: map-get($flaticon_Jovero-map, "password");
+    content: map-get($flaticon_Barmagly-map, "password");
 }
 .flaticon-megaphone:before {
-    content: map-get($flaticon_Jovero-map, "megaphone");
+    content: map-get($flaticon_Barmagly-map, "megaphone");
 }
 .flaticon-vector:before {
-    content: map-get($flaticon_Jovero-map, "vector");
+    content: map-get($flaticon_Barmagly-map, "vector");
 }
 .flaticon-data:before {
-    content: map-get($flaticon_Jovero-map, "data");
+    content: map-get($flaticon_Barmagly-map, "data");
 }
 .flaticon-wrench:before {
-    content: map-get($flaticon_Jovero-map, "wrench");
+    content: map-get($flaticon_Barmagly-map, "wrench");
 }
 .flaticon-briefcase:before {
-    content: map-get($flaticon_Jovero-map, "briefcase");
+    content: map-get($flaticon_Barmagly-map, "briefcase");
 }
 .flaticon-like:before {
-    content: map-get($flaticon_Jovero-map, "like");
+    content: map-get($flaticon_Barmagly-map, "like");
 }
 .flaticon-trophy:before {
-    content: map-get($flaticon_Jovero-map, "trophy");
+    content: map-get($flaticon_Barmagly-map, "trophy");
 }
 .flaticon-user:before {
-    content: map-get($flaticon_Jovero-map, "user");
+    content: map-get($flaticon_Barmagly-map, "user");
 }

@@ -182,27 +182,26 @@ function getTranslatedValue($content, $key, $lang = 'en') {
                     
                     // If key is simple (not nested), get directly
                     if (count($keys) === 1) {
-                        $value = isset($value[$key]) ? $value[$key] : '';
+                        $value = isset($value[$key]) ? $value[$key] : null;
                     } else {
                         // Handle nested keys
                         foreach ($keys as $k) {
                             if (is_array($value) && isset($value[$k])) {
                                 $value = $value[$k];
                             } else {
-                                $value = '';
+                                $value = null;
                                 break;
                             }
                         }
                     }
                     
                     // Return value if it exists (check if key exists in values array)
-                    if (count($keys) === 1 && isset($translation['values'][$key])) {
-                        // Key exists, return the value
-                        $result = is_array($value) ? $value : html_decode($value);
-                        return $result;
-                    } elseif ($value !== null && $value !== '') {
-                        // Return any non-empty value for nested keys
-                        return is_array($value) ? $value : html_decode($value);
+                    if ($value !== null) {
+                        // Value exists, return it
+                        if (is_array($value)) {
+                            return $value;
+                        }
+                        return html_decode($value);
                     }
                 }
             }
@@ -223,7 +222,10 @@ function getTranslatedValue($content, $key, $lang = 'en') {
             }
         }
 
-        return is_array($decode_value) ? $decode_value : html_decode($decode_value);
+        if (is_array($decode_value)) {
+            return $decode_value;
+        }
+        return html_decode($decode_value);
     }
 
     // Fallback to English content
@@ -241,7 +243,10 @@ function getTranslatedValue($content, $key, $lang = 'en') {
         }
     }
 
-    return is_array($decode_value) ? $decode_value : html_decode($decode_value);
+    if (is_array($decode_value)) {
+        return $decode_value;
+    }
+    return html_decode($decode_value);
 }
 
 function randomNumber($length = 10) {

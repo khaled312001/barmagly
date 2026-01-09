@@ -1,7 +1,7 @@
 @extends('master_layout')
 
 @section('new-layout')
-    <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+    <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             <h1 class="post__title">{{ __($pageTitle) }}</h1>
             <nav class="breadcrumbs">
@@ -13,14 +13,14 @@
         </div>
     </div>
 
-    <div class="section Jovero-section-padding">
+    <div class="section Barmagly-section-padding">
         <div class="container">
             <div class="row">
                 @foreach($testimonials as $testimonial)
                     <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="400">
-                    <div class="Jovero-t-box3">
-                        <div class="Jovero-t-data3">
-                            <div class="Jovero-t-rating3">
+                    <div class="Barmagly-t-box3">
+                        <div class="Barmagly-t-data3">
+                            <div class="Barmagly-t-rating3">
                                 <ul>
                                     @for($i = 0; $i < $testimonial->rating; $i++)
                                         <li>
@@ -35,12 +35,12 @@
                                 </ul>
                             </div>
                             <p>“ {{ $testimonial->translate?->comment }} ”</p>
-                            <div class="Jovero-t-footer">
-                                <div class="Jovero-t-author">
+                            <div class="Barmagly-t-footer">
+                                <div class="Barmagly-t-author">
                                     <h5>{{ $testimonial->translate?->name }}</h5>
                                     <span>{{ $testimonial->translate?->designation }}</span>
                                 </div>
-                                <div class="Jovero-t-quote3">
+                                <div class="Barmagly-t-quote3">
                                     <span>
                                         <svg width="64" height="46" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M15 0.715942C6.72725 0.715942 0 7.44507 0 15.7159C0 23.2672 5.60675 29.5331 12.8796 30.5658C12.2974 34.7956 10.6824 38.8202 8.15913 42.3102C7.66838 42.9913 7.68675 43.9142 8.21037 44.5733C8.72412 45.2219 9.61688 45.4678 10.4004 45.1373C22.3059 40.1679 30 28.6176 30 15.7159C30 7.44507 23.2728 0.715942 15 0.715942ZM49 0.715942C40.7272 0.715942 34 7.44507 34 15.7159C34 23.2672 39.6068 29.5331 46.8796 30.5658C46.2974 34.7956 44.6824 38.8202 42.1591 42.3102C41.6684 42.9913 41.6868 43.9142 42.2104 44.5733C42.7241 45.2219 43.6169 45.4678 44.4004 45.1373C56.3059 40.1679 64 28.6176 64 15.7159C64 7.44507 57.2728 0.715942 49 0.715942Z" fill="#2B4DFF"/>

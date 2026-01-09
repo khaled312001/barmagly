@@ -3,7 +3,7 @@
 
     <!-- START GRID SECTION -->
     <!-- Main Start -->
-    <div class="Jovero-breadcrumb"
+    <div class="Barmagly-breadcrumb"
          style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             <h1 class="post__title">{{ __('translate.Portfolio') }}</h1>
@@ -21,9 +21,9 @@
     @endphp
 
     @if(!$isGrid)
-        <div class="section Jovero-section-padding">
+        <div class="section Barmagly-section-padding">
             <div class="container">
-                <div class="Jovero-section-title center">
+                <div class="Barmagly-section-title center">
                     <h2>{{ __('translate.Explore our recent projects') }}</h2>
                 </div>
                 <div class="row">
@@ -34,15 +34,15 @@
                                     <div class="col-xl-4 col-md-6" data-aos="fade-up"
                                          data-aos-duration="{{ $loop->iteration * 200 }}">
                                         @endif
-                                        <div class="Jovero-portfolio-wrap">
-                                            <div class="Jovero-portfolio-thumb Jovero-portfolio-thumb-2 Jovero-portfolio-thumb-main   ">
+                                        <div class="Barmagly-portfolio-wrap">
+                                            <div class="Barmagly-portfolio-thumb Barmagly-portfolio-thumb-2 Barmagly-portfolio-thumb-main   ">
                                                 <img src="{{ asset($project->thumb_image) }}" alt="Image" class="full-img">
-                                                <a class="Jovero-portfolio-btn"
+                                                <a class="Barmagly-portfolio-btn"
                                                    href="{{ route('portfolio.show', $project->slug) }}">
                                                     <span class="p-btn-wraper"><i
                                                             class="ri-arrow-right-up-line"></i></span>
                                                 </a>
-                                                <div class="Jovero-portfolio-data">
+                                                <div class="Barmagly-portfolio-data">
                                                     <a href="{{ route('portfolio.show', $project->slug) }}">
                                                         <h4>{{ $project->title ?? $project->translate->title }}</h4>
                                                     </a>
@@ -58,7 +58,7 @@
                             </div>
 
                                         @if($projects->hasPages())
-                                            <div class="Jovero-navigation">
+                                            <div class="Barmagly-navigation">
                                                 <nav class="navigation pagination center" aria-label="Posts">
                                                     <div class="nav-links">
                                                         @if($projects->onFirstPage())
@@ -120,19 +120,19 @@
         <!-- Masonry  End section -->
     @else
         <!-- Grid End section -->
-        <div class="section Jovero-section-padding">
+        <div class="section Barmagly-section-padding">
             <div class="container">
                 <div class="row">
                     @foreach($projects as $project)
                         <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="500">
-                            <div class="Jovero-portfolio-wrap">
-                                <div class="Jovero-portfolio-thumb Jovero-portfolio-thumb-digital">
+                            <div class="Barmagly-portfolio-wrap">
+                                <div class="Barmagly-portfolio-thumb Barmagly-portfolio-thumb-digital">
                                     <img src="{{ asset($project->thumb_image) }}" alt="Image" class="full-img">
-                                    <a class="Jovero-portfolio-btn"
+                                    <a class="Barmagly-portfolio-btn"
                                        href="{{ route('portfolio.show', $project->slug) }}">
                                         <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
                                     </a>
-                                    <div class="Jovero-portfolio-data">
+                                    <div class="Barmagly-portfolio-data">
                                         <a href="{{ route('portfolio.show', $project->slug) }}">
                                             <h4>{{ $project->title ?? $project->translate->title }}</h4>
                                         </a>

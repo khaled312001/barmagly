@@ -34,13 +34,13 @@
 
                         <input type="hidden" value="{{ $user->email }}" name="email">
                         <div class="d_profile_setting_from_item">
-                            <div class="Jovero-checkout-field">
+                            <div class="Barmagly-checkout-field">
                                 <label>{{ __('translate.Password*') }}</label>
                                 <input type="password" placeholder="*******" name="password"/>
                             </div>
                         </div>
                         <div class="d_profile_setting_from_item">
-                            <div class="Jovero-checkout-field">
+                            <div class="Barmagly-checkout-field">
                                 <label>{{ __('translate.Confirm Password*') }}</label>
                                 <input type="password" placeholder="*******" name="password_confirmation"/>
                             </div>
@@ -55,7 +55,7 @@
                             {{ __('translate.Back to login') }}
                         </a>
                         <div class="d_profile_setting_from_btn">
-                            <button class="Jovero-default-btn" data-text="{{ __('translate.Continue') }}">
+                            <button class="Barmagly-default-btn" data-text="{{ __('translate.Continue') }}">
                                 <span class="btn-wraper">{{ __('translate.Continue') }}</span>
                             </button>
                         </div>
@@ -65,11 +65,11 @@
         </div>
     </div>
 
-    <header class="site-header signup_header Jovero-header-section" id="sticky-menu">
-        <div class="Jovero-header-top bg-light1">
+    <header class="site-header signup_header Barmagly-header-section" id="sticky-menu">
+        <div class="Barmagly-header-top bg-light1">
             <div class="container">
-                <div class="Jovero-header-info-wrap">
-                    <div class="Jovero-header-info dark-color">
+                <div class="Barmagly-header-info-wrap">
+                    <div class="Barmagly-header-info dark-color">
                         <ul>
                             <li><i class="ri-map-pin-2-fill"></i>{{ $footer->address }}</li>
                             <li><a href="tel:{{ $footer->phone }}"><i class="ri-phone-fill"></i>{{ $footer->phone }}</a>
@@ -79,7 +79,7 @@
                         </ul>
                     </div>
 
-                    <div class="Jovero-header-info-right two">
+                    <div class="Barmagly-header-info-right two">
                         <div class="cur_lun_login_item">
                         <span>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -134,7 +134,7 @@
                 </div>
             </div>
         </div>
-        <div class="Jovero-header-bottom bg-white">
+        <div class="Barmagly-header-bottom bg-white">
             <div class="container">
                 <nav class="navbar site-navbar">
                     <!-- Brand Logo-->
@@ -147,16 +147,16 @@
                     @include('frontend.templates.layouts._menu_nav')
 
                     <div class="header-btn header-btn-l1 ms-auto d-none d-xs-inline-flex">
-                        <div class="Jovero-header-icon">
+                        <div class="Barmagly-header-icon">
 
-                            <div class="Jovero-header-search">
+                            <div class="Barmagly-header-search">
                                 <i class="ri-search-line"></i>
                             </div>
 
                             @include('frontend.templates.layouts._cart')
 
 
-                            <a class="Jovero-default-btn Jovero-header-btn" href="{{ route('contact-us') }}"
+                            <a class="Barmagly-default-btn Barmagly-header-btn" href="{{ route('contact-us') }}"
                                data-text="Get in Touch"><span class="btn-wraper">{{ __('translate.Get in Touch') }}</span>
                             </a>
                         </div>
@@ -169,9 +169,9 @@
         </div>
     </header>
 
-    <div class="Jovero-header-search-section">
+    <div class="Barmagly-header-search-section">
         <div class="container">
-            <div class="Jovero-header-search-box">
+            <div class="Barmagly-header-search-box">
                 <input type="search" placeholder="Search here..." />
                 <button id="header-search" type="button">
                     <i class="ri-search-line"></i>
@@ -179,7 +179,7 @@
                 <p>{{ __('translate.Type above and press Enter to search. Press Close to cancel.') }}</p>
             </div>
         </div>
-        <div class="Jovero-header-search-close">
+        <div class="Barmagly-header-search-close">
             <i class="ri-close-line"></i>
         </div>
     </div>
@@ -209,13 +209,13 @@
                     <input type="hidden" value="{{ $user->email }}" name="email">
 
                     <div class="d_profile_setting_from_item">
-                        <div class="Jovero-checkout-field">
+                        <div class="Barmagly-checkout-field">
                             <label>{{ __('translate.Password*') }}</label>
                             <input type="password" placeholder="*******" name="password"/>
                         </div>
                     </div>
                     <div class="d_profile_setting_from_item">
-                        <div class="Jovero-checkout-field">
+                        <div class="Barmagly-checkout-field">
                             <label>{{ __('translate.Confirm Password*') }}</label>
                             <input type="password" placeholder="*******" name="password_confirmation"/>
                         </div>
@@ -228,7 +228,7 @@
                     @endif
 
                     <div class="d_profile_setting_from_btn">
-                        <button class="Jovero-default-btn" data-text="{{ __('translate.Continue') }}">
+                        <button class="Barmagly-default-btn" data-text="{{ __('translate.Continue') }}">
                             <span class="btn-wraper">{{ __('translate.Continue') }}</span>
                         </button>
                     </div>

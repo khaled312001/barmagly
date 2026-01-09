@@ -7,7 +7,7 @@
 
 @section('new-layout')
 
-<div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+<div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
     <div class="container">
         <h1 class="post__title">{{ __('translate.Checkout') }}</h1>
         <nav class="breadcrumbs">
@@ -20,7 +20,7 @@
 </div>
 <!-- End breadcrumb -->
 
-<div class="section Jovero-section-padding">
+<div class="section Barmagly-section-padding">
     <div class="container">
         <div class="row">
             @if(!auth()->guard('web')->user())
@@ -33,24 +33,24 @@
                 <form action="{{ route('checkout.process-to-payment') }}" method="GET">
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="Jovero-checkout-form">
+                            <div class="Barmagly-checkout-form">
                             <h5>{{ __('translate.Shipping Details') }}</h5>
-                                <div class="Jovero-checkout-field">
+                                <div class="Barmagly-checkout-field">
                                     <label>{{ __('translate.Full Name') }}</label>
                                     <input type="text" value="{{ auth()->user()->name ?? '' }}" name="name" placeholder="Full Name">
                                 </div>
 
-                                <div class="Jovero-checkout-field">
+                                <div class="Barmagly-checkout-field">
                                     <label>{{ __('translate.Email') }}</label>
                                     <input type="email" value="{{ auth()->user()->email ?? '' }}" name="email" placeholder="Email">
                                 </div>
 
-                                <div class="Jovero-checkout-field">
+                                <div class="Barmagly-checkout-field">
                                     <label>{{ __('translate.WhatsApp Number') }}</label>
                                     <input type="text" value="{{ auth()->user()->phone ?? '' }}" name="phone" placeholder="WhatsApp Phone">
                                 </div>
 
-                                <div class="Jovero-checkout-field dropdown">
+                                <div class="Barmagly-checkout-field dropdown">
                                     <label>{{ __('translate.Shipping Method') }}</label>
                                     <select name="shipping_method_id" class="form-select">
                                         <option value="" selected disabled>{{ __('translate.Select One') }}</option>
@@ -59,7 +59,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="Jovero-checkout-field">
+                                <div class="Barmagly-checkout-field">
                                     <label>{{ __('translate.Full Address') }}</label>
                                     <input class="house-number" name="address" type="text" placeholder="{{ __('translate.House number and Street name') }}">
                                 </div>
@@ -68,8 +68,8 @@
                         </div>
 
                         <div class="col-lg-5 offset-lg-1">
-                            <div class="Jovero-checkuot-sidebar-column">
-                            <div class="Jovero-checkuot-sidebar">
+                            <div class="Barmagly-checkuot-sidebar-column">
+                            <div class="Barmagly-checkuot-sidebar">
                                 <h5>{{ __('translate.Your Order') }}</h5>
                                 <ul>
                                     <li>{{ __('translate.Products') }}<span>{{ __('translate.Subtotal') }}</span></li>
@@ -94,7 +94,7 @@
                                 </ul>
                             </div>
                                 @if($carts->isNotEmpty())
-                                    <button class="Jovero-default-btn shop-order-btn" type="submit" data-text="{{ __('translate.Place Order') }}">
+                                    <button class="Barmagly-default-btn shop-order-btn" type="submit" data-text="{{ __('translate.Place Order') }}">
                                         <span class="btn-wraper">{{ __('translate.Place Order') }}</span>
                                     </button>
                                 @endif

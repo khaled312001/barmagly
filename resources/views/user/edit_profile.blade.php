@@ -23,7 +23,7 @@
         @csrf
         @method('PUT')
         <div class="d_profile_setting_from_item mt-0">
-            <div class="Jovero-checkout-field">
+            <div class="Barmagly-checkout-field">
                 <label>{{ __('translate.Full Name*') }}</label>
                 <input type="text"
                        placeholder="{{ __('translate.Name') }}"
@@ -34,14 +34,14 @@
 
         </div>
         <div class="d_profile_setting_from_item">
-            <div class="Jovero-checkout-field">
+            <div class="Barmagly-checkout-field">
                 <label>{{ __('translate.Phone*') }}</label>
                 <input type="text"
                        placeholder="{{ __('translate.Phone') }}"
                        name="phone"
                        value="{{ html_decode($user->phone) }}">
             </div>
-            <div class="Jovero-checkout-field">
+            <div class="Barmagly-checkout-field">
                 <label>{{ __('translate.Email Address') }}</label>
                 <input type="email"
                          name="email"
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="d_profile_setting_from_item">
-            <div class="Jovero-checkout-field">
+            <div class="Barmagly-checkout-field">
                 <label>{{ __('translate.Full Address*') }}</label>
                 <input
                     type="text"
@@ -59,14 +59,14 @@
                     value="{{ html_decode($user->address) }}"
                 />
             </div>
-            <div class="Jovero-checkout-field">
+            <div class="Barmagly-checkout-field">
                 <label>{{ __('translate.ZIP Code*') }}</label>
                 <input type="text" placeholder="Zip Code" name="zip"
                        value="{{ $user->zip }}">
             </div>
         </div>
         <div class="d_profile_setting_from_item">
-            <div class="Jovero-checkout-field">
+            <div class="Barmagly-checkout-field">
                 <label>{{ __('translate.Profile Image') }}*</label>
                 <div class="change_profile_img_box_main">
                     <div class="change_profile_img_box">
@@ -95,7 +95,7 @@
             </div>
         </div>
 
-        <button type="submit" class="Jovero-default-btn " data-text="{{ __('translate.Update Now') }}">
+        <button type="submit" class="Barmagly-default-btn " data-text="{{ __('translate.Update Now') }}">
             <span class="btn-wraper">{{ __('translate.Update Now') }}</span>
         </button>
     </form>

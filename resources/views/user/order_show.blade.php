@@ -20,7 +20,7 @@
                 <img src="{{ asset($general_setting->logo) }}" alt="logo">
             </a>
 
-            <a class="Jovero-default-btn" href="{{ route('user.orders') }}" data-text="Back"><span
+            <a class="Barmagly-default-btn" href="{{ route('user.orders') }}" data-text="Back"><span
                     class="btn-wraper">{{ __('translate.Back') }}</span></a>
         </div>
 

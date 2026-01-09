@@ -7,11 +7,11 @@
         $totalCart = Modules\Ecommerce\Entities\Cart::where('session_id', $sessionId)->count();
     }
 @endphp
-<header class="site-header Jovero-header-section" id="sticky-menu">
-    <div class="Jovero-header-top bg-light1">
+<header class="site-header Barmagly-header-section" id="sticky-menu">
+    <div class="Barmagly-header-top bg-light1">
         <div class="container">
-            <div class="Jovero-header-info-wrap">
-                <div class="Jovero-header-info dark-color">
+            <div class="Barmagly-header-info-wrap">
+                <div class="Barmagly-header-info dark-color">
                     <ul>
                         <li><i class="ri-map-pin-2-fill"></i>{{ $footer->address }}</li>
                         <li><a href="tel:{{ $footer->phone }}"><i class="ri-phone-fill"></i>{{ $footer->phone }}</a></li>
@@ -19,7 +19,7 @@
                     </ul>
                 </div>
 
-                <div class="Jovero-header-info-right two">
+                <div class="Barmagly-header-info-right two">
                     <div class="cur_lun_login_item">
                          <span>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,7 +74,7 @@
             </div>
         </div>
     </div>
-    <div class="Jovero-header-bottom bg-white">
+    <div class="Barmagly-header-bottom bg-white">
         <div class="container">
             <nav class="navbar site-navbar" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="flex-direction: row-reverse !important; direction: rtl !important;" @endif>
                 <!-- Brand Logo-->
@@ -88,15 +88,14 @@
 
 
                 <div class="header-btn header-btn-l1 {{ Session::get('lang_dir', 'right_to_left') == 'right_to_left' ? 'me-auto' : 'ms-auto' }} d-none d-xs-inline-flex">
-                    <div class="Jovero-header-icon">
+                    <div class="Barmagly-header-icon">
 
-                        <div class="Jovero-header-search">
+                        <div class="Barmagly-header-search">
                             <i class="ri-search-line"></i>
                         </div>
 
-                        @include('frontend.templates.layouts._cart')
 
-                        <a class="Jovero-default-btn Jovero-header-btn" href="{{ route('contact-us') }}"
+                        <a class="Barmagly-default-btn Barmagly-header-btn" href="{{ route('contact-us') }}"
                            data-text="{{ __('translate.Get in Touch') }}"><span
                                 class="btn-wraper">{{ __('translate.Get in Touch') }}</span>
                         </a>

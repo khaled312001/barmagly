@@ -58,7 +58,7 @@
     @endif
 
     @if ($reviews->hasPages())
-        <div class="Jovero-navigation">
+        <div class="Barmagly-navigation">
             <nav class="navigation pagination" aria-label="Posts">
                 <div class="nav-links">
                     {{-- Previous Page Link --}}

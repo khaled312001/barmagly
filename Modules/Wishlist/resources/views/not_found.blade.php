@@ -147,7 +147,7 @@
                     <span> {{ __('translate.Thank you') }}</span>
                 </p>
 
-                <a class="Jovero-default-btn " href="{{ route('home') }}"
+                <a class="Barmagly-default-btn " href="{{ route('home') }}"
                    data-text="{{ __('translate.Browse Home') }}"><span class="btn-wraper">{{ __('translate.Browse Home') }}</span></a>
             </div>
 

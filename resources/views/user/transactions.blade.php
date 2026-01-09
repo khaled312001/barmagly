@@ -19,7 +19,7 @@
             <div class="dashbord_table_top_left_text">
                 <p>{{ __('translate.Show') }}</p>
             </div>
-            <div class="Jovero-checkout-field dropdown">
+            <div class="Barmagly-checkout-field dropdown">
                 <select id="per_page" onchange="changePerPage(this.value)">
                     <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>{{__('10')}}</option>
                     <option value="20" {{ request('per_page') == 20 ? 'selected' : '' }}>{{__('20')}}</option>
@@ -32,7 +32,7 @@
         </div>
 
         <form class="dashbord_table_top_right">
-            <div class="Jovero-checkout-field">
+            <div class="Barmagly-checkout-field">
                 <input type="text" placeholder="Search" name="search">
             </div>
 
@@ -60,7 +60,7 @@
 
 
         @if ($orders->hasPages())
-            <div class="Jovero-navigation">
+            <div class="Barmagly-navigation">
                 <nav class="navigation pagination" aria-label="Posts">
                     <div class="nav-links">
                         {{-- Previous Page Link --}}

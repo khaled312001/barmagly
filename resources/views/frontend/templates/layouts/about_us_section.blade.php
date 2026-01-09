@@ -6,12 +6,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="Jovero-thumb extra-mr">
+                <div class="Barmagly-thumb extra-mr">
                     <img data-aos="fade-up" data-aos-duration="600" src="{{ asset(getImage($aboutUsSection, 'image_1')) }}" alt="Image">
-                    <div class="Jovero-thumb-position" data-aos="fade-up" data-aos-duration="800">
+                    <div class="Barmagly-thumb-position" data-aos="fade-up" data-aos-duration="800">
                         <img src="{{ asset(getImage($aboutUsSection, 'image_2')) }}" alt="Image">
                     </div>
-                    <div class="Jovero-shape1">
+                    <div class="Barmagly-shape1">
                         <span>
                             <svg width="133" height="200" viewBox="0 0 133 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.20001 68.8C0.500012 68.8 0 69.4001 0 70.1001C0 70.8001 0.500012 71.4 1.20001 71.4C1.90001 71.4 2.5 70.8001 2.5 70.1001C2.5 69.4001 1.90001 68.8 1.20001 68.8Z" fill="#0A165E" fill-opacity="0.2"/>
@@ -165,7 +165,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="Jovero-shape2">
+                    <div class="Barmagly-shape2">
                         <span>
                             <svg width="104" height="107" viewBox="0 0 104 107" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.19995 45.5C0.499951 45.5 0 46 0 46.7C0 47.4 0.499951 48 1.19995 48C1.89995 48 2.5 47.4 2.5 46.7C2.5 46 1.89995 45.5 1.19995 45.5Z" fill="#0A165E" fill-opacity="0.2"/>
@@ -245,15 +245,15 @@
                 </div>
             </div>
             <div class="col-lg-6 d-flex align-items-center">
-                <div class="Jovero-default-content ml40">
+                <div class="Barmagly-default-content ml40">
                     <h2>{{ getTranslatedValue($aboutUsSection, 'heading', $currentLang) }}</h2>
                     <h5>{{ getTranslatedValue($aboutUsSection, 'sub_heading', $currentLang) }}</h5>
                     <p>{{ getTranslatedValue($aboutUsSection, 'description', $currentLang) }}</p>
-                    <div class="Jovero-extra-mt">
-                        <div class="Jovero-iconbox-column">
+                    <div class="Barmagly-extra-mt">
+                        <div class="Barmagly-iconbox-column">
 
-                            <div class="Jovero-iconbox-wrap3">
-                                <div class="Jovero-iconbox-icon3">
+                            <div class="Barmagly-iconbox-wrap3">
+                                <div class="Barmagly-iconbox-icon3">
                                     <span>
                                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g clip-path="url(#clip0_341_4085)">
@@ -284,13 +284,13 @@
                                         </svg>
                                     </span>
                                 </div>
-                                <div class="Jovero-iconbox-data3">
+                                <div class="Barmagly-iconbox-data3">
                                     <p>{{ getTranslatedValue($aboutUsSection, 'left_text', $currentLang) }}</p>
                                 </div>
                             </div>
 
-                            <div class="Jovero-iconbox-wrap3">
-                                <div class="Jovero-iconbox-icon3">
+                            <div class="Barmagly-iconbox-wrap3">
+                                <div class="Barmagly-iconbox-icon3">
                                     <span>
                                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g clip-path="url(#clip0_341_4116)">
@@ -314,7 +314,7 @@
                                         </svg>
                                     </span>
                                 </div>
-                                <div class="Jovero-iconbox-data3">
+                                <div class="Barmagly-iconbox-data3">
                                     <p>{{ getTranslatedValue($aboutUsSection, 'right_text', $currentLang) }}</p>
                                 </div>
                             </div>
@@ -328,33 +328,33 @@
 </div>
 
 <style>
-    .Jovero-extra-mt {
+    .Barmagly-extra-mt {
     margin-top: 2rem;
 }
 
-.Jovero-iconbox-column {
+.Barmagly-iconbox-column {
     display: flex;
     gap: 2rem;
     align-items: center;
 }
 
-.Jovero-iconbox-wrap3 {
+.Barmagly-iconbox-wrap3 {
     display: flex;
     align-items: center;
     flex: 1;
 }
 
-.Jovero-iconbox-icon3 {
+.Barmagly-iconbox-icon3 {
     margin-right: 1rem;
 }
 
-.Jovero-iconbox-data3 {
+.Barmagly-iconbox-data3 {
     flex: 1;
 }
 
 /* Optional: If you need to ensure boxes stay in row on smaller screens */
 @media (max-width: 768px) {
-    .Jovero-iconbox-column {
+    .Barmagly-iconbox-column {
         flex-wrap: nowrap;
     }
 }

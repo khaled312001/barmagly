@@ -2,7 +2,7 @@
 @section('new-layout')
 
     <!-- Start breadcrumb -->
-    <div class="Jovero-breadcrumb"
+    <div class="Barmagly-breadcrumb"
          style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             <h1 class="post__title">{{ __('translate.Shop') }}</h1>
@@ -17,7 +17,7 @@
     <!-- End breadcrumb -->
 
     <!-- Start section -->
-    <div class="section Jovero-section-padding">
+    <div class="section Barmagly-section-padding">
         <div class="container">
             <div class="row">
                 @include('frontend.shop.sidebar_search')

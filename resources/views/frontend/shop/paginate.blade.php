@@ -1,5 +1,5 @@
 @if($products->hasPages())
-    <div class="Jovero-navigation">
+    <div class="Barmagly-navigation">
         <nav class="navigation pagination center" aria-label="Posts">
             <div class="nav-links">
                 @if($products->onFirstPage())

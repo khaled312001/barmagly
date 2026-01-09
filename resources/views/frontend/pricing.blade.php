@@ -7,7 +7,7 @@
                ? ($pricingContent->data_values['package_information'] ?? [])
                : getTranslatedValue($pricingContent, 'package_information', $currentLang);
     @endphp
-    <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+    <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             <h1 class="post__title">{{ __($pageTitle) }}</h1>
             <nav class="breadcrumbs">
@@ -19,21 +19,21 @@
         </div>
     </div>
     <!-- End breadcrumb -->
-    <div class="section Jovero-section-padding2">
+    <div class="section Barmagly-section-padding2">
         <div class="container">
             <div class="row">
                 @if(is_array($packageInformation))
                     @foreach($packageInformation as $package)
                         <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="{{ 600 + ($loop->index * 200) }}">
-                            <div class="Jovero-pricing-wrap {{ $loop->iteration == 2 ? 'active' : '' }}">
-                                <div class="Jovero-pricing-header">
+                            <div class="Barmagly-pricing-wrap {{ $loop->iteration == 2 ? 'active' : '' }}">
+                                <div class="Barmagly-pricing-header">
                                     <h4>{{ $package['title'] ?? '' }}</h4>
                                     <p>{{ $package['description'] ?? '' }}</p>
                                 </div>
-                                <div class="Jovero-pricing-price">
+                                <div class="Barmagly-pricing-price">
                                     <h2>{{ currency($package['price']) ?? '0' }}<span>/{{ __('translate.month') }}</span></h2>
                                 </div>
-                                <div class="Jovero-pricing-feature">
+                                <div class="Barmagly-pricing-feature">
                                     <ul>
                                         @if(isset($package['features']) && is_array($package['features']))
                                             @foreach($package['features'] as $feature)
@@ -42,7 +42,7 @@
                                         @endif
                                     </ul>
                                 </div>
-                                <a class="Jovero-pricing-btn" href="{{ route('contact-us') }}">{{ __('translate.Select This Plan') }}</a>
+                                <a class="Barmagly-pricing-btn" href="{{ route('contact-us') }}">{{ __('translate.Select This Plan') }}</a>
                             </div>
                         </div>
                     @endforeach

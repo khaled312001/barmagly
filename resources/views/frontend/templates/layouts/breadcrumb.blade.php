@@ -1,4 +1,4 @@
-<div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+<div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
     <div class="container">
         <h1 class="post__title">{{ __($pageTitle) }}</h1>
         <nav class="breadcrumbs">

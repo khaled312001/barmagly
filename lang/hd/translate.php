@@ -4,7 +4,7 @@
   'Home' => 'Home',
   'Login' => 'Login',
   'Login Here' => 'Login Here',
-  'Welcome to Jovero Admin Panel' => 'Welcome to Jovero Admin Panel',
+  'Welcome to Barmagly Admin Panel' => 'Welcome to Barmagly Admin Panel',
   'Email' => 'Email',
   'Password' => 'Password',
   'Login Now' => 'Login Now',

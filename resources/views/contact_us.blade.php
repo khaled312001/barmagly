@@ -10,7 +10,7 @@
 @section('new-layout')
 
     <!-- Main Start -->
-    <div class="Jovero-breadcrumb"
+    <div class="Barmagly-breadcrumb"
         style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             <h1 class="post__title">{{ __('translate.Contact Us') }}</h1>
@@ -25,20 +25,20 @@
     </div>
     <!-- End breadcrumb -->
 
-    <div class="section Jovero-section-padding">
+    <div class="section Barmagly-section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex align-items-center">
-                    <div class="Jovero-default-content mr40">
+                    <div class="Barmagly-default-content mr40">
                         <h2>{{ $contact_us->title }}</h2>
                         <p>{{ $contact_us->description }}</p>
-                        <div class="Jovero-contact-info-column">
-                            <div class="Jovero-contact-info">
+                        <div class="Barmagly-contact-info-column">
+                            <div class="Barmagly-contact-info">
                                 <i class="ri-map-pin-2-fill"></i>
                                 <h5>{{ __('translate.Address') }}</h5>
                                 <p> {{ Str::limit($contact_us->address, 20) }} </p>
                             </div>
-                            <div class="Jovero-contact-info">
+                            <div class="Barmagly-contact-info">
                                 <i class="ri-mail-fill"></i>
                                 <h5>{{ __('translate.Contact') }}</h5>
                                 <a href="mailto:{{ $contact_us->email }}">{{ $contact_us->email }}</a>
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="Jovero-main-form bg-light1 ml60" data-aos="fade-up" data-aos-duration="800">
+                    <div class="Barmagly-main-form bg-light1 ml60" data-aos="fade-up" data-aos-duration="800">
 
                         @include('frontend.templates.layouts.contact_form')
                     </div>
@@ -58,7 +58,7 @@
     </div>
     <!-- End section -->
 
-    <div class="Jovero-map-page">
+    <div class="Barmagly-map-page">
         <iframe
         src="{{ html_decode($contact_us->map_code) }}"
         allowfullscreen=""

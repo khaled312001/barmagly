@@ -25,31 +25,31 @@
                 <form class="sign_up_form" method="POST" action="{{ route('user.store-register') }}">
                     @csrf
                     <div class="d_profile_setting_from_item">
-                        <div class="Jovero-checkout-field">
+                        <div class="Barmagly-checkout-field">
                             <label>{{ __('translate.Full Name') }}</label>
                             <input type="text" placeholder="{{ __('translate.Full Name') }}" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="d_profile_setting_from_item">
-                        <div class="Jovero-checkout-field">
+                        <div class="Barmagly-checkout-field">
                             <label>{{ __('translate.Email Address*') }}</label>
                             <input type="text" placeholder="{{ __('translate.Email Address') }}" name="email" value="{{ old('email') }}">
                         </div>
                     </div>
                     <div class="d_profile_setting_from_item mb-0">
-                        <div class="Jovero-checkout-field">
+                        <div class="Barmagly-checkout-field">
                             <label>{{ __('translate.Password*') }}</label>
                             <input type="password" placeholder="********" name="password">
 
                         </div>
-                        <div class="Jovero-checkout-field">
+                        <div class="Barmagly-checkout-field">
                             <label>{{ __('translate.Confirm Password*') }}</label>
                             <input type="password" placeholder="*********"  name="password_confirmation">
 
                         </div>
                     </div>
                     @if($general_setting->recaptcha_status==1)
-                        <div class="Jovero-checkout-field">
+                        <div class="Barmagly-checkout-field">
                             <div class="g-recaptcha" data-sitekey="{{ $general_setting->recaptcha_site_key }}"></div>
                         </div>
                     @endif
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="sign_up_form_btm">
-                        <button class="Jovero-default-btn" data-text="{{ __('translate.Sign Up') }}">
+                        <button class="Barmagly-default-btn" data-text="{{ __('translate.Sign Up') }}">
                             <span class="btn-wraper">{{ __('translate.Sign Up') }}</span>
                         </button>
                     </div>

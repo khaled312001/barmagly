@@ -1,9 +1,9 @@
-<div class="Jovero-shop-wrap" id="wishlist-item-{{ $product->id }}">
-    <div class="Jovero-shop-thumb">
+<div class="Barmagly-shop-wrap" id="wishlist-item-{{ $product->id }}">
+    <div class="Barmagly-shop-thumb">
         <a href="{{ route('product.view', $product->slug) }}">
             <img src="{{ asset($product->thumbnail_image) }}" alt="Image0">
         </a>
-            <button class="Jovero-shop-btn cart-add-btn"
+            <button class="Barmagly-shop-btn cart-add-btn"
                     data-product-id="{{ $product->id }}"
                     data-text="{{ __('translate.Add to Cart') }}">
                 <span class="btn-wraper">
@@ -26,7 +26,7 @@
             </span>
         </a>
     </div>
-    <div class="Jovero-shop-data">
+    <div class="Barmagly-shop-data">
         <a href="{{ route('product.view', $product->slug) }}">
             <h5>{{ __($product->translate?->name) }}</h5>
         </a>

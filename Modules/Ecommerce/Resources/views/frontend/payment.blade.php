@@ -8,7 +8,7 @@
 
 @section('new-layout')
 <main>
-    <div class="Jovero-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+    <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
         <div class="container">
             <h1 class="post__title">{{ __('translate.Payment') }}</h1>
             <nav class="breadcrumbs">
@@ -22,7 +22,7 @@
     <!-- Breadcrumb Part End  -->
     <!-- End breadcrumb -->
 
-    <div class="section Jovero-section-padding">
+    <div class="section Barmagly-section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -140,8 +140,8 @@
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
-                    <div class="Jovero-checkuot-sidebar-column">
-                        <div class="Jovero-checkuot-sidebar">
+                    <div class="Barmagly-checkuot-sidebar-column">
+                        <div class="Barmagly-checkuot-sidebar">
                             <h5>{{ __('translate.Your Order') }}</h5>
                             <ul>
                                 <li>{{ __('translate.Product') }}<span>{{ __('translate.Subtotal') }}</span></li>

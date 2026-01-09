@@ -56,7 +56,7 @@
             </div>
 
 
-            <button type="submit" class="Jovero-default-btn" data-text="Apply Now">
+            <button type="submit" class="Barmagly-default-btn" data-text="Apply Now">
                 <span class="btn-wraper">{{ __('translate.Apply Now') }}</span>
             </button>
         </form>

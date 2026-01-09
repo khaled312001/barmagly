@@ -150,8 +150,8 @@
             let $searchForm = $("#searchForm"),
                 $searchInput = $("#searchInput"),
                 $searchButton = $("#header-search"),
-                $closeButton = $(".Jovero-header-search-close"),
-                $searchSection = $(".Jovero-header-search-section");
+                $closeButton = $(".Barmagly-header-search-close"),
+                $searchSection = $(".Barmagly-header-search-section");
 
             // Handle search button click
             $searchButton.on("click", function() {
@@ -175,7 +175,7 @@
             });
 
 
-            if (localStorage.getItem('Jovero-cookie') != '1') {
+            if (localStorage.getItem('Barmagly-cookie') != '1') {
                 $('.cookie_consent_modal').removeClass('d-none');
             }
 
@@ -184,7 +184,7 @@
             });
 
             $('.cookie_consent_accept_btn').on('click', function () {
-                localStorage.setItem('Jovero-cookie', '1');
+                localStorage.setItem('Barmagly-cookie', '1');
                 $('.cookie_consent_modal').addClass('d-none');
             });
 

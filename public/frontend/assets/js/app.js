@@ -4,22 +4,22 @@
     /*--------------------------------------------------------------
      [Table of contents]
 
-    Jovero PRELOADER JS INIT
-    Jovero HEADER SEARCH JS INIT
-    Jovero STICKY MENU JS INIT
-    Jovero MENU SIDEBAR JS INIT
-    Jovero SKILLBAR JS INIT
-    Jovero HERO SLIDER INIT
-    Jovero FOUR COLUMN SLIDER INIT
-    Jovero THREE COLUMN SLIDER INIT
-    Jovero FOUR COLUMN SLIDER TWO INIT
-    Jovero TWO COLUMN SLIDER INIT
-    Jovero ONE COLUMN SLIDER INIT
-    Jovero THREE COLUMN SLIDER TWO INIT
-    Jovero BRAND SLIDER INIT
-    Jovero COUNTER JS INIT
-    Jovero COUNTER JS TWO INIT
-    Jovero MAP JS
+    Barmagly PRELOADER JS INIT
+    Barmagly HEADER SEARCH JS INIT
+    Barmagly STICKY MENU JS INIT
+    Barmagly MENU SIDEBAR JS INIT
+    Barmagly SKILLBAR JS INIT
+    Barmagly HERO SLIDER INIT
+    Barmagly FOUR COLUMN SLIDER INIT
+    Barmagly THREE COLUMN SLIDER INIT
+    Barmagly FOUR COLUMN SLIDER TWO INIT
+    Barmagly TWO COLUMN SLIDER INIT
+    Barmagly ONE COLUMN SLIDER INIT
+    Barmagly THREE COLUMN SLIDER TWO INIT
+    Barmagly BRAND SLIDER INIT
+    Barmagly COUNTER JS INIT
+    Barmagly COUNTER JS TWO INIT
+    Barmagly MAP JS
 
     -------------------------------------------------------------------*/
 
@@ -32,20 +32,20 @@
     };
     $(function() {
         /*--------------------------------------------------------------
-        Jovero PRELOADER JS INIT
+        Barmagly PRELOADER JS INIT
         --------------------------------------------------------------*/
-        $(".Jovero-preloader-wrap").fadeOut(500);
+        $(".Barmagly-preloader-wrap").fadeOut(500);
 
         /*--------------------------------------------------------------
-        Jovero HEADER SEARCH JS INIT
+        Barmagly HEADER SEARCH JS INIT
         ------------------------------------------------------------*/
 
-        $(".Jovero-header-search, .Jovero-header-search-close, .search-overlay").on("click", function(e) {
-            $(".Jovero-header-search-section, .search-overlay").toggleClass("open").css("display", "");
+        $(".Barmagly-header-search, .Barmagly-header-search-close, .search-overlay").on("click", function(e) {
+            $(".Barmagly-header-search-section, .search-overlay").toggleClass("open").css("display", "");
         })
 
         /*--------------------------------------------------------------
-        Jovero STICKY MENU JS INIT
+        Barmagly STICKY MENU JS INIT
         --------------------------------------------------------------*/
         $(window).on('scroll', function() {
             if ($(window).scrollTop() > 50) {
@@ -56,18 +56,18 @@
         });
 
         /*--------------------------------------------------------------
-        Jovero MENU SIDEBAR JS INIT
+        Barmagly MENU SIDEBAR JS INIT
         --------------------------------------------------------------*/
-        $(".Jovero-header-barger").on("click", function(e) {
-            $(".Jovero-sidemenu-column, .offcanvas-overlay").addClass("active");
+        $(".Barmagly-header-barger").on("click", function(e) {
+            $(".Barmagly-sidemenu-column, .offcanvas-overlay").addClass("active");
             event.preventDefault(e);
         });
-        $(".Jovero-sidemenu-close, .offcanvas-overlay").on("click", function() {
-            $(".Jovero-sidemenu-column, .offcanvas-overlay").removeClass("active");
+        $(".Barmagly-sidemenu-close, .offcanvas-overlay").on("click", function() {
+            $(".Barmagly-sidemenu-column, .offcanvas-overlay").removeClass("active");
         });
 
         /*--------------------------------------------------------------
-        Jovero HERO SLIDER INIT
+        Barmagly HERO SLIDER INIT
         --------------------------------------------------------------*/
         /*----------- Global Slider ----------*/
         $(".global-carousel").each(function() {
@@ -96,7 +96,7 @@
             $(slick.$slides).find('[data-ani]').removeClass('slider-animated');
             $(slick.$slides[currentSlide]).find('[data-ani]').addClass('slider-animated');
         });
-        var hero_slider = $('.Jovero-hero-slider');
+        var hero_slider = $('.Barmagly-hero-slider');
         if (hero_slider.is_exist()) {
             hero_slider.slick({
                 infinite: true,
@@ -107,8 +107,8 @@
                 autoplay: false,
                 speed: 800,
                 lazyLoad: 'progressive',
-                prevArrow: '<button class="slide-arrow Jovero-hero-next"><i class="ri-arrow-left-s-line"></i></button>',
-                nextArrow: '<button class="slide-arrow Jovero-hero-prev"><i class="ri-arrow-right-s-line"></i></button>'
+                prevArrow: '<button class="slide-arrow Barmagly-hero-next"><i class="ri-arrow-left-s-line"></i></button>',
+                nextArrow: '<button class="slide-arrow Barmagly-hero-prev"><i class="ri-arrow-right-s-line"></i></button>'
             }).slickAnimation();
         }
 
@@ -162,9 +162,9 @@
 
 
         /*--------------------------------------------------------------
-        Jovero FOUR COLUMN SLIDER INIT
+        Barmagly FOUR COLUMN SLIDER INIT
         --------------------------------------------------------------*/
-        var four_column_slider = $('.Jovero-4column-slider');
+        var four_column_slider = $('.Barmagly-4column-slider');
         if (four_column_slider.is_exist()) {
             four_column_slider.slick({
                 infinite: true,
@@ -216,9 +216,9 @@
         }
 
         /*--------------------------------------------------------------
-        Jovero THREE COLUMN SLIDER INIT
+        Barmagly THREE COLUMN SLIDER INIT
         --------------------------------------------------------------*/
-        var three_column_slider = $('.Jovero-3column-slider');
+        var three_column_slider = $('.Barmagly-3column-slider');
         if (three_column_slider.is_exist()) {
             three_column_slider.slick({
                 infinite: true,
@@ -251,9 +251,9 @@
         }
 
         /*--------------------------------------------------------------
-        Jovero FOUR COLUMN SLIDER TWO INIT
+        Barmagly FOUR COLUMN SLIDER TWO INIT
         --------------------------------------------------------------*/
-        var four_column_slider2 = $('.Jovero-4column-slider2');
+        var four_column_slider2 = $('.Barmagly-4column-slider2');
         if (four_column_slider2.is_exist()) {
             four_column_slider2.slick({
                 infinite: true,
@@ -282,9 +282,9 @@
         }
 
         /*--------------------------------------------------------------
-        Jovero TWO COLUMN SLIDER INIT
+        Barmagly TWO COLUMN SLIDER INIT
         --------------------------------------------------------------*/
-        var two_column_slider = $('.Jovero-2column-slider');
+        var two_column_slider = $('.Barmagly-2column-slider');
         if (two_column_slider.is_exist()) {
             two_column_slider.slick({
                 infinite: true,
@@ -303,9 +303,9 @@
         }
 
         /*--------------------------------------------------------------
-        Jovero ONE COLUMN SLIDER INIT
+        Barmagly ONE COLUMN SLIDER INIT
         --------------------------------------------------------------*/
-        var t_one_column_slider = $('.Jovero-1column-slider');
+        var t_one_column_slider = $('.Barmagly-1column-slider');
         if (t_one_column_slider.is_exist()) {
             t_one_column_slider.slick({
                 infinite: true,
@@ -315,15 +315,15 @@
                 dots: false,
                 autoplay: false,
                 speed: 800,
-                prevArrow: '<button class="slide-arrow Jovero-t-next"><i class="ri-arrow-left-s-line"></i></button>',
-                nextArrow: '<button class="slide-arrow Jovero-t-prev"><i class="ri-arrow-right-s-line"></i></button>'
+                prevArrow: '<button class="slide-arrow Barmagly-t-next"><i class="ri-arrow-left-s-line"></i></button>',
+                nextArrow: '<button class="slide-arrow Barmagly-t-prev"><i class="ri-arrow-right-s-line"></i></button>'
             });
         }
 
         /*--------------------------------------------------------------
-        Jovero THREE COLUMN SLIDER TWO INIT
+        Barmagly THREE COLUMN SLIDER TWO INIT
         --------------------------------------------------------------*/
-        var three_column_slider2 = $('.Jovero-3column-slider2');
+        var three_column_slider2 = $('.Barmagly-3column-slider2');
         if (three_column_slider2.is_exist()) {
             three_column_slider2.slick({
                 infinite: true,
@@ -347,11 +347,11 @@
         }
 
         /*--------------------------------------------------------------
-        Jovero BRAND SLIDER INIT
+        Barmagly BRAND SLIDER INIT
         --------------------------------------------------------------*/
-        var Jovero_brand_slider = $('.Jovero-brand-slider');
-        if (Jovero_brand_slider.is_exist()) {
-            Jovero_brand_slider.slick({
+        var Barmagly_brand_slider = $('.Barmagly-brand-slider');
+        if (Barmagly_brand_slider.is_exist()) {
+            Barmagly_brand_slider.slick({
                 infinite: true,
                 slidesToShow: 5,
                 slidesToScroll: 1,
@@ -378,15 +378,15 @@
         }
 
         /*--------------------------------------------------------------
-        Jovero COUNTER JS INIT
+        Barmagly COUNTER JS INIT
         --------------------------------------------------------------*/
-        var Jovero_counter = $('#Jovero-counter');
-        if (Jovero_counter.is_exist()) {
+        var Barmagly_counter = $('#Barmagly-counter');
+        if (Barmagly_counter.is_exist()) {
             var a = 0;
             $(window).scroll(function() {
-                var oTop = $(Jovero_counter).offset().top - window.innerHeight;
+                var oTop = $(Barmagly_counter).offset().top - window.innerHeight;
                 if (a == 0 && $(window).scrollTop() > oTop) {
-                    $('.Jovero-counter').each(function() {
+                    $('.Barmagly-counter').each(function() {
                         var $this = $(this),
                             countTo = $this.attr('data-percentage');
                         $({
@@ -410,15 +410,15 @@
         }
 
         /*--------------------------------------------------------------
-        Jovero COUNTER JS TWO INIT
+        Barmagly COUNTER JS TWO INIT
         --------------------------------------------------------------*/
-        var Jovero_counter2 = $('#Jovero-counter2');
-        if (Jovero_counter2.is_exist()) {
+        var Barmagly_counter2 = $('#Barmagly-counter2');
+        if (Barmagly_counter2.is_exist()) {
             var a = 0;
             $(window).scroll(function() {
-                var oTop = $(Jovero_counter2).offset().top - window.innerHeight;
+                var oTop = $(Barmagly_counter2).offset().top - window.innerHeight;
                 if (a == 0 && $(window).scrollTop() > oTop) {
-                    $('.Jovero-counter2').each(function() {
+                    $('.Barmagly-counter2').each(function() {
                         var $this = $(this),
                             countTo = $this.attr('data-percentage');
                         $({
@@ -441,7 +441,7 @@
             });
         }
         /*--------------------------------------------------------------
-        Jovero AOS ANIMATION JS INIT
+        Barmagly AOS ANIMATION JS INIT
         --------------------------------------------------------------*/
 
         AOS.init({
@@ -450,7 +450,7 @@
     }); /*End document ready*/
 
     /*--------------------------------------------------------------
-    Jovero MAP JS
+    Barmagly MAP JS
     ------------------------------------------------------------*/
     var google_map = $('#map');
     if (google_map.is_exist()) {
@@ -561,9 +561,9 @@
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(40.6700, -73.9400),
                 map: map,
-                title: 'Jovero'
+                title: 'Barmagly'
             });
-            var contentString = '<div id="content">' + '<div id="tpw">' + '<h3>Jovero' + '</div>';
+            var contentString = '<div id="content">' + '<div id="tpw">' + '<h3>Barmagly' + '</div>';
             var infowindow = new google.maps.InfoWindow({
                 content: contentString,
                 maxWidth: 280

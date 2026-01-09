@@ -1,6 +1,6 @@
 .section,
 .bg-cover,
-.Jovero-section-padding,
+.Barmagly-section-padding,
 .cta-bg3 {
     background-size: cover;
     background-position: center;
@@ -26,7 +26,7 @@
     stroke: #ff4d4d;
 }
 
-.Jovero-hero-slider-item::before {
+.Barmagly-hero-slider-item::before {
     content: "";
     left: 0;
     top: 0;
@@ -38,15 +38,15 @@
     background-image: url('../img/hero/overlay.png') !important;
 }
 
-.Jovero-service-contact {
+.Barmagly-service-contact {
     background-image: url('../img/service/bg.png');
 }
 
-.Jovero-footer-cta-wrap {
+.Barmagly-footer-cta-wrap {
     background-image: url('../img/cta/cta.png');
 }
 
-.Jovero-counter-wrap {
+.Barmagly-counter-wrap {
     background-image: url('../img/v2/counter-bg.png');
 }
 
@@ -181,11 +181,11 @@ body.rtl .go-back i {
     transform: rotate(180deg);
 }
 
-body.rtl .Jovero-header-info ul {
+body.rtl .Barmagly-header-info ul {
     flex-direction: row-reverse;
 }
 
-body.rtl .Jovero-header-info-right {
+body.rtl .Barmagly-header-info-right {
     flex-direction: row-reverse;
 }
 
@@ -259,11 +259,11 @@ body[dir="rtl"] .navbar.site-navbar .mobile-menu-trigger {
     order: 996 !important;
 }
 
-.Jovero-hero-section {
+.Barmagly-hero-section {
     background-image: url('../img/hero/bg1.png');
 }
 
-.Jovero-service-contact {
+.Barmagly-service-contact {
     background-image: url('../img/service/bg.png');
 }
 
@@ -271,7 +271,7 @@ body[dir="rtl"] .navbar.site-navbar .mobile-menu-trigger {
     background-image: url('../img/cta/cta-bg2.png');
 }
 
-.Jovero-hero-section4 {
+.Barmagly-hero-section4 {
     background-image: url('../img/hero/bg3.png');
 }
 
@@ -279,11 +279,11 @@ body[dir="rtl"] .navbar.site-navbar .mobile-menu-trigger {
     background-image: url('../img/hero/bg2.png');
 }
 
-.Jovero-footer-cta-wrap {
+.Barmagly-footer-cta-wrap {
     background-image: url('../img/cta/cta.png');
 }
 
-.Jovero-hero-section8 {
+.Barmagly-hero-section8 {
     background-image: url('../img/hero/bg4.png');
 }
 
@@ -372,4 +372,105 @@ body[dir="rtl"] .navbar.site-navbar .mobile-menu-trigger {
 
 .dashbord_table_main .table tbody tr td {
     min-width: 150px !important;
+}
+
+/* Center services slider for RTL */
+html[dir="rtl"] .Barmagly-4column-slider,
+body.rtl .Barmagly-4column-slider,
+body[dir="rtl"] .Barmagly-4column-slider {
+    margin: 0 auto !important;
+    text-align: center !important;
+    width: 100%;
+    max-width: 100%;
+}
+
+html[dir="rtl"] .Barmagly-4column-slider .slick-list,
+body.rtl .Barmagly-4column-slider .slick-list,
+body[dir="rtl"] .Barmagly-4column-slider .slick-list {
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+html[dir="rtl"] .Barmagly-4column-slider .slick-track,
+body.rtl .Barmagly-4column-slider .slick-track,
+body[dir="rtl"] .Barmagly-4column-slider .slick-track {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
+/* Center services slider container */
+html[dir="rtl"] .container .Barmagly-4column-slider,
+body.rtl .container .Barmagly-4column-slider,
+body[dir="rtl"] .container .Barmagly-4column-slider {
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+/* Services slider wrapper - Center alignment */
+.services-slider-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+html[dir="rtl"] .services-slider-wrapper,
+body.rtl .services-slider-wrapper,
+body[dir="rtl"] .services-slider-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* Center testimonials slider for RTL */
+html[dir="rtl"] .Barmagly-2column-slider,
+body.rtl .Barmagly-2column-slider,
+body[dir="rtl"] .Barmagly-2column-slider {
+    margin: 0 auto !important;
+    text-align: center !important;
+    width: 100%;
+    max-width: 100%;
+}
+
+html[dir="rtl"] .Barmagly-2column-slider .slick-list,
+body.rtl .Barmagly-2column-slider .slick-list,
+body[dir="rtl"] .Barmagly-2column-slider .slick-list {
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+html[dir="rtl"] .Barmagly-2column-slider .slick-track,
+body.rtl .Barmagly-2column-slider .slick-track,
+body[dir="rtl"] .Barmagly-2column-slider .slick-track {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
+/* Testimonials slider wrapper - Center alignment */
+.testimonials-slider-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+html[dir="rtl"] .testimonials-slider-wrapper,
+body.rtl .testimonials-slider-wrapper,
+body[dir="rtl"] .testimonials-slider-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+html[dir="rtl"] .container .Barmagly-2column-slider,
+body.rtl .container .Barmagly-2column-slider,
+body[dir="rtl"] .container .Barmagly-2column-slider {
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
 }
