@@ -44,21 +44,18 @@ class HomeController extends Controller
             'tech_company'
         ];
 
-        // Determine selected theme
+        // Always read theme from database first (source of truth)
         $selected_theme = $theme_setting && in_array($theme_setting->value, $supported_themes)
             ? $theme_setting->value
             : 'startup_home';
 
+        // Allow temporary theme preview via URL parameter (for testing/preview only)
+        // This does not persist in session to avoid overriding database updates
         if ($request->has('theme')) {
             $requested_theme = $request->input('theme');
             if (in_array($requested_theme, $supported_themes)) {
                 $selected_theme = $requested_theme;
-                Session::put('selected_theme', $selected_theme);
             }
-        } elseif (!Session::has('selected_theme')) {
-            Session::put('selected_theme', $selected_theme);
-        } else {
-            $selected_theme = Session::get('selected_theme');
         }
 
         $listings = Listing::where(['status' => 'enable'])

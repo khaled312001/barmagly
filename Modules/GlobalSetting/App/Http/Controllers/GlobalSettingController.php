@@ -19,6 +19,7 @@ use App\Models\SliderTranslation;
 use App\Models\Team;
 use App\Models\TeamTranslation;
 use Cache, Image, File, Str, Artisan;
+use Illuminate\Support\Facades\Session;
 use Modules\Listing\Entities\Listing;
 use Modules\Category\Entities\Category;
 use Modules\Page\App\Models\CustomPage;
@@ -82,6 +83,9 @@ class GlobalSettingController extends Controller
         GlobalSetting::where('key', 'timezone')->update(['value' => $request->timezone]);
         GlobalSetting::where('key', 'blog_type')->update(['value' => $request->blog_type]);
         GlobalSetting::where('key', 'portfolio_type')->update(['value' => $request->portfolio_type]);
+
+        // Clear session theme to force immediate update on frontend
+        Session::forget('selected_theme');
 
         $this->set_cache_setting();
 
