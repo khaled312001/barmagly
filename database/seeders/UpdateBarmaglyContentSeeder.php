@@ -737,6 +737,11 @@ class UpdateBarmaglyContentSeeder extends Seeder
     {
         $this->command->info('📝 Updating Blogs...');
         
+        // Delete all existing blogs first
+        $this->command->info('🗑️ Deleting existing blogs...');
+        BlogTranslation::query()->delete();
+        Blog::query()->delete();
+        
         $blogCategory = BlogCategory::where('status', 1)->first();
         if (!$blogCategory) {
             $blogCategory = new BlogCategory();
@@ -758,65 +763,141 @@ class UpdateBarmaglyContentSeeder extends Seeder
 
         $blogs = [
             [
-                'title_en' => 'Planning your online business goals with an expert',
-                'title_ar' => 'تخطيط أهداف عملك عبر الإنترنت مع أخصائي',
-                'description_en' => 'Learn how to effectively plan your online business goals with expert guidance.',
-                'description_ar' => 'تعلم كيف تخطط أهداف أعمالك عبر الإنترنت بشكل فعال مع إرشادات الخبراء.',
+                'title_en' => 'Professional Web Development Services by Barmagly: Transform Your Business Online',
+                'title_ar' => 'خدمات تطوير المواقع الاحترافية من برمجلي: حول عملك إلى الإنترنت',
+                'description_en' => '<p>In today\'s digital age, having a professional website is essential for any business. <a href="https://barmagly.com" target="_blank">Barmagly</a> offers comprehensive web development services that help businesses establish a strong online presence. Our team of expert developers at <a href="https://barmagly.com" target="_blank">Barmagly</a> specializes in creating custom web applications using the latest technologies and best practices.</p>
+                
+                <p>When you choose <a href="https://barmagly.com" target="_blank">Barmagly</a> for your web development needs, you get access to cutting-edge solutions that are scalable, secure, and user-friendly. Whether you need a simple business website or a complex web application, <a href="https://barmagly.com/services" target="_blank">Barmagly\'s web development services</a> are designed to meet your specific requirements.</p>
+                
+                <p>At <a href="https://barmagly.com" target="_blank">Barmagly</a>, we understand that every business is unique. That\'s why we take a personalized approach to web development, ensuring that your website reflects your brand identity and serves your business goals. Visit <a href="https://barmagly.com" target="_blank">barmagly.com</a> to learn more about our web development expertise and how we can help transform your digital presence.</p>
+                
+                <p>Our <a href="https://barmagly.com" target="_blank">Barmagly</a> development team uses modern frameworks and technologies to build responsive, fast-loading websites that provide an excellent user experience. With <a href="https://barmagly.com" target="_blank">Barmagly</a>, you can trust that your web development project will be completed on time and within budget. Contact <a href="https://barmagly.com" target="_blank">Barmagly</a> today to discuss your web development needs!</p>',
+                'description_ar' => '<p>في العصر الرقمي الحالي، أصبح وجود موقع ويب احترافي ضرورياً لأي عمل تجاري. تقدم <a href="https://barmagly.com" target="_blank">برمجلي</a> خدمات تطوير مواقع شاملة تساعد الشركات على إنشاء وجود قوي على الإنترنت. فريق المطورين الخبراء لدينا في <a href="https://barmagly.com" target="_blank">برمجلي</a> متخصص في إنشاء تطبيقات ويب مخصصة باستخدام أحدث التقنيات وأفضل الممارسات.</p>
+                
+                <p>عندما تختار <a href="https://barmagly.com" target="_blank">برمجلي</a> لاحتياجات تطوير المواقع الخاصة بك، تحصل على حلول متطورة قابلة للتوسع وآمنة وسهلة الاستخدام. سواء كنت بحاجة إلى موقع شركة بسيط أو تطبيق ويب معقد، تم تصميم <a href="https://barmagly.com/services" target="_blank">خدمات تطوير المواقع من برمجلي</a> لتلبية متطلباتك المحددة.</p>
+                
+                <p>في <a href="https://barmagly.com" target="_blank">برمجلي</a>، نفهم أن كل عمل تجاري فريد من نوعه. لهذا السبب نتبع نهجاً شخصياً في تطوير المواقع، مما يضمن أن موقعك يعكس هوية علامتك التجارية ويلبي أهداف عملك. زر <a href="https://barmagly.com" target="_blank">barmagly.com</a> لمعرفة المزيد عن خبرتنا في تطوير المواقع وكيف يمكننا المساعدة في تحويل وجودك الرقمي.</p>
+                
+                <p>يستخدم فريق التطوير لدينا في <a href="https://barmagly.com" target="_blank">برمجلي</a> أطر عمل وتقنيات حديثة لبناء مواقع متجاوبة وسريعة التحميل توفر تجربة مستخدم ممتازة. مع <a href="https://barmagly.com" target="_blank">برمجلي</a>، يمكنك الوثوق بأن مشروع تطوير موقعك سيتم إنجازه في الوقت المحدد وفي حدود الميزانية. اتصل بـ <a href="https://barmagly.com" target="_blank">برمجلي</a> اليوم لمناقشة احتياجات تطوير المواقع الخاصة بك!</p>',
             ],
             [
-                'title_en' => 'Market insights for managing people-related costs',
-                'title_ar' => 'رؤى السوق لإدارة التكاليف المتعلقة بالأشخاص',
-                'description_en' => 'Understanding market trends for better cost management and business optimization.',
-                'description_ar' => 'فهم اتجاهات السوق لإدارة أفضل للتكاليف وتحسين الأعمال.',
+                'title_en' => 'Expert Website Design Services from Barmagly: Create Stunning Online Experiences',
+                'title_ar' => 'خدمات تصميم المواقع الاحترافية من برمجلي: أنشئ تجارب رقمية مذهلة',
+                'description_en' => '<p>First impressions matter, especially in the digital world. <a href="https://barmagly.com" target="_blank">Barmagly</a> provides exceptional website design services that create beautiful, responsive websites that engage visitors and drive conversions. Our talented designers at <a href="https://barmagly.com" target="_blank">Barmagly</a> combine creativity with functionality to deliver designs that not only look great but also perform exceptionally well.</p>
+                
+                <p>With <a href="https://barmagly.com" target="_blank">Barmagly\'s website design services</a>, you can expect modern, clean designs that are optimized for all devices. Whether your audience uses desktops, tablets, or smartphones, <a href="https://barmagly.com" target="_blank">Barmagly</a> ensures your website looks perfect on every screen size. Visit <a href="https://barmagly.com" target="_blank">barmagly.com</a> to see examples of our stunning website designs.</p>
+                
+                <p>At <a href="https://barmagly.com" target="_blank">Barmagly</a>, we believe that great website design goes beyond aesthetics. Our team focuses on creating user-friendly interfaces that guide visitors toward your business goals. When you work with <a href="https://barmagly.com" target="_blank">Barmagly</a>, you get a website that is both visually appealing and strategically designed to convert visitors into customers.</p>
+                
+                <p>The <a href="https://barmagly.com" target="_blank">Barmagly</a> design process involves thorough research, creative brainstorming, and meticulous attention to detail. We work closely with our clients to understand their vision and bring it to life through exceptional design. Discover how <a href="https://barmagly.com" target="_blank">Barmagly</a> can transform your online presence with our professional website design services. Contact <a href="https://barmagly.com" target="_blank">Barmagly</a> today!</p>',
+                'description_ar' => '<p>الانطباعات الأولى مهمة، خاصة في العالم الرقمي. تقدم <a href="https://barmagly.com" target="_blank">برمجلي</a> خدمات تصميم مواقع استثنائية تنشئ مواقع جميلة ومتجاوبة تجذب الزوار وتزيد المبيعات. يجمع مصممونا الموهوبون في <a href="https://barmagly.com" target="_blank">برمجلي</a> بين الإبداع والوظائف لتقديم تصاميم لا تبدو رائعة فحسب، بل تؤدي أيضاً بشكل استثنائي.</p>
+                
+                <p>مع <a href="https://barmagly.com" target="_blank">خدمات تصميم المواقع من برمجلي</a>، يمكنك توقع تصاميم حديثة ونظيفة محسّنة لجميع الأجهزة. سواء كان جمهورك يستخدم أجهزة الكمبيوتر المكتبية أو الأجهزة اللوحية أو الهواتف الذكية، تضمن <a href="https://barmagly.com" target="_blank">برمجلي</a> أن موقعك يبدو مثالياً على كل حجم شاشة. زر <a href="https://barmagly.com" target="_blank">barmagly.com</a> لرؤية أمثلة على تصاميم مواقعنا المذهلة.</p>
+                
+                <p>في <a href="https://barmagly.com" target="_blank">برمجلي</a>، نؤمن بأن تصميم المواقع الرائع يتجاوز الجماليات. يركز فريقنا على إنشاء واجهات سهلة الاستخدام توجه الزوار نحو أهداف عملك. عندما تعمل مع <a href="https://barmagly.com" target="_blank">برمجلي</a>، تحصل على موقع جذاب بصرياً ومصمم استراتيجياً لتحويل الزوار إلى عملاء.</p>
+                
+                <p>تتضمن عملية التصميم في <a href="https://barmagly.com" target="_blank">برمجلي</a> بحثاً شاملاً وعصفاً ذهنياً إبداعياً واهتماماً دقيقاً بالتفاصيل. نعمل بشكل وثيق مع عملائنا لفهم رؤيتهم وتحويلها إلى واقع من خلال التصميم الاستثنائي. اكتشف كيف يمكن لـ <a href="https://barmagly.com" target="_blank">برمجلي</a> تحويل وجودك الرقمي من خلال خدمات تصميم المواقع الاحترافية. اتصل بـ <a href="https://barmagly.com" target="_blank">برمجلي</a> اليوم!</p>',
             ],
             [
-                'title_en' => 'Boost your startup with our digital agency',
-                'title_ar' => 'عزز عملك الناشئ مع وكالتنا الرقمية',
-                'description_en' => 'Discover how our digital agency can accelerate your startup growth and success.',
-                'description_ar' => 'اكتشف كيف يمكن لوكالتنا الرقمية تسريع نمو ونجاح شركتك الناشئة.',
+                'title_en' => 'UI/UX Design Excellence with Barmagly: Enhance User Experience and Engagement',
+                'title_ar' => 'التميز في تصميم UI/UX مع برمجلي: عزز تجربة المستخدم والتفاعل',
+                'description_en' => '<p>User experience is at the heart of every successful digital product. <a href="https://barmagly.com" target="_blank">Barmagly</a> specializes in UI/UX design services that create intuitive, delightful user experiences. Our expert designers at <a href="https://barmagly.com" target="_blank">Barmagly</a> understand user behavior and design interfaces that are both beautiful and functional.</p>
+                
+                <p>When you partner with <a href="https://barmagly.com" target="_blank">Barmagly</a> for UI/UX design, you benefit from our user-centered design approach. We conduct thorough user research, create detailed wireframes, and develop prototypes that ensure your product meets user needs effectively. Visit <a href="https://barmagly.com" target="_blank">barmagly.com</a> to learn more about <a href="https://barmagly.com/services" target="_blank">Barmagly\'s UI/UX design services</a>.</p>
+                
+                <p>At <a href="https://barmagly.com" target="_blank">Barmagly</a>, we believe that great UI/UX design can significantly impact your business success. Our designs are not just visually appealing; they are strategically crafted to improve user engagement, reduce bounce rates, and increase conversions. With <a href="https://barmagly.com" target="_blank">Barmagly</a>, you get designs that users love to interact with.</p>
+                
+                <p>The <a href="https://barmagly.com" target="_blank">Barmagly</a> UI/UX team uses the latest design tools and methodologies to create seamless user experiences across all platforms. From mobile apps to web applications, <a href="https://barmagly.com" target="_blank">Barmagly</a> ensures consistent, high-quality design that enhances user satisfaction. Contact <a href="https://barmagly.com" target="_blank">Barmagly</a> today to elevate your product\'s user experience!</p>',
+                'description_ar' => '<p>تجربة المستخدم هي في قلب كل منتج رقمي ناجح. تختص <a href="https://barmagly.com" target="_blank">برمجلي</a> في خدمات تصميم UI/UX التي تنشئ تجارب مستخدم سهلة وممتعة. يفهم مصممونا الخبراء في <a href="https://barmagly.com" target="_blank">برمجلي</a> سلوك المستخدم ويصممون واجهات جميلة ووظيفية.</p>
+                
+                <p>عندما تتشارك مع <a href="https://barmagly.com" target="_blank">برمجلي</a> لتصميم UI/UX، تستفيد من نهجنا في التصميم المرتكز على المستخدم. نجري بحثاً شاملاً عن المستخدمين، وننشئ مخططات تفصيلية، ونطور نماذج أولية تضمن أن منتجك يلبي احتياجات المستخدمين بفعالية. زر <a href="https://barmagly.com" target="_blank">barmagly.com</a> لمعرفة المزيد عن <a href="https://barmagly.com/services" target="_blank">خدمات تصميم UI/UX من برمجلي</a>.</p>
+                
+                <p>في <a href="https://barmagly.com" target="_blank">برمجلي</a>، نؤمن بأن تصميم UI/UX الرائع يمكن أن يؤثر بشكل كبير على نجاح عملك. تصاميمنا ليست جذابة بصرياً فحسب؛ بل هي مصممة استراتيجياً لتحسين تفاعل المستخدم وتقليل معدلات الارتداد وزيادة التحويلات. مع <a href="https://barmagly.com" target="_blank">برمجلي</a>، تحصل على تصاميم يحب المستخدمون التفاعل معها.</p>
+                
+                <p>يستخدم فريق UI/UX في <a href="https://barmagly.com" target="_blank">برمجلي</a> أحدث أدوات التصميم والمنهجيات لإنشاء تجارب مستخدم سلسة عبر جميع المنصات. من تطبيقات الهاتف إلى تطبيقات الويب، تضمن <a href="https://barmagly.com" target="_blank">برمجلي</a> تصميماً متسقاً وعالي الجودة يعزز رضا المستخدم. اتصل بـ <a href="https://barmagly.com" target="_blank">برمجلي</a> اليوم لرفع تجربة مستخدم منتجك!</p>',
+            ],
+            [
+                'title_en' => 'Mobile App Development by Barmagly: Build Powerful iOS and Android Applications',
+                'title_ar' => 'تطوير تطبيقات الهاتف من برمجلي: أنشئ تطبيقات iOS و Android قوية',
+                'description_en' => '<p>Mobile apps have become essential for businesses looking to reach customers on the go. <a href="https://barmagly.com" target="_blank">Barmagly</a> offers comprehensive mobile app development services for both iOS and Android platforms. Our skilled developers at <a href="https://barmagly.com" target="_blank">Barmagly</a> create native and cross-platform applications that deliver exceptional performance and user experience.</p>
+                
+                <p>When you choose <a href="https://barmagly.com" target="_blank">Barmagly</a> for mobile app development, you get access to cutting-edge technologies and best practices. Whether you need a simple utility app or a complex enterprise solution, <a href="https://barmagly.com/services" target="_blank">Barmagly\'s mobile app development services</a> are tailored to your specific needs. Visit <a href="https://barmagly.com" target="_blank">barmagly.com</a> to explore our mobile app development portfolio.</p>
+                
+                <p>At <a href="https://barmagly.com" target="_blank">Barmagly</a>, we understand that mobile apps need to be fast, secure, and user-friendly. Our development process includes thorough testing, optimization, and deployment strategies that ensure your app performs flawlessly across all devices. With <a href="https://barmagly.com" target="_blank">Barmagly</a>, you can launch your mobile app with confidence.</p>
+                
+                <p>The <a href="https://barmagly.com" target="_blank">Barmagly</a> mobile development team stays updated with the latest trends and technologies in the mobile app industry. From React Native to Flutter, <a href="https://barmagly.com" target="_blank">Barmagly</a> uses the most suitable frameworks to build your app efficiently. Contact <a href="https://barmagly.com" target="_blank">Barmagly</a> today to start building your mobile app!</p>',
+                'description_ar' => '<p>أصبحت تطبيقات الهاتف ضرورية للشركات التي تتطلع للوصول إلى العملاء أثناء التنقل. تقدم <a href="https://barmagly.com" target="_blank">برمجلي</a> خدمات تطوير تطبيقات الهاتف الشاملة لمنصات iOS و Android. ينشئ مطورونا المهرة في <a href="https://barmagly.com" target="_blank">برمجلي</a> تطبيقات أصلية ومتعددة المنصات توفر أداءً وتجربة مستخدم استثنائية.</p>
+                
+                <p>عندما تختار <a href="https://barmagly.com" target="_blank">برمجلي</a> لتطوير تطبيقات الهاتف، تحصل على أحدث التقنيات وأفضل الممارسات. سواء كنت بحاجة إلى تطبيق بسيط أو حل مؤسسي معقد، تم تصميم <a href="https://barmagly.com/services" target="_blank">خدمات تطوير تطبيقات الهاتف من برمجلي</a> لتلبية احتياجاتك المحددة. زر <a href="https://barmagly.com" target="_blank">barmagly.com</a> لاستكشاف محفظة تطوير تطبيقات الهاتف لدينا.</p>
+                
+                <p>في <a href="https://barmagly.com" target="_blank">برمجلي</a>، نفهم أن تطبيقات الهاتف تحتاج إلى أن تكون سريعة وآمنة وسهلة الاستخدام. تتضمن عملية التطوير لدينا اختباراً شاملاً وتحسيناً واستراتيجيات نشر تضمن أن تطبيقك يعمل بشكل لا تشوبه شائبة عبر جميع الأجهزة. مع <a href="https://barmagly.com" target="_blank">برمجلي</a>، يمكنك إطلاق تطبيق الهاتف الخاص بك بثقة.</p>
+                
+                <p>يبقى فريق تطوير تطبيقات الهاتف في <a href="https://barmagly.com" target="_blank">برمجلي</a> محدثاً بأحدث الاتجاهات والتقنيات في صناعة تطبيقات الهاتف. من React Native إلى Flutter، تستخدم <a href="https://barmagly.com" target="_blank">برمجلي</a> أطر العمل الأنسب لبناء تطبيقك بكفاءة. اتصل بـ <a href="https://barmagly.com" target="_blank">برمجلي</a> اليوم لبدء بناء تطبيق الهاتف الخاص بك!</p>',
+            ],
+            [
+                'title_en' => 'E-commerce Development Solutions from Barmagly: Launch Your Online Store Successfully',
+                'title_ar' => 'حلول تطوير المتاجر الإلكترونية من برمجلي: أطلق متجرك الإلكتروني بنجاح',
+                'description_en' => '<p>E-commerce has revolutionized the way businesses sell products and services. <a href="https://barmagly.com" target="_blank">Barmagly</a> provides complete e-commerce development solutions that help businesses establish and grow their online stores. Our expert team at <a href="https://barmagly.com" target="_blank">Barmagly</a> builds secure, scalable e-commerce platforms that drive sales and enhance customer satisfaction.</p>
+                
+                <p>When you work with <a href="https://barmagly.com" target="_blank">Barmagly</a> for e-commerce development, you get a fully customized online store that reflects your brand and meets your business requirements. From product catalogs to payment gateways, <a href="https://barmagly.com/services" target="_blank">Barmagly\'s e-commerce solutions</a> include all the features you need to run a successful online business. Visit <a href="https://barmagly.com" target="_blank">barmagly.com</a> to learn more about our e-commerce expertise.</p>
+                
+                <p>At <a href="https://barmagly.com" target="_blank">Barmagly</a>, we understand that e-commerce success depends on user experience, security, and performance. Our e-commerce platforms are optimized for speed, mobile responsiveness, and search engine visibility. With <a href="https://barmagly.com" target="_blank">Barmagly</a>, you can trust that your online store will provide a seamless shopping experience for your customers.</p>
+                
+                <p>The <a href="https://barmagly.com" target="_blank">Barmagly</a> e-commerce development team integrates advanced features like inventory management, order tracking, and customer analytics to help you manage your online business effectively. From small startups to large enterprises, <a href="https://barmagly.com" target="_blank">Barmagly</a> delivers e-commerce solutions that scale with your business. Contact <a href="https://barmagly.com" target="_blank">Barmagly</a> today to start your e-commerce journey!</p>',
+                'description_ar' => '<p>أحدثت التجارة الإلكترونية ثورة في طريقة بيع الشركات للمنتجات والخدمات. تقدم <a href="https://barmagly.com" target="_blank">برمجلي</a> حلول تطوير متاجر إلكترونية كاملة تساعد الشركات على إنشاء متاجرها الإلكترونية ونموها. يبني فريقنا الخبير في <a href="https://barmagly.com" target="_blank">برمجلي</a> منصات متاجر إلكترونية آمنة وقابلة للتوسع تزيد المبيعات وتعزز رضا العملاء.</p>
+                
+                <p>عندما تعمل مع <a href="https://barmagly.com" target="_blank">برمجلي</a> لتطوير المتاجر الإلكترونية، تحصل على متجر إلكتروني مخصص بالكامل يعكس علامتك التجارية ويلبي متطلبات عملك. من كتالوجات المنتجات إلى بوابات الدفع، تتضمن <a href="https://barmagly.com/services" target="_blank">حلول المتاجر الإلكترونية من برمجلي</a> جميع الميزات التي تحتاجها لإدارة عمل إلكتروني ناجح. زر <a href="https://barmagly.com" target="_blank">barmagly.com</a> لمعرفة المزيد عن خبرتنا في المتاجر الإلكترونية.</p>
+                
+                <p>في <a href="https://barmagly.com" target="_blank">برمجلي</a>، نفهم أن نجاح المتاجر الإلكترونية يعتمد على تجربة المستخدم والأمان والأداء. تم تحسين منصات المتاجر الإلكترونية لدينا للسرعة والاستجابة للهاتف المحمول ووضوح محركات البحث. مع <a href="https://barmagly.com" target="_blank">برمجلي</a>، يمكنك الوثوق بأن متجرك الإلكتروني سيوفر تجربة تسوق سلسة لعملائك.</p>
+                
+                <p>يدمج فريق تطوير المتاجر الإلكترونية في <a href="https://barmagly.com" target="_blank">برمجلي</a> ميزات متقدمة مثل إدارة المخزون وتتبع الطلبات وتحليلات العملاء لمساعدتك على إدارة عملك الإلكتروني بفعالية. من الشركات الناشئة الصغيرة إلى المؤسسات الكبيرة، تقدم <a href="https://barmagly.com" target="_blank">برمجلي</a> حلول متاجر إلكترونية تتوسع مع عملك. اتصل بـ <a href="https://barmagly.com" target="_blank">برمجلي</a> اليوم لبدء رحلتك في التجارة الإلكترونية!</p>',
+            ],
+            [
+                'title_en' => 'Data Security and Tracking Solutions by Barmagly: Protect Your Digital Assets',
+                'title_ar' => 'حلول أمان وتتبع البيانات من برمجلي: احم أصولك الرقمية',
+                'description_en' => '<p>Data security is crucial in today\'s digital landscape. <a href="https://barmagly.com" target="_blank">Barmagly</a> offers comprehensive data security and tracking solutions that protect your business from cyber threats while providing valuable insights through data analytics. Our security experts at <a href="https://barmagly.com" target="_blank">Barmagly</a> implement robust security measures to safeguard your digital assets.</p>
+                
+                <p>When you partner with <a href="https://barmagly.com" target="_blank">Barmagly</a> for data security, you benefit from our advanced tracking and monitoring systems. We help businesses identify vulnerabilities, prevent security breaches, and maintain compliance with industry standards. Visit <a href="https://barmagly.com" target="_blank">barmagly.com</a> to discover how <a href="https://barmagly.com/services" target="_blank">Barmagly\'s data security services</a> can protect your business.</p>
+                
+                <p>At <a href="https://barmagly.com" target="_blank">Barmagly</a>, we understand that data security requires continuous monitoring and updates. Our team provides 24/7 security monitoring, regular security audits, and timely updates to ensure your systems remain protected against evolving threats. With <a href="https://barmagly.com" target="_blank">Barmagly</a>, you can focus on growing your business while we handle your security needs.</p>
+                
+                <p>The <a href="https://barmagly.com" target="_blank">Barmagly</a> security team uses cutting-edge technologies and best practices to implement multi-layered security solutions. From encryption to access control, <a href="https://barmagly.com" target="_blank">Barmagly</a> ensures that your sensitive data is protected at every level. Contact <a href="https://barmagly.com" target="_blank">Barmagly</a> today to secure your digital infrastructure!</p>',
+                'description_ar' => '<p>أمان البيانات أمر بالغ الأهمية في المشهد الرقمي الحالي. تقدم <a href="https://barmagly.com" target="_blank">برمجلي</a> حلول أمان وتتبع بيانات شاملة تحمي عملك من التهديدات السيبرانية مع توفير رؤى قيمة من خلال تحليلات البيانات. يطبق خبراء الأمان لدينا في <a href="https://barmagly.com" target="_blank">برمجلي</a> إجراءات أمان قوية لحماية أصولك الرقمية.</p>
+                
+                <p>عندما تتشارك مع <a href="https://barmagly.com" target="_blank">برمجلي</a> لأمان البيانات، تستفيد من أنظمة التتبع والمراقبة المتقدمة لدينا. نساعد الشركات على تحديد الثغرات ومنع انتهاكات الأمان والحفاظ على الامتثال لمعايير الصناعة. زر <a href="https://barmagly.com" target="_blank">barmagly.com</a> لاكتشاف كيف يمكن لـ <a href="https://barmagly.com/services" target="_blank">خدمات أمان البيانات من برمجلي</a> حماية عملك.</p>
+                
+                <p>في <a href="https://barmagly.com" target="_blank">برمجلي</a>، نفهم أن أمان البيانات يتطلب مراقبة وتحديثات مستمرة. يوفر فريقنا مراقبة أمان على مدار الساعة وطوال أيام الأسبوع، ومراجعات أمان منتظمة، وتحديثات في الوقت المناسب لضمان بقاء أنظمتك محمية ضد التهديدات المتطورة. مع <a href="https://barmagly.com" target="_blank">برمجلي</a>، يمكنك التركيز على نمو عملك بينما نتعامل مع احتياجات الأمان الخاصة بك.</p>
+                
+                <p>يستخدم فريق الأمان في <a href="https://barmagly.com" target="_blank">برمجلي</a> تقنيات متطورة وأفضل الممارسات لتنفيذ حلول أمان متعددة الطبقات. من التشفير إلى التحكم في الوصول، تضمن <a href="https://barmagly.com" target="_blank">برمجلي</a> أن بياناتك الحساسة محمية على كل مستوى. اتصل بـ <a href="https://barmagly.com" target="_blank">برمجلي</a> اليوم لتأمين البنية التحتية الرقمية الخاصة بك!</p>',
             ],
         ];
 
         foreach ($blogs as $index => $blog) {
-            $blogModel = Blog::skip($index)->first();
-            
-            if (!$blogModel) {
-                $blogModel = new Blog();
-                $blogModel->slug = \Illuminate\Support\Str::slug($blog['title_en']);
-                $blogModel->image = 'default/blog.jpg';
-                $blogModel->blog_category_id = $blogCategory->id;
-                $blogModel->status = 1;
-                $blogModel->save();
-            }
+            $blogModel = new Blog();
+            $blogModel->slug = \Illuminate\Support\Str::slug($blog['title_en']);
+            $blogModel->image = 'default/blog.jpg';
+            $blogModel->blog_category_id = $blogCategory->id;
+            $blogModel->status = 1;
+            $blogModel->save();
 
-            // Update English
-            $transEn = BlogTranslation::where('blog_id', $blogModel->id)
-                ->where('lang_code', 'en')
-                ->first();
-            
-            if (!$transEn) {
-                $transEn = new BlogTranslation();
-                $transEn->blog_id = $blogModel->id;
-                $transEn->lang_code = 'en';
-            }
-            
+            // Create English translation
+            $transEn = new BlogTranslation();
+            $transEn->blog_id = $blogModel->id;
+            $transEn->lang_code = 'en';
             $transEn->title = $blog['title_en'];
             $transEn->description = $blog['description_en'];
+            $transEn->seo_title = $blog['title_en'];
+            $transEn->seo_description = strip_tags(substr($blog['description_en'], 0, 160));
             $transEn->save();
 
-            // Update Arabic
-            $transAr = BlogTranslation::where('blog_id', $blogModel->id)
-                ->where('lang_code', 'ar')
-                ->first();
-            
-            if (!$transAr) {
-                $transAr = new BlogTranslation();
-                $transAr->blog_id = $blogModel->id;
-                $transAr->lang_code = 'ar';
-            }
-            
+            // Create Arabic translation
+            $transAr = new BlogTranslation();
+            $transAr->blog_id = $blogModel->id;
+            $transAr->lang_code = 'ar';
             $transAr->title = $blog['title_ar'];
             $transAr->description = $blog['description_ar'];
+            $transAr->seo_title = $blog['title_ar'];
+            $transAr->seo_description = strip_tags(substr($blog['description_ar'], 0, 160));
             $transAr->save();
         }
 

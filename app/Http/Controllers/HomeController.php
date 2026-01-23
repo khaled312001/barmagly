@@ -441,16 +441,25 @@ class HomeController extends Controller
 
     public function portfolio(Request $request)
     {
-
-        if($request->type == 'grid'){
-            $projects = Project::latest()->paginate(9);
-        }else{
-            $projects = Project::latest()->paginate(10);
+        $query = Project::with(['category', 'translate'])->latest();
+        
+        // Filter by category if provided
+        if($request->has('category') && $request->category != 'all' && $request->category != ''){
+            $query->where('category_id', $request->category);
         }
 
+        if($request->type == 'grid'){
+            $projects = $query->paginate(9);
+        }else{
+            $projects = $query->paginate(10);
+        }
 
+        // Get all categories for filter buttons
+        $categories = \Modules\Category\Entities\Category::where('status', 'enable')
+            ->with('front_translate')
+            ->get();
 
-        return view('frontend.templates.portfolio', compact('projects'));
+        return view('frontend.templates.portfolio', compact('projects', 'categories'));
     }
 
     public function portfolioShow($slug)
