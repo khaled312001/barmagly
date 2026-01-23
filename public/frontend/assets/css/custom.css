@@ -475,7 +475,12 @@ body[dir="rtl"] .container .Barmagly-2column-slider {
     text-align: center !important;
 }
 
-/* Center 3-column slider for RTL and LTR */
+/* ============================================
+   OLD 3-COLUMN SLIDER CSS REMOVED
+   Replaced with new projects-showcase-section below
+   ============================================ */
+
+/* Center 3-column slider for RTL and LTR - DEPRECATED */
 .Barmagly-3column-slider,
 .Barmagly-3column-slider2 {
     margin: 0 auto !important;
@@ -746,4 +751,260 @@ body[dir="rtl"] .Barmagly-3column-slider .slick-track {
     left: 50% !important;
     transform: translateX(50%) !important;
     -webkit-transform: translateX(50%) !important;
+}
+
+/* ============================================
+   NEW PROJECTS SHOWCASE SECTION - MODERN DESIGN
+   ============================================ */
+
+.projects-showcase-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.projects-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.project-card-item {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.project-card-image {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.project-card-image .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card-item:hover .project-img {
+    transform: scale(1.1);
+}
+
+.project-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-card-item:hover .project-card-overlay {
+    opacity: 1;
+}
+
+.project-view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: #fff;
+    color: #333;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    transform: translateY(20px);
+}
+
+.project-card-item:hover .project-view-btn {
+    transform: translateY(0);
+}
+
+.project-view-btn:hover {
+    background: var(--accent-color, #6366f1);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+.project-view-btn i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.project-view-btn:hover i {
+    transform: rotate(45deg);
+}
+
+.project-card-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.project-title-link:hover {
+    color: var(--accent-color, #6366f1);
+}
+
+.project-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: #1a1a1a;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.project-category {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+    font-weight: 500;
+}
+
+.projects-showcase-more {
+    margin-top: 60px;
+}
+
+/* Responsive Design */
+@media (max-width: 1399px) {
+    .projects-showcase-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 991px) {
+    .projects-showcase-section {
+        padding: 80px 0;
+    }
+    
+    .projects-showcase-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+    }
+    
+    .project-card-image {
+        height: 240px;
+    }
+    
+    .project-card-content {
+        padding: 20px;
+    }
+    
+    .project-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .projects-showcase-section {
+        padding: 60px 0;
+    }
+    
+    .projects-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-top: 30px;
+    }
+    
+    .project-card-image {
+        height: 220px;
+    }
+    
+    .project-title {
+        font-size: 18px;
+    }
+}
+
+/* RTL Support */
+html[dir="rtl"] .projects-showcase-grid,
+body.rtl .projects-showcase-grid,
+body[dir="rtl"] .projects-showcase-grid {
+    direction: rtl;
+}
+
+html[dir="rtl"] .project-view-btn,
+body.rtl .project-view-btn,
+body[dir="rtl"] .project-view-btn {
+    direction: rtl;
+}
+
+html[dir="rtl"] .project-view-btn i,
+body.rtl .project-view-btn i,
+body[dir="rtl"] .project-view-btn i {
+    transform: rotate(180deg);
+}
+
+html[dir="rtl"] .project-view-btn:hover i,
+body.rtl .project-view-btn:hover i,
+body[dir="rtl"] .project-view-btn:hover i {
+    transform: rotate(225deg);
+}
+
+/* Dark Background Support */
+.dark-bg.projects-showcase-section {
+    background: #1a1a1a;
+}
+
+.dark-bg .project-card-item {
+    background: #2a2a2a;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dark-bg .project-card-item:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+.dark-bg .project-title {
+    color: #fff;
+}
+
+.dark-bg .project-category {
+    color: #aaa;
+}
+
+.dark-bg .project-title-link:hover {
+    color: var(--accent-color, #6366f1);
+}
+
+/* Light Background Support */
+.bg-light1.projects-showcase-section {
+    background: #f8f9fa;
+}
+
+.bg-light1 .project-card-item {
+    background: #fff;
 }

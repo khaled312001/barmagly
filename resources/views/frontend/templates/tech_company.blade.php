@@ -171,35 +171,41 @@
     </div>
     <!-- End Working Process section -->
 
-    <div class="section Barmagly-section-padding bg-light1">
+    <div class="section Barmagly-section-padding bg-light1 projects-showcase-section">
         <div class="container">
             <div class="Barmagly-section-title center">
                 <h2>{{ __('translate.Explore our recent projects') }}</h2>
             </div>
-        </div>
-        <div class="Barmagly-3column-slider" data-aos="fade-up" data-aos-duration="800">
-            @foreach($projects as $index => $project)
-            <div class="Barmagly-portfolio-wrap2">
-                <div class="Barmagly-portfolio-thumb2">
-                    <img src="{{ asset($project->thumb_image) }}" alt="Image" class="full-img">
-                </div>
-                <div class="Barmagly-portfolio-data2-wrap">
-                    <div class="Barmagly-portfolio-data2">
-                        <a href="{{ route('portfolio.show', $project->slug) }}">
-                            <h4>{{ $project->title ?? $project->translate?->title }}</h4>
-                        </a>
-                        <p>
-                            @if($project->category)
-                                {{ $project->category->name ?? $project->category->translate?->name }}
-                            @endif
-                        </p>
+            <div class="projects-showcase-grid">
+                @foreach($projects->take(6) as $index => $project)
+                <div class="project-card-item" data-aos="fade-up" data-aos-duration="{{ ($index + 1) * 100 }}">
+                    <div class="project-card-image">
+                        <img src="{{ asset($project->thumb_image) }}" alt="{{ $project->title ?? $project->translate?->title }}" class="project-img">
+                        <div class="project-card-overlay">
+                            <a href="{{ route('portfolio.show', $project->slug) }}" class="project-view-btn">
+                                <i class="ri-arrow-right-up-line"></i>
+                                <span>{{ __('translate.View Project') }}</span>
+                            </a>
+                        </div>
                     </div>
-                    <a class="Barmagly-portfolio-btn2" href="{{ route('portfolio.show', $project->slug) }}">
-                        <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                    </a>
+                    <div class="project-card-content">
+                        <a href="{{ route('portfolio.show', $project->slug) }}" class="project-title-link">
+                            <h4 class="project-title">{{ $project->title ?? $project->translate?->title }}</h4>
+                        </a>
+                        @if($project->category)
+                        <p class="project-category">{{ $project->category->name ?? $project->category->translate?->name }}</p>
+                        @endif
+                    </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
+            @if($projects->count() > 6)
+            <div class="projects-showcase-more text-center">
+                <a href="{{ route('portfolio') }}" class="Barmagly-default-btn" data-text="{{ __('translate.View All Projects') }}">
+                    <span class="btn-wraper">{{ __('translate.View All Projects') }}</span>
+                </a>
+            </div>
+            @endif
         </div>
     </div>
     <!-- End Projects section -->
