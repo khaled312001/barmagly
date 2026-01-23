@@ -29,6 +29,14 @@
 
     @yield('front-content')
 
+    <!-- Floating WhatsApp Button -->
+    @php
+        $whatsappNumber = str_replace(['+', ' ', '-'], '', $footer->phone ?? '201010254819');
+    @endphp
+    <a href="https://wa.me/{{ $whatsappNumber }}" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <i class="ri-whatsapp-fill"></i>
+    </a>
+
     @include('frontend.script')
 
     @stack('js_section')

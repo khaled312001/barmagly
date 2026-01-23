@@ -116,7 +116,7 @@ class ProjectController extends Controller
         }
         
         $categories = Category::with('translate')->where('status', 'enable')->get();
-        $subcategories = SubCategory::where('category_id', $project->category_id)->with('translate')->get();
+        $subcategories = SubCategory::where('category_id', $project->category_id ?? 0)->with('translate')->get();
         
         // Get all languages and order them so Arabic appears first
         $language_list = Language::orderByRaw("CASE WHEN lang_code = 'ar' THEN 0 ELSE 1 END")

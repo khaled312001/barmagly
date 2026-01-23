@@ -121,7 +121,7 @@
                                                         <select class="form-select crancy__item-input" name="category_id" id="category-select">
                                                             <option value="">{{ __('translate.Select Category') }}</option>
                                                             @foreach ($categories as $category)
-                                                                <option {{ $category->id == $project->category_id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->translate->name ?? $category->front_translate->name ?? 'Category' }}</option>
+                                                                <option {{ $category->id == $project->category_id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->translate?->name ?? $category->front_translate?->name ?? 'Category' }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
