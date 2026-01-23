@@ -10,17 +10,6 @@
             </form>
         </div>
         <div class="Barmagly-blog-widgets">
-            <h5>{{ __('translate.Categories') }}</h5>
-            <div class="Barmagly-blog-categorie">
-                <ul>
-                    @foreach($categories as $category)
-                        <li><a href="{{ route('blogs', ['category' => $category->slug]) }}">{{ $category->front_translate?->name ?? $category->translate->name }}<span>({{ $category->blogs_count }})</span></a></li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-
-        <div class="Barmagly-blog-widgets">
             <h5>{{ __('translate.Recent Posts') }}</h5>
             @forelse($recent_blogs as $recent_blog)
                 <a class="Barmagly-recent-post-item" href="{{ route('blog', $recent_blog->slug) }}">
