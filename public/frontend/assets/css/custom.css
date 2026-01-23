@@ -1981,12 +1981,14 @@ html[dir="rtl"] .Barmagly-header-social-icons {
     animation: none;
 }
 
-.whatsapp-float i {
+.whatsapp-float i,
+.whatsapp-float svg {
     line-height: 1;
     position: relative;
     z-index: 2;
     display: inline-block;
-    font-size: 32px;
+    width: 32px;
+    height: 32px;
 }
 
 /* Pulse Ring Animation */
