@@ -26,14 +26,6 @@
                                     fill="white" />
                             </svg>
                           </span>
-                          <form action="{{ route('currency-switcher') }}" id="currency_form">
-                            <select id="currency_dropdown" class="js-example-basic-single" name="currency_code">
-                                @foreach ($currency_list as $currency_item)
-                                    <option
-                                        {{ Session::get('currency_code') == $currency_item->currency_code ? 'selected' : '' }} value="{{ $currency_item->currency_code }}">{{ $currency_item->currency_name }}</option>
-                                @endforeach
-                            </select>
-                        </form>
                         </div>
 
                         <div class="cur_lun_login_item">
@@ -94,7 +86,6 @@
                                 <div class="Barmagly-header-search light-color">
                                     <i class="ri-search-line"></i>
                                 </div>
-                                @include('frontend.templates.layouts._cart', ['iconColor' => '#fff'])
 
                                 <div class="Barmagly-header-barger light-color">
                                     <span></span>
@@ -130,26 +121,6 @@
 
                 <div class="Barmagly-social-icon-box style-two">
                     <ul>
-                        <li>
-                            <a href="{{ $footer->facebook }}" >
-                                <i class="ri-facebook-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ $footer->linkedin }}">
-                                <i class="ri-linkedin-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ $footer->twitter }}">
-                                <i class="ri-twitter-fill"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ $footer->instagram }}">
-                                <i class="ri-instagram-fill"></i>
-                            </a>
-                        </li>
                     </ul>
                 </div>
 
@@ -917,26 +888,6 @@
                             <p>{{ __($footer->about_us) }}</p>
                             <div class="Barmagly-social-icon-box">
                                 <ul>
-                                    <li>
-                                        <a href="{{ $footer->facebook }}">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $footer->linkedin }}">
-                                            <i class="ri-linkedin-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $footer->twitter }}">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $footer->instagram }}">
-                                            <i class="ri-instagram-fill"></i>
-                                        </a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>

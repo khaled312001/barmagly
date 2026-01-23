@@ -65,7 +65,14 @@ class HomeController extends Controller
 
         $services = Listing::latest()->take(5)->get();
 
-        $blogPosts = Blog::with('front_translate', 'category.front_translate')->latest()->take(4)->get();
+        $blogPosts = Blog::with('front_translate', 'category.front_translate')
+            ->whereHas('translations', function($query) {
+                $query->where('lang_code', front_lang());
+            })
+            ->where('status', 1)
+            ->latest()
+            ->take(4)
+            ->get();
 
         $testimonials = Testimonial::where('status', 'active')->latest()->get();
 
@@ -142,12 +149,17 @@ class HomeController extends Controller
 
     public function blogs(Request $request)
     {
-        $blogs = Blog::with('author', 'category', 'front_translate', 'category.front_translate')->where('status', 1);
+        $blogs = Blog::with('author', 'category', 'front_translate', 'category.front_translate')
+            ->where('status', 1)
+            ->whereHas('translations', function($query) {
+                $query->where('lang_code', front_lang());
+            });
 
         // Search by title
         if ($request->search) {
-            $blogs = $blogs->whereHas('translate', function($query) use ($request) {
-                $query->where('title', 'LIKE', '%' . $request->search . '%');
+            $blogs = $blogs->whereHas('translations', function($query) use ($request) {
+                $query->where('lang_code', front_lang())
+                    ->where('title', 'LIKE', '%' . $request->search . '%');
             });
         }
 
@@ -175,7 +187,11 @@ class HomeController extends Controller
         $blogs = $blogs->paginate($perPage);
 
         $currentBlogId = $request->id ?? null;
-        $recent_blogs = Blog::with('front_translate', 'category.front_translate')->where('status', 1)
+        $recent_blogs = Blog::with('front_translate', 'category.front_translate')
+            ->where('status', 1)
+            ->whereHas('translations', function($query) {
+                $query->where('lang_code', front_lang());
+            })
             ->when($currentBlogId, function($query) use ($currentBlogId) {
                 return $query->where('id', '!=', $currentBlogId);
             })
@@ -186,6 +202,9 @@ class HomeController extends Controller
 
         // Get all blog tags
         $allTags = Blog::where('status', 1)
+            ->whereHas('translations', function($query) {
+                $query->where('lang_code', front_lang());
+            })
             ->whereNotNull('tags')
             ->pluck('tags')
             ->map(function($tags) {
@@ -207,13 +226,23 @@ class HomeController extends Controller
 
     public function blog($slug)
     {
-        $blog = Blog::with('author', 'front_translate', 'category.front_translate')->where('status', 1)->where('slug', $slug)->firstOrFail();
+        $blog = Blog::with('author', 'front_translate', 'category.front_translate')
+            ->where('status', 1)
+            ->whereHas('translations', function($query) {
+                $query->where('lang_code', front_lang());
+            })
+            ->where('slug', $slug)
+            ->firstOrFail();
 
         $blog_comments = BlogComment::where('blog_id', $blog->id)->where('status', 1)->latest()->get();
         $categories = BlogCategory::withCount('blogs')->take(6)->get();
 
         $currentBlogId = $blog->id ?? null;
-        $recent_blogs = Blog::with('front_translate', 'category.front_translate')->where('status', 1)
+        $recent_blogs = Blog::with('front_translate', 'category.front_translate')
+            ->where('status', 1)
+            ->whereHas('translations', function($query) {
+                $query->where('lang_code', front_lang());
+            })
             ->when($currentBlogId, function($query) use ($currentBlogId) {
                 return $query->where('id', '!=', $currentBlogId);
             })
@@ -223,17 +252,26 @@ class HomeController extends Controller
 
         $previous = Blog::where('id', '<', $blog->id)
             ->where('status', 1)
+            ->whereHas('translations', function($query) {
+                $query->where('lang_code', front_lang());
+            })
             ->latest()
             ->first();
 
         $next = Blog::where('id', '>', $blog->id)
             ->where('status', 1)
+            ->whereHas('translations', function($query) {
+                $query->where('lang_code', front_lang());
+            })
             ->where('blog_category_id', $blog->blog_category_id) // Same category only
             ->first();
 
 
         // Get all blog tags
         $allTags = Blog::where('status', 1)
+            ->whereHas('translations', function($query) {
+                $query->where('lang_code', front_lang());
+            })
             ->whereNotNull('tags')
             ->pluck('tags')
             ->map(function($tags) {

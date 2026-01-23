@@ -30,14 +30,6 @@
                                         fill="#0a165e"/>
                                 </svg>
                             </span>
-                            <form action="{{ route('currency-switcher') }}" id="currency_form">
-                                <select id="currency_dropdown" class="js-example-basic-single" name="currency_code">
-                                    @foreach ($currency_list as $currency_item)
-                                        <option
-                                            {{ Session::get('currency_code') == $currency_item->currency_code ? 'selected' : '' }} value="{{ $currency_item->currency_code }}">{{ $currency_item->currency_name }}</option>
-                                    @endforeach
-                                </select>
-                            </form>
                         </div>
 
                         <div class="cur_lun_login_item">
@@ -97,7 +89,6 @@
                                     <i class="ri-search-line"></i>
                                 </div>
 
-                                @include('frontend.templates.layouts._cart')
 
                                 <a class="Barmagly-default-btn Barmagly-header-btn" href="{{ route('contact-us') }}"
                                    data-text="{{ __('translate.Get in Touch') }}">

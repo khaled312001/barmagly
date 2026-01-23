@@ -687,23 +687,6 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4">
-                        <div class="Barmagly-subscription-column">
-                            <div class="Barmagly-footer-title dark-color">
-                                <h5>{{ __('translate.Subscribe Our Newsletter') }}</h5>
-                                <p>{{ __('translate.Get ready to work together for the better solution for your business') }}</p>
-                            </div>
-                            <div class="Barmagly-subscription">
-                                <form action="{{ route('store-newsletter') }}" method="POST">
-                                    @csrf
-                                    <input type="email" name="email" placeholder="{{ __('translate.Enter your email') }}">
-                                    <button id="Barmagly-subscription-btn" type="submit" data-text="Subscribe">
-                                        <span class="btn-wraper">{{ __('translate.Subscribe') }}</span>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="Barmagly-footer-bottom">
@@ -716,16 +699,6 @@
                     <div class="col-lg-6">
                         <div class="Barmagly-social-icon-box right-align style-two">
                             <ul>
-                                <li>
-                                    <a href="{{ $footer->facebook }}">
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ $footer->linkedin }}">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>

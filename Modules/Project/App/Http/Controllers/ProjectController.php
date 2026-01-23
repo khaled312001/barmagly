@@ -98,12 +98,32 @@ class ProjectController extends Controller
     {
         $project = Project::findOrFail($id);
 
-        $project_translate = ProjectTranslation::where(['project_id' => $id, 'lang_code' => $request->lang_code])->first();
+        // Default to Arabic if no lang_code is provided
+        $lang_code = $request->lang_code ?? 'ar';
+        
+        // Get or create translation for the selected language
+        $project_translate = ProjectTranslation::where(['project_id' => $id, 'lang_code' => $lang_code])->first();
+        
+        // If translation doesn't exist, create it
+        if (!$project_translate) {
+            $project_translate = new ProjectTranslation();
+            $project_translate->project_id = $id;
+            $project_translate->lang_code = $lang_code;
+            $project_translate->title = '';
+            $project_translate->description = '';
+            $project_translate->client_name = '';
+            $project_translate->save();
+        }
+        
         $categories = Category::with('translate')->where('status', 'enable')->get();
-
         $subcategories = SubCategory::where('category_id', $project->category_id)->with('translate')->get();
+        
+        // Get all languages and order them so Arabic appears first
+        $language_list = Language::orderByRaw("CASE WHEN lang_code = 'ar' THEN 0 ELSE 1 END")
+            ->orderBy('lang_code')
+            ->get();
 
-        return view('project::edit', compact('project', 'project_translate', 'categories', 'subcategories'));
+        return view('project::edit', compact('project', 'project_translate', 'categories', 'subcategories', 'language_list'));
     }
 
     /**

@@ -1059,26 +1059,6 @@
                             <p> {{ $footer->about_us }}</p>
                             <div class="Barmagly-social-icon-box style-two">
                                 <ul>
-                                    <li>
-                                        <a href="{{ $footer->facebook }}" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $footer->linkedin }}" target="_blank">
-                                            <i class="ri-linkedin-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $footer->twitter }}" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $footer->instagram }}" target="_blank">
-                                            <i class="ri-instagram-fill"></i>
-                                        </a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>

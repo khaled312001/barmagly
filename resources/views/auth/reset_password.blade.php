@@ -153,7 +153,6 @@
                                 <i class="ri-search-line"></i>
                             </div>
 
-                            @include('frontend.templates.layouts._cart')
 
 
                             <a class="Barmagly-default-btn Barmagly-header-btn" href="{{ route('contact-us') }}"

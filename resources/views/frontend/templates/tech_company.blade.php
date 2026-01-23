@@ -36,14 +36,6 @@
                                     fill="white" />
                             </svg>
                           </span>
-                            <form action="{{ route('currency-switcher') }}" id="currency_form">
-                                <select id="currency_dropdown" class="js-example-basic-single" name="currency_code">
-                                    @foreach ($currency_list as $currency_item)
-                                        <option
-                                            {{ Session::get('currency_code') == $currency_item->currency_code ? 'selected' : '' }} value="{{ $currency_item->currency_code }}">{{ $currency_item->currency_name }}</option>
-                                    @endforeach
-                                </select>
-                            </form>
                         </div>
 
                         <div class="cur_lun_login_item">
@@ -94,7 +86,6 @@
                     <div class="header-btn header-btn-l1 {{ Session::get('lang_dir', 'right_to_left') == 'right_to_left' ? 'me-auto' : 'ms-auto' }} d-none d-xs-inline-flex">
                         <div class="Barmagly-header-icon">
 
-                            @include('frontend.templates.layouts._cart', ['iconColor' => '#fff'])
 
 
                             <a class="Barmagly-default-btn Barmagly-header-btn" href="{{ route('contact-us') }}" data-text="Get in Touch"><span
@@ -274,26 +265,6 @@
                             <p>{{ $footer->about_us }}</p>
                             <div class="Barmagly-social-icon-box">
                                 <ul>
-                                    <li>
-                                        <a href="{{ $footer->facebook }}" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $footer->linkedin }}" target="_blank">
-                                            <i class="ri-linkedin-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $footer->twitter }}" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $footer->instagram }}" target="_blank">
-                                            <i class="ri-instagram-fill"></i>
-                                        </a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>

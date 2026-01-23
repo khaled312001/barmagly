@@ -4,7 +4,7 @@ use App\Models\Frontend;
 use Illuminate\Support\Facades\Session;
 
 function admin_lang(){
-    return 'en';
+    return 'ar';
 }
 
 function front_lang(){

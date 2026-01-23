@@ -38,6 +38,10 @@ class Blog extends Model
         return $this->belongsTo(BlogTranslation::class, 'id', 'blog_id')->where('lang_code', front_lang());
     }
 
+    public function translations(){
+        return $this->hasMany(BlogTranslation::class, 'blog_id', 'id');
+    }
+
     public function comments(){
         return $this->hasMany(BlogComment::class)->where('status', 1);
     }
