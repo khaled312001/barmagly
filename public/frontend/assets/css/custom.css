@@ -1105,60 +1105,6 @@ body[dir="rtl"] .project-view-btn:hover i {
     }
 }
 
-/* ============================================
-   PORTFOLIO IMAGE SCROLL ANIMATION
-   ============================================ */
-
-.Barmagly-portfolio-thumb {
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-}
-
-.Barmagly-portfolio-thumb img.full-img {
-    width: 100%;
-    height: auto;
-    min-height: 120%;
-    object-fit: cover;
-    object-position: top center;
-    transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transform: translateY(0);
-    display: block;
-}
-
-/* Scroll animation on hover - makes image scroll down to show full image */
-.Barmagly-portfolio-thumb:hover img.full-img {
-    transform: translateY(calc(-100% + 100%)) !important;
-}
-
-/* For landscape images - need more scroll */
-.Barmagly-portfolio-thumb-landscape img.full-img,
-.col-xl-8 .Barmagly-portfolio-thumb-2 img.full-img {
-    min-height: 130%;
-}
-
-.Barmagly-portfolio-thumb-landscape:hover img.full-img,
-.col-xl-8 .Barmagly-portfolio-thumb-2:hover img.full-img {
-    transform: translateY(calc(-100% + 100%)) !important;
-}
-
-/* For digital/regular portfolio images */
-.Barmagly-portfolio-thumb-digital img.full-img {
-    min-height: 120%;
-}
-
-.Barmagly-portfolio-thumb-digital:hover img.full-img {
-    transform: translateY(calc(-100% + 100%)) !important;
-}
-
-/* Override any scale transforms from other CSS files */
-.Barmagly-portfolio-thumb:hover img.full-img,
-.Barmagly-portfolio-thumb-main:hover img.full-img,
-.Barmagly-portfolio-thumb-digital:hover img.full-img,
-.Barmagly-portfolio-thumb-landscape:hover img.full-img {
-    transform: translateY(calc(-100% + 100%)) !important;
-}
-
 /* Typing Animation */
 .typing-animation {
     overflow: hidden;
@@ -1600,16 +1546,99 @@ body[dir="rtl"] .Barmagly-infobox-item {
     text-align: right;
 }
 
-/* RTL Support for Iconbox Wrap2 - Icons on the right */
-html[dir="rtl"] .Barmagly-iconbox-wrap2,
-body.rtl .Barmagly-iconbox-wrap2,
-body[dir="rtl"] .Barmagly-iconbox-wrap2 {
-    flex-direction: row-reverse !important;
-    direction: rtl !important;
+/* ============================================
+   PORTFOLIO IMAGE SCROLL ANIMATION
+   Same animation as "Explore our recent projects" section
+   ============================================ */
+
+/* Ensure portfolio thumb container has overflow hidden */
+.Barmagly-portfolio-thumb {
+    position: relative;
+    overflow: hidden !important;
+    border-radius: 18px;
 }
 
-html[dir="rtl"] .Barmagly-iconbox-data2,
-body.rtl .Barmagly-iconbox-data2,
-body[dir="rtl"] .Barmagly-iconbox-data2 {
-    text-align: right !important;
+/* ============================================
+   PORTFOLIO IMAGE SCROLL ANIMATION
+   Same animation as "Explore our recent projects" section
+   Images scroll down on hover to reveal full image
+   ============================================ */
+
+/* Ensure portfolio thumb container has overflow hidden */
+.Barmagly-portfolio-thumb {
+    position: relative;
+    overflow: hidden !important;
+    border-radius: 18px;
+}
+
+/* Portfolio images with scroll animation - same as project-card-item */
+.Barmagly-portfolio-thumb img.full-img {
+    width: 100%;
+    height: auto;
+    min-height: 120%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(0);
+    display: block;
+}
+
+/* Scroll animation on hover - same technique as project-card-item */
+/* The image is taller than container, so we scroll to show bottom part */
+.Barmagly-portfolio-thumb:hover img.full-img {
+    /* For images with min-height 120%, scroll by 20% to show bottom */
+    transform: translateY(calc(-20%)) !important;
+}
+
+/* For landscape images (col-xl-8) - they are taller, scroll more */
+.Barmagly-portfolio-thumb-landscape img.full-img,
+.col-xl-8 .Barmagly-portfolio-thumb-2 img.full-img,
+.Barmagly-portfolio-thumb-2 img.full-img {
+    min-height: 130%;
+}
+
+.Barmagly-portfolio-thumb-landscape:hover img.full-img,
+.col-xl-8 .Barmagly-portfolio-thumb-2:hover img.full-img,
+.Barmagly-portfolio-thumb-2:hover img.full-img {
+    /* For images with min-height 130%, scroll by 30% to show bottom */
+    transform: translateY(calc(-30%)) !important;
+}
+
+/* For digital thumb style */
+.Barmagly-portfolio-thumb-digital img.full-img {
+    min-height: 125%;
+}
+
+.Barmagly-portfolio-thumb-digital:hover img.full-img {
+    /* For images with min-height 125%, scroll by 25% to show bottom */
+    transform: translateY(calc(-25%)) !important;
+}
+
+/* For main thumb style */
+.Barmagly-portfolio-thumb-main img.full-img {
+    min-height: 120%;
+}
+
+.Barmagly-portfolio-thumb-main:hover img.full-img {
+    /* For images with min-height 120%, scroll by 20% to show bottom */
+    transform: translateY(calc(-20%)) !important;
+}
+
+/* Override scale transform from app.css - use scroll instead of scale */
+.Barmagly-portfolio-thumb:hover img.full-img {
+    /* Scroll animation takes priority over scale */
+}
+
+/* Ensure smooth animation performance */
+.Barmagly-portfolio-thumb img.full-img {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Ensure images maintain aspect ratio during animation */
+.Barmagly-portfolio-thumb img.full-img {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }

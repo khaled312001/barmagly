@@ -272,7 +272,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 d-flex align-items-center">
-                    <div class="Barmagly-default-content ml40">
+                    <div class="Barmagly-default-content {{ Session::get('lang_dir', 'right_to_left') == 'right_to_left' ? 'mr40' : 'ml40' }}" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="direction: rtl; text-align: right;" @endif>
                         <h2>{{ getTranslatedValue($aboutUsContent, 'heading', $currentLang) }}</h2>
                         <p>{{ getTranslatedValue($aboutUsContent, 'description', $currentLang) }}</p>
                         <div class="Barmagly-icon-list">
@@ -539,7 +539,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 d-flex align-items-center">
-                    <div class="Barmagly-default-content mr40">
+                    <div class="Barmagly-default-content {{ Session::get('lang_dir', 'right_to_left') == 'right_to_left' ? 'ml40' : 'mr40' }}" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="direction: rtl; text-align: right;" @endif>
                         <h2>{{ getTranslatedValue($agencyFeatureSection,'heading', $currentLang) }}</h2>
                         <div class="Barmagly-extra-mt">
                             <div class="Barmagly-iconbox-wrap2 rt-mb-35" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="flex-direction: row-reverse !important; direction: rtl !important;" @endif>

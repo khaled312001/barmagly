@@ -40,15 +40,15 @@
                         <div class="Barmagly-blog-content">
                             <div class="Barmagly-blog-meta">
                                 <ul>
-                                    <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->translate?->name }}</a></li>
+                                    <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->front_translate?->name ?? $blog->category->translate?->name }}</a></li>
                                     <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->created_at->format('d F Y') }}</a></li>
                                 </ul>
                             </div>
                             <a href="{{ route('blog', $blog->slug) }}">
-                                <h2>{{ $blog->translate->title }}</h2>
+                                <h2>{{ $blog->front_translate->title ?? $blog->translate->title }}</h2>
                             </a>
                             <p>
-                                {!! Str::limit(clean($blog->translate->description), 180, '...') !!}
+                                {!! Str::limit(clean($blog->front_translate->description ?? $blog->translate->description), 180, '...') !!}
                             </p>
                             <a class="Barmagly-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
                                 <span>{{ __('translate.Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
@@ -138,12 +138,12 @@
                     <div class="Barmagly-blog-content">
                         <div class="Barmagly-blog-meta">
                             <ul>
-                                <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->translate?->name }}</a></li>
+                                <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->front_translate?->name ?? $blog->category->translate?->name }}</a></li>
                                 <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->created_at->format('d F Y') }}</a></li>
                             </ul>
                         </div>
                         <a href="{{ route('blog', $blog->slug) }}">
-                            <h4>{{ $blog->translate->title }}</h4>
+                            <h4>{{ $blog->front_translate->title ?? $blog->translate->title }}</h4>
                         </a>
                         <a class="Barmagly-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
                             <span>

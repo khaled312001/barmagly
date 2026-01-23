@@ -584,12 +584,12 @@
                         <div class="Barmagly-blog-content reduced-padding">
                             <div class="Barmagly-blog-meta">
                                 <ul>
-                                    <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->name ?? $blog->category->translate?->name }}</a></li>
+                                    <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->front_translate?->name ?? $blog->category->name ?? $blog->category->translate?->name }}</a></li>
                                     <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->created_at->format('d F Y') }}</a></li>
                                 </ul>
                             </div>
                             <a href="{{ route('blog', $blog->slug) }}">
-                                <h4>{{ $blog->title ?? $blog->translate?->title }}</h4>
+                                <h4>{{ $blog->front_translate?->title ?? $blog->title ?? $blog->translate?->title }}</h4>
                             </a>
                             <a class="Barmagly-icon-btn" href="{{ route('blog', $blog->slug) }}"><i
                                     class="icon-show ri-arrow-right-line"></i>
@@ -658,8 +658,6 @@
                             </div>
                             <ul>
                                 <li><a href="{{ route('about-us') }}">{{ __('translate.About Us') }}</a></li>
-                                <li><a href="{{ route('teams') }}">{{ __('translate.Our Teams') }}</a></li>
-                                <li><a href="{{ route('pricing') }}">{{ __('translate.Pricing Plan') }}</a></li>
                                 <li><a href="{{ route('blogs') }}">{{ __('translate.Blogs') }}</a></li>
                                 <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a></li>
                             </ul>

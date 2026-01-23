@@ -22,6 +22,8 @@ use Modules\Testimonial\App\Models\TestimonialTrasnlation;
 use Modules\Category\Entities\Category;
 use Modules\FAQ\App\Models\Faq;
 use Modules\FAQ\App\Models\FaqTranslation;
+use Modules\Page\App\Models\PrivacyPolicy;
+use Modules\Page\App\Models\TermAndCondition;
 use App\Models\Slider;
 use App\Models\SliderTranslation;
 use Illuminate\Support\Facades\DB;
@@ -45,6 +47,8 @@ class UpdateBarmaglyContentSeeder extends Seeder
         $this->updateTeams();
         $this->updateTestimonials();
         $this->updateFAQs();
+        $this->updatePrivacyPolicy();
+        $this->updateTermsAndConditions();
         
         $this->command->info('✅ Barmagly content update finished!');
     }
@@ -504,69 +508,6 @@ class UpdateBarmaglyContentSeeder extends Seeder
             ],
         ]);
 
-        // Digital Agency Feature Section (used in about_us page)
-        $this->updateContent('digital_agency_feature_section.content', [
-            'heading' => [
-                'en' => 'Providing IT solutions & services for Barmagly',
-                'ar' => 'نوفر حلول تكنولوجيا المعلومات والخدمات لبرمجلي'
-            ],
-            'feature_1_heading' => [
-                'en' => 'Quality Solution for Barmagly',
-                'ar' => 'حلول عالية الجودة لبرمجلي'
-            ],
-            'feature_description_1' => [
-                'en' => 'We provide professional web development, website design, and UI/UX services tailored to your business needs.',
-                'ar' => 'نوفر خدمات تطوير المواقع وتصميمها وUI/UX الاحترافية المصممة خصيصاً لاحتياجات عملك.'
-            ],
-            'feature_1_url' => '/services',
-            'feature_2_heading' => [
-                'en' => 'Amazing Expert Teams',
-                'ar' => 'فريق خبير متميز'
-            ],
-            'feature_description_2' => [
-                'en' => 'Our skilled team of developers and designers is always ready to deliver exceptional results for your projects.',
-                'ar' => 'فريقنا الماهر من المطورين والمصممين دائماً جاهز لتقديم نتائج استثنائية لمشاريعك.'
-            ],
-            'feature_2_url' => '/teams',
-            'feature_3_heading' => [
-                'en' => '24/7 Customer Support',
-                'ar' => 'دعم عاجل للعملاء'
-            ],
-            'feature_description_3' => [
-                'en' => 'We provide round-the-clock customer support to ensure your satisfaction and success.',
-                'ar' => 'نوفر دعم عملاء على مدار الساعة لضمان رضاك ونجاحك.'
-            ],
-            'feature_3_url' => '/contact-us',
-        ]);
-
-        // IT Solutions About Us Section
-        $this->updateContent('it_solutions_about_us.content', [
-            'heading' => [
-                'en' => 'We provide perfect IT solutions & technology',
-                'ar' => 'نوفر حلول تكنولوجيا المعلومات والخدمات المثالية'
-            ],
-            'description' => [
-                'en' => 'During this time, we\'ve built a reputation for excellent customer satisfaction as evidenced by our quality services and professional team.',
-                'ar' => 'خلال هذا الوقت، بنينا سمعة للرضا الممتاز للعملاء كما يتضح من خدماتنا عالية الجودة وفريقنا المحترف.'
-            ],
-            'feature_text_1' => [
-                'en' => 'Providing skill services',
-                'ar' => 'تقديم خدمات المهارات'
-            ],
-            'feature_text_2' => [
-                'en' => 'Urgent customer support',
-                'ar' => 'دعم عاجل للعملاء'
-            ],
-            'feature_text_3' => [
-                'en' => 'Advanced information technology solutions',
-                'ar' => 'حلول تكنولوجيا المعلومات المتقدمة'
-            ],
-            'button_text' => [
-                'en' => 'More About Us',
-                'ar' => 'المزيد عنا'
-            ],
-        ]);
-
         $this->command->info('✅ All Frontend Sections updated!');
     }
 
@@ -632,13 +573,8 @@ class UpdateBarmaglyContentSeeder extends Seeder
                 $listing->sub_category_id = 0;
                 $listing->thumb_image = 'default/service.jpg';
                 $listing->slug = \Illuminate\Support\Str::slug($service['title_en']);
-                // Check if regular_price column exists before setting it
-                if (DB::getSchemaBuilder()->hasColumn('listings', 'regular_price')) {
-                    $listing->regular_price = 0;
-                }
-                if (DB::getSchemaBuilder()->hasColumn('listings', 'offer_price')) {
-                    $listing->offer_price = null;
-                }
+                $listing->regular_price = 0;
+                $listing->offer_price = null;
                 $listing->status = 'enable';
                 $listing->save();
             }
@@ -1066,28 +1002,34 @@ class UpdateBarmaglyContentSeeder extends Seeder
         
         $faqs = [
             [
-                'question_en' => 'Can I pay through the bank?',
-                'question_ar' => 'هل يمكنني الدفع عبر البنك؟',
-                'answer_en' => 'Yes, you can pay through the bank easily. We offer multiple secure payment options including direct bank transfers. Make sure to use official payment channels only and avoid any unauthorized payment methods.',
-                'answer_ar' => 'نعم، يمكنك الدفع عبر البنك بسهولة. نحن نقدم خيارات دفع متعددة وآمنة تشمل التحويلات البنكية المباشرة. تأكد من استخدام قنوات الدفع الرسمية فقط وتجنب أي طرق دفع غير معتمدة.',
+                'question_en' => 'What services does Barmagly provide?',
+                'question_ar' => 'ما هي الخدمات التي تقدمها برمجلي؟',
+                'answer_en' => 'Barmagly specializes in web development, website design, and UI/UX design services. We offer custom web applications, responsive website designs, mobile app development, e-commerce solutions, and comprehensive digital transformation services.',
+                'answer_ar' => 'تتخصص برمجلي في تطوير المواقع وتصميمها وخدمات تصميم UI/UX. نقدم تطبيقات ويب مخصصة وتصاميم مواقع متجاوبة وتطوير تطبيقات الهاتف وحلول المتاجر الإلكترونية وخدمات التحول الرقمي الشاملة.',
             ],
             [
-                'question_en' => 'What precautions should I take to avoid fraud?',
-                'question_ar' => 'ما هي الاحتياطات التي يجب أن أتخذها لتجنب عمليات الاحتيال؟',
-                'answer_en' => 'Always verify payment details, use official communication channels, and never share sensitive information through unsecured platforms.',
-                'answer_ar' => 'تحقق دائماً من تفاصيل الدفع، استخدم قنوات الاتصال الرسمية، ولا تشارك المعلومات الحساسة عبر منصات غير آمنة.',
+                'question_en' => 'How long does it take to complete a web development project?',
+                'question_ar' => 'كم يستغرق إكمال مشروع تطوير موقع؟',
+                'answer_en' => 'Project timelines vary based on complexity and requirements. A simple website typically takes 2-4 weeks, while complex web applications may take 2-6 months. We provide detailed timelines during the initial consultation and keep you updated throughout the development process.',
+                'answer_ar' => 'تختلف المدد الزمنية للمشاريع حسب التعقيد والمتطلبات. الموقع البسيط عادة ما يستغرق 2-4 أسابيع، بينما التطبيقات الويب المعقدة قد تستغرق 2-6 أشهر. نقدم جداول زمنية مفصلة خلال الاستشارة الأولية ونبقيك على اطلاع طوال عملية التطوير.',
             ],
             [
-                'question_en' => 'What should I do if I encounter problems with a client or project?',
-                'question_ar' => 'ماذا يجب أن أفعل إذا واجهت مشاكل مع عميل أو مشروع؟',
-                'answer_en' => 'Contact our support team immediately. We provide 24/7 customer support to help resolve any issues quickly and efficiently.',
-                'answer_ar' => 'اتصل بفريق الدعم لدينا فوراً. نقدم دعم عملاء 24/7 لمساعدتك في حل أي مشاكل بسرعة وكفاءة.',
+                'question_en' => 'Do you provide ongoing support and maintenance?',
+                'question_ar' => 'هل تقدمون دعم وصيانة مستمرة؟',
+                'answer_en' => 'Yes, we offer comprehensive support and maintenance services for all our projects. This includes regular updates, security patches, bug fixes, and technical support. We provide flexible maintenance packages tailored to your needs.',
+                'answer_ar' => 'نعم، نقدم خدمات دعم وصيانة شاملة لجميع مشاريعنا. يشمل ذلك التحديثات المنتظمة وترقيعات الأمان وإصلاح الأخطاء والدعم الفني. نقدم حزم صيانة مرنة مصممة خصيصاً لاحتياجاتك.',
             ],
             [
-                'question_en' => 'Are there any fees associated with using the freelance marketplace?',
-                'question_ar' => 'هل هناك أي رسوم مرتبطة باستخدام سوق العمل الحر؟',
-                'answer_en' => 'Our pricing is transparent. Contact us for detailed information about our service packages and pricing plans.',
-                'answer_ar' => 'أسعارنا شفافة. تواصل معنا للحصول على معلومات مفصلة عن حزم الخدمات وخطط الأسعار.',
+                'question_en' => 'What technologies and frameworks do you use?',
+                'question_ar' => 'ما هي التقنيات والأطر التي تستخدمونها؟',
+                'answer_en' => 'We use modern technologies and frameworks including Laravel, React, Vue.js, Node.js, PHP, JavaScript, and various CMS platforms. Our technology stack is chosen based on project requirements to ensure optimal performance, scalability, and security.',
+                'answer_ar' => 'نستخدم تقنيات وأطر حديثة تشمل Laravel و React و Vue.js و Node.js و PHP و JavaScript ومنصات CMS متنوعة. يتم اختيار مجموعة التقنيات لدينا بناءً على متطلبات المشروع لضمان الأداء الأمثل والقابلية للتوسع والأمان.',
+            ],
+            [
+                'question_en' => 'How can I get a quote for my project?',
+                'question_ar' => 'كيف يمكنني الحصول على عرض سعر لمشروعي؟',
+                'answer_en' => 'You can contact us through our website contact form, email us at info@barmagly.com, or call us at +201010254819. We offer free consultations where we discuss your project requirements and provide detailed quotes based on your needs.',
+                'answer_ar' => 'يمكنك التواصل معنا من خلال نموذج الاتصال على موقعنا أو إرسال بريد إلكتروني إلى info@barmagly.com أو الاتصال بنا على +201010254819. نقدم استشارات مجانية حيث نناقش متطلبات مشروعك ونقدم عروض أسعار مفصلة بناءً على احتياجاتك.',
             ],
         ];
 
@@ -1305,6 +1247,370 @@ class UpdateBarmaglyContentSeeder extends Seeder
 
         $frontend->data_translations = json_encode($existingTranslations);
         $frontend->save();
+    }
+
+    /**
+     * Update Privacy Policy
+     */
+    private function updatePrivacyPolicy(): void
+    {
+        $this->command->info('📝 Updating Privacy Policy...');
+        
+        $privacyPolicyEn = PrivacyPolicy::where('lang_code', 'en')->first();
+        if (!$privacyPolicyEn) {
+            $privacyPolicyEn = new PrivacyPolicy();
+            $privacyPolicyEn->lang_code = 'en';
+        }
+        
+        $privacyPolicyEn->description = '<div class="legal-content">
+    <h2>Privacy Policy</h2>
+    <p><strong>Last Updated:</strong> ' . date('Y-m-d') . '</p>
+    
+    <h3>1. Introduction</h3>
+    <p>Welcome to Barmagly. We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
+    
+    <h3>2. Information We Collect</h3>
+    <p>We may collect the following types of information:</p>
+    <ul>
+        <li><strong>Personal Information:</strong> Name, email address, phone number, and other contact details you provide when contacting us or requesting our services.</li>
+        <li><strong>Project Information:</strong> Details about your project requirements, business information, and any other information you share with us during consultations.</li>
+        <li><strong>Technical Information:</strong> IP address, browser type, device information, and usage data collected automatically when you visit our website.</li>
+    </ul>
+    
+    <h3>3. How We Use Your Information</h3>
+    <p>We use the collected information for the following purposes:</p>
+    <ul>
+        <li>To provide and improve our web development, design, and UI/UX services</li>
+        <li>To communicate with you about your projects and respond to your inquiries</li>
+        <li>To send you updates, newsletters, and marketing communications (with your consent)</li>
+        <li>To analyze website usage and improve user experience</li>
+        <li>To comply with legal obligations and protect our rights</li>
+    </ul>
+    
+    <h3>4. Data Security</h3>
+    <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.</p>
+    
+    <h3>5. Data Sharing and Disclosure</h3>
+    <p>We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
+    <ul>
+        <li>With your explicit consent</li>
+        <li>To comply with legal obligations or court orders</li>
+        <li>To protect our rights, property, or safety</li>
+        <li>With trusted service providers who assist us in operating our business (under strict confidentiality agreements)</li>
+    </ul>
+    
+    <h3>6. Your Rights</h3>
+    <p>You have the right to:</p>
+    <ul>
+        <li>Access and receive a copy of your personal data</li>
+        <li>Request correction of inaccurate information</li>
+        <li>Request deletion of your personal data</li>
+        <li>Object to processing of your personal data</li>
+        <li>Withdraw consent at any time</li>
+    </ul>
+    
+    <h3>7. Cookies and Tracking Technologies</h3>
+    <p>Our website uses cookies and similar tracking technologies to enhance your browsing experience. You can control cookie preferences through your browser settings.</p>
+    
+    <h3>8. Third-Party Links</h3>
+    <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies.</p>
+    
+    <h3>9. Children\'s Privacy</h3>
+    <p>Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children.</p>
+    
+    <h3>10. Changes to This Privacy Policy</h3>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last Updated" date.</p>
+    
+    <h3>11. Contact Us</h3>
+    <p>If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us:</p>
+    <ul>
+        <li><strong>Email:</strong> info@barmagly.com</li>
+        <li><strong>Phone:</strong> +201010254819</li>
+        <li><strong>Address:</strong> Qena-Egypt</li>
+    </ul>
+</div>';
+        $privacyPolicyEn->save();
+        
+        $privacyPolicyAr = PrivacyPolicy::where('lang_code', 'ar')->first();
+        if (!$privacyPolicyAr) {
+            $privacyPolicyAr = new PrivacyPolicy();
+            $privacyPolicyAr->lang_code = 'ar';
+        }
+        
+        $privacyPolicyAr->description = '<div class="legal-content">
+    <h2>سياسة الخصوصية</h2>
+    <p><strong>آخر تحديث:</strong> ' . date('Y-m-d') . '</p>
+    
+    <h3>1. مقدمة</h3>
+    <p>مرحباً بك في برمجلي. نحن ملتزمون بحماية خصوصيتك وضمان أمان معلوماتك الشخصية. توضح سياسة الخصوصية هذه كيفية جمع واستخدام وكشف وحماية معلوماتك عند زيارة موقعنا أو استخدام خدماتنا.</p>
+    
+    <h3>2. المعلومات التي نجمعها</h3>
+    <p>قد نجمع الأنواع التالية من المعلومات:</p>
+    <ul>
+        <li><strong>المعلومات الشخصية:</strong> الاسم وعنوان البريد الإلكتروني ورقم الهاتف وتفاصيل الاتصال الأخرى التي تقدمها عند التواصل معنا أو طلب خدماتنا.</li>
+        <li><strong>معلومات المشروع:</strong> تفاصيل حول متطلبات مشروعك ومعلومات الأعمال وأي معلومات أخرى تشاركها معنا أثناء الاستشارات.</li>
+        <li><strong>المعلومات التقنية:</strong> عنوان IP ونوع المتصفح ومعلومات الجهاز وبيانات الاستخدام التي يتم جمعها تلقائياً عند زيارة موقعنا.</li>
+    </ul>
+    
+    <h3>3. كيفية استخدامنا لمعلوماتك</h3>
+    <p>نستخدم المعلومات المجمعة للأغراض التالية:</p>
+    <ul>
+        <li>لتقديم وتحسين خدماتنا في تطوير المواقع والتصميم وUI/UX</li>
+        <li>للتواصل معك حول مشاريعك والرد على استفساراتك</li>
+        <li>لإرسال التحديثات والنشرات الإخبارية والاتصالات التسويقية (بموافقتك)</li>
+        <li>لتحليل استخدام الموقع وتحسين تجربة المستخدم</li>
+        <li>للامتثال للالتزامات القانونية وحماية حقوقنا</li>
+    </ul>
+    
+    <h3>4. أمان البيانات</h3>
+    <p>نطبق التدابير التقنية والتنظيمية المناسبة لحماية معلوماتك الشخصية من الوصول غير المصرح به أو التعديل أو الكشف أو التدمير. ومع ذلك، لا توجد طريقة نقل عبر الإنترنت آمنة بنسبة 100%.</p>
+    
+    <h3>5. مشاركة البيانات والكشف عنها</h3>
+    <p>لا نبيع أو نتاجر أو نؤجر معلوماتك الشخصية لأطراف ثالثة. قد نشارك معلوماتك فقط في الحالات التالية:</p>
+    <ul>
+        <li>بموافقتك الصريحة</li>
+        <li>للامتثال للالتزامات القانونية أو أوامر المحكمة</li>
+        <li>لحماية حقوقنا أو ممتلكاتنا أو سلامتنا</li>
+        <li>مع مقدمي الخدمات الموثوقين الذين يساعدوننا في تشغيل أعمالنا (بموجب اتفاقيات سرية صارمة)</li>
+    </ul>
+    
+    <h3>6. حقوقك</h3>
+    <p>لديك الحق في:</p>
+    <ul>
+        <li>الوصول والحصول على نسخة من بياناتك الشخصية</li>
+        <li>طلب تصحيح المعلومات غير الدقيقة</li>
+        <li>طلب حذف بياناتك الشخصية</li>
+        <li>الاعتراض على معالجة بياناتك الشخصية</li>
+        <li>سحب الموافقة في أي وقت</li>
+    </ul>
+    
+    <h3>7. ملفات تعريف الارتباط وتقنيات التتبع</h3>
+    <p>يستخدم موقعنا ملفات تعريف الارتباط وتقنيات تتبع مماثلة لتحسين تجربة التصفح لديك. يمكنك التحكم في تفضيلات ملفات تعريف الارتباط من خلال إعدادات المتصفح.</p>
+    
+    <h3>8. روابط الطرف الثالث</h3>
+    <p>قد يحتوي موقعنا على روابط لمواقع طرف ثالث. نحن لسنا مسؤولين عن ممارسات الخصوصية لهذه المواقع الخارجية. نشجعك على مراجعة سياسات الخصوصية الخاصة بهم.</p>
+    
+    <h3>9. خصوصية الأطفال</h3>
+    <p>خدماتنا ليست موجهة للأفراد دون سن 18 عاماً. لا نجمع معلومات شخصية من الأطفال عن قصد.</p>
+    
+    <h3>10. التغييرات على سياسة الخصوصية هذه</h3>
+    <p>قد نحدث سياسة الخصوصية هذه من وقت لآخر. سنخطرك بأي تغييرات عن طريق نشر السياسة الجديدة على هذه الصفحة وتحديث تاريخ "آخر تحديث".</p>
+    
+    <h3>11. اتصل بنا</h3>
+    <p>إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه أو ترغب في ممارسة حقوقك، يرجى الاتصال بنا:</p>
+    <ul>
+        <li><strong>البريد الإلكتروني:</strong> info@barmagly.com</li>
+        <li><strong>الهاتف:</strong> +201010254819</li>
+        <li><strong>العنوان:</strong> قنا-مصر</li>
+    </ul>
+</div>';
+        $privacyPolicyAr->save();
+        
+        $this->command->info('✅ Privacy Policy updated!');
+    }
+
+    /**
+     * Update Terms and Conditions
+     */
+    private function updateTermsAndConditions(): void
+    {
+        $this->command->info('📝 Updating Terms and Conditions...');
+        
+        $termsEn = TermAndCondition::where('lang_code', 'en')->first();
+        if (!$termsEn) {
+            $termsEn = new TermAndCondition();
+            $termsEn->lang_code = 'en';
+        }
+        
+        $termsEn->description = '<div class="legal-content">
+    <h2>Terms and Conditions</h2>
+    <p><strong>Last Updated:</strong> ' . date('Y-m-d') . '</p>
+    
+    <h3>1. Acceptance of Terms</h3>
+    <p>By accessing and using Barmagly\'s website and services, you accept and agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use our services.</p>
+    
+    <h3>2. Services Description</h3>
+    <p>Barmagly provides professional web development, website design, UI/UX design, mobile app development, e-commerce solutions, and related digital services. All services are provided subject to these terms and any specific agreements entered into for individual projects.</p>
+    
+    <h3>3. Project Agreements</h3>
+    <p>Each project will be governed by a separate project agreement that outlines:</p>
+    <ul>
+        <li>Project scope, deliverables, and timeline</li>
+        <li>Pricing and payment terms</li>
+        <li>Intellectual property rights</li>
+        <li>Warranty and support terms</li>
+    </ul>
+    <p>The project agreement will take precedence over these general terms in case of any conflict.</p>
+    
+    <h3>4. Payment Terms</h3>
+    <p>Payment terms will be specified in each project agreement. Generally:</p>
+    <ul>
+        <li>An initial deposit may be required to commence work</li>
+        <li>Progress payments may be scheduled based on project milestones</li>
+        <li>Final payment is due upon project completion and acceptance</li>
+        <li>All prices are in the currency specified in the project agreement</li>
+    </ul>
+    
+    <h3>5. Intellectual Property Rights</h3>
+    <p>Upon full payment, ownership of the custom-developed work will transfer to the client, subject to:</p>
+    <ul>
+        <li>Barmagly retaining rights to use the work in portfolios and marketing materials</li>
+        <li>Third-party components and libraries remaining subject to their respective licenses</li>
+        <li>Pre-existing Barmagly intellectual property remaining with Barmagly</li>
+    </ul>
+    
+    <h3>6. Client Responsibilities</h3>
+    <p>Clients are responsible for:</p>
+    <ul>
+        <li>Providing accurate and complete project requirements</li>
+        <li>Timely feedback and approvals during the development process</li>
+        <li>Providing necessary materials, content, and access credentials</li>
+        <li>Ensuring compliance with applicable laws and regulations</li>
+    </ul>
+    
+    <h3>7. Project Revisions and Changes</h3>
+    <p>Minor revisions are typically included in the project scope. Significant changes or additions may result in additional charges and timeline adjustments, which will be discussed and agreed upon before implementation.</p>
+    
+    <h3>8. Project Delays</h3>
+    <p>Barmagly will make reasonable efforts to meet project deadlines. However, delays may occur due to:</p>
+    <ul>
+        <li>Client delays in providing feedback, approvals, or materials</li>
+        <li>Unforeseen technical challenges</li>
+        <li>Force majeure events</li>
+    </ul>
+    <p>Timeline adjustments will be communicated promptly.</p>
+    
+    <h3>9. Warranty and Support</h3>
+    <p>Barmagly provides a warranty period for completed projects as specified in the project agreement. During this period, we will fix any bugs or defects that are our responsibility at no additional cost. Support beyond the warranty period may be subject to separate maintenance agreements.</p>
+    
+    <h3>10. Limitation of Liability</h3>
+    <p>Barmagly\'s liability is limited to the total project fee paid by the client. We are not liable for indirect, incidental, or consequential damages arising from the use of our services.</p>
+    
+    <h3>11. Confidentiality</h3>
+    <p>Both parties agree to maintain confidentiality of proprietary information shared during the project. Barmagly will not disclose client information or project details to third parties without consent, except as required by law.</p>
+    
+    <h3>12. Termination</h3>
+    <p>Either party may terminate a project agreement with written notice. Upon termination:</p>
+    <ul>
+        <li>Payment is due for all work completed up to the termination date</li>
+        <li>Client receives all deliverables completed to date</li>
+        <li>Confidentiality obligations continue to apply</li>
+    </ul>
+    
+    <h3>13. Dispute Resolution</h3>
+    <p>Any disputes will first be addressed through good faith negotiations. If resolution cannot be reached, disputes will be resolved through appropriate legal channels in accordance with Egyptian law.</p>
+    
+    <h3>14. Modifications to Terms</h3>
+    <p>Barmagly reserves the right to modify these terms at any time. Continued use of our services after changes constitutes acceptance of the modified terms.</p>
+    
+    <h3>15. Contact Information</h3>
+    <p>For questions about these Terms and Conditions, please contact us:</p>
+    <ul>
+        <li><strong>Email:</strong> info@barmagly.com</li>
+        <li><strong>Phone:</strong> +201010254819</li>
+        <li><strong>Address:</strong> Qena-Egypt</li>
+    </ul>
+</div>';
+        $termsEn->save();
+        
+        $termsAr = TermAndCondition::where('lang_code', 'ar')->first();
+        if (!$termsAr) {
+            $termsAr = new TermAndCondition();
+            $termsAr->lang_code = 'ar';
+        }
+        
+        $termsAr->description = '<div class="legal-content">
+    <h2>الشروط والأحكام</h2>
+    <p><strong>آخر تحديث:</strong> ' . date('Y-m-d') . '</p>
+    
+    <h3>1. قبول الشروط</h3>
+    <p>من خلال الوصول إلى موقع برمجلي واستخدامه وخدماته، فإنك تقبل وتوافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي جزء من هذه الشروط، يجب ألا تستخدم خدماتنا.</p>
+    
+    <h3>2. وصف الخدمات</h3>
+    <p>تقدم برمجلي خدمات تطوير المواقع الاحترافية وتصميمها وتصميم UI/UX وتطوير تطبيقات الهاتف وحلول المتاجر الإلكترونية والخدمات الرقمية ذات الصلة. يتم تقديم جميع الخدمات وفقاً لهذه الشروط وأي اتفاقيات محددة يتم إبرامها للمشاريع الفردية.</p>
+    
+    <h3>3. اتفاقيات المشروع</h3>
+    <p>سيتم حكم كل مشروع بموجب اتفاقية مشروع منفصلة تحدد:</p>
+    <ul>
+        <li>نطاق المشروع والنتائج والجدول الزمني</li>
+        <li>التسعير وشروط الدفع</li>
+        <li>حقوق الملكية الفكرية</li>
+        <li>شروط الضمان والدعم</li>
+    </ul>
+    <p>ستأخذ اتفاقية المشروع الأولوية على هذه الشروط العامة في حالة وجود أي تعارض.</p>
+    
+    <h3>4. شروط الدفع</h3>
+    <p>سيتم تحديد شروط الدفع في كل اتفاقية مشروع. بشكل عام:</p>
+    <ul>
+        <li>قد يكون مطلوباً دفعة أولية لبدء العمل</li>
+        <li>قد يتم جدولة مدفوعات التقدم بناءً على معالم المشروع</li>
+        <li>الدفع النهائي مستحق عند اكتمال المشروع وقبوله</li>
+        <li>جميع الأسعار بالعملة المحددة في اتفاقية المشروع</li>
+    </ul>
+    
+    <h3>5. حقوق الملكية الفكرية</h3>
+    <p>عند الدفع الكامل، سينتقل ملكية العمل المطور خصيصاً إلى العميل، مع مراعاة:</p>
+    <ul>
+        <li>احتفاظ برمجلي بحقوق استخدام العمل في المحافظ والمواد التسويقية</li>
+        <li>بقاء مكونات ومكتبات الطرف الثالث خاضعة لتراخيصها الخاصة</li>
+        <li>بقاء الملكية الفكرية الموجودة مسبقاً لبرمجلي مع برمجلي</li>
+    </ul>
+    
+    <h3>6. مسؤوليات العميل</h3>
+    <p>العملاء مسؤولون عن:</p>
+    <ul>
+        <li>توفير متطلبات المشروع الدقيقة والكاملة</li>
+        <li>الملاحظات والموافقات في الوقت المناسب أثناء عملية التطوير</li>
+        <li>توفير المواد والمحتوى وأوراق الاعتماد اللازمة</li>
+        <li>ضمان الامتثال للقوانين واللوائح المعمول بها</li>
+    </ul>
+    
+    <h3>7. مراجعات وتغييرات المشروع</h3>
+    <p>عادة ما يتم تضمين المراجعات البسيطة في نطاق المشروع. قد تؤدي التغييرات أو الإضافات الكبيرة إلى رسوم إضافية وتعديلات على الجدول الزمني، والتي سيتم مناقشتها والاتفاق عليها قبل التنفيذ.</p>
+    
+    <h3>8. تأخيرات المشروع</h3>
+    <p>ستبذل برمجلي جهوداً معقولة للوفاء بالمواعيد النهائية للمشروع. ومع ذلك، قد تحدث تأخيرات بسبب:</p>
+    <ul>
+        <li>تأخيرات العميل في تقديم الملاحظات أو الموافقات أو المواد</li>
+        <li>التحديات التقنية غير المتوقعة</li>
+        <li>أحداث القوة القاهرة</li>
+    </ul>
+    <p>سيتم التواصل حول تعديلات الجدول الزمني على الفور.</p>
+    
+    <h3>9. الضمان والدعم</h3>
+    <p>تقدم برمجلي فترة ضمان للمشاريع المكتملة كما هو محدد في اتفاقية المشروع. خلال هذه الفترة، سنقوم بإصلاح أي أخطاء أو عيوب هي من مسؤوليتنا دون تكلفة إضافية. قد يكون الدعم بعد فترة الضمان خاضعاً لاتفاقيات صيانة منفصلة.</p>
+    
+    <h3>10. الحد من المسؤولية</h3>
+    <p>مسؤولية برمجلي محدودة بإجمالي رسوم المشروع المدفوعة من قبل العميل. نحن لسنا مسؤولين عن الأضرار غير المباشرة أو العرضية أو التبعية الناشئة عن استخدام خدماتنا.</p>
+    
+    <h3>11. السرية</h3>
+    <p>يوافق الطرفان على الحفاظ على سرية المعلومات الخاصة المشتركة أثناء المشروع. لن تكشف برمجلي عن معلومات العميل أو تفاصيل المشروع لأطراف ثالثة دون موافقة، إلا كما هو مطلوب بموجب القانون.</p>
+    
+    <h3>12. الإنهاء</h3>
+    <p>يجوز لأي من الطرفين إنهاء اتفاقية المشروع بإشعار كتابي. عند الإنهاء:</p>
+    <ul>
+        <li>الدفع مستحق لجميع العمل المكتمل حتى تاريخ الإنهاء</li>
+        <li>يحصل العميل على جميع النتائج المكتملة حتى الآن</li>
+        <li>تستمر التزامات السرية في التطبيق</li>
+    </ul>
+    
+    <h3>13. حل النزاعات</h3>
+    <p>سيتم معالجة أي نزاعات أولاً من خلال المفاوضات بحسن نية. إذا لم يتم التوصل إلى حل، سيتم حل النزاعات من خلال القنوات القانونية المناسبة وفقاً للقانون المصري.</p>
+    
+    <h3>14. تعديلات الشروط</h3>
+    <p>تحتفظ برمجلي بالحق في تعديل هذه الشروط في أي وقت. الاستمرار في استخدام خدماتنا بعد التغييرات يشكل قبولاً للشروط المعدلة.</p>
+    
+    <h3>15. معلومات الاتصال</h3>
+    <p>للأسئلة حول هذه الشروط والأحكام، يرجى الاتصال بنا:</p>
+    <ul>
+        <li><strong>البريد الإلكتروني:</strong> info@barmagly.com</li>
+        <li><strong>الهاتف:</strong> +201010254819</li>
+        <li><strong>العنوان:</strong> قنا-مصر</li>
+    </ul>
+</div>';
+        $termsAr->save();
+        
+        $this->command->info('✅ Terms and Conditions updated!');
     }
 }
 

@@ -905,6 +905,51 @@
 
     <!-- End section -->
 
+    <div class="section Barmagly-section-padding2 dark-bg">
+        <div class="container">
+            <div class="Barmagly-section-title light-color center">
+                <h2>{{ getTranslatedValue($expertTeamContent, 'heading', $currentLang) }}</h2>
+            </div>
+            <div class="row">
+                @foreach($teams->take(4) as $team)
+                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="400">
+                    <div class="Barmagly-team-wrap">
+                        <div class="Barmagly-team-thumb">
+                            <img src="{{ asset($team->image) }}" alt="Team Member Image" class="full-img">
+                            <div class="Barmagly-social-icon-box style-three position">
+                                <ul>
+                                    <li>
+                                        <a href="{{ $team->facebook }}" target="_blank">
+                                            <i class="ri-facebook-fill"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ $team->twitter }}" target="_blank">
+                                            <i class="ri-twitter-fill"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ $team->instagram }}" target="_blank">
+                                            <i class="ri-instagram-fill"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="Barmagly-team-data">
+                            <a href="{{ route('teamPerson', $team->slug) }}">
+                                <h5>{{ $team->translate->name }}</h5>
+                            </a>
+                            <p>{{ $team->translate->designation }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- End Team section -->
+
     <div class="section Barmagly-section-padding bg-light1">
         <div class="container">
             <div class="Barmagly-section-title center">
@@ -979,12 +1024,12 @@
                         <div class="Barmagly-blog-content reduced-padding">
                             <div class="Barmagly-blog-meta">
                                 <ul>
-                                    <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->name ?? $blog->category->translate->name ?? '' }}</a></li>
+                                    <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->front_translate?->name ?? $blog->category->name ?? $blog->category->translate->name ?? '' }}</a></li>
                                     <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->created_at->diffForHumans() }}</a></li>
                                 </ul>
                             </div>
                             <a href="{{ route('blog', $blog->slug) }}">
-                                <h4>{{ \Illuminate\Support\Str::limit($blog->title ?? $blog->translate->title, 100) }}</h4>
+                                <h4>{{ \Illuminate\Support\Str::limit($blog->front_translate?->title ?? $blog->title ?? $blog->translate->title, 100) }}</h4>
                             </a>
                             <a class="Barmagly-icon-btn" href="{{ route('blog', $blog->slug) }}"><i
                                     class="icon-show ri-arrow-right-line"></i>
@@ -1024,6 +1069,16 @@
                                             <i class="ri-linkedin-fill"></i>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{ $footer->twitter }}" target="_blank">
+                                            <i class="ri-twitter-fill"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ $footer->instagram }}" target="_blank">
+                                            <i class="ri-instagram-fill"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -1035,8 +1090,6 @@
                             </div>
                             <ul>
                                 <li><a href="{{ route('about-us') }}">{{ __('translate.About Us') }}</a></li>
-                                <li><a href="{{ route('teams') }}">{{ __('translate.Our Team') }}</a></li>
-                                <li><a href="{{ route('pricing') }}">{{ __('translate.Pricing') }}</a></li>
                                 <li><a href="{{ route('blogs') }}">{{ __('translate.Blogs') }}</a></li>
                                 <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a></li>
                             </ul>

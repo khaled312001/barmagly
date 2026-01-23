@@ -14,7 +14,7 @@
             <div class="Barmagly-blog-categorie">
                 <ul>
                     @foreach($categories as $category)
-                        <li><a href="{{ route('blogs', ['category' => $category->slug]) }}">{{ $category->translate->name }}<span>({{ $category->blogs_count }})</span></a></li>
+                        <li><a href="{{ route('blogs', ['category' => $category->slug]) }}">{{ $category->front_translate?->name ?? $category->translate->name }}<span>({{ $category->blogs_count }})</span></a></li>
                     @endforeach
                 </ul>
             </div>

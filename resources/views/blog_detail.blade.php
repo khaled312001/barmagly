@@ -22,12 +22,12 @@
 <!-- Main Start -->
 <div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
     <div class="container">
-        <h1 class="post__title">{{ $blog->translate?->title }}</h1>
+        <h1 class="post__title">{{ $blog->front_translate?->title ?? $blog->translate?->title }}</h1>
         <nav class="breadcrumbs">
             <ul>
                 <li><a href="{{ route('home') }}">{{ __('translate.Home') }}</a></li>
                 <li><a href="{{ route('blogs') }}">{{ __('translate.Blog') }}</a></li>
-                <li aria-current="page">{{ $blog->translate?->title }}</li>
+                <li aria-current="page">{{ $blog->front_translate?->title ?? $blog->translate?->title }}</li>
             </ul>
         </nav>
     </div>
@@ -45,13 +45,13 @@
                     <div class="Barmagly-single-post-meta">
                         <ul>
                             <li><a href=""><i class="ri-calendar-fill"></i>{{ __($blog->created_at->format('d M Y')) }}</a></li>
-                            <li><a href=""><i class="ri-bookmark-fill"></i>{{ $blog->category->translate?->name }}</a></li>
+                            <li><a href=""><i class="ri-bookmark-fill"></i>{{ $blog->category->front_translate?->name ?? $blog->category->translate?->name }}</a></li>
                             <li><a href=""><i class="ri-chat-2-fill"></i> {{ $blog->total_comment }} {{ __('translate.Comments') }}</a></li>
                         </ul>
                     </div>
                     <div class="entry-content">
                         <p>
-                            {!! clean($blog->translate?->description) !!}
+                            {!! clean($blog->front_translate?->description ?? $blog->translate?->description) !!}
                         </p>
 
                         <div class="Barmagly-single-post-tag-wrap">

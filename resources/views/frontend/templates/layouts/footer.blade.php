@@ -32,8 +32,6 @@
                         </div>
                         <ul>
                             <li><a href="{{ route('about-us') }}">{{ __('translate.About Us') }}</a></li>
-                            <li><a href="{{ route('teams') }}">{{ __('translate.Our Team') }}</a></li>
-                            <li><a href="{{ route('pricing') }}">{{ __('translate.Pricing') }}</a></li>
                             <li><a href="{{ route('blogs') }}">{{ __('translate.Blogs') }}</a></li>
                             <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a></li>
                         </ul>
