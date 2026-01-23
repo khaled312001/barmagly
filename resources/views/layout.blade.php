@@ -31,7 +31,7 @@
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/201010254819" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-        <i class="ri-whatsapp-fill"></i>
+        <i class="fab fa-whatsapp"></i>
         <span class="whatsapp-pulse"></span>
     </a>
 

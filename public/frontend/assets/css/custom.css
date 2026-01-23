@@ -1950,25 +1950,27 @@ html[dir="rtl"] .Barmagly-header-social-icons {
 
 /* Floating WhatsApp Button */
 .whatsapp-float {
-    position: fixed;
+    position: fixed !important;
     width: 60px;
     height: 60px;
     bottom: 80px;
     left: 20px;
     background-color: #25d366;
-    color: #ffffff;
+    color: #ffffff !important;
     border-radius: 50%;
     text-align: center;
     font-size: 30px;
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-    z-index: 1000;
-    display: flex;
+    z-index: 9999 !important;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     transition: all 0.3s ease;
     animation: whatsappBounce 2s infinite;
     overflow: visible;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .whatsapp-float:hover {
@@ -1983,6 +1985,8 @@ html[dir="rtl"] .Barmagly-header-social-icons {
     line-height: 1;
     position: relative;
     z-index: 2;
+    display: inline-block;
+    font-size: 32px;
 }
 
 /* Pulse Ring Animation */
