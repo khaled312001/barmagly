@@ -17,7 +17,23 @@ class FooterContrllerController extends Controller
     public function index(Request $request)
     {
         $footer = Footer::first();
+        
+        if (!$footer) {
+            // Create a default footer if it doesn't exist
+            $footer = new Footer();
+            $footer->save();
+        }
+        
         $translate = FooterTranslation::where(['footer_id' => $footer->id, 'lang_code' => $request->lang_code])->first();
+        
+        // If translation doesn't exist for this language, create it
+        if (!$translate) {
+            $translate = new FooterTranslation();
+            $translate->footer_id = $footer->id;
+            $translate->lang_code = $request->lang_code;
+            $translate->about_us = '';
+            $translate->save();
+        }
 
         return view('page::section.footer', [
             'footer' => $footer,
@@ -55,6 +71,10 @@ class FooterContrllerController extends Controller
             ]);
 
             $footer = Footer::first();
+            
+            if (!$footer) {
+                $footer = new Footer();
+            }
 
             $footer->facebook = $request->facebook;
             $footer->twitter = $request->twitter;
@@ -77,8 +97,20 @@ class FooterContrllerController extends Controller
         ]);
 
         $footer = Footer::first();
+        
+        if (!$footer) {
+            $footer = new Footer();
+            $footer->save();
+        }
 
         $translate = FooterTranslation::where(['footer_id' => $footer->id, 'lang_code' => $request->lang_code])->first();
+        
+        if (!$translate) {
+            $translate = new FooterTranslation();
+            $translate->footer_id = $footer->id;
+            $translate->lang_code = $request->lang_code;
+        }
+        
         $translate->about_us = $request->about_us;
         $translate->save();
 
@@ -90,6 +122,21 @@ class FooterContrllerController extends Controller
 
     public function setup_language($lang_code){
         $footer_translates = FooterTranslation::where('lang_code' , admin_lang())->first();
+        
+        if (!$footer_translates) {
+            // If no translation exists, get or create footer first
+            $footer = Footer::first();
+            if (!$footer) {
+                $footer = new Footer();
+                $footer->save();
+            }
+            
+            $footer_translates = new FooterTranslation();
+            $footer_translates->footer_id = $footer->id;
+            $footer_translates->lang_code = admin_lang();
+            $footer_translates->about_us = '';
+            $footer_translates->save();
+        }
 
         $new_trans = new FooterTranslation();
         $new_trans->lang_code = $lang_code;

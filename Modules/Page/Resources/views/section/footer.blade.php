@@ -51,7 +51,7 @@
                                                     $edited_language = $language_list->where('lang_code', request()->get('lang_code'))->first();
                                                 @endphp
 
-                                            <p>{{ __('translate.Your editing mode') }} : <b>{{ $edited_language->lang_name }}</b></p>
+                                            <p>{{ __('translate.Your editing mode') }} : <b>{{ $edited_language->lang_name ?? request()->get('lang_code') }}</b></p>
                                             </div>
                                         </div>
 
@@ -82,7 +82,7 @@
                                 @method('PUT')
 
                                 <input type="hidden" name="lang_code" value="{{ request()->get('lang_code') }}">
-                                <input type="hidden" name="translate_id" value="{{ $translate->id }}">
+                                <input type="hidden" name="translate_id" value="{{ $translate->id ?? '' }}">
 
                                 <div class="row">
                                     <div class="col-12 mg-top-30">
@@ -96,7 +96,7 @@
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.About us') }} </label>
-                                                        <textarea class="crancy__item-input crancy__item-textarea" name="about_us" id="" cols="30" rows="5">{{ $translate->about_us }}</textarea>
+                                                        <textarea class="crancy__item-input crancy__item-textarea" name="about_us" id="" cols="30" rows="5">{{ $translate->about_us ?? '' }}</textarea>
                                                     </div>
                                                 </div>
 
@@ -106,21 +106,21 @@
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Phone') }} </label>
-                                                        <input class="crancy__item-input" type="text" name="phone" value="{{ $footer->phone }}">
+                                                        <input class="crancy__item-input" type="text" name="phone" value="{{ $footer->phone ?? '' }}">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Email') }} </label>
-                                                        <input class="crancy__item-input" type="email" name="email" value="{{ $footer->email }}">
+                                                        <input class="crancy__item-input" type="email" name="email" value="{{ $footer->email ?? '' }}">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Address') }} </label>
-                                                        <input class="crancy__item-input" type="text" name="address" value="{{ $footer->address }}">
+                                                        <input class="crancy__item-input" type="text" name="address" value="{{ $footer->address ?? '' }}">
                                                     </div>
                                                 </div>
 
@@ -129,14 +129,14 @@
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Play store link') }} </label>
-                                                        <input class="crancy__item-input" type="text" name="playstore" value="{{ $footer->playstore }}">
+                                                        <input class="crancy__item-input" type="text" name="playstore" value="{{ $footer->playstore ?? '' }}">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.App store link') }} </label>
-                                                        <input class="crancy__item-input" type="text" name="appstore" value="{{ $footer->appstore }}">
+                                                        <input class="crancy__item-input" type="text" name="appstore" value="{{ $footer->appstore ?? '' }}">
                                                     </div>
                                                 </div>
 
@@ -145,7 +145,7 @@
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Copyright') }} </label>
-                                                        <input class="crancy__item-input" type="text" name="copyright" value="{{ $footer->copyright }}">
+                                                        <input class="crancy__item-input" type="text" name="copyright" value="{{ $footer->copyright ?? '' }}">
                                                     </div>
                                                 </div>
 
@@ -162,28 +162,28 @@
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Facebook') }} </label>
-                                                        <input class="crancy__item-input" type="text" name="facebook" value="{{ $footer->facebook }}">
+                                                        <input class="crancy__item-input" type="text" name="facebook" value="{{ $footer->facebook ?? '' }}">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Twitter') }} </label>
-                                                        <input class="crancy__item-input" type="text" name="twitter" value="{{ $footer->twitter }}">
+                                                        <input class="crancy__item-input" type="text" name="twitter" value="{{ $footer->twitter ?? '' }}">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Linkedin') }} </label>
-                                                        <input class="crancy__item-input" type="text" name="linkedin" value="{{ $footer->linkedin }}">
+                                                        <input class="crancy__item-input" type="text" name="linkedin" value="{{ $footer->linkedin ?? '' }}">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Instagram') }} </label>
-                                                        <input class="crancy__item-input" type="text" name="instagram" value="{{ $footer->instagram }}">
+                                                        <input class="crancy__item-input" type="text" name="instagram" value="{{ $footer->instagram ?? '' }}">
                                                     </div>
                                                 </div>
 

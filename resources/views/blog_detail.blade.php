@@ -51,7 +51,6 @@
                         <ul>
                             <li><a href=""><i class="ri-calendar-fill"></i>{{ __($blog->created_at->format('d M Y')) }}</a></li>
                             <li><a href=""><i class="ri-bookmark-fill"></i>{{ $blog->category?->front_translate?->name ?? $blog->category?->translate?->name ?? 'Uncategorized' }}</a></li>
-                            <li><a href=""><i class="ri-chat-2-fill"></i> {{ $blog->total_comment }} {{ __('translate.Comments') }}</a></li>
                         </ul>
                     </div>
                     <div class="entry-content">
@@ -101,85 +100,6 @@
                             @endif
                         </div>
 
-                        <div class="Barmagly-post-comment">
-                            <h3>{{ __('translate.Comments:') }}</h3>
-                            <ul>
-                                @foreach ($blog_comments as $blog_comment)
-                                <li>
-                                    <div class="Barmagly-post-comment-wrap">
-                                        <div class="Barmagly-post-comment-thumb">
-                                            <img src="{{ asset($general_setting->default_avatar ?? '') }}" alt="">
-                                        </div>
-                                        <div class="Barmagly-post-comment-data">
-                                            <p>
-                                                {{ html_decode($blog_comment->comment) }}
-                                            </p>
-                                            <strong>{{ html_decode($blog_comment->name) }}</strong> <span>{{ $blog_comment->created_at->format('d M Y') }}</span>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <div class="Barmagly-comment-box">
-                            <h3>{{ __('translate.Leave a comments:') }}</h3>
-                            <form action="{{ route('store-blog-comment', $blog->id) }}" method="POST">
-                                @csrf
-                                <div class="Barmagly-comment-box-form">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="Barmagly-comment-form">
-                                                <input
-                                                    type="text"
-                                                    id="name"
-                                                    name="name"
-                                                    value="{{ old('name') }}"
-                                                    placeholder="Name"
-                                                >
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="Barmagly-comment-form">
-                                                <input
-                                                    type="email"
-                                                    id="email"
-                                                    name="email"
-                                                    value="{{ old('email') }}"
-                                                    placeholder="Email"
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Barmagly-comment-form">
-                                       <textarea
-                                           id="desc"
-                                           name="comment"
-                                           placeholder="Comment"
-                                       >{{ old('comment') }}
-                                       </textarea>
-                                    </div>
-                                    <div class="Barmagly-check">
-                                        <input type="checkbox" id="css">
-                                        <label for="css">
-                                            {{ __('translate.Save my name, email, and website in this browser for the next time I comment') }}.
-                                        </label>
-                                    </div>
-
-                                    @if(isset($general_setting->recaptcha_status) && $general_setting->recaptcha_status == 1)
-                                        <div class="contact-form-input col-lg-12 mt-4">
-                                            <div class="g-recaptcha" data-sitekey="{{ $general_setting->recaptcha_site_key ?? '' }}"></div>
-                                        </div>
-                                    @endif
-
-                                    <button id="Barmagly-default-btn" type="submit" data-text="Send Message">
-                                        <span class="btn-wraper">
-                                            {{ __('translate.Send Message') }}
-                                        </span>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -191,7 +111,3 @@
     <!-- End Main Blog Details -->
 @endsection
 
-@push('js_section')
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-@endpush
