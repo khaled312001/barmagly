@@ -453,7 +453,7 @@ class UpdateBarmaglyContentSeeder extends Seeder
             ],
             'office_hours' => [
                 'en' => 'Monday - Friday: 9:00 AM - 6:00 PM',
-                'ar' => 'الاثنين - الجمعة: 9:00 صباحاً - 6:00 مساءً'
+                'ar' => 'الأحد - الجمعة: 9:00 صباحاً - 6:00 مساءً'
             ],
         ]);
 
