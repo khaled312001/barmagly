@@ -17,78 +17,6 @@
             </li>
 
 
-            <li class="{{ Route::is('admin.orders') || Route::is('admin.order') || Route::is('admin.active-orders') || Route::is('admin.reject-orders') || Route::is('admin.delivered-orders') || Route::is('admin.complete-orders') || Route::is('admin.pending-payment-orders') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__order"><span class="menu-bar__text">
-                <span class="crancy-menu-icon crancy-svg-icon__v1">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11.5 8H20.196C20.8208 8 21.1332 8 21.3619 8.10084C22.3736 8.5469 21.9213 9.67075 21.7511 10.4784C21.7205 10.6235 21.621 10.747 21.4816 10.8132C21.1491 10.971 20.8738 11.2102 20.6797 11.5M7.5 8H3.80397C3.17922 8 2.86684 8 2.63812 8.10084C1.6264 8.5469 2.07874 9.67075 2.24894 10.4784C2.27952 10.6235 2.37896 10.747 2.51841 10.8132C3.09673 11.0876 3.50177 11.6081 3.60807 12.2134L4.20066 15.5878C4.46138 17.0725 4.55052 19.1942 5.8516 20.2402C6.8062 21 8.18162 21 10.9325 21H13.0675C13.2156 21 12.5 21.0001 13 21" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round"/>
-                <g clip-path="url(#clip0_8302_44)">
-                <path d="M14.8333 14.5H19.8333" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M14.8333 17H21.5" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M14.8333 19.5H19.2778" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-                <path d="M6.5 11L10 3M15 3L17.5 8" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round"/>
-                <defs>
-                <clipPath id="clip0_8302_44">
-                <rect width="8.33333" height="8.33333" fill="white" transform="translate(14 12.8333)"/>
-                </clipPath>
-                </defs>
-                </svg>
-
-
-
-                </span>
-
-                <span class="menu-bar__name">{{ __('translate.Manage Order') }}</span></span> <span class="crancy__toggle"></span></a></span>
-                <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__order"  data-bs-parent="#CrancyMenu">
-                    <ul class="menu-bar__one-dropdown">
-
-
-                        <li><a href="{{ route('admin.orders') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.All Orders') }}</span></span></a></li>
-
-                        <li><a href="{{ route('admin.active-orders') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Active Orders') }}</span></span></a></li>
-
-                        <li><a href="{{ route('admin.reject-orders') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Rejected Orders') }}</span></span></a></li>
-
-                        <li><a href="{{ route('admin.delivered-orders') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Delivered Orders') }}</span></span></a></li>
-
-                        <li><a href="{{ route('admin.complete-orders') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Complete Orders') }}</span></span></a></li>
-
-                        <li><a href="{{ route('admin.pending-payment-orders') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Pending Payment Order') }}</span></span></a></li>
-
-                    </ul>
-                </div>
-            </li>
-
-
-
-            <li class="{{ Route::is('admin.product.index') || Route::is('admin.product.create') || Route::is('admin.product.edit') || Route::is('admin.brand.*') || Route::is('admin.category.*') || Route::is('admin.sub-category.*') ? 'active' : '' }}" >
-                <a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__ecommerce"><span class="menu-bar__text">
-            <span class="crancy-menu-icon crancy-svg-icon__v1">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M11.5 8H20.196C20.8208 8 21.1332 8 21.3619 8.10084C22.3736 8.5469 21.9213 9.67075 21.7511 10.4784C21.7205 10.6235 21.621 10.747 21.4816 10.8132C20.9033 11.0876 20.4982 11.6081 20.3919 12.2134L19.7993 15.5878C19.5386 17.0725 19.4495 19.1943 18.1484 20.2402C17.1938 21 15.8184 21 13.0675 21H10.9325C8.18162 21 6.8062 21 5.8516 20.2402C4.55052 19.1942 4.46138 17.0725 4.20066 15.5878L3.60807 12.2134C3.50177 11.6081 3.09673 11.0876 2.51841 10.8132C2.37896 10.747 2.27952 10.6235 2.24894 10.4784C2.07874 9.67075 1.6264 8.5469 2.63812 8.10084C2.86684 8 3.17922 8 3.80397 8H7.5" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M14 12H10" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6.5 11L10 3M15 3L17.5 8" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round"/>
-</svg>
-
-            </span>
-
-                <span class="menu-bar__name">{{ __('translate.Manage Product') }}</span></span> <span class="crancy__toggle"></span></a></span>
-                <div class="collapse crancy__dropdown" id="menu-item__ecommerce"  data-bs-parent="#CrancyMenu">
-                    <ul class="menu-bar__one-dropdown">
-                        <li><a href="{{ route('admin.product.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Product') }}</span></span></a></li>
-
-                        <li><a href="{{ route('admin.product.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Product List') }}</span></span></a></li>
-
-                        <li><a href="{{ route('admin.category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Category List') }}</span></span></a></li>
-
-                        <li><a href="{{ route('admin.sub-category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Sub Categories') }}</span></span></a></li>
-
-                        <li><a href="{{ route('admin.brand.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Brand List') }}</span></span></a></li>
-
-                    </ul>
-                </div>
-            </li>
 
 
             <li class="{{ Route::is('admin.product.review.list') ? 'active' : '' }}">
@@ -107,21 +35,6 @@
                 </a>
             </li>
 
-            <li class="{{ Route::is('admin.shipping-method.index') ? 'active' : '' }}">
-                <a class="collapsed" href="{{ route('admin.shipping-method.index') }}">
-                    <span class="menu-bar__text">
-                        <span class="crancy-menu-icon crancy-svg-icon__v1">
-                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M19.5 17.5C19.5 18.8807 18.3807 20 17 20C15.6193 20 14.5 18.8807 14.5 17.5C14.5 16.1193 15.6193 15 17 15C18.3807 15 19.5 16.1193 19.5 17.5Z" stroke="currentcolor" stroke-width="1.5"/>
-<path d="M9.5 17.5C9.5 18.8807 8.38071 20 7 20C5.61929 20 4.5 18.8807 4.5 17.5C4.5 16.1193 5.61929 15 7 15C8.38071 15 9.5 16.1193 9.5 17.5Z" stroke="currentcolor" stroke-width="1.5"/>
-<path d="M14.5 17.5H9.5M15 15.5V7C15 5.58579 15 4.87868 14.5607 4.43934C14.1213 4 13.4142 4 12 4H5C3.58579 4 2.87868 4 2.43934 4.43934C2 4.87868 2 5.58579 2 7V15C2 15.9346 2 16.4019 2.20096 16.75C2.33261 16.978 2.52197 17.1674 2.75 17.299C3.09808 17.5 3.56538 17.5 4.5 17.5M15.5 6.5H17.3014C18.1311 6.5 18.5459 6.5 18.8898 6.6947C19.2336 6.8894 19.4471 7.2451 19.8739 7.95651L21.5725 10.7875C21.7849 11.1415 21.8911 11.3186 21.9456 11.5151C22 11.7116 22 11.918 22 12.331V15C22 15.9346 22 16.4019 21.799 16.75C21.6674 16.978 21.478 17.1674 21.25 17.299C20.9019 17.5 20.4346 17.5 19.5 17.5" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-                        </span>
-                        <span class="menu-bar__name">{{ __('translate.Shipping') }}</span>
-                    </span>
-                </a>
-            </li>
 
 
             <h4 class="admin-menu__title pt-2">{{ __('translate.Team & Users') }}</h4>
@@ -368,31 +281,6 @@
                 <span class="menu-bar__name">{{ __('translate.Setting') }}</span></span></a>
             </li>
 
-            <li class="{{ Route::is('admin.multi-currency.*') ? 'active' : '' }}""><a class="collapsed" href="{{ route('admin.multi-currency.index') }}">
-                <span class="menu-bar__text">
-                    <span class="crancy-menu-icon crancy-svg-icon__v1">
-                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_8307_123)">
-<path d="M8.29266 6.82588H6.76339C6.39539 6.82588 6.09595 6.52612 6.09595 6.15769C6.09595 5.788 6.39492 5.48951 6.76329 5.48951C6.76673 5.48951 6.77012 5.48955 6.77355 5.48955H8.23798C8.50094 5.49219 8.76099 5.61031 8.95172 5.81398C9.21826 6.09849 9.66494 6.11299 9.94946 5.84654C10.234 5.58 10.2486 5.13332 9.98202 4.8488C9.52753 4.36362 8.89487 4.08264 8.24621 4.07779C8.24442 4.07779 8.24268 4.07779 8.24094 4.07779H8.23393V3.45054C8.23393 3.06071 7.91788 2.74466 7.52805 2.74466C7.13821 2.74466 6.82216 3.06071 6.82216 3.45054V4.07774C5.54099 4.07774 4.68423 5.06066 4.68423 6.15765C4.68423 7.30452 5.61694 8.2376 6.76343 8.2376H8.29271C8.66071 8.2376 8.96014 8.53732 8.96014 8.90574C8.96014 9.27548 8.66118 9.57393 8.29285 9.57393C8.28941 9.57393 8.28598 9.57388 8.28259 9.57388H6.6848C6.49906 9.572 6.30183 9.50499 6.12918 9.38513C5.80889 9.16268 5.36908 9.24212 5.14678 9.56245C4.92447 9.88268 5.00381 10.3225 5.32409 10.5448C5.83252 10.8978 6.29045 10.9856 6.82221 10.9856V11.6128C6.82221 12.0027 7.13826 12.3187 7.52809 12.3187C7.91793 12.3187 8.23398 12.0027 8.23398 11.6128V10.9856C9.52438 10.9856 10.3719 9.99421 10.3719 8.90574C10.3719 7.75892 9.43915 6.82588 8.29266 6.82588Z" fill="currentcolor"/>
-<path d="M14.8918 9.104C15.8915 4.39628 12.2852 0 7.52809 0C3.37708 0 0 3.37878 0 7.53181C0 12.2915 4.39774 15.9055 9.10918 14.897C8.11012 19.588 11.701 24 16.472 24C20.6229 24 24 20.6213 24 16.4682C24 11.7099 19.6027 8.09318 14.8918 9.104ZM1.41176 7.53181C1.41176 4.15722 4.15553 1.41176 7.52809 1.41176C11.7741 1.41176 14.7432 5.66546 13.2665 9.65449C11.6841 10.4026 10.4027 11.6864 9.65708 13.2707C5.67172 14.7542 1.41176 11.7869 1.41176 7.53181ZM16.472 22.5882C13.0994 22.5882 10.3557 19.8428 10.3557 16.4682C10.3557 13.0937 13.0994 10.3483 16.472 10.3483C19.8445 10.3483 22.5882 13.0937 22.5882 16.4682C22.5882 19.8428 19.8445 22.5882 16.472 22.5882Z" fill="currentcolor"/>
-<path d="M18.8807 18.9434C17.8953 18.6306 16.8655 18.5312 15.8505 18.6464C15.9936 18.2075 16.0944 17.7572 16.1524 17.3001H16.9983C17.3881 17.3001 17.7041 16.984 17.7041 16.5942C17.7041 16.2043 17.3881 15.8883 16.9983 15.8883H16.1946C16.1801 15.6651 16.1711 15.6014 16.1113 15.0562C16.0123 14.1525 17.134 13.6692 17.7278 14.3389C17.9864 14.6306 18.4326 14.6576 18.7243 14.3988C19.016 14.1402 19.0428 13.694 18.7841 13.4023C17.2861 11.7125 14.4586 12.9377 14.708 15.21C14.7717 15.791 14.7669 15.7389 14.7789 15.8882H14.2769C13.887 15.8882 13.571 16.2043 13.571 16.5941C13.571 16.984 13.887 17.3 14.2769 17.3H14.7261C14.6175 17.9871 14.3884 18.6528 14.0431 19.2725C13.7382 19.8197 14.2478 20.4657 14.851 20.2955C16.0463 19.9591 17.1609 19.8784 18.4536 20.2889C18.8246 20.4067 19.2219 20.2018 19.34 19.8297C19.4578 19.4581 19.2522 19.0613 18.8807 18.9434Z" fill="currentcolor"/>
-<path d="M17.5294 2.21987C18.9126 2.21987 20.3826 3.26434 20.3826 5.20001V5.86467L19.7469 5.22862C19.4714 4.95286 19.0244 4.95286 18.7487 5.22834C18.4729 5.50392 18.4728 5.95088 18.7484 6.2266L20.5892 8.06848C20.8623 8.34189 21.3106 8.34589 21.5877 8.06848L23.4286 6.2266C23.7042 5.95088 23.7041 5.50396 23.4283 5.22834C23.1526 4.95272 22.7057 4.95286 22.4301 5.22862L21.7943 5.86472V5.20001C21.7943 2.63196 19.8434 0.808105 17.5293 0.808105C17.1394 0.808105 16.8234 1.12415 16.8234 1.51399C16.8234 1.90382 17.1395 2.21987 17.5294 2.21987Z" fill="currentcolor"/>
-<path d="M6.47064 21.7801C5.08744 21.7801 3.61737 20.7356 3.61737 18.8V18.1353L4.25313 18.7714C4.52866 19.047 4.97553 19.0473 5.25139 18.7716C5.52716 18.4961 5.52725 18.0491 5.25167 17.7734L3.41078 15.9315C3.1377 15.6578 2.68847 15.6547 2.41229 15.9315L0.571297 17.7734C0.29572 18.0492 0.295814 18.4961 0.571579 18.7717C0.84725 19.0473 1.29421 19.0472 1.56984 18.7714L2.2056 18.1353V18.8C2.2056 21.3681 4.15652 23.1919 6.47064 23.1919C6.86047 23.1919 7.17652 22.8758 7.17652 22.486C7.17652 22.0962 6.86047 21.7801 6.47064 21.7801Z" fill="currentcolor"/>
-</g>
-<defs>
-<clipPath id="clip0_8307_123">
-<rect width="24" height="24" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-
-
-                    </span>
-                    <span class="menu-bar__name">{{ __('translate.Multi Currency') }}</span>
-                </span>
-
-                </a>
-            </li>
 
             <li class="{{ Route::is('admin.language.*') || Route::is('admin.theme-language') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__languages"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
@@ -508,19 +396,6 @@
                 <span class="menu-bar__name">{{ __('translate.SEO Setup') }}</span></span></a>
             </li>
 
-            <li class="{{ Route::is('admin.paymentgateway') ? 'active' : '' }}"><a class="collapsed" href="{{ route('admin.paymentgateway') }}"><span class="menu-bar__text">
-                <span class="crancy-menu-icon crancy-svg-icon__v1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 14C16 14.8284 16.6716 15.5 17.5 15.5C18.3284 15.5 19 14.8284 19 14C19 13.1716 18.3284 12.5 17.5 12.5C16.6716 12.5 16 13.1716 16 14Z" stroke="currentcolor" stroke-width="1.5"/>
-<path d="M4 20C2.89543 20 2 19.1046 2 18C2 16.8954 2.89543 16 4 16C5.10457 16 6 17.3333 6 18C6 18.6667 5.10457 20 4 20Z" stroke="currentcolor" stroke-width="1.5"/>
-<path d="M8 20C6.89543 20 6 18.5 6 18C6 17.5 6.89543 16 8 16C9.10457 16 10 16.8954 10 18C10 19.1046 9.10457 20 8 20Z" stroke="currentcolor" stroke-width="1.5"/>
-<path d="M13 20H16C18.8284 20 20.2426 20 21.1213 19.1213C22 18.2426 22 16.8284 22 14V13C22 10.1716 22 8.75736 21.1213 7.87868C20.48 7.23738 19.5534 7.06413 18 7.01732M18 7.01732C17.425 7 16.7641 7 16 7H10M18 7.01732C18 6.06917 18 5.5951 17.8425 5.22208C17.6399 4.7421 17.2579 4.36014 16.7779 4.15749C16.4049 4 15.9308 4 14.9827 4H10C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 7.22876 2 11V13" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round"/>
-</svg>
-
-
-                </span>
-                <span class="menu-bar__name">{{ __('translate.Payment Method') }}</span></span></a>
-            </li>
 
         </ul>
     </div>
@@ -551,38 +426,6 @@
                 </a>
             </li>
 
-            <li class="{{ Route::is('admin.newsletter-list') || Route::is('admin.newsletter-email') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__apps_newsletter"><span class="menu-bar__text">
-                <span class="crancy-menu-icon crancy-svg-icon__v1">
-                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10.5 8H18.5M10.5 12H13M18.5 12H16M10.5 16H13M18.5 16H16" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7 7.5H6C4.11438 7.5 3.17157 7.5 2.58579 8.08579C2 8.67157 2 9.61438 2 11.5V18C2 19.3807 3.11929 20.5 4.5 20.5C5.88071 20.5 7 19.3807 7 18V7.5Z" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M16 3.5H11C10.07 3.5 9.60504 3.5 9.22354 3.60222C8.18827 3.87962 7.37962 4.68827 7.10222 5.72354C7 6.10504 7 6.57003 7 7.5V18C7 19.3807 5.88071 20.5 4.5 20.5H16C18.8284 20.5 20.2426 20.5 21.1213 19.6213C22 18.7426 22 17.3284 22 14.5V9.5C22 6.67157 22 5.25736 21.1213 4.37868C20.2426 3.5 18.8284 3.5 16 3.5Z" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-
-                </span>
-                <span class="menu-bar__name">{{ __('translate.Newsletter') }}</span></span> <span class="crancy__toggle"></span></a></span>
-                <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__apps_newsletter"  data-bs-parent="#CrancyMenu">
-                    <ul class="menu-bar__one-dropdown">
-
-                        <li><a href="{{ route('admin.newsletter-list') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Subscriber List') }}</span></span></a></li>
-
-                        <li><a href="{{ route('admin.newsletter-email') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Send Mail') }}</span></span></a></li>
-
-                    </ul>
-                </div>
-            </li>
-
-            <li><a class="collapsed" href="{{ route('admin.cache-clear') }}"><span class="menu-bar__text">
-                <span class="crancy-menu-icon crancy-svg-icon__v1">
-                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21.6805 5.42846C21.3463 5.19352 20.8912 5.2823 20.6635 5.62676L19.1708 7.88444C18.783 6.02074 17.8848 4.30822 16.5482 2.92959C14.7168 1.04041 12.2819 0 9.69185 0C7.10188 0 4.66687 1.04041 2.83548 2.92959C-0.945161 6.82953 -0.945161 13.1752 2.83548 17.075C4.72581 19.025 7.20883 20 9.69185 20C12.1749 20 14.6579 19.025 16.5482 17.075C16.834 16.7802 16.834 16.3022 16.5482 16.0073C16.2624 15.7125 15.799 15.7125 15.5133 16.0073C12.3033 19.3185 7.08051 19.3185 3.87061 16.0073C0.660715 12.6962 0.660715 7.30837 3.87061 3.99718C5.42555 2.39328 7.49289 1.50989 9.69195 1.50989C11.891 1.50989 13.9584 2.39328 15.5133 3.99728C16.7134 5.23519 17.4956 6.79068 17.7908 8.47934L15.1929 6.65157C14.859 6.41663 14.4037 6.50541 14.176 6.84987C13.9482 7.19432 14.0343 7.664 14.3682 7.89894L18.2435 10.6255C18.2437 10.6256 18.2439 10.6258 18.2441 10.626C18.3054 10.6691 18.3707 10.7008 18.438 10.7224C18.44 10.7231 18.442 10.7242 18.444 10.7248C18.4554 10.7285 18.467 10.7299 18.4786 10.7329C18.5371 10.748 18.5964 10.7573 18.6558 10.7573C18.8896 10.7573 19.1194 10.6419 19.2611 10.4277L21.8727 6.47763C22.1004 6.13307 22.0144 5.66339 21.6805 5.42846Z" fill="currentcolor"/>
-                </svg>
-
-                </span>
-                <span class="menu-bar__name">{{ __('translate.Cache Clear') }}</span></span></a>
-            </li>
 
             <li><a href="javascript:;" onclick="event.preventDefault();
                 document.getElementById('admin-sidebar-logout').submit();" class="collapsed"><span class="menu-bar__text">

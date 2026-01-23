@@ -37,15 +37,15 @@
                                         <div class="Barmagly-portfolio-wrap">
                                             <div class="Barmagly-portfolio-thumb Barmagly-portfolio-thumb-2 Barmagly-portfolio-thumb-main   ">
                                                 <img src="{{ asset($project->thumb_image) }}" alt="Image" class="full-img">
-                                                <a class="Barmagly-portfolio-btn"
-                                                   href="{{ route('portfolio.show', $project->slug) }}">
-                                                    <span class="p-btn-wraper"><i
-                                                            class="ri-arrow-right-up-line"></i></span>
-                                                </a>
-                                                <div class="Barmagly-portfolio-data">
-                                                    <a href="{{ route('portfolio.show', $project->slug) }}">
-                                                        <h4>{{ $project->title ?? $project->translate->title }}</h4>
+                                                @if($project->website_url)
+                                                    <a class="Barmagly-portfolio-btn"
+                                                       href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer">
+                                                        <span class="p-btn-wraper"><i
+                                                                class="ri-arrow-right-up-line"></i></span>
                                                     </a>
+                                                @endif
+                                                <div class="Barmagly-portfolio-data">
+                                                    <h4>{{ $project->title ?? $project->translate->title }}</h4>
                                                     <p>@if($project->category)
                                                             {{ $project->category->name ?? $project->category->translate?->name }}
                                                         @endif
@@ -128,14 +128,14 @@
                             <div class="Barmagly-portfolio-wrap">
                                 <div class="Barmagly-portfolio-thumb Barmagly-portfolio-thumb-digital">
                                     <img src="{{ asset($project->thumb_image) }}" alt="Image" class="full-img">
-                                    <a class="Barmagly-portfolio-btn"
-                                       href="{{ route('portfolio.show', $project->slug) }}">
-                                        <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                                    </a>
-                                    <div class="Barmagly-portfolio-data">
-                                        <a href="{{ route('portfolio.show', $project->slug) }}">
-                                            <h4>{{ $project->title ?? $project->translate->title }}</h4>
+                                    @if($project->website_url)
+                                        <a class="Barmagly-portfolio-btn"
+                                           href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer">
+                                            <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
                                         </a>
+                                    @endif
+                                    <div class="Barmagly-portfolio-data">
+                                        <h4>{{ $project->title ?? $project->translate->title }}</h4>
                                         <p>@if($project->category)
                                                 {{ $project->category->name ?? $project->category->translate?->name }}
                                             @endif
