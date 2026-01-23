@@ -737,11 +737,6 @@ class UpdateBarmaglyContentSeeder extends Seeder
     {
         $this->command->info('📝 Updating Blogs...');
         
-        // Delete all existing blogs first
-        $this->command->info('🗑️ Deleting existing blogs...');
-        BlogTranslation::query()->delete();
-        Blog::query()->delete();
-        
         $blogCategory = BlogCategory::where('status', 1)->first();
         if (!$blogCategory) {
             $blogCategory = new BlogCategory();
@@ -763,177 +758,65 @@ class UpdateBarmaglyContentSeeder extends Seeder
 
         $blogs = [
             [
-                'title_en' => 'Professional Web Development Services by Barmagly: Transform Your Business Online',
-                'title_ar' => 'خدمات تطوير المواقع الاحترافية من برمجلي: حول عملك إلى الإنترنت',
-                'description_en' => '<p>In today\'s digital age, having a professional website is essential for any business. <a href="https://barmagly.tech" target="_blank">Barmagly</a> offers comprehensive web development services that help businesses establish a strong online presence.</p>',
-                'description_ar' => '<h2>لماذا تحتاج إلى موقع ويب احترافي من برمجلي؟</h2>
-                
-                <p>في العصر الرقمي الحالي، أصبح وجود موقع ويب احترافي ضرورياً لأي عمل تجاري يريد النجاح والوصول إلى عملاء جدد. <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> تقدم خدمات تطوير مواقع شاملة ومتخصصة تساعد الشركات والمؤسسات على إنشاء وجود قوي ومؤثر على الإنترنت. فريق المطورين الخبراء لدينا في <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> متخصص في إنشاء تطبيقات ويب مخصصة باستخدام أحدث التقنيات وأفضل الممارسات العالمية.</p>
-                
-                <h3>خدمات تطوير المواقع من برمجلي</h3>
-                
-                <p>عندما تختار <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> لاحتياجات تطوير المواقع الخاصة بك، تحصل على حلول متطورة قابلة للتوسع وآمنة وسهلة الاستخدام. سواء كنت بحاجة إلى موقع شركة بسيط أو تطبيق ويب معقد، تم تصميم <a href="https://barmagly.tech/services" target="_blank" rel="nofollow">خدمات تطوير المواقع من برمجلي</a> لتلبية متطلباتك المحددة. يمكنك زيارة موقعنا الرسمي <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> لمعرفة المزيد عن خدماتنا، أو متابعتنا على <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">فيسبوك</a> و <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">لينكد إن</a>.</p>
-                
-                <h3>نهج برمجلي في تطوير المواقع</h3>
-                
-                <p>في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a>، نفهم أن كل عمل تجاري فريد من نوعه. لهذا السبب نتبع نهجاً شخصياً في تطوير المواقع، مما يضمن أن موقعك يعكس هوية علامتك التجارية ويلبي أهداف عملك. زر <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> لمعرفة المزيد عن خبرتنا في تطوير المواقع وكيف يمكننا المساعدة في تحويل وجودك الرقمي. تابع <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي على فيسبوك</a> للحصول على آخر الأخبار والتحديثات.</p>
-                
-                <h3>التقنيات الحديثة في تطوير المواقع</h3>
-                
-                <p>يستخدم فريق التطوير لدينا في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> أطر عمل وتقنيات حديثة لبناء مواقع متجاوبة وسريعة التحميل توفر تجربة مستخدم ممتازة. مع <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a>، يمكنك الوثوق بأن مشروع تطوير موقعك سيتم إنجازه في الوقت المحدد وفي حدود الميزانية. اتصل بـ <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> اليوم لمناقشة احتياجات تطوير المواقع الخاصة بك! يمكنك أيضاً متابعة <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">شركة برمجلي على لينكد إن</a> لمعرفة المزيد عن مشاريعنا الناجحة.</p>
-                
-                <h3>فوائد التعامل مع برمجلي</h3>
-                
-                <p>عندما تتعامل مع <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a>، تحصل على فريق محترف من المطورين والمصممين الذين يعملون بجد لضمان نجاح مشروعك. <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> توفر لك دعم فني مستمر وخدمات صيانة دورية لضمان استمرار عمل موقعك بكفاءة عالية. زوروا موقعنا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تواصلوا معنا عبر <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي الرسمية على فيسبوك</a>.</p>',
+                'title_en' => 'Planning your online business goals with an expert',
+                'title_ar' => 'تخطيط أهداف عملك عبر الإنترنت مع أخصائي',
+                'description_en' => 'Learn how to effectively plan your online business goals with expert guidance.',
+                'description_ar' => 'تعلم كيف تخطط أهداف أعمالك عبر الإنترنت بشكل فعال مع إرشادات الخبراء.',
             ],
             [
-                'title_en' => 'Expert Website Design Services from Barmagly: Create Stunning Online Experiences',
-                'title_ar' => 'خدمات تصميم المواقع الاحترافية من برمجلي: أنشئ تجارب رقمية مذهلة',
-                'description_en' => '<p>First impressions matter, especially in the digital world. <a href="https://barmagly.tech" target="_blank">Barmagly</a> provides exceptional website design services.</p>',
-                'description_ar' => '<h2>أهمية التصميم الاحترافي للمواقع</h2>
-                
-                <p>الانطباعات الأولى مهمة جداً، خاصة في العالم الرقمي. تقدم <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> خدمات تصميم مواقع استثنائية تنشئ مواقع جميلة ومتجاوبة تجذب الزوار وتزيد المبيعات بشكل ملحوظ. يجمع مصممونا الموهوبون في <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> بين الإبداع والوظائف لتقديم تصاميم لا تبدو رائعة فحسب، بل تؤدي أيضاً بشكل استثنائي وتحقق أهدافك التجارية.</p>
-                
-                <h3>تصميم متجاوب لجميع الأجهزة</h3>
-                
-                <p>مع <a href="https://barmagly.tech/services" target="_blank" rel="nofollow">خدمات تصميم المواقع من برمجلي</a>، يمكنك توقع تصاميم حديثة ونظيفة محسّنة لجميع الأجهزة. سواء كان جمهورك يستخدم أجهزة الكمبيوتر المكتبية أو الأجهزة اللوحية أو الهواتف الذكية، تضمن <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> أن موقعك يبدو مثالياً على كل حجم شاشة. زر <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> لرؤية أمثلة على تصاميم مواقعنا المذهلة. يمكنك أيضاً متابعة <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي على فيسبوك</a> لمشاهدة آخر أعمالنا.</p>
-                
-                <h3>تصميم يركز على تحويل الزوار إلى عملاء</h3>
-                
-                <p>في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a>، نؤمن بأن تصميم المواقع الرائع يتجاوز الجماليات. يركز فريقنا على إنشاء واجهات سهلة الاستخدام توجه الزوار نحو أهداف عملك. عندما تعمل مع <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a>، تحصل على موقع جذاب بصرياً ومصمم استراتيجياً لتحويل الزوار إلى عملاء. تابع <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">شركة برمجلي على لينكد إن</a> لمعرفة المزيد عن استراتيجياتنا في التصميم.</p>
-                
-                <h3>عملية تصميم شاملة في برمجلي</h3>
-                
-                <p>تتضمن عملية التصميم في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> بحثاً شاملاً وعصفاً ذهنياً إبداعياً واهتماماً دقيقاً بالتفاصيل. نعمل بشكل وثيق مع عملائنا لفهم رؤيتهم وتحويلها إلى واقع من خلال التصميم الاستثنائي. اكتشف كيف يمكن لـ <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> تحويل وجودك الرقمي من خلال خدمات تصميم المواقع الاحترافية. اتصل بـ <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> اليوم! زوروا موقعنا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تواصلوا معنا عبر <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">فيسبوك</a>.</p>
-                
-                <h3>لماذا تختار برمجلي للتصميم؟</h3>
-                
-                <p><a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> تتميز بخبرة واسعة في تصميم المواقع التي تجمع بين الجمال والوظائف. فريق <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> من المصممين المحترفين يعملون على إنشاء تصاميم فريدة تناسب علامتك التجارية. تابعوا <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">برمجلي على لينكد إن</a> للحصول على نصائح ومعلومات قيمة حول تصميم المواقع.</p>',
+                'title_en' => 'Market insights for managing people-related costs',
+                'title_ar' => 'رؤى السوق لإدارة التكاليف المتعلقة بالأشخاص',
+                'description_en' => 'Understanding market trends for better cost management and business optimization.',
+                'description_ar' => 'فهم اتجاهات السوق لإدارة أفضل للتكاليف وتحسين الأعمال.',
             ],
             [
-                'title_en' => 'UI/UX Design Excellence with Barmagly: Enhance User Experience and Engagement',
-                'title_ar' => 'التميز في تصميم UI/UX مع برمجلي: عزز تجربة المستخدم والتفاعل',
-                'description_en' => '<p>User experience is at the heart of every successful digital product. <a href="https://barmagly.tech" target="_blank">Barmagly</a> specializes in UI/UX design services.</p>',
-                'description_ar' => '<h2>أهمية تصميم UI/UX في نجاح المنتجات الرقمية</h2>
-                
-                <p>تجربة المستخدم هي في قلب كل منتج رقمي ناجح. تختص <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> في خدمات تصميم UI/UX التي تنشئ تجارب مستخدم سهلة وممتعة وتزيد من تفاعل المستخدمين. يفهم مصممونا الخبراء في <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> سلوك المستخدم ويصممون واجهات جميلة ووظيفية تجعل المستخدمين يعودون مرة أخرى. يمكنك زيارة <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> لمعرفة المزيد عن خدماتنا، أو متابعة <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي على فيسبوك</a>.</p>
-                
-                <h3>نهج برمجلي في التصميم المرتكز على المستخدم</h3>
-                
-                <p>عندما تتشارك مع <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> لتصميم UI/UX، تستفيد من نهجنا في التصميم المرتكز على المستخدم. نجري بحثاً شاملاً عن المستخدمين، وننشئ مخططات تفصيلية، ونطور نماذج أولية تضمن أن منتجك يلبي احتياجات المستخدمين بفعالية. زر <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> لمعرفة المزيد عن <a href="https://barmagly.tech/services" target="_blank" rel="nofollow">خدمات تصميم UI/UX من برمجلي</a>. تابع <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">شركة برمجلي على لينكد إن</a> للحصول على نصائح قيمة حول تصميم UI/UX.</p>
-                
-                <h3>تأثير تصميم UI/UX على نجاح الأعمال</h3>
-                
-                <p>في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a>، نؤمن بأن تصميم UI/UX الرائع يمكن أن يؤثر بشكل كبير على نجاح عملك. تصاميمنا ليست جذابة بصرياً فحسب؛ بل هي مصممة استراتيجياً لتحسين تفاعل المستخدم وتقليل معدلات الارتداد وزيادة التحويلات. مع <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a>، تحصل على تصاميم يحب المستخدمون التفاعل معها. زوروا موقعنا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تواصلوا معنا عبر <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">فيسبوك</a>.</p>
-                
-                <h3>أدوات ومنهجيات حديثة في برمجلي</h3>
-                
-                <p>يستخدم فريق UI/UX في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> أحدث أدوات التصميم والمنهجيات لإنشاء تجارب مستخدم سلسة عبر جميع المنصات. من تطبيقات الهاتف إلى تطبيقات الويب، تضمن <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> تصميماً متسقاً وعالي الجودة يعزز رضا المستخدم. اتصل بـ <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> اليوم لرفع تجربة مستخدم منتجك! تابع <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">برمجلي على لينكد إن</a> لمعرفة المزيد عن مشاريعنا الناجحة.</p>
-                
-                <h3>لماذا تختار برمجلي لتصميم UI/UX؟</h3>
-                
-                <p><a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> تتميز بفريق محترف من مصممي UI/UX الذين لديهم خبرة واسعة في إنشاء تجارب مستخدم استثنائية. <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> تعمل على فهم احتياجات عملائها وتصميم حلول تلبي هذه الاحتياجات بشكل مثالي. زوروا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تابعوا <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي على فيسبوك</a> للحصول على آخر الأخبار.</p>',
-            ],
-            [
-                'title_en' => 'Mobile App Development by Barmagly: Build Powerful iOS and Android Applications',
-                'title_ar' => 'تطوير تطبيقات الهاتف من برمجلي: أنشئ تطبيقات iOS و Android قوية',
-                'description_en' => '<p>Mobile apps have become essential for businesses. <a href="https://barmagly.tech" target="_blank">Barmagly</a> offers comprehensive mobile app development services.</p>',
-                'description_ar' => '<h2>أهمية تطبيقات الهاتف في العصر الرقمي</h2>
-                
-                <p>أصبحت تطبيقات الهاتف ضرورية للشركات التي تتطلع للوصول إلى العملاء أثناء التنقل وزيادة مبيعاتها. تقدم <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> خدمات تطوير تطبيقات الهاتف الشاملة لمنصات iOS و Android. ينشئ مطورونا المهرة في <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> تطبيقات أصلية ومتعددة المنصات توفر أداءً وتجربة مستخدم استثنائية. زوروا موقعنا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تابعوا <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي على فيسبوك</a>.</p>
-                
-                <h3>تقنيات متطورة في تطوير التطبيقات</h3>
-                
-                <p>عندما تختار <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> لتطوير تطبيقات الهاتف، تحصل على أحدث التقنيات وأفضل الممارسات. سواء كنت بحاجة إلى تطبيق بسيط أو حل مؤسسي معقد، تم تصميم <a href="https://barmagly.tech/services" target="_blank" rel="nofollow">خدمات تطوير تطبيقات الهاتف من برمجلي</a> لتلبية احتياجاتك المحددة. زر <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> لاستكشاف محفظة تطوير تطبيقات الهاتف لدينا. تابع <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">شركة برمجلي على لينكد إن</a> لمعرفة المزيد عن مشاريعنا.</p>
-                
-                <h3>ضمان الجودة والأداء في برمجلي</h3>
-                
-                <p>في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a>، نفهم أن تطبيقات الهاتف تحتاج إلى أن تكون سريعة وآمنة وسهلة الاستخدام. تتضمن عملية التطوير لدينا اختباراً شاملاً وتحسيناً واستراتيجيات نشر تضمن أن تطبيقك يعمل بشكل لا تشوبه شائبة عبر جميع الأجهزة. مع <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a>، يمكنك إطلاق تطبيق الهاتف الخاص بك بثقة. زوروا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تواصلوا معنا عبر <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">فيسبوك</a>.</p>
-                
-                <h3>أحدث الاتجاهات والتقنيات</h3>
-                
-                <p>يبقى فريق تطوير تطبيقات الهاتف في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> محدثاً بأحدث الاتجاهات والتقنيات في صناعة تطبيقات الهاتف. من React Native إلى Flutter، تستخدم <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> أطر العمل الأنسب لبناء تطبيقك بكفاءة. اتصل بـ <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> اليوم لبدء بناء تطبيق الهاتف الخاص بك! تابع <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">برمجلي على لينكد إن</a> للحصول على نصائح حول تطوير التطبيقات.</p>
-                
-                <h3>لماذا تختار برمجلي لتطوير التطبيقات؟</h3>
-                
-                <p><a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> تتميز بفريق من المطورين المحترفين الذين لديهم خبرة واسعة في تطوير تطبيقات iOS و Android. <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> تعمل على إنشاء تطبيقات عالية الجودة تلبي احتياجات عملائها. زوروا موقعنا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تابعوا <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي على فيسبوك</a>.</p>',
-            ],
-            [
-                'title_en' => 'E-commerce Development Solutions from Barmagly: Launch Your Online Store Successfully',
-                'title_ar' => 'حلول تطوير المتاجر الإلكترونية من برمجلي: أطلق متجرك الإلكتروني بنجاح',
-                'description_en' => '<p>E-commerce has revolutionized the way businesses sell products. <a href="https://barmagly.tech" target="_blank">Barmagly</a> provides complete e-commerce development solutions.</p>',
-                'description_ar' => '<h2>ثورة التجارة الإلكترونية مع برمجلي</h2>
-                
-                <p>أحدثت التجارة الإلكترونية ثورة في طريقة بيع الشركات للمنتجات والخدمات. تقدم <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> حلول تطوير متاجر إلكترونية كاملة تساعد الشركات على إنشاء متاجرها الإلكترونية ونموها بشكل سريع. يبني فريقنا الخبير في <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> منصات متاجر إلكترونية آمنة وقابلة للتوسع تزيد المبيعات وتعزز رضا العملاء. زوروا موقعنا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تابعوا <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي على فيسبوك</a>.</p>
-                
-                <h3>متجر إلكتروني مخصص من برمجلي</h3>
-                
-                <p>عندما تعمل مع <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> لتطوير المتاجر الإلكترونية، تحصل على متجر إلكتروني مخصص بالكامل يعكس علامتك التجارية ويلبي متطلبات عملك. من كتالوجات المنتجات إلى بوابات الدفع، تتضمن <a href="https://barmagly.tech/services" target="_blank" rel="nofollow">حلول المتاجر الإلكترونية من برمجلي</a> جميع الميزات التي تحتاجها لإدارة عمل إلكتروني ناجح. زر <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> لمعرفة المزيد عن خبرتنا في المتاجر الإلكترونية. تابع <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">شركة برمجلي على لينكد إن</a> للحصول على نصائح حول التجارة الإلكترونية.</p>
-                
-                <h3>تحسين الأداء والأمان في المتاجر الإلكترونية</h3>
-                
-                <p>في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a>، نفهم أن نجاح المتاجر الإلكترونية يعتمد على تجربة المستخدم والأمان والأداء. تم تحسين منصات المتاجر الإلكترونية لدينا للسرعة والاستجابة للهاتف المحمول ووضوح محركات البحث. مع <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a>، يمكنك الوثوق بأن متجرك الإلكتروني سيوفر تجربة تسوق سلسة لعملائك. زوروا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تواصلوا معنا عبر <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">فيسبوك</a>.</p>
-                
-                <h3>ميزات متقدمة من برمجلي</h3>
-                
-                <p>يدمج فريق تطوير المتاجر الإلكترونية في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> ميزات متقدمة مثل إدارة المخزون وتتبع الطلبات وتحليلات العملاء لمساعدتك على إدارة عملك الإلكتروني بفعالية. من الشركات الناشئة الصغيرة إلى المؤسسات الكبيرة، تقدم <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> حلول متاجر إلكترونية تتوسع مع عملك. اتصل بـ <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> اليوم لبدء رحلتك في التجارة الإلكترونية! تابع <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">برمجلي على لينكد إن</a> لمعرفة المزيد عن مشاريعنا الناجحة.</p>
-                
-                <h3>لماذا تختار برمجلي للمتاجر الإلكترونية؟</h3>
-                
-                <p><a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> تتميز بخبرة واسعة في تطوير المتاجر الإلكترونية التي تحقق نتائج ملموسة. <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> تعمل على إنشاء متاجر إلكترونية عالية الجودة تساعد عملائها على زيادة مبيعاتهم. زوروا موقعنا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تابعوا <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي على فيسبوك</a>.</p>',
-            ],
-            [
-                'title_en' => 'Data Security and Tracking Solutions by Barmagly: Protect Your Digital Assets',
-                'title_ar' => 'حلول أمان وتتبع البيانات من برمجلي: احم أصولك الرقمية',
-                'description_en' => '<p>Data security is crucial in today\'s digital landscape. <a href="https://barmagly.tech" target="_blank">Barmagly</a> offers comprehensive data security and tracking solutions.</p>',
-                'description_ar' => '<h2>أهمية أمان البيانات في العصر الرقمي</h2>
-                
-                <p>أمان البيانات أمر بالغ الأهمية في المشهد الرقمي الحالي. تقدم <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> حلول أمان وتتبع بيانات شاملة تحمي عملك من التهديدات السيبرانية مع توفير رؤى قيمة من خلال تحليلات البيانات. يطبق خبراء الأمان لدينا في <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> إجراءات أمان قوية لحماية أصولك الرقمية. زوروا موقعنا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تابعوا <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي على فيسبوك</a>.</p>
-                
-                <h3>أنظمة مراقبة متقدمة من برمجلي</h3>
-                
-                <p>عندما تتشارك مع <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> لأمان البيانات، تستفيد من أنظمة التتبع والمراقبة المتقدمة لدينا. نساعد الشركات على تحديد الثغرات ومنع انتهاكات الأمان والحفاظ على الامتثال لمعايير الصناعة. زر <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> لاكتشاف كيف يمكن لـ <a href="https://barmagly.tech/services" target="_blank" rel="nofollow">خدمات أمان البيانات من برمجلي</a> حماية عملك. تابع <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">شركة برمجلي على لينكد إن</a> للحصول على نصائح حول الأمان السيبراني.</p>
-                
-                <h3>مراقبة مستمرة على مدار الساعة</h3>
-                
-                <p>في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a>، نفهم أن أمان البيانات يتطلب مراقبة وتحديثات مستمرة. يوفر فريقنا مراقبة أمان على مدار الساعة وطوال أيام الأسبوع، ومراجعات أمان منتظمة، وتحديثات في الوقت المناسب لضمان بقاء أنظمتك محمية ضد التهديدات المتطورة. مع <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a>، يمكنك التركيز على نمو عملك بينما نتعامل مع احتياجات الأمان الخاصة بك. زوروا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تواصلوا معنا عبر <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">فيسبوك</a>.</p>
-                
-                <h3>حلول أمان متعددة الطبقات</h3>
-                
-                <p>يستخدم فريق الأمان في <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> تقنيات متطورة وأفضل الممارسات لتنفيذ حلول أمان متعددة الطبقات. من التشفير إلى التحكم في الوصول، تضمن <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> أن بياناتك الحساسة محمية على كل مستوى. اتصل بـ <a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> اليوم لتأمين البنية التحتية الرقمية الخاصة بك! تابع <a href="https://www.linkedin.com/company/barmagly" target="_blank" rel="nofollow">برمجلي على لينكد إن</a> لمعرفة المزيد عن حلول الأمان لدينا.</p>
-                
-                <h3>لماذا تختار برمجلي لأمان البيانات؟</h3>
-                
-                <p><a href="https://barmagly.tech" target="_blank" rel="nofollow">برمجلي</a> تتميز بفريق من خبراء الأمان الذين لديهم خبرة واسعة في حماية البيانات الرقمية. <a href="https://barmagly.tech" target="_blank" rel="nofollow">Barmagly</a> تعمل على توفير حلول أمان شاملة تحمي أعمال عملائها من التهديدات السيبرانية. زوروا موقعنا <a href="https://barmagly.tech" target="_blank" rel="nofollow">barmagly.tech</a> أو تابعوا <a href="https://www.facebook.com/BarmaglyOfficial" target="_blank" rel="nofollow">صفحة برمجلي على فيسبوك</a>.</p>',
+                'title_en' => 'Boost your startup with our digital agency',
+                'title_ar' => 'عزز عملك الناشئ مع وكالتنا الرقمية',
+                'description_en' => 'Discover how our digital agency can accelerate your startup growth and success.',
+                'description_ar' => 'اكتشف كيف يمكن لوكالتنا الرقمية تسريع نمو ونجاح شركتك الناشئة.',
             ],
         ];
 
         foreach ($blogs as $index => $blog) {
-            $blogModel = new Blog();
-            $blogModel->slug = \Illuminate\Support\Str::slug($blog['title_en']);
-            $blogModel->image = 'default/blog.jpg';
-            $blogModel->blog_category_id = $blogCategory->id;
-            $blogModel->status = 1;
-            $blogModel->save();
+            $blogModel = Blog::skip($index)->first();
+            
+            if (!$blogModel) {
+                $blogModel = new Blog();
+                $blogModel->slug = \Illuminate\Support\Str::slug($blog['title_en']);
+                $blogModel->image = 'default/blog.jpg';
+                $blogModel->blog_category_id = $blogCategory->id;
+                $blogModel->status = 1;
+                $blogModel->save();
+            }
 
-            // Create English translation
-            $transEn = new BlogTranslation();
-            $transEn->blog_id = $blogModel->id;
-            $transEn->lang_code = 'en';
+            // Update English
+            $transEn = BlogTranslation::where('blog_id', $blogModel->id)
+                ->where('lang_code', 'en')
+                ->first();
+            
+            if (!$transEn) {
+                $transEn = new BlogTranslation();
+                $transEn->blog_id = $blogModel->id;
+                $transEn->lang_code = 'en';
+            }
+            
             $transEn->title = $blog['title_en'];
             $transEn->description = $blog['description_en'];
-            $transEn->seo_title = $blog['title_en'];
-            $transEn->seo_description = strip_tags(substr($blog['description_en'], 0, 160));
             $transEn->save();
 
-            // Create Arabic translation
-            $transAr = new BlogTranslation();
-            $transAr->blog_id = $blogModel->id;
-            $transAr->lang_code = 'ar';
+            // Update Arabic
+            $transAr = BlogTranslation::where('blog_id', $blogModel->id)
+                ->where('lang_code', 'ar')
+                ->first();
+            
+            if (!$transAr) {
+                $transAr = new BlogTranslation();
+                $transAr->blog_id = $blogModel->id;
+                $transAr->lang_code = 'ar';
+            }
+            
             $transAr->title = $blog['title_ar'];
             $transAr->description = $blog['description_ar'];
-            $transAr->seo_title = $blog['title_ar'];
-            $transAr->seo_description = strip_tags(substr($blog['description_ar'], 0, 160));
             $transAr->save();
         }
 
