@@ -488,11 +488,14 @@ class HomeController extends Controller
 
     public function portfolio(Request $request)
     {
-        $query = Project::with(['category', 'translate'])->latest();
+        $query = Project::with(['category', 'translate'])->where('status', 'enable')->latest();
         
         // Filter by category if provided
         if($request->has('category') && $request->category != 'all' && $request->category != ''){
             $query->where('category_id', $request->category);
+        } else {
+            // If no category filter, only show projects that have a category assigned
+            $query->whereNotNull('category_id');
         }
 
         if($request->type == 'grid'){

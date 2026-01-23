@@ -113,18 +113,19 @@
                                                             <input class="crancy__item-input" type="text" name="slug" id="slug" value="{{ html_decode($project->slug) }}">
                                                         </div>
                                                     </div>
+                                                @endif
 
-                                                    <div class="col-md-6">
-                                                        <div class="crancy__item-form--group mg-top-form-20">
-                                                            <label class="crancy__item-label">{{ __('translate.Category') }} * </label>
-                                                            <select class="form-select crancy__item-input" name="category_id" id="category-select">
-                                                                <option value="">{{ __('translate.Select Category') }}</option>
-                                                                @foreach ($categories as $category)
-                                                                    <option {{ $category->id == $project->category_id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->translate->name }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
+                                                <div class="{{ admin_lang() == request()->get('lang_code') ? 'col-md-6' : 'col-12' }}">
+                                                    <div class="crancy__item-form--group mg-top-form-20">
+                                                        <label class="crancy__item-label">{{ __('translate.Category') }} * </label>
+                                                        <select class="form-select crancy__item-input" name="category_id" id="category-select">
+                                                            <option value="">{{ __('translate.Select Category') }}</option>
+                                                            @foreach ($categories as $category)
+                                                                <option {{ $category->id == $project->category_id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->translate->name ?? $category->front_translate->name ?? 'Category' }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
+                                                </div>
 
 
 

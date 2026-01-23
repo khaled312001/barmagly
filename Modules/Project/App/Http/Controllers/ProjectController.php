@@ -133,6 +133,20 @@ class ProjectController extends Controller
     {
         $project = Project::findOrFail($id);
 
+        // Always validate and update category_id and sub_category_id regardless of language
+        if($request->has('category_id')) {
+            $request->validate([
+                'category_id' => 'required|exists:categories,id',
+            ]);
+            $project->category_id = $request->category_id;
+        }
+        if($request->has('sub_category_id')) {
+            $request->validate([
+                'sub_category_id' => 'nullable|exists:sub_categories,id',
+            ]);
+            $project->sub_category_id = $request->sub_category_id;
+        }
+
         if($request->lang_code == admin_lang()) {
 
             $request->validate([
@@ -152,15 +166,8 @@ class ProjectController extends Controller
                     ->encode('webp', 80)
                     ->save(public_path().'/'.$image_name);
                 $project->thumb_image = $image_name;
-                $project->save();
-
-                if($old_image) {
-                    if(File::exists(public_path().'/'.$old_image)) unlink(public_path().'/'.$old_image);
-                }
             }
 
-            $project->category_id = $request->category_id;
-            $project->sub_category_id = $request->sub_category_id;
             $project->slug = $request->slug;
             $project->website_url = $request->website_url;
             $project->project_date = $request->project_date;
@@ -168,8 +175,10 @@ class ProjectController extends Controller
             $project->project_x = $request->project_x;
             $project->project_linkedin = $request->project_linkedin;
             $project->project_instagram = $request->project_instagram;
-            $project->save();
         }
+        
+        // Save project changes
+        $project->save();
 
         $request->validate([
             'title' => 'required|string|max:255',
