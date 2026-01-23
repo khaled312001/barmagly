@@ -26,6 +26,26 @@
                 <div class="Barmagly-section-title center">
                     <h2>{{ __('translate.Explore our recent projects') }}</h2>
                 </div>
+                
+                @if(isset($categories) && $categories->count() > 0)
+                <div class="portfolio-filters-wrapper">
+                    <div class="portfolio-filters">
+                        <a href="{{ route('portfolio') }}" 
+                           class="portfolio-filter-btn {{ !request()->has('category') || request()->category == 'all' ? 'active' : '' }}"
+                           data-category="all">
+                            {{ __('translate.All') }}
+                        </a>
+                        @foreach($categories as $category)
+                            <a href="{{ route('portfolio', ['category' => $category->id]) }}" 
+                               class="portfolio-filter-btn {{ request()->category == $category->id ? 'active' : '' }}"
+                               data-category="{{ $category->id }}">
+                                {{ $category->name ?? $category->translate?->name ?? $category->front_translate->name ?? 'Category' }}
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                
                 <div class="row">
                     @foreach($projects as $project)
                         @if($loop->iteration == 5 || $loop->iteration == 6)
@@ -122,25 +142,52 @@
         <!-- Grid End section -->
         <div class="section Barmagly-section-padding">
             <div class="container">
-                <div class="row">
+                <div class="Barmagly-section-title center">
+                    <h2>{{ __('translate.Explore our recent projects') }}</h2>
+                </div>
+                
+                @if(isset($categories) && $categories->count() > 0)
+                <div class="portfolio-filters-wrapper">
+                    <div class="portfolio-filters">
+                        <a href="{{ route('portfolio', ['type' => 'grid']) }}" 
+                           class="portfolio-filter-btn {{ !request()->has('category') || request()->category == 'all' ? 'active' : '' }}"
+                           data-category="all">
+                            {{ __('translate.All') }}
+                        </a>
+                        @foreach($categories as $category)
+                            <a href="{{ route('portfolio', ['type' => 'grid', 'category' => $category->id]) }}" 
+                               class="portfolio-filter-btn {{ request()->category == $category->id ? 'active' : '' }}"
+                               data-category="{{ $category->id }}">
+                                {{ $category->name ?? $category->translate?->name ?? $category->front_translate->name ?? 'Category' }}
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                
+                <div class="portfolio-grid-modern">
                     @foreach($projects as $project)
-                        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="500">
-                            <div class="Barmagly-portfolio-wrap">
-                                <div class="Barmagly-portfolio-thumb Barmagly-portfolio-thumb-digital">
-                                    <img src="{{ asset($project->thumb_image) }}" alt="Image" class="full-img">
-                                    @if($project->website_url)
-                                        <a class="Barmagly-portfolio-btn"
-                                           href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer">
-                                            <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                                        </a>
-                                    @endif
-                                    <div class="Barmagly-portfolio-data">
-                                        <h4>{{ $project->title ?? $project->translate->title }}</h4>
-                                        <p>@if($project->category)
-                                                {{ $project->category->name ?? $project->category->translate?->name }}
-                                            @endif
-                                        </p>
+                        <div class="portfolio-grid-item" data-aos="fade-up" data-aos-duration="500">
+                            <div class="portfolio-card-modern">
+                                <div class="portfolio-image-wrapper">
+                                    <img src="{{ asset($project->thumb_image) }}" alt="{{ $project->title ?? $project->translate->title }}" class="portfolio-image">
+                                    <div class="portfolio-overlay">
+                                        @if($project->website_url)
+                                            <a class="portfolio-link-btn"
+                                               href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer">
+                                                <i class="ri-arrow-right-up-line"></i>
+                                                <span>{{ __('translate.Visit Website') }}</span>
+                                            </a>
+                                        @endif
                                     </div>
+                                </div>
+                                <div class="portfolio-content-modern">
+                                    <span class="portfolio-category-modern">
+                                        @if($project->category)
+                                            {{ $project->category->name ?? $project->category->translate?->name }}
+                                        @endif
+                                    </span>
+                                    <h3 class="portfolio-title-modern">{{ $project->title ?? $project->translate->title }}</h3>
                                 </div>
                             </div>
                         </div>

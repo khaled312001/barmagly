@@ -1486,6 +1486,7 @@ body[dir="rtl"] .project-view-btn:hover i {
     word-wrap: break-word;
     overflow-wrap: break-word;
     -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
     display: -webkit-box !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
@@ -1544,6 +1545,79 @@ body.rtl .Barmagly-infobox-item,
 body[dir="rtl"] .Barmagly-infobox-item {
     direction: rtl;
     text-align: right;
+}
+
+/* ============================================
+   PORTFOLIO FILTER BUTTONS
+   ============================================ */
+
+.portfolio-filters-wrapper {
+    margin: 50px 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.portfolio-filter-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #f5f5f5;
+    color: #333;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.portfolio-filter-btn:hover {
+    background: var(--accent-color, #6366f1);
+    color: #fff;
+    border-color: var(--accent-color, #6366f1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+.portfolio-filter-btn.active {
+    background: var(--accent-color, #6366f1);
+    color: #fff;
+    border-color: var(--accent-color, #6366f1);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* RTL Support */
+html[dir="rtl"] .portfolio-filters,
+body.rtl .portfolio-filters,
+body[dir="rtl"] .portfolio-filters {
+    direction: rtl;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .portfolio-filters-wrapper {
+        margin: 40px 0 30px;
+    }
+    
+    .portfolio-filters {
+        gap: 10px;
+    }
+    
+    .portfolio-filter-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
 
 /* ============================================
@@ -1625,9 +1699,6 @@ body[dir="rtl"] .Barmagly-infobox-item {
 }
 
 /* Override scale transform from app.css - use scroll instead of scale */
-.Barmagly-portfolio-thumb:hover img.full-img {
-    /* Scroll animation takes priority over scale */
-}
 
 /* Ensure smooth animation performance */
 .Barmagly-portfolio-thumb img.full-img {
@@ -1641,4 +1712,182 @@ body[dir="rtl"] .Barmagly-infobox-item {
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+}
+
+/* ============================================
+   MODERN PORTFOLIO GRID DESIGN
+   ============================================ */
+
+.portfolio-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.portfolio-grid-item {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card-modern {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-grid-item:hover .portfolio-card-modern {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    min-height: 120%;
+}
+
+.portfolio-grid-item:hover .portfolio-image {
+    transform: translateY(calc(-20%));
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.portfolio-grid-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: #fff;
+    color: #333;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-link-btn:hover {
+    background: var(--accent-color, #6366f1);
+    color: #fff;
+    transform: translateY(0);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.portfolio-link-btn i {
+    font-size: 18px;
+}
+
+.portfolio-content-modern {
+    padding: 25px 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.portfolio-category-modern {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--accent-color, #6366f1);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.portfolio-title-modern {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.portfolio-grid-item:hover .portfolio-title-modern {
+    color: var(--accent-color, #6366f1);
+}
+
+/* RTL Support */
+html[dir="rtl"] .portfolio-grid-modern,
+body.rtl .portfolio-grid-modern,
+body[dir="rtl"] .portfolio-grid-modern {
+    direction: rtl;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .portfolio-grid-modern {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid-modern {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .portfolio-image-wrapper {
+        height: 250px;
+    }
+    
+    .portfolio-content-modern {
+        padding: 20px;
+    }
+    
+    .portfolio-title-modern {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .portfolio-grid-modern {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .portfolio-image-wrapper {
+        height: 220px;
+    }
 }
