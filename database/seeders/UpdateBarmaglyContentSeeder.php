@@ -1144,7 +1144,8 @@ class UpdateBarmaglyContentSeeder extends Seeder
                         ->first();
 
                     if ($translation) {
-                        $translation->update($data);
+                        $translation->fill($data);
+                        $translation->save();
                     } else {
                         $this->createSliderTranslation($slider->id, $lang, $data);
                     }
