@@ -173,19 +173,48 @@
             <div class="Barmagly-section-title center">
                 <h2>{{ __('translate.Explore our recent projects') }}</h2>
             </div>
-            <div class="row">
+            
+            @if(isset($allCategories) && $allCategories->count() > 0)
+            <div class="portfolio-filters-wrapper">
+                <div class="portfolio-filters">
+                    <button class="portfolio-filter-btn active" data-category="all">
+                        {{ __('translate.All') }}
+                    </button>
+                    @foreach($allCategories as $category)
+                        <button class="portfolio-filter-btn" data-category="{{ $category->id }}">
+                            {{ $category->name ?? $category->translate?->name ?? $category->front_translate->name ?? 'Category' }}
+                        </button>
+                    @endforeach
+                </div>
+            </div>
+            @endif
+            
+            <div class="row" id="projects-container">
                 @foreach($projects as $index => $project)
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="600">
+                <div class="col-xl-4 col-md-6 portfolio-item" 
+                     data-category="{{ $project->category_id ?? 'all' }}"
+                     data-aos="fade-up" 
+                     data-aos-duration="600">
                     <div class="Barmagly-portfolio-wrap">
                         <div class="Barmagly-portfolio-thumb Barmagly-portfolio-thumb-main">
                             <img src="{{ asset($project->thumb_image) }}" alt="" class="full-img">
-                            <a class="Barmagly-portfolio-btn" href="{{ route('portfolio.show', $project->slug) }}">
-                                <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                            </a>
-                            <div class="Barmagly-portfolio-data">
-                                <a href="{{ route('portfolio.show', $project->slug) }}">
-                                    <h4>{{ $project->title ?? $project->translate?->title }}</h4>
+                            @if($project->website_url)
+                                <a class="Barmagly-portfolio-btn" href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer">
+                                    <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
                                 </a>
+                            @else
+                                <a class="Barmagly-portfolio-btn" href="{{ route('portfolio.show', $project->slug) }}">
+                                    <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
+                                </a>
+                            @endif
+                            <div class="Barmagly-portfolio-data">
+                                @if($project->website_url)
+                                    <h4>{{ $project->title ?? $project->translate?->title }}</h4>
+                                @else
+                                    <a href="{{ route('portfolio.show', $project->slug) }}">
+                                        <h4>{{ $project->title ?? $project->translate?->title }}</h4>
+                                    </a>
+                                @endif
                                 <p>@if($project->category)
                                         {{ $project->category->name ?? $project->category->translate?->name }}
                                     @endif</p>

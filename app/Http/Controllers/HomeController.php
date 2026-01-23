@@ -80,6 +80,12 @@ class HomeController extends Controller
 
         $seo_setting = SeoSetting::find(1);
 
+        // Get all active categories for filter buttons
+        $allCategories = Category::where('status', 'enable')
+            ->with('front_translate')
+            ->latest()
+            ->get();
+        
         $categories = Category::where('status', 'enable')->latest()->take(4)->get();
         $filter_array = $categories->pluck('id')->toArray();
 
@@ -101,6 +107,7 @@ class HomeController extends Controller
         $view_data = compact(
             'seo_setting',
             'categories',
+            'allCategories',
             'listings',
             'blogPosts',
             'testimonials',

@@ -188,6 +188,29 @@
                 $('.cookie_consent_modal').addClass('d-none');
             });
 
+            // Portfolio Filter Functionality for Homepage
+            $('.portfolio-filter-btn').on('click', function(e) {
+                e.preventDefault();
+                var category = $(this).data('category');
+                
+                // Update active button
+                $('.portfolio-filter-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                // Filter portfolio items
+                if (category === 'all') {
+                    $('.portfolio-item').fadeIn(300);
+                } else {
+                    $('.portfolio-item').each(function() {
+                        if ($(this).data('category') == category) {
+                            $(this).fadeIn(300);
+                        } else {
+                            $(this).fadeOut(300);
+                        }
+                    });
+                }
+            });
+
 
         });
 

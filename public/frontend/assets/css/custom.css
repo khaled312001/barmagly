@@ -1853,6 +1853,15 @@ body[dir="rtl"] .portfolio-grid-modern {
     direction: rtl;
 }
 
+/* Portfolio Item Animation for Filter */
+.portfolio-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-item.hidden {
+    display: none !important;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .portfolio-grid-modern {

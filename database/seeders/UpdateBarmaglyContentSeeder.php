@@ -20,6 +20,7 @@ use App\Models\TeamTranslation;
 use Modules\Testimonial\App\Models\Testimonial;
 use Modules\Testimonial\App\Models\TestimonialTrasnlation;
 use Modules\Category\Entities\Category;
+use Modules\Category\Entities\CategoryTranslation;
 use Modules\FAQ\App\Models\Faq;
 use Modules\FAQ\App\Models\FaqTranslation;
 use Modules\Page\App\Models\PrivacyPolicy;
@@ -48,6 +49,7 @@ class UpdateBarmaglyContentSeeder extends Seeder
         $this->updateTestimonials();
         $this->updateFAQs();
         $this->updatePrivacyPolicy();
+        $this->updateCategories();
         $this->updateTermsAndConditions();
         
         $this->command->info('✅ Barmagly content update finished!');
@@ -1611,6 +1613,83 @@ class UpdateBarmaglyContentSeeder extends Seeder
         $termsAr->save();
         
         $this->command->info('✅ Terms and Conditions updated!');
+    }
+
+    private function updateCategories(): void
+    {
+        $this->command->info('📝 Updating Categories...');
+        
+        // Define categories with translations
+        $categories = [
+            [
+                'slug' => 'medical',
+                'ar' => 'المجال الطبي',
+                'en' => 'Medical',
+                'hd' => 'Medical',
+            ],
+            [
+                'slug' => 'educational',
+                'ar' => 'التعليمي',
+                'en' => 'Educational',
+                'hd' => 'Educational',
+            ],
+            [
+                'slug' => 'commercial',
+                'ar' => 'التجاري',
+                'en' => 'Commercial',
+                'hd' => 'Commercial',
+            ],
+            [
+                'slug' => 'startups',
+                'ar' => 'الشركات الناشئة',
+                'en' => 'Startups',
+                'hd' => 'Startups',
+            ],
+            [
+                'slug' => 'hotels',
+                'ar' => 'الفنادق',
+                'en' => 'Hotels',
+                'hd' => 'Hotels',
+            ],
+            [
+                'slug' => 'restaurants',
+                'ar' => 'المطاعم',
+                'en' => 'Restaurants',
+                'hd' => 'Restaurants',
+            ],
+        ];
+        
+        foreach ($categories as $categoryData) {
+            // Find or create category
+            $category = Category::where('slug', $categoryData['slug'])->first();
+            
+            if (!$category) {
+                $category = new Category();
+                $category->slug = $categoryData['slug'];
+                $category->status = 'enable';
+                $category->save();
+            }
+            
+            // Update translations for all languages
+            $languages = ['ar', 'en', 'hd'];
+            
+            foreach ($languages as $lang) {
+                $translation = CategoryTranslation::where('category_id', $category->id)
+                    ->where('lang_code', $lang)
+                    ->first();
+                
+                if (!$translation) {
+                    $translation = new CategoryTranslation();
+                    $translation->category_id = $category->id;
+                    $translation->lang_code = $lang;
+                }
+                
+                $translation->name = $categoryData[$lang];
+                $translation->save();
+            }
+        }
+        
+        $this->command->info('✅ Categories updated!');
     }
 }
 
