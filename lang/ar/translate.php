@@ -180,7 +180,7 @@
   'Forgot Password?' => 'نسيت كلمة المرور؟',
   'Sign In with Facebook' => 'تسجيل الدخول باستخدام فيسبوك',
   'Sign In with Google' => 'تسجيل الدخول باستخدام جوجل',
-  'Don\'t have an account yet?' => 'ليس لديك حساب بعد؟',
+  'Don't have an account yet?' => 'ليس لديك حساب بعد؟',
   'Sign Up' => 'إنشاء حساب',
   'Sign up for an account' => 'إنشاء حساب جديد',
   'Welcome to ' => 'مرحباً بك في ',

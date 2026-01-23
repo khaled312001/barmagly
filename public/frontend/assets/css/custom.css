@@ -1900,3 +1900,9 @@ body[dir="rtl"] .portfolio-grid-modern {
         height: 220px;
     }
 }
+
+/* Reduce logo size in login and register pages */
+.signup_logo img {
+    max-width: 120px !important;
+    height: auto !important;
+}
