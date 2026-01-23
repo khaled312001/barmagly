@@ -50,7 +50,7 @@ class SetStartupHomeDefaultSeeder extends Seeder
             [
                 'id' => 'portfolio',
                 'label' => 'Portfolio',
-                'label_ar' => 'المحفظة',
+                'label_ar' => 'سابقة أعمالنا',
                 'route' => 'portfolio',
                 'order' => 3,
                 'visible' => true,
