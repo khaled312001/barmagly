@@ -65,7 +65,7 @@ class HomeController extends Controller
 
         $services = Listing::latest()->take(5)->get();
 
-        $blogPosts = Blog::latest()->take(4)->get();
+        $blogPosts = Blog::with('front_translate', 'category.front_translate')->latest()->take(4)->get();
 
         $testimonials = Testimonial::where('status', 'active')->latest()->get();
 
@@ -142,7 +142,7 @@ class HomeController extends Controller
 
     public function blogs(Request $request)
     {
-        $blogs = Blog::with('author', 'category')->where('status', 1);
+        $blogs = Blog::with('author', 'category', 'front_translate', 'category.front_translate')->where('status', 1);
 
         // Search by title
         if ($request->search) {
@@ -175,7 +175,7 @@ class HomeController extends Controller
         $blogs = $blogs->paginate($perPage);
 
         $currentBlogId = $request->id ?? null;
-        $recent_blogs = Blog::where('status', 1)
+        $recent_blogs = Blog::with('front_translate', 'category.front_translate')->where('status', 1)
             ->when($currentBlogId, function($query) use ($currentBlogId) {
                 return $query->where('id', '!=', $currentBlogId);
             })
@@ -207,13 +207,13 @@ class HomeController extends Controller
 
     public function blog($slug)
     {
-        $blog = Blog::with('author')->where('status', 1)->where('slug', $slug)->firstOrFail();
+        $blog = Blog::with('author', 'front_translate', 'category.front_translate')->where('status', 1)->where('slug', $slug)->firstOrFail();
 
         $blog_comments = BlogComment::where('blog_id', $blog->id)->where('status', 1)->latest()->get();
         $categories = BlogCategory::withCount('blogs')->take(6)->get();
 
-        $currentBlogId = $request->id ?? null;
-        $recent_blogs = Blog::where('status', 1)
+        $currentBlogId = $blog->id ?? null;
+        $recent_blogs = Blog::with('front_translate', 'category.front_translate')->where('status', 1)
             ->when($currentBlogId, function($query) use ($currentBlogId) {
                 return $query->where('id', '!=', $currentBlogId);
             })

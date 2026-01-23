@@ -45,10 +45,10 @@
                                 </ul>
                             </div>
                             <a href="{{ route('blog', $blog->slug) }}">
-                                <h2>{{ $blog->front_translate->title ?? $blog->translate->title }}</h2>
+                                <h2>{{ $blog->front_translate?->title ?? $blog->translate?->title }}</h2>
                             </a>
                             <p>
-                                {!! Str::limit(clean($blog->front_translate->description ?? $blog->translate->description), 180, '...') !!}
+                                {!! Str::limit(clean($blog->front_translate?->description ?? $blog->translate?->description), 180, '...') !!}
                             </p>
                             <a class="Barmagly-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
                                 <span>{{ __('translate.Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
@@ -143,7 +143,7 @@
                             </ul>
                         </div>
                         <a href="{{ route('blog', $blog->slug) }}">
-                            <h4>{{ $blog->front_translate->title ?? $blog->translate->title }}</h4>
+                            <h4>{{ $blog->front_translate?->title ?? $blog->translate?->title }}</h4>
                         </a>
                         <a class="Barmagly-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
                             <span>
