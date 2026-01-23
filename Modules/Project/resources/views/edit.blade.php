@@ -179,7 +179,6 @@
                                                             <input class="crancy__item-input" type="text" name="project_instagram" id="project_instagram" value="{{ html_decode($project->project_instagram) }}">
                                                         </div>
                                                     </div>
-                                                @endif
 
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">

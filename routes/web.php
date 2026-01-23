@@ -16,6 +16,7 @@ use Modules\Wishlist\App\Http\Controllers\WishlistController;
 Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
     Route::get('/about-us', [HomeController::class, 'about_us'])->name('about-us');
 
     Route::get('/services', [HomeController::class, 'services'])->name('services');
