@@ -19,7 +19,8 @@
 @endif
 
 
-@if ($general_setting->tawk_status == 1)
+{{-- Tawk Chat Disabled --}}
+{{-- @if ($general_setting->tawk_status == 1)
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
         (function () {
@@ -31,7 +32,7 @@
             s0.parentNode.insertBefore(s1, s0);
         })();
     </script>
-@endif
+@endif --}}
 
 
 
@@ -189,26 +190,32 @@
             });
 
             // Portfolio Filter Functionality for Homepage
+            // Only apply client-side filtering if portfolio-item elements exist (homepage)
+            // Otherwise, allow normal navigation (portfolio page)
             $('.portfolio-filter-btn').on('click', function(e) {
-                e.preventDefault();
-                var category = $(this).data('category');
-                
-                // Update active button
-                $('.portfolio-filter-btn').removeClass('active');
-                $(this).addClass('active');
-                
-                // Filter portfolio items
-                if (category === 'all') {
-                    $('.portfolio-item').fadeIn(300);
-                } else {
-                    $('.portfolio-item').each(function() {
-                        if ($(this).data('category') == category) {
-                            $(this).fadeIn(300);
-                        } else {
-                            $(this).fadeOut(300);
-                        }
-                    });
+                // Check if we're on a page with portfolio-item elements (homepage)
+                if ($('.portfolio-item').length > 0) {
+                    e.preventDefault();
+                    var category = $(this).data('category');
+                    
+                    // Update active button
+                    $('.portfolio-filter-btn').removeClass('active');
+                    $(this).addClass('active');
+                    
+                    // Filter portfolio items
+                    if (category === 'all') {
+                        $('.portfolio-item').fadeIn(300);
+                    } else {
+                        $('.portfolio-item').each(function() {
+                            if ($(this).data('category') == category) {
+                                $(this).fadeIn(300);
+                            } else {
+                                $(this).fadeOut(300);
+                            }
+                        });
+                    }
                 }
+                // If no portfolio-item elements, allow normal link navigation (portfolio page)
             });
 
 

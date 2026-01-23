@@ -523,153 +523,210 @@ class HomeController extends Controller
 
     public function sitemap()
     {
-        $baseUrl = config('app.url');
-        $currentDate = now()->toAtomString();
-        
-        // Static pages
-        $staticPages = [
-            ['url' => route('home'), 'priority' => '1.0', 'changefreq' => 'daily'],
-            ['url' => route('about-us'), 'priority' => '0.8', 'changefreq' => 'monthly'],
-            ['url' => route('services'), 'priority' => '0.9', 'changefreq' => 'weekly'],
-            ['url' => route('blogs'), 'priority' => '0.9', 'changefreq' => 'daily'],
-            ['url' => route('contact-us'), 'priority' => '0.7', 'changefreq' => 'monthly'],
-            ['url' => route('faq'), 'priority' => '0.7', 'changefreq' => 'monthly'],
-            ['url' => route('teams'), 'priority' => '0.7', 'changefreq' => 'monthly'],
-            ['url' => route('pricing'), 'priority' => '0.8', 'changefreq' => 'monthly'],
-            ['url' => route('testimonials'), 'priority' => '0.6', 'changefreq' => 'monthly'],
-            ['url' => route('portfolio'), 'priority' => '0.9', 'changefreq' => 'weekly'],
-            ['url' => route('privacy-policy'), 'priority' => '0.5', 'changefreq' => 'yearly'],
-            ['url' => route('terms-conditions'), 'priority' => '0.5', 'changefreq' => 'yearly'],
-        ];
+        try {
+            $baseUrl = config('app.url');
+            $currentDate = now()->format('Y-m-d\TH:i:s\Z');
+            
+            // Static pages
+            $staticPages = [];
+            try {
+                $staticPages = [
+                    ['url' => url('/'), 'priority' => '1.0', 'changefreq' => 'daily'],
+                    ['url' => url('/about-us'), 'priority' => '0.8', 'changefreq' => 'monthly'],
+                    ['url' => url('/services'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+                    ['url' => url('/blogs'), 'priority' => '0.9', 'changefreq' => 'daily'],
+                    ['url' => url('/contact-us'), 'priority' => '0.7', 'changefreq' => 'monthly'],
+                    ['url' => url('/faq'), 'priority' => '0.7', 'changefreq' => 'monthly'],
+                    ['url' => url('/teams'), 'priority' => '0.7', 'changefreq' => 'monthly'],
+                    ['url' => url('/pricing-plan'), 'priority' => '0.8', 'changefreq' => 'monthly'],
+                    ['url' => url('/testimonials'), 'priority' => '0.6', 'changefreq' => 'monthly'],
+                    ['url' => url('/portfolio'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+                    ['url' => url('/privacy-policy'), 'priority' => '0.5', 'changefreq' => 'yearly'],
+                    ['url' => url('/terms-conditions'), 'priority' => '0.5', 'changefreq' => 'yearly'],
+                ];
+            } catch (\Exception $e) {
+                // Continue if static pages fail
+            }
 
-        // Dynamic pages - Services
-        $services = Listing::where('status', 'enable')->get();
-        $servicePages = [];
-        foreach ($services as $service) {
-            $servicePages[] = [
-                'url' => route('service', $service->slug),
-                'priority' => '0.8',
-                'changefreq' => 'monthly',
-                'lastmod' => $service->updated_at ? $service->updated_at->toAtomString() : $currentDate
-            ];
-        }
+            // Dynamic pages - Services
+            $servicePages = [];
+            try {
+                $services = Listing::where('status', 'enable')->whereNotNull('slug')->get();
+                foreach ($services as $service) {
+                    if ($service->slug) {
+                        $lastmod = $service->updated_at ? $service->updated_at->format('Y-m-d\TH:i:s\Z') : $currentDate;
+                        $servicePages[] = [
+                            'url' => url('/service/' . $service->slug),
+                            'priority' => '0.8',
+                            'changefreq' => 'monthly',
+                            'lastmod' => $lastmod
+                        ];
+                    }
+                }
+            } catch (\Exception $e) {
+                // Continue if services fail
+            }
 
-        // Dynamic pages - Blogs
-        $blogs = Blog::where('status', 1)->get();
-        $blogPages = [];
-        foreach ($blogs as $blog) {
-            $blogPages[] = [
-                'url' => route('blog', $blog->slug),
-                'priority' => '0.8',
-                'changefreq' => 'weekly',
-                'lastmod' => $blog->updated_at ? $blog->updated_at->toAtomString() : $currentDate
-            ];
-        }
+            // Dynamic pages - Blogs
+            $blogPages = [];
+            try {
+                $blogs = Blog::where('status', 1)->whereNotNull('slug')->get();
+                foreach ($blogs as $blog) {
+                    if ($blog->slug) {
+                        $lastmod = $blog->updated_at ? $blog->updated_at->format('Y-m-d\TH:i:s\Z') : $currentDate;
+                        $blogPages[] = [
+                            'url' => url('/blog/' . $blog->slug),
+                            'priority' => '0.8',
+                            'changefreq' => 'weekly',
+                            'lastmod' => $lastmod
+                        ];
+                    }
+                }
+            } catch (\Exception $e) {
+                // Continue if blogs fail
+            }
 
-        // Dynamic pages - Portfolio/Projects
-        $projects = Project::where('status', 'enable')->get();
-        $projectPages = [];
-        foreach ($projects as $project) {
-            $projectPages[] = [
-                'url' => route('portfolio.show', $project->slug),
-                'priority' => '0.8',
-                'changefreq' => 'monthly',
-                'lastmod' => $project->updated_at ? $project->updated_at->toAtomString() : $currentDate
-            ];
-        }
+            // Dynamic pages - Portfolio/Projects
+            $projectPages = [];
+            try {
+                $projects = Project::where('status', 'enable')->whereNotNull('slug')->get();
+                foreach ($projects as $project) {
+                    if ($project->slug) {
+                        $lastmod = $project->updated_at ? $project->updated_at->format('Y-m-d\TH:i:s\Z') : $currentDate;
+                        $projectPages[] = [
+                            'url' => url('/portfolio/' . $project->slug),
+                            'priority' => '0.8',
+                            'changefreq' => 'monthly',
+                            'lastmod' => $lastmod
+                        ];
+                    }
+                }
+            } catch (\Exception $e) {
+                // Continue if projects fail
+            }
 
-        // Dynamic pages - Team Members
-        $teams = Team::where('status', 1)->get();
-        $teamPages = [];
-        foreach ($teams as $team) {
-            $teamPages[] = [
-                'url' => route('teamPerson', $team->slug),
-                'priority' => '0.6',
-                'changefreq' => 'monthly',
-                'lastmod' => $team->updated_at ? $team->updated_at->toAtomString() : $currentDate
-            ];
-        }
+            // Dynamic pages - Team Members
+            $teamPages = [];
+            try {
+                $teams = Team::where('status', 1)->whereNotNull('slug')->get();
+                foreach ($teams as $team) {
+                    if ($team->slug) {
+                        $lastmod = $team->updated_at ? $team->updated_at->format('Y-m-d\TH:i:s\Z') : $currentDate;
+                        $teamPages[] = [
+                            'url' => url('/team/' . $team->slug),
+                            'priority' => '0.6',
+                            'changefreq' => 'monthly',
+                            'lastmod' => $lastmod
+                        ];
+                    }
+                }
+            } catch (\Exception $e) {
+                // Continue if teams fail
+            }
 
-        // Dynamic pages - Custom Pages
-        $customPages = CustomPage::where('status', 1)->get();
-        $customPageUrls = [];
-        foreach ($customPages as $page) {
-            $customPageUrls[] = [
-                'url' => route('custom-page', $page->slug),
-                'priority' => '0.6',
-                'changefreq' => 'monthly',
-                'lastmod' => $page->updated_at ? $page->updated_at->toAtomString() : $currentDate
-            ];
-        }
+            // Dynamic pages - Custom Pages
+            $customPageUrls = [];
+            try {
+                $customPages = CustomPage::where('status', 1)->whereNotNull('slug')->get();
+                foreach ($customPages as $page) {
+                    if ($page->slug) {
+                        $lastmod = $page->updated_at ? $page->updated_at->format('Y-m-d\TH:i:s\Z') : $currentDate;
+                        $customPageUrls[] = [
+                            'url' => url('/custom-page/' . $page->slug),
+                            'priority' => '0.6',
+                            'changefreq' => 'monthly',
+                            'lastmod' => $lastmod
+                        ];
+                    }
+                }
+            } catch (\Exception $e) {
+                // Continue if custom pages fail
+            }
 
-        // Generate XML
-        $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
-        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+            // Generate XML
+            $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+            $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 
-        // Add static pages
-        foreach ($staticPages as $page) {
+            // Add static pages
+            foreach ($staticPages as $page) {
+                $xml .= "  <url>\n";
+                $xml .= "    <loc>" . htmlspecialchars($page['url'], ENT_XML1, 'UTF-8') . "</loc>\n";
+                $xml .= "    <lastmod>" . $currentDate . "</lastmod>\n";
+                $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
+                $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
+                $xml .= "  </url>\n";
+            }
+
+            // Add service pages
+            foreach ($servicePages as $page) {
+                $xml .= "  <url>\n";
+                $xml .= "    <loc>" . htmlspecialchars($page['url'], ENT_XML1, 'UTF-8') . "</loc>\n";
+                $xml .= "    <lastmod>" . $page['lastmod'] . "</lastmod>\n";
+                $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
+                $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
+                $xml .= "  </url>\n";
+            }
+
+            // Add blog pages
+            foreach ($blogPages as $page) {
+                $xml .= "  <url>\n";
+                $xml .= "    <loc>" . htmlspecialchars($page['url'], ENT_XML1, 'UTF-8') . "</loc>\n";
+                $xml .= "    <lastmod>" . $page['lastmod'] . "</lastmod>\n";
+                $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
+                $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
+                $xml .= "  </url>\n";
+            }
+
+            // Add project pages
+            foreach ($projectPages as $page) {
+                $xml .= "  <url>\n";
+                $xml .= "    <loc>" . htmlspecialchars($page['url'], ENT_XML1, 'UTF-8') . "</loc>\n";
+                $xml .= "    <lastmod>" . $page['lastmod'] . "</lastmod>\n";
+                $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
+                $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
+                $xml .= "  </url>\n";
+            }
+
+            // Add team pages
+            foreach ($teamPages as $page) {
+                $xml .= "  <url>\n";
+                $xml .= "    <loc>" . htmlspecialchars($page['url'], ENT_XML1, 'UTF-8') . "</loc>\n";
+                $xml .= "    <lastmod>" . $page['lastmod'] . "</lastmod>\n";
+                $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
+                $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
+                $xml .= "  </url>\n";
+            }
+
+            // Add custom pages
+            foreach ($customPageUrls as $page) {
+                $xml .= "  <url>\n";
+                $xml .= "    <loc>" . htmlspecialchars($page['url'], ENT_XML1, 'UTF-8') . "</loc>\n";
+                $xml .= "    <lastmod>" . $page['lastmod'] . "</lastmod>\n";
+                $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
+                $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
+                $xml .= "  </url>\n";
+            }
+
+            $xml .= '</urlset>';
+
+            return response($xml, 200)
+                ->header('Content-Type', 'application/xml; charset=utf-8');
+                
+        } catch (\Exception $e) {
+            // Return minimal sitemap on error
+            $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+            $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
             $xml .= "  <url>\n";
-            $xml .= "    <loc>" . htmlspecialchars($page['url']) . "</loc>\n";
-            $xml .= "    <lastmod>" . $currentDate . "</lastmod>\n";
-            $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
-            $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
+            $xml .= "    <loc>" . htmlspecialchars(url('/'), ENT_XML1, 'UTF-8') . "</loc>\n";
+            $xml .= "    <lastmod>" . now()->format('Y-m-d\TH:i:s\Z') . "</lastmod>\n";
+            $xml .= "    <changefreq>daily</changefreq>\n";
+            $xml .= "    <priority>1.0</priority>\n";
             $xml .= "  </url>\n";
+            $xml .= '</urlset>';
+            
+            return response($xml, 200)
+                ->header('Content-Type', 'application/xml; charset=utf-8');
         }
-
-        // Add service pages
-        foreach ($servicePages as $page) {
-            $xml .= "  <url>\n";
-            $xml .= "    <loc>" . htmlspecialchars($page['url']) . "</loc>\n";
-            $xml .= "    <lastmod>" . $page['lastmod'] . "</lastmod>\n";
-            $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
-            $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
-            $xml .= "  </url>\n";
-        }
-
-        // Add blog pages
-        foreach ($blogPages as $page) {
-            $xml .= "  <url>\n";
-            $xml .= "    <loc>" . htmlspecialchars($page['url']) . "</loc>\n";
-            $xml .= "    <lastmod>" . $page['lastmod'] . "</lastmod>\n";
-            $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
-            $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
-            $xml .= "  </url>\n";
-        }
-
-        // Add project pages
-        foreach ($projectPages as $page) {
-            $xml .= "  <url>\n";
-            $xml .= "    <loc>" . htmlspecialchars($page['url']) . "</loc>\n";
-            $xml .= "    <lastmod>" . $page['lastmod'] . "</lastmod>\n";
-            $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
-            $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
-            $xml .= "  </url>\n";
-        }
-
-        // Add team pages
-        foreach ($teamPages as $page) {
-            $xml .= "  <url>\n";
-            $xml .= "    <loc>" . htmlspecialchars($page['url']) . "</loc>\n";
-            $xml .= "    <lastmod>" . $page['lastmod'] . "</lastmod>\n";
-            $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
-            $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
-            $xml .= "  </url>\n";
-        }
-
-        // Add custom pages
-        foreach ($customPageUrls as $page) {
-            $xml .= "  <url>\n";
-            $xml .= "    <loc>" . htmlspecialchars($page['url']) . "</loc>\n";
-            $xml .= "    <lastmod>" . $page['lastmod'] . "</lastmod>\n";
-            $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
-            $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
-            $xml .= "  </url>\n";
-        }
-
-        $xml .= '</urlset>';
-
-        return response($xml, 200)
-            ->header('Content-Type', 'application/xml; charset=utf-8');
     }
 
 }
