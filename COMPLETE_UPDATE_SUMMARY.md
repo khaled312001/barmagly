@@ -14,7 +14,7 @@
   - Features Section (قسم المميزات)
   - About Section (قسم من نحن)
   - Services Section (قسم الخدمات)
-  - Portfolio Section (قسم سابقة الأعمال)
+  - Portfolio Section (قسم المشاريع)
   - Team Section (قسم الفريق)
   - Blog Section (قسم المدونة)
   - CTA Section (قسم دعوة للعمل)

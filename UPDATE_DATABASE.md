@@ -52,7 +52,7 @@ php artisan db:seed --class=UpdateContentSeeder
 
 #### About Us Section (قسم من نحن)
 - العنوان والوصف
-- الإحصائيات (سابقة الأعمال والعملاء)
+- الإحصائيات (المشاريع والعملاء)
 - بالعربية والإنجليزية
 
 #### Service Section (قسم الخدمات)
@@ -109,7 +109,7 @@ php artisan db:seed --class=UpdateContentSeeder
 3. **الترجمات**: يتم تحديث الترجمات العربية والإنجليزية تلقائياً.
 
 4. **البيانات الأخرى**: Seeder لا يحذف أو يعدل:
-   - سابقة الأعمال (Projects)
+   - المشاريع (Projects)
    - الخدمات (Services/Listings)
    - المدونات (Blogs)
    - الفريق (Team)
