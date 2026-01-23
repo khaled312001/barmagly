@@ -249,8 +249,8 @@
                 }]
             });
             
-            // Center the slider after initialization
-            three_column_slider.on('init reInit afterChange', function(event, slick) {
+            // Center the slider after initialization - FIX TRANSFORM
+            three_column_slider.on('init reInit afterChange setPosition', function(event, slick) {
                 var $slider = $(this);
                 var $list = $slider.find('.slick-list');
                 var $track = $slider.find('.slick-track');
@@ -265,9 +265,31 @@
                 $list.css({
                     'margin-left': 'auto',
                     'margin-right': 'auto',
-                    'text-align': 'center'
+                    'text-align': 'center',
+                    'overflow': 'visible'
+                });
+                
+                // CRITICAL: Fix the transform to center the track
+                var listWidth = $list.outerWidth();
+                var trackWidth = $track.outerWidth();
+                
+                // Calculate center position
+                $track.css({
+                    'left': '50%',
+                    'transform': 'translateX(-50%)',
+                    '-webkit-transform': 'translateX(-50%)',
+                    '-moz-transform': 'translateX(-50%)',
+                    '-ms-transform': 'translateX(-50%)',
+                    '-o-transform': 'translateX(-50%)',
+                    'margin-left': 'auto',
+                    'margin-right': 'auto'
                 });
             });
+            
+            // Force fix after a short delay to ensure slick has finished
+            setTimeout(function() {
+                three_column_slider.trigger('setPosition');
+            }, 200);
         }
 
         /*--------------------------------------------------------------
