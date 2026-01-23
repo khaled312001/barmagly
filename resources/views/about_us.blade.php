@@ -29,7 +29,7 @@
     @endphp
     <div class="section large-padding-tb4 overflow-hidden">
         <div class="container">
-            <div class="row">
+            <div class="row" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="flex-direction: row-reverse !important; direction: rtl !important;" @endif>
                 <div class="col-lg-6">
                     <div class="Barmagly-thumb extra-mr">
                         <img data-aos="fade-up" data-aos-duration="600" src="{{ asset(getImage($aboutUsContent, 'image_1')) }}" alt="">
@@ -296,7 +296,7 @@
 
     <div class="section large-padding-tb2 overflow-hidden bg-light1">
         <div class="container">
-            <div class="row">
+            <div class="row" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="flex-direction: row-reverse !important; direction: rtl !important;" @endif>
                 <div class="col-lg-6 order-lg-2">
                     <div class="Barmagly-thumb extra-ml">
                         <img data-aos="fade-up" data-aos-duration="600" src="{{ asset(getImage($agencyFeatureSection,'image_1')) }}" alt="">
@@ -586,7 +586,7 @@
     <div class="Barmagly-counter-section3">
         <div class="container">
             <div id="Barmagly-counter2"></div>
-            <div class="Barmagly-counter-wrap3">
+            <div class="Barmagly-counter-wrap3" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="flex-direction: row-reverse !important; direction: rtl !important;" @endif>
                 <div class="Barmagly-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_1', $currentLang) }}">
                     <div class="Barmagly-counter-icon3">
                         <img src="{{ asset(getImage($counterContent, 'image_1')) }}" alt="">
@@ -639,8 +639,6 @@
     <div class="container">
         <div class="Barmagly-divider"></div>
     </div>
-
-    @include('frontend.templates.layouts.teams')
 
     @include('frontend.templates.layouts.contact_section')
 

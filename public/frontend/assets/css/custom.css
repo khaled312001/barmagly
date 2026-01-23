@@ -999,6 +999,500 @@ body[dir="rtl"] .project-view-btn:hover i {
 }
 
 /* ============================================
+   ANIMATED CODE BACKGROUND & ANIMATIONS
+   ============================================ */
+
+/* Animated Code Background */
+.animated-code-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.05;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.animated-code-background::before {
+    content: '<!DOCTYPE html>\A<html lang="ar">\A<head>\A  <meta charset="UTF-8">\A  <title>Barmagly</title>\A</head>\A<body>\A  <div class="container">\A    <h1>Welcome</h1>\A    <p>Professional Web Development</p>\A  </div>\A</body>\A</html>\A\Afunction init() {\A  console.log("Barmagly");\A  return true;\A}\A\Aconst projects = [];\Aprojects.forEach(p => {\A  console.log(p);\A});';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--accent-color, #6366f1);
+    white-space: pre;
+    animation: codeScroll 25s linear infinite;
+}
+
+@keyframes codeScroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+/* Floating Code Elements */
+.floating-code {
+    position: absolute;
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 11px;
+    color: var(--accent-color, #6366f1);
+    opacity: 0.15;
+    animation: floatCode 20s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-code:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+    content: 'function() { }';
+}
+
+.floating-code:nth-child(2) {
+    top: 30%;
+    right: 10%;
+    animation-delay: 3s;
+    content: 'const data = {};';
+}
+
+.floating-code:nth-child(3) {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 6s;
+    content: 'import React';
+}
+
+.floating-code:nth-child(4) {
+    bottom: 40%;
+    right: 20%;
+    animation-delay: 9s;
+    content: 'export default';
+}
+
+.floating-code:nth-child(5) {
+    top: 50%;
+    left: 50%;
+    animation-delay: 12s;
+    content: 'async await';
+}
+
+@keyframes floatCode {
+    0%, 100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.1;
+    }
+    25% {
+        transform: translateY(-30px) translateX(15px) rotate(5deg);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateY(-60px) translateX(-15px) rotate(-5deg);
+        opacity: 0.15;
+    }
+    75% {
+        transform: translateY(-30px) translateX(10px) rotate(3deg);
+        opacity: 0.18;
+    }
+}
+
+/* ============================================
+   PORTFOLIO IMAGE SCROLL ANIMATION
+   ============================================ */
+
+.Barmagly-portfolio-thumb {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.Barmagly-portfolio-thumb img.full-img {
+    width: 100%;
+    height: auto;
+    min-height: 120%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(0);
+    display: block;
+}
+
+/* Scroll animation on hover - makes image scroll down to show full image */
+.Barmagly-portfolio-thumb:hover img.full-img {
+    transform: translateY(calc(-100% + 100%)) !important;
+}
+
+/* For landscape images - need more scroll */
+.Barmagly-portfolio-thumb-landscape img.full-img,
+.col-xl-8 .Barmagly-portfolio-thumb-2 img.full-img {
+    min-height: 130%;
+}
+
+.Barmagly-portfolio-thumb-landscape:hover img.full-img,
+.col-xl-8 .Barmagly-portfolio-thumb-2:hover img.full-img {
+    transform: translateY(calc(-100% + 100%)) !important;
+}
+
+/* For digital/regular portfolio images */
+.Barmagly-portfolio-thumb-digital img.full-img {
+    min-height: 120%;
+}
+
+.Barmagly-portfolio-thumb-digital:hover img.full-img {
+    transform: translateY(calc(-100% + 100%)) !important;
+}
+
+/* Override any scale transforms from other CSS files */
+.Barmagly-portfolio-thumb:hover img.full-img,
+.Barmagly-portfolio-thumb-main:hover img.full-img,
+.Barmagly-portfolio-thumb-digital:hover img.full-img,
+.Barmagly-portfolio-thumb-landscape:hover img.full-img {
+    transform: translateY(calc(-100% + 100%)) !important;
+}
+
+/* Typing Animation */
+.typing-animation {
+    overflow: hidden;
+    border-right: 2px solid var(--accent-color, #6366f1);
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: var(--accent-color, #6366f1);
+    }
+}
+
+/* Pulse Animation */
+.pulse-animation {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+/* Fade In Up Animation */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rotate Animation */
+.rotate-animation {
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Shake Animation */
+.shake-animation {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Bounce Animation */
+.bounce-animation {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Glow Animation */
+.glow-animation {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px var(--accent-color, #6366f1),
+                    0 0 10px var(--accent-color, #6366f1),
+                    0 0 15px var(--accent-color, #6366f1);
+    }
+    to {
+        box-shadow: 0 0 10px var(--accent-color, #6366f1),
+                    0 0 20px var(--accent-color, #6366f1),
+                    0 0 30px var(--accent-color, #6366f1);
+    }
+}
+
+/* Slide In Animation */
+.slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Code Syntax Highlighting Animation */
+.code-snippet {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto;
+    position: relative;
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.code-snippet::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-color, #6366f1);
+    animation: codeLine 2s ease-in-out infinite;
+}
+
+@keyframes codeLine {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.code-snippet .keyword {
+    color: #569cd6;
+    animation: keywordPulse 3s ease-in-out infinite;
+}
+
+.code-snippet .string {
+    color: #ce9178;
+}
+
+.code-snippet .comment {
+    color: #6a9955;
+    font-style: italic;
+}
+
+@keyframes keywordPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Floating Icons Animation */
+.floating-icon {
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+/* Gradient Animation */
+.gradient-animation {
+    background: linear-gradient(-45deg, #6366f1, #8b5cf6, #ec4899, #f59e0b);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Text Reveal Animation */
+.text-reveal {
+    overflow: hidden;
+    position: relative;
+}
+
+.text-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color, #6366f1);
+    animation: textReveal 1s ease-out forwards;
+    transform: translateX(-100%);
+}
+
+@keyframes textReveal {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* Code Brackets Animation */
+.code-brackets {
+    position: relative;
+    display: inline-block;
+}
+
+.code-brackets::before,
+.code-brackets::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: var(--accent-color, #6366f1);
+    animation: bracketPulse 1.5s ease-in-out infinite;
+}
+
+.code-brackets::before {
+    left: -10px;
+}
+
+.code-brackets::after {
+    right: -10px;
+}
+
+@keyframes bracketPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scaleY(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+/* Matrix Rain Effect (Optional) */
+.matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.03;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .animated-code-background::before {
+        font-size: 10px;
+    }
+    
+    .floating-code {
+        font-size: 9px;
+    }
+    
+    .code-snippet {
+        font-size: 12px;
+        padding: 15px;
+    }
+}
+
+/* ============================================
    CONTACT INFO BOXES - LARGER SIZE
    ============================================ */
 

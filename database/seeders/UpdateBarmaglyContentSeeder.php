@@ -569,8 +569,13 @@ class UpdateBarmaglyContentSeeder extends Seeder
                 $listing->sub_category_id = 0;
                 $listing->thumb_image = 'default/service.jpg';
                 $listing->slug = \Illuminate\Support\Str::slug($service['title_en']);
-                $listing->regular_price = 0;
-                $listing->offer_price = null;
+                // Check if regular_price column exists before setting it
+                if (DB::getSchemaBuilder()->hasColumn('listings', 'regular_price')) {
+                    $listing->regular_price = 0;
+                }
+                if (DB::getSchemaBuilder()->hasColumn('listings', 'offer_price')) {
+                    $listing->offer_price = null;
+                }
                 $listing->status = 'enable';
                 $listing->save();
             }

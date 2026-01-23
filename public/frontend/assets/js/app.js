@@ -556,6 +556,75 @@
 
 
 
+// Animated Code Background - Initialize floating code elements
+document.addEventListener("DOMContentLoaded", () => {
+    // Create floating code elements dynamically
+    const heroSections = document.querySelectorAll('.Barmagly-hero-section, .section');
+    heroSections.forEach(section => {
+        if (!section.querySelector('.animated-code-background')) {
+            const codeBg = document.createElement('div');
+            codeBg.className = 'animated-code-background';
+            section.style.position = 'relative';
+            section.appendChild(codeBg);
+            
+            // Add floating code elements
+            for (let i = 0; i < 5; i++) {
+                const floatingCode = document.createElement('div');
+                floatingCode.className = 'floating-code';
+                const codeTexts = [
+                    'function() { }',
+                    'const data = {};',
+                    'import React',
+                    'export default',
+                    'async await',
+                    'class Component',
+                    'useState()',
+                    'useEffect()',
+                    'return <div>',
+                    'props.children'
+                ];
+                floatingCode.textContent = codeTexts[i % codeTexts.length];
+                section.appendChild(floatingCode);
+            }
+        }
+    });
+    
+    // Add typing animation to headings
+    const typingElements = document.querySelectorAll('.typing-animation');
+    typingElements.forEach(el => {
+        const text = el.textContent;
+        el.textContent = '';
+        let i = 0;
+        const typeInterval = setInterval(() => {
+            if (i < text.length) {
+                el.textContent += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(typeInterval);
+            }
+        }, 50);
+    });
+    
+    // Add fade-in-up animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.Barmagly-iconbox-wrap, .project-card-item, .Barmagly-service-item').forEach(el => {
+        observer.observe(el);
+    });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const paymentItems = document.querySelectorAll(".payment_select_item");

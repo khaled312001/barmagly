@@ -21,16 +21,6 @@
                                         <i class="ri-linkedin-fill"></i>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="{{ $footer->twitter }}">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ $footer->instagram }}">
-                                        <i class="ri-instagram-fill"></i>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>

@@ -37,24 +37,6 @@
 
                     <div class="Barmagly-header-info-right">
                         <div class="cur_lun_login_item">
-                <span>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 11.25C11.3096 11.25 10.75 10.6904 10.75 10C10.75 9.30964 11.3096 8.75 12 8.75C12.6904 8.75 13.25 9.30964 13.25 10C13.25 10.4142 13.5858 10.75 14 10.75C14.4142 10.75 14.75 10.4142 14.75 10C14.75 8.74122 13.9043 7.67998 12.75 7.35352V6.5C12.75 6.08579 12.4142 5.75 12 5.75C11.5858 5.75 11.25 6.08579 11.25 6.5V7.35352C10.0957 7.67998 9.25 8.74122 9.25 10C9.25 11.5188 10.4812 12.75 12 12.75C12.6904 12.75 13.25 13.3096 13.25 14C13.25 14.6904 12.6904 15.25 12 15.25C11.3096 15.25 10.75 14.6904 10.75 14C10.75 13.5858 10.4142 13.25 10 13.25C9.58579 13.25 9.25 13.5858 9.25 14C9.25 15.2588 10.0957 16.32 11.25 16.6465V17.5C11.25 17.9142 11.5858 18.25 12 18.25C12.4142 18.25 12.75 17.9142 12.75 17.5V16.6465C13.9043 16.32 14.75 15.2588 14.75 14C14.75 12.4812 13.5188 11.25 12 11.25Z"
-                          fill="white" />
-                  </svg>
-                </span>
-                            <form action="{{ route('currency-switcher') }}" id="currency_form">
-                                <select id="currency_dropdown" class="js-example-basic-single" name="currency_code">
-                                    @foreach ($currency_list as $currency_item)
-                                        <option
-                                            {{ Session::get('currency_code') == $currency_item->currency_code ? 'selected' : '' }} value="{{ $currency_item->currency_code }}">{{ $currency_item->currency_name }}</option>
-                                    @endforeach
-                                </select>
-                            </form>
-                        </div>
-
-                        <div class="cur_lun_login_item">
                             <span>
                               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -109,8 +91,6 @@
 
                 <div class="header-btn header-btn-l1 {{ Session::get('lang_dir', 'right_to_left') == 'right_to_left' ? 'me-auto' : 'ms-auto' }} d-none d-xs-inline-flex">
                     <div class="Barmagly-header-icon">
-
-                        @include('frontend.templates.layouts._cart', ['iconColor' => '#fff'])
 
                         <a class="Barmagly-default-btn Barmagly-header-btn" href="{{ route('contact-us') }}" data-text="{{ __('translate.Get in Touch') }}">
                             <span
@@ -731,16 +711,6 @@
                             <li>
                                 <a href="{{ $footer->linkedin }}" target="_blank">
                                     <i class="ri-linkedin-fill"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ $footer->twitter }}" target="_blank">
-                                    <i class="ri-twitter-fill"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ $footer->instagram }}" target="_blank">
-                                    <i class="ri-instagram-fill"></i>
                                 </a>
                             </li>
                         </ul>
