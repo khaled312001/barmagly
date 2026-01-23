@@ -474,3 +474,155 @@ body[dir="rtl"] .container .Barmagly-2column-slider {
     margin: 0 auto !important;
     text-align: center !important;
 }
+
+/* Center 3-column slider for RTL and LTR */
+.Barmagly-3column-slider,
+.Barmagly-3column-slider2 {
+    margin: 0 auto !important;
+    text-align: center !important;
+    width: 100%;
+    max-width: 100%;
+}
+
+.Barmagly-3column-slider .slick-list,
+.Barmagly-3column-slider2 .slick-list {
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+.Barmagly-3column-slider .slick-track,
+.Barmagly-3column-slider2 .slick-track {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
+html[dir="rtl"] .Barmagly-3column-slider,
+body.rtl .Barmagly-3column-slider,
+body[dir="rtl"] .Barmagly-3column-slider,
+html[dir="rtl"] .Barmagly-3column-slider2,
+body.rtl .Barmagly-3column-slider2,
+body[dir="rtl"] .Barmagly-3column-slider2 {
+    margin: 0 auto !important;
+    text-align: center !important;
+    width: 100%;
+    max-width: 100%;
+}
+
+html[dir="rtl"] .Barmagly-3column-slider .slick-list,
+body.rtl .Barmagly-3column-slider .slick-list,
+body[dir="rtl"] .Barmagly-3column-slider .slick-list,
+html[dir="rtl"] .Barmagly-3column-slider2 .slick-list,
+body.rtl .Barmagly-3column-slider2 .slick-list,
+body[dir="rtl"] .Barmagly-3column-slider2 .slick-list {
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+html[dir="rtl"] .Barmagly-3column-slider .slick-track,
+body.rtl .Barmagly-3column-slider .slick-track,
+body[dir="rtl"] .Barmagly-3column-slider .slick-track,
+html[dir="rtl"] .Barmagly-3column-slider2 .slick-track,
+body.rtl .Barmagly-3column-slider2 .slick-track,
+body[dir="rtl"] .Barmagly-3column-slider2 .slick-track {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
+/* Center 3-column slider container */
+html[dir="rtl"] .container .Barmagly-3column-slider,
+body.rtl .container .Barmagly-3column-slider,
+body[dir="rtl"] .container .Barmagly-3column-slider,
+html[dir="rtl"] .container .Barmagly-3column-slider2,
+body.rtl .container .Barmagly-3column-slider2,
+body[dir="rtl"] .container .Barmagly-3column-slider2 {
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+/* Projects slider wrapper - Center alignment */
+.projects-slider-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+html[dir="rtl"] .projects-slider-wrapper,
+body.rtl .projects-slider-wrapper,
+body[dir="rtl"] .projects-slider-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* Ensure section with 3-column slider is properly centered */
+.section .Barmagly-3column-slider,
+.section .Barmagly-3column-slider2 {
+    display: block !important;
+    margin: 40px auto !important;
+    text-align: center !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Fix vertical alignment - ensure slider appears in center of section, not at bottom */
+.section.Barmagly-section-padding:has(.Barmagly-3column-slider),
+.section.Barmagly-section-padding:has(.Barmagly-3column-slider2),
+.section.dark-bg:has(.Barmagly-3column-slider),
+.section.dark-bg:has(.Barmagly-3column-slider2) {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+}
+
+/* Fallback for browsers that don't support :has() */
+.section.Barmagly-section-padding .Barmagly-3column-slider,
+.section.Barmagly-section-padding .Barmagly-3column-slider2,
+.section.dark-bg .Barmagly-3column-slider,
+.section.dark-bg .Barmagly-3column-slider2 {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+}
+
+/* Ensure container with title is centered */
+.section .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* Additional centering for slick slider with centerMode */
+.Barmagly-3column-slider.slick-initialized,
+.Barmagly-3column-slider2.slick-initialized {
+    overflow: hidden !important;
+}
+
+.Barmagly-3column-slider.slick-initialized .slick-list,
+.Barmagly-3column-slider2.slick-initialized .slick-list {
+    margin: 0 auto !important;
+    overflow: visible !important;
+}
+
+.Barmagly-3column-slider.slick-initialized .slick-track,
+.Barmagly-3column-slider2.slick-initialized .slick-track {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
+/* Ensure slides are centered within the slider */
+.Barmagly-3column-slider .slick-slide,
+.Barmagly-3column-slider2 .slick-slide {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
