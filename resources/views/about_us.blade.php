@@ -542,7 +542,7 @@
                     <div class="Barmagly-default-content mr40">
                         <h2>{{ getTranslatedValue($agencyFeatureSection,'heading', $currentLang) }}</h2>
                         <div class="Barmagly-extra-mt">
-                            <div class="Barmagly-iconbox-wrap2 rt-mb-35">
+                            <div class="Barmagly-iconbox-wrap2 rt-mb-35" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="flex-direction: row-reverse !important; direction: rtl !important;" @endif>
                                 <div class="Barmagly-iconbox-icon2">
                                     <img src="{{ asset(getImage($agencyFeatureSection, 'image_3')) }}" alt="">
                                 </div>
@@ -554,7 +554,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="Barmagly-iconbox-wrap2 rt-mb-35">
+                            <div class="Barmagly-iconbox-wrap2 rt-mb-35" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="flex-direction: row-reverse !important; direction: rtl !important;" @endif>
                                 <div class="Barmagly-iconbox-icon2">
                                     <img src="{{ asset(getImage($agencyFeatureSection, 'image_4')) }}" alt="">
                                 </div>
@@ -565,7 +565,7 @@
                                     <p>{{ getTranslatedValue($agencyFeatureSection,'feature_description_2', $currentLang) }}</p>
                                 </div>
                             </div>
-                            <div class="Barmagly-iconbox-wrap2 mb-0">
+                            <div class="Barmagly-iconbox-wrap2 mb-0" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="flex-direction: row-reverse !important; direction: rtl !important;" @endif>
                                 <div class="Barmagly-iconbox-icon2">
                                     <img src="{{ asset(getImage($agencyFeatureSection, 'image_5')) }}" alt="">
                                 </div>

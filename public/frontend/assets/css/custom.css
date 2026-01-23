@@ -1599,3 +1599,17 @@ body[dir="rtl"] .Barmagly-infobox-item {
     direction: rtl;
     text-align: right;
 }
+
+/* RTL Support for Iconbox Wrap2 - Icons on the right */
+html[dir="rtl"] .Barmagly-iconbox-wrap2,
+body.rtl .Barmagly-iconbox-wrap2,
+body[dir="rtl"] .Barmagly-iconbox-wrap2 {
+    flex-direction: row-reverse !important;
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .Barmagly-iconbox-data2,
+body.rtl .Barmagly-iconbox-data2,
+body[dir="rtl"] .Barmagly-iconbox-data2 {
+    text-align: right !important;
+}

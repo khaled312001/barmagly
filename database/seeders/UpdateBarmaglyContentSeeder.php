@@ -504,6 +504,69 @@ class UpdateBarmaglyContentSeeder extends Seeder
             ],
         ]);
 
+        // Digital Agency Feature Section (used in about_us page)
+        $this->updateContent('digital_agency_feature_section.content', [
+            'heading' => [
+                'en' => 'Providing IT solutions & services for Barmagly',
+                'ar' => 'نوفر حلول تكنولوجيا المعلومات والخدمات لبرمجلي'
+            ],
+            'feature_1_heading' => [
+                'en' => 'Quality Solution for Barmagly',
+                'ar' => 'حلول عالية الجودة لبرمجلي'
+            ],
+            'feature_description_1' => [
+                'en' => 'We provide professional web development, website design, and UI/UX services tailored to your business needs.',
+                'ar' => 'نوفر خدمات تطوير المواقع وتصميمها وUI/UX الاحترافية المصممة خصيصاً لاحتياجات عملك.'
+            ],
+            'feature_1_url' => '/services',
+            'feature_2_heading' => [
+                'en' => 'Amazing Expert Teams',
+                'ar' => 'فريق خبير متميز'
+            ],
+            'feature_description_2' => [
+                'en' => 'Our skilled team of developers and designers is always ready to deliver exceptional results for your projects.',
+                'ar' => 'فريقنا الماهر من المطورين والمصممين دائماً جاهز لتقديم نتائج استثنائية لمشاريعك.'
+            ],
+            'feature_2_url' => '/teams',
+            'feature_3_heading' => [
+                'en' => '24/7 Customer Support',
+                'ar' => 'دعم عاجل للعملاء'
+            ],
+            'feature_description_3' => [
+                'en' => 'We provide round-the-clock customer support to ensure your satisfaction and success.',
+                'ar' => 'نوفر دعم عملاء على مدار الساعة لضمان رضاك ونجاحك.'
+            ],
+            'feature_3_url' => '/contact-us',
+        ]);
+
+        // IT Solutions About Us Section
+        $this->updateContent('it_solutions_about_us.content', [
+            'heading' => [
+                'en' => 'We provide perfect IT solutions & technology',
+                'ar' => 'نوفر حلول تكنولوجيا المعلومات والخدمات المثالية'
+            ],
+            'description' => [
+                'en' => 'During this time, we\'ve built a reputation for excellent customer satisfaction as evidenced by our quality services and professional team.',
+                'ar' => 'خلال هذا الوقت، بنينا سمعة للرضا الممتاز للعملاء كما يتضح من خدماتنا عالية الجودة وفريقنا المحترف.'
+            ],
+            'feature_text_1' => [
+                'en' => 'Providing skill services',
+                'ar' => 'تقديم خدمات المهارات'
+            ],
+            'feature_text_2' => [
+                'en' => 'Urgent customer support',
+                'ar' => 'دعم عاجل للعملاء'
+            ],
+            'feature_text_3' => [
+                'en' => 'Advanced information technology solutions',
+                'ar' => 'حلول تكنولوجيا المعلومات المتقدمة'
+            ],
+            'button_text' => [
+                'en' => 'More About Us',
+                'ar' => 'المزيد عنا'
+            ],
+        ]);
+
         $this->command->info('✅ All Frontend Sections updated!');
     }
 
