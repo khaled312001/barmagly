@@ -270,7 +270,9 @@ class HomeController extends Controller
             ->whereHas('translations', function($query) {
                 $query->where('lang_code', front_lang());
             })
-            ->where('blog_category_id', $blog->blog_category_id) // Same category only
+            ->when($blog->blog_category_id, function($query) use ($blog) {
+                return $query->where('blog_category_id', $blog->blog_category_id); // Same category only
+            })
             ->first();
 
 

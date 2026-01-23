@@ -9,8 +9,13 @@
     @php
         $tags = '';
         if($blog->tags){
-            foreach (json_decode($blog->tags) as $key => $blog_tag) {
-                $tags .= $blog_tag->value.', ';
+            $decoded_tags = json_decode($blog->tags);
+            if(is_array($decoded_tags) || is_object($decoded_tags)){
+                foreach ($decoded_tags as $key => $blog_tag) {
+                    if(isset($blog_tag->value)){
+                        $tags .= $blog_tag->value.', ';
+                    }
+                }
             }
         }
     @endphp
@@ -20,7 +25,7 @@
 
 @section('content')
 <!-- Main Start -->
-<div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image) }})">
+<div class="Barmagly-breadcrumb" style="background-image: url({{ asset($general_setting->breadcrumb_image ?? '') }})">
     <div class="container">
         <h1 class="post__title">{{ $blog->front_translate?->title ?? $blog->translate?->title }}</h1>
         <nav class="breadcrumbs">
@@ -45,7 +50,7 @@
                     <div class="Barmagly-single-post-meta">
                         <ul>
                             <li><a href=""><i class="ri-calendar-fill"></i>{{ __($blog->created_at->format('d M Y')) }}</a></li>
-                            <li><a href=""><i class="ri-bookmark-fill"></i>{{ $blog->category->front_translate?->name ?? $blog->category->translate?->name }}</a></li>
+                            <li><a href=""><i class="ri-bookmark-fill"></i>{{ $blog->category?->front_translate?->name ?? $blog->category?->translate?->name ?? 'Uncategorized' }}</a></li>
                             <li><a href=""><i class="ri-chat-2-fill"></i> {{ $blog->total_comment }} {{ __('translate.Comments') }}</a></li>
                         </ul>
                     </div>
@@ -58,9 +63,16 @@
                             <div class="Barmagly-blog-tags">
                                 <ul>
                                     @if ($blog->tags)
-                                        @foreach (json_decode($blog->tags) as $blog_tag)
-                                        <li><a href="javascript:;">{{ $blog_tag->value }}</a></li>
-                                        @endforeach
+                                        @php
+                                            $decoded_tags = json_decode($blog->tags);
+                                        @endphp
+                                        @if(is_array($decoded_tags) || is_object($decoded_tags))
+                                            @foreach ($decoded_tags as $blog_tag)
+                                                @if(isset($blog_tag->value))
+                                                    <li><a href="javascript:;">{{ $blog_tag->value }}</a></li>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     @endif
                                 </ul>
                             </div>
@@ -96,7 +108,7 @@
                                 <li>
                                     <div class="Barmagly-post-comment-wrap">
                                         <div class="Barmagly-post-comment-thumb">
-                                            <img src="{{ asset($general_setting->default_avatar) }}" alt="">
+                                            <img src="{{ asset($general_setting->default_avatar ?? '') }}" alt="">
                                         </div>
                                         <div class="Barmagly-post-comment-data">
                                             <p>
@@ -154,9 +166,9 @@
                                         </label>
                                     </div>
 
-                                    @if($general_setting->recaptcha_status == 1)
+                                    @if(isset($general_setting->recaptcha_status) && $general_setting->recaptcha_status == 1)
                                         <div class="contact-form-input col-lg-12 mt-4">
-                                            <div class="g-recaptcha" data-sitekey="{{ $general_setting->recaptcha_site_key }}"></div>
+                                            <div class="g-recaptcha" data-sitekey="{{ $general_setting->recaptcha_site_key ?? '' }}"></div>
                                         </div>
                                     @endif
 
