@@ -248,6 +248,26 @@
                     }
                 }]
             });
+            
+            // Center the slider after initialization
+            three_column_slider.on('init reInit afterChange', function(event, slick) {
+                var $slider = $(this);
+                var $list = $slider.find('.slick-list');
+                var $track = $slider.find('.slick-track');
+                
+                // Ensure slider is centered
+                $slider.css({
+                    'margin-left': 'auto',
+                    'margin-right': 'auto',
+                    'text-align': 'center'
+                });
+                
+                $list.css({
+                    'margin-left': 'auto',
+                    'margin-right': 'auto',
+                    'text-align': 'center'
+                });
+            });
         }
 
         /*--------------------------------------------------------------
