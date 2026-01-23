@@ -492,29 +492,29 @@
         <div class="Barmagly-section-title center">
             <h2>{{ __('translate.Explore our recent projects') }}</h2>
         </div>
-        <div class="projects-showcase-grid">
-            @foreach($projects->take(6) as $index => $project)
-            <div class="project-card-item" data-aos="fade-up" data-aos-duration="{{ ($index + 1) * 100 }}">
-                <div class="project-card-image">
-                    <img src="{{ asset($project->thumb_image) }}" alt="{{ $project->title ?? $project->translate?->title }}" class="project-img">
-                    <div class="project-card-overlay">
-                        <a href="{{ route('portfolio.show', $project->slug) }}" class="project-view-btn">
-                            <i class="ri-arrow-right-up-line"></i>
-                            <span>{{ __('translate.View Project') }}</span>
-                        </a>
+            <div class="projects-showcase-grid">
+                @foreach($projects->take(6) as $index => $project)
+                <div class="project-card-item" data-aos="fade-up" data-aos-duration="{{ ($index + 1) * 100 }}">
+                    <div class="project-card-image">
+                        <img src="{{ asset($project->thumb_image) }}" alt="{{ $project->title ?? $project->translate?->title }}" class="project-img">
+                        <div class="project-card-overlay">
+                            @if($project->website_url)
+                            <a href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer" class="project-view-btn">
+                                <i class="ri-arrow-right-up-line"></i>
+                                <span>{{ __('translate.Visit Website') }}</span>
+                            </a>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="project-card-content">
+                        <h4 class="project-title">{{ $project->title ?? $project->translate?->title }}</h4>
+                        @if($project->category)
+                        <p class="project-category">{{ $project->category->name ?? $project->category->translate?->name }}</p>
+                        @endif
                     </div>
                 </div>
-                <div class="project-card-content">
-                    <a href="{{ route('portfolio.show', $project->slug) }}" class="project-title-link">
-                        <h4 class="project-title">{{ $project->title ?? $project->translate?->title }}</h4>
-                    </a>
-                    @if($project->category)
-                    <p class="project-category">{{ $project->category->name ?? $project->category->translate?->name }}</p>
-                    @endif
-                </div>
+                @endforeach
             </div>
-            @endforeach
-        </div>
         @if($projects->count() > 6)
         <div class="projects-showcase-more text-center">
             <a href="{{ route('portfolio') }}" class="Barmagly-default-btn" data-text="{{ __('translate.View All Projects') }}">
@@ -544,9 +544,6 @@
                                     <h4>{{ $package['title'] ?? '' }}</h4>
                                     <p>{{ $package['description'] ?? '' }}</p>
                                 </div>
-                                <div class="Barmagly-pricing-price">
-                                    <h2>${{ $package['price'] ?? '0' }}<span>/{{ __('translate.month') }}</span></h2>
-                                </div>
                                 <div class="Barmagly-pricing-feature">
                                     <ul>
                                         @if(isset($package['features']) && is_array($package['features']))
@@ -556,7 +553,7 @@
                                         @endif
                                     </ul>
                                 </div>
-                                <a class="Barmagly-pricing-btn" href="{{ route('contact-us') }}">{{ __('translate.Select This Plan') }}</a>
+                                <a class="Barmagly-pricing-btn" href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a>
                             </div>
                         </div>
                     @endforeach

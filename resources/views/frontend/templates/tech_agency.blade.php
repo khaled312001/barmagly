@@ -837,16 +837,16 @@
                     <div class="project-card-image">
                         <img src="{{ asset($project->thumb_image) }}" alt="{{ $project->title ?? $project->translate?->title }}" class="project-img">
                         <div class="project-card-overlay">
-                            <a href="{{ route('portfolio.show', $project->slug) }}" class="project-view-btn">
+                            @if($project->website_url)
+                            <a href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer" class="project-view-btn">
                                 <i class="ri-arrow-right-up-line"></i>
-                                <span>{{ __('translate.View Project') }}</span>
+                                <span>{{ __('translate.Visit Website') }}</span>
                             </a>
+                            @endif
                         </div>
                     </div>
                     <div class="project-card-content">
-                        <a href="{{ route('portfolio.show', $project->slug) }}" class="project-title-link">
-                            <h4 class="project-title">{{ $project->title ?? $project->translate?->title }}</h4>
-                        </a>
+                        <h4 class="project-title">{{ $project->title ?? $project->translate?->title }}</h4>
                         @if($project->category)
                         <p class="project-category">{{ $project->category->name ?? $project->category->translate?->name }}</p>
                         @endif

@@ -40,7 +40,7 @@
 
                 <span class="menu-bar__name">{{ __('translate.Manage Order') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown show" id="menu-item__order"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__order"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
 
@@ -74,7 +74,7 @@
             </span>
 
                 <span class="menu-bar__name">{{ __('translate.Manage Product') }}</span></span> <span class="crancy__toggle"></span></a></span>
-                <div class="collapse crancy__dropdown show" id="menu-item__ecommerce"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__ecommerce"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
                         <li><a href="{{ route('admin.product.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Product') }}</span></span></a></li>
 
@@ -163,7 +163,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Manage Users') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown show" id="menu-item__users"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__users"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.user-list') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.User List') }}</span></span></a></li>
@@ -192,7 +192,7 @@
 
                 <span class="menu-bar__name">{{ __('translate.Manage Service') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown show" id="menu-item__car_list"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__car_list"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.listings.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Service') }}</span></span></a></li>
@@ -242,7 +242,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Manage Blog') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown show" id="menu-item__blog"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__blog"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.blog-category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Categroy') }}</span></span></a></li>
@@ -270,7 +270,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Manage Pages') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown show" id="menu-item__pages"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__pages"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.contact-us', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Contact Us') }}</span></span></a></li>
@@ -299,7 +299,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Manage Section') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown show" id="menu-item__for_section"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__for_section"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
 
@@ -420,7 +420,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Language') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown show" id="menu-item__languages"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__languages"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.language.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Languages') }}</span></span></a></li>
@@ -444,7 +444,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Email Configuration') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown show" id="menu-item__apps_email_config"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__apps_email_config"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.email-setting') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Configuration') }}</span></span></a></li>
@@ -471,7 +471,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Website Setup') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown show" id="menu-item__apps"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__apps"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.cookie-consent') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Cookie Consent') }}</span></span></a></li>
@@ -563,7 +563,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Newsletter') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown show" id="menu-item__apps_newsletter"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown" id="menu-item__apps_newsletter"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.newsletter-list') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Subscriber List') }}</span></span></a></li>

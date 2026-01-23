@@ -895,6 +895,8 @@
   'Cyber Security Analysis' => 'تحليل الأمن السيبراني',
   'AI Services' => 'خدمات الذكاء الاصطناعي',
   'View All Projects' => 'عرض جميع مشاريعنا',
+  'View Project' => 'عرض المشروع',
+  'Visit Website' => 'زيارة الموقع',
 
   // Team Section
   'Our expert team is always ready to help you' => 'فريقنا الخبير دائماً جاهز لمساعدتك',

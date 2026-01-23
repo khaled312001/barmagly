@@ -234,12 +234,8 @@
                     <div class="Barmagly-pricing-wrap Barmagly-pricing2 {{ $loop->iteration == 2 ? 'active' : '' }}">
                         <div class="Barmagly-pricing-header">
                             <h4>{{ $package['title'] ?? '' }}</h4>
+                            <p>{{ $package['description'] ?? '' }}</p>
                         </div>
-                        <div class="Barmagly-pricing-price">
-                            <h2>${{ $package['price'] ?? '0' }}<span>/{{ __('translate.month') }}</span></h2>
-                        </div>
-                        <p>{{ $package['description'] ?? '' }}</p>
-                        <a class="Barmagly-pricing-btn" href="{{ route('contact-us') }}">{{ __('translate.Select This Plan') }}</a>
                         <div class="Barmagly-pricing-feature">
                             <ul>
                                 @if(isset($package['features']) && is_array($package['features']))
@@ -249,6 +245,7 @@
                                 @endif
                             </ul>
                         </div>
+                        <a class="Barmagly-pricing-btn" href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a>
                     </div>
                 </div>
                 @endforeach

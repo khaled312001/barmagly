@@ -53,6 +53,10 @@
                                                 {{ __('translate.Category') }}
                                             </th>
 
+                                            <th class="crancy-table__column-2 crancy-table__h2 sorting" >
+                                                {{ __('translate.Website URL') }}
+                                            </th>
+
                                             <th class="crancy-table__column-3 crancy-table__h3 sorting">
                                                 {{ __('translate.Action') }}
                                             </th>
@@ -70,11 +74,21 @@
                                                 </td>
 
                                                 <td class="crancy-table__column-2 crancy-table__data-2">
-                                                    <h4 class="crancy-table__product-title"><a target="_blank" href="{{ route('service', $project->slug) }}">{{ html_decode($project->translate->title) }}</a></h4>
+                                                    <h4 class="crancy-table__product-title">{{ html_decode($project->translate->title) }}</h4>
                                                 </td>
 
                                                 <td class="crancy-table__column-2 crancy-table__data-2">
                                                     <h4 class="crancy-table__product-title">{{ html_decode($project?->category?->translate?->name) }}</h4>
+                                                </td>
+
+                                                <td class="crancy-table__column-2 crancy-table__data-2">
+                                                    @if($project->website_url)
+                                                    <a href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer" class="crancy-btn crancy-btn--primary">
+                                                        <i class="fas fa-external-link-alt"></i> {{ __('translate.Visit Website') }}
+                                                    </a>
+                                                    @else
+                                                    <span class="text-muted">{{ __('translate.No Website URL') }}</span>
+                                                    @endif
                                                 </td>
 
 

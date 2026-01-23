@@ -867,23 +867,12 @@ body[dir="rtl"] .Barmagly-3column-slider .slick-track {
     flex-direction: column;
 }
 
-.project-title-link {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease;
-}
-
-.project-title-link:hover {
-    color: var(--accent-color, #6366f1);
-}
-
 .project-title {
     font-size: 22px;
     font-weight: 700;
     margin: 0 0 10px 0;
     color: #1a1a1a;
     line-height: 1.4;
-    transition: color 0.3s ease;
 }
 
 .project-category {
@@ -996,9 +985,6 @@ body[dir="rtl"] .project-view-btn:hover i {
     color: #aaa;
 }
 
-.dark-bg .project-title-link:hover {
-    color: var(--accent-color, #6366f1);
-}
 
 /* Light Background Support */
 .bg-light1.projects-showcase-section {

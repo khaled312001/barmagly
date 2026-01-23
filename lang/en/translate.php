@@ -894,6 +894,8 @@
   'Cyber Security Analysis' => 'Cyber Security Analysis',
   'AI Services' => 'AI Services',
   'View All Projects' => 'View All Projects',
+  'View Project' => 'View Project',
+  'Visit Website' => 'Visit Website',
 
   // Team Section
   'Our expert team is always ready to help you' => 'Our expert team is always ready to help you',
