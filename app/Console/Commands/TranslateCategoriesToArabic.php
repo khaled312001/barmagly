@@ -25,7 +25,7 @@ class TranslateCategoriesToArabic extends Command
             'Business Style' => 'نمط الأعمال',
             'AI Services' => 'خدمات الذكاء الاصطناعي',
             'Electronics' => 'الإلكترونيات',
-            'Home Appliances' => 'الأجهزة المنزلية',
+            'Home Appliances' => 'تطبيقات الهاتف',
             'Fashion' => 'الموضة',
             'Personal Care' => 'العناية الشخصية',
         ];
