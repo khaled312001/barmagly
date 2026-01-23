@@ -655,6 +655,8 @@
   'All' => 'الكل',
   'Grid' => 'شبكة',
   'Portfolio Type' => 'نوع سابقة أعمالنا',
+  'No projects found' => 'لم يتم العثور على مشاريع',
+  'Try selecting a different category' => 'حاول اختيار فئة مختلفة',
   'Contact Message Receiver Email' => 'بريد متلقي رسالة الاتصال',
   'Timezone' => 'المنطقة الزمنية',
   'Website Logo' => 'شعار الموقع',

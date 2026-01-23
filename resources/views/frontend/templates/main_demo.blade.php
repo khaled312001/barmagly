@@ -824,6 +824,30 @@
             <div class="Barmagly-section-title center">
                 <h2>{{ __('translate.Explore our recent projects') }}</h2>
             </div>
+            
+            @php
+                $homeCategories = \Modules\Category\Entities\Category::where('status', 'enable')
+                    ->with('front_translate')
+                    ->get();
+            @endphp
+            
+            @if($homeCategories->count() > 0)
+            <div class="portfolio-filters">
+                <a href="{{ route('portfolio') }}" 
+                   class="portfolio-filter-btn active"
+                   data-category="all">
+                    {{ __('translate.All') }}
+                </a>
+                @foreach($homeCategories as $category)
+                    <a href="{{ route('portfolio', ['category' => $category->id]) }}" 
+                       class="portfolio-filter-btn"
+                       data-category="{{ $category->id }}">
+                        {{ $category->name ?? $category->front_translate->name ?? 'Category' }}
+                    </a>
+                @endforeach
+            </div>
+            @endif
+            
             <div class="row">
                 @foreach($projects->take(5) as $index => $project)
                         {{-- For all projects except the last one --}}

@@ -654,6 +654,8 @@
   'All' => 'All',
   'Grid' => 'Grid',
   'Portfolio Type' => 'Portfolio Type',
+  'No projects found' => 'No projects found',
+  'Try selecting a different category' => 'Try selecting a different category',
   'Contact Message Receiver Email' => 'Contact Message Receiver Email',
   'Timezone' => 'Timezone',
   'Website Logo' => 'Website Logo',

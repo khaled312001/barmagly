@@ -1512,6 +1512,11 @@ body[dir="rtl"] .Barmagly-infobox-item {
     transform: translateY(calc(-100% + 100%));
 }
 
+/* Override scale transform from main.css to allow scroll animation */
+.Barmagly-portfolio-thumb:hover img.full-img {
+    transform: translateY(calc(-100% + 100%)) !important;
+}
+
 /* For landscape images */
 .Barmagly-portfolio-thumb-landscape img.full-img,
 .col-xl-8 .Barmagly-portfolio-thumb-2 img.full-img {
