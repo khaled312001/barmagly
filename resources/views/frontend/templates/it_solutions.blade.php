@@ -487,12 +487,15 @@
                             @endif
                         </div>
                     </div>
-                    <div class="project-card-content">
-                        <h4 class="project-title">{{ $project->title ?? $project->translate?->title }}</h4>
-                        @if($project->category)
-                        <p class="project-category">{{ $project->category->name ?? $project->category->translate?->name }}</p>
-                        @endif
-                    </div>
+                        <div class="project-card-content">
+                            <h4 class="project-title">{{ $project->title ?? $project->translate?->title }}</h4>
+                            @if($project->front_translate?->client_name)
+                            <p class="project-client-name">{{ $project->front_translate->client_name }}</p>
+                            @endif
+                            @if($project->category)
+                            <p class="project-category">{{ $project->category->name ?? $project->category->translate?->name }}</p>
+                            @endif
+                        </div>
                 </div>
                 @endforeach
             </div>

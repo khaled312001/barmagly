@@ -260,6 +260,9 @@
                                         <h4>{{ $project->title ?? $project->translate?->title }}</h4>
                                     </a>
                                 @endif
+                                @if($project->front_translate?->client_name)
+                                    <p class="client-name">{{ $project->front_translate->client_name }}</p>
+                                @endif
                                 <p>@if($project->category)
                                         {{ $project->category->name ?? $project->category->translate?->name }}
                                     @endif</p>

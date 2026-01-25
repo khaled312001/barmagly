@@ -188,6 +188,9 @@
                                         @endif
                                     </span>
                                     <h3 class="portfolio-title-modern">{{ $project->title ?? $project->translate->title }}</h3>
+                                    @if($project->front_translate?->client_name)
+                                    <p class="portfolio-client-name">{{ $project->front_translate->client_name }}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
