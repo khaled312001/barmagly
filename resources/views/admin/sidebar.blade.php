@@ -143,6 +143,27 @@
                 </a>
             </li>
 
+            <li class="{{ Route::is('admin.category.*') || Route::is('admin.sub-category.*') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__category"><span class="menu-bar__text">
+                <span class="crancy-menu-icon crancy-svg-icon__v1">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 5.83333H17.5" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2.5 10H17.5" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2.5 14.1667H17.5" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.5 2.5L5.83333 5.83333H2.5V17.5H17.5V5.83333H14.1667L12.5 2.5H7.5Z" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span class="menu-bar__name">{{ __('translate.Manage Categories') }}</span></span> <span class="crancy__toggle"></span></a></span>
+                <!-- Dropdown Menu -->
+                <div class="collapse crancy__dropdown" id="menu-item__category"  data-bs-parent="#CrancyMenu">
+                    <ul class="menu-bar__one-dropdown">
+                        <li><a href="{{ route('admin.category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Category') }}</span></span></a></li>
+                        <li><a href="{{ route('admin.category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Category List') }}</span></span></a></li>
+                        <li><a href="{{ route('admin.sub-category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Sub Category') }}</span></span></a></li>
+                        <li><a href="{{ route('admin.sub-category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Sub Category List') }}</span></span></a></li>
+                    </ul>
+                </div>
+            </li>
+
 
             <li class="{{ Route::is('admin.blog.*') || Route::is('admin.blog-category.*') || Route::is('admin.comment-list') || Route::is('admin.show-comment') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__blog"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">

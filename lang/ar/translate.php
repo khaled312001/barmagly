@@ -106,6 +106,7 @@
   'Create Service' => 'إنشاء خدمة',
   'Service List' => 'قائمة الخدمات',
   'Manage Projects' => 'إدارة المشاريع',
+  'Manage Categories' => 'إدارة الفئات',
   'Manage Blog' => 'إدارة المدونة',
   'Create Categroy' => 'إنشاء فئة',
   'Categroy List' => 'قائمة الفئات',

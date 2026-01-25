@@ -106,6 +106,7 @@
   'Create Service' => 'Create Service',
   'Service List' => 'Service List',
   'Manage Projects' => 'Manage Projects',
+  'Manage Categories' => 'Manage Categories',
   'Manage Blog' => 'Manage Blog',
   'Create Categroy' => 'Create Categroy',
   'Categroy List' => 'Categroy List',
