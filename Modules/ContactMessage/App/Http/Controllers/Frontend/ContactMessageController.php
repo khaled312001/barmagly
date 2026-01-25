@@ -31,19 +31,30 @@ class ContactMessageController extends Controller
         $contact_message->message = $request->message;
         $contact_message->save();
 
-        EmailHelper::mail_setup();
+        // Try to send email, but don't fail if it doesn't work
+        try {
+            EmailHelper::mail_setup();
 
-        $setting = GlobalSetting::where('key', 'contact_message_mail')->first();
+            $setting = GlobalSetting::where('key', 'contact_message_mail')->first();
 
-        $template = EmailTemplate::find(2);
-        $message = $template->description;
-        $subject = $template->subject;
-        $message = str_replace('{{user_name}}',$request->name,$message);
-        $message = str_replace('{{user_email}}',$request->email,$message);
-        $message = str_replace('{{user_phone}}',$request->phone,$message);
-        $message = str_replace('{{message}}',$request->message,$message);
+            if ($setting && $setting->value) {
+                $template = EmailTemplate::find(2);
+                
+                if ($template) {
+                    $message = $template->description;
+                    $subject = $template->subject;
+                    $message = str_replace('{{user_name}}',$request->name,$message);
+                    $message = str_replace('{{user_email}}',$request->email,$message);
+                    $message = str_replace('{{user_phone}}',$request->phone,$message);
+                    $message = str_replace('{{message}}',$request->message,$message);
 
-        Mail::to($setting->value)->send(new SendContactMessage($message,$subject, $request->email, $request->name));
+                    Mail::to($setting->value)->send(new SendContactMessage($message,$subject, $request->email, $request->name));
+                }
+            }
+        } catch (\Exception $e) {
+            // Log the error but continue - message was saved successfully
+            \Log::error('Contact message email failed: ' . $e->getMessage());
+        }
 
         $notify_message= trans('translate.Your message has send successfully');
         $notify_message=array('message'=>$notify_message,'alert-type'=>'success');
