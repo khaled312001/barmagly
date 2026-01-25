@@ -12,7 +12,6 @@ use Modules\Language\App\Models\Language;
 use Illuminate\Contracts\Support\Renderable;
 use Modules\Category\Entities\CategoryTranslation;
 use Modules\Category\Http\Requests\CategoryRequest;
-use Modules\Ecommerce\Entities\Product;
 use Modules\Project\App\Models\Project;
 use Modules\Listing\Entities\Listing;
 
@@ -146,28 +145,20 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
-        // Check for related records
-        $product_qty = Product::where('category_id', $id)->count();
+        // Check for related records (only projects and subcategories)
         $project_qty = Project::where('category_id', $id)->count();
-        $listing_qty = Listing::where('category_id', $id)->count();
         $sub_category_qty = SubCategory::where('category_id', $id)->count();
 
         // Build error message with details
         $related_items = [];
-        if($product_qty > 0) {
-            $related_items[] = $product_qty . ' ' . ($product_qty == 1 ? trans('translate.product') : trans('translate.products'));
-        }
         if($project_qty > 0) {
             $related_items[] = $project_qty . ' ' . ($project_qty == 1 ? trans('translate.project') : trans('translate.projects'));
-        }
-        if($listing_qty > 0) {
-            $related_items[] = $listing_qty . ' ' . ($listing_qty == 1 ? trans('translate.service') : trans('translate.services'));
         }
         if($sub_category_qty > 0) {
             $related_items[] = $sub_category_qty . ' ' . ($sub_category_qty == 1 ? trans('translate.Sub Category') : trans('translate.Sub Categories'));
         }
 
-        if($product_qty > 0 || $project_qty > 0 || $listing_qty > 0 || $sub_category_qty > 0){
+        if($project_qty > 0 || $sub_category_qty > 0){
             $error_message = trans('translate.Cannot delete category') . ': ' . implode(', ', $related_items) . ' ' . trans('translate.are associated with this category');
             $notify_message = array('message' => $error_message, 'alert-type' => 'error');
             return redirect()->back()->with($notify_message);

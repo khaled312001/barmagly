@@ -2,24 +2,24 @@
 
 namespace Modules\Category\Entities;
 
-use Modules\Ecommerce\Entities\Product;
+use Modules\Project\App\Models\Project;
 use Modules\Listing\Entities\Listing;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
 
-    protected $appends = ['name', 'total_service'];
+    protected $appends = ['name', 'total_projects'];
 
-    protected $hidden = ['front_translate', 'services'];
+    protected $hidden = ['front_translate', 'projects'];
 
     public function translate(){
         return $this->belongsTo(CategoryTranslation::class, 'id', 'category_id')->where('lang_code', admin_lang());
     }
 
-    public function products()
+    public function projects()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Project::class);
     }
 
     public function front_translate(){
@@ -35,9 +35,9 @@ class Category extends Model
         return $this->hasMany(Listing::class)->where(['status' => 'enable', 'approved_by_admin' => 'approved']);
     }
 
-    public function getTotalServiceAttribute()
+    public function getTotalProjectsAttribute()
     {
-        return $this->services->count();
+        return $this->projects()->where('status', 'enable')->count();
     }
 
     public function subcategories()
