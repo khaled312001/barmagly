@@ -1030,7 +1030,7 @@ class CompleteBarmaglyHomepageSeeder extends Seeder
             $this->createSliderTranslation($slider2->id, 'ar', [
                 'title' => 'حلول تكنولوجية مبتكرة',
                 'small_text' => 'نقدم نتائج استثنائية من خلال خبرتنا في البرمجة والتصميم وتجربة المستخدم',
-                'button_text' => 'عرض سابقة أعمالنا'
+                'button_text' => 'عرض المحفظة'
             ]);
         } else {
             // Update existing sliders
@@ -1056,7 +1056,7 @@ class CompleteBarmaglyHomepageSeeder extends Seeder
                             : 'نقدم نتائج استثنائية من خلال خبرتنا في البرمجة والتصميم وتجربة المستخدم',
                         'button_text' => $index === 0
                             ? 'ابدأ الآن'
-                            : 'عرض سابقة أعمالنا'
+                            : 'عرض المحفظة'
                     ]
                 ];
 
