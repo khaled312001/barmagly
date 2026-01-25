@@ -41,7 +41,7 @@
 
           
 
-            <li class="{{ Route::is('admin.user-list') || Route::is('admin.pending-user') || Route::is('admin.user-show') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__users"><span class="menu-bar__text">
+            <li class="{{ Route::is('admin.user-list') || Route::is('admin.pending-user') || Route::is('admin.user-show') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__users" class="{{ Route::is('admin.user-list') || Route::is('admin.pending-user') || Route::is('admin.user-show') ? '' : 'collapsed' }}"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5.08069 15.2964C3.86241 16.0335 0.668176 17.5386 2.61368 19.422C3.56404 20.342 4.62251 21 5.95325 21H13.5468C14.8775 21 15.936 20.342 16.8863 19.422C18.8318 17.5386 15.6376 16.0335 14.4193 15.2964C11.5625 13.5679 7.93752 13.5679 5.08069 15.2964Z" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -55,7 +55,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Manage Users') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__users"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown {{ Route::is('admin.user-list') || Route::is('admin.pending-user') || Route::is('admin.user-show') ? 'show' : '' }}" id="menu-item__users"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.user-list') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.User List') }}</span></span></a></li>
@@ -68,7 +68,7 @@
             <h4 class="admin-menu__title pt-2">{{ __('translate.CMS & Blogs') }}</h4>
 
 
-            <li class="{{ Route::is('admin.listings*') || Route::is('admin.select-listing-purpose') || Route::is('admin.awaiting-listing') || Route::is('admin.review-list') || Route::is('admin.review-detail') ||  Route::is('admin.job-posts')  ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__car_list"><span class="menu-bar__text">
+            <li class="{{ Route::is('admin.listings*') || Route::is('admin.select-listing-purpose') || Route::is('admin.awaiting-listing') || Route::is('admin.review-list') || Route::is('admin.review-detail') ||  Route::is('admin.job-posts')  ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__car_list" class="{{ Route::is('admin.listings*') || Route::is('admin.select-listing-purpose') || Route::is('admin.awaiting-listing') || Route::is('admin.review-list') || Route::is('admin.review-detail') ||  Route::is('admin.job-posts')  ? '' : 'collapsed' }}"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.9784 8L19.2873 9.06064C21.0958 9.89137 22 10.3067 22 11C22 11.6933 21.0958 12.1086 19.2873 12.9394L14.3943 15.187C13.2144 15.729 12.6245 16 12 16C11.3755 16 10.7856 15.729 9.60573 15.187L4.7127 12.9394C2.90423 12.1086 2 11.6933 2 11C2 10.3067 2.90423 9.89137 4.7127 9.06064L7.02165 8" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -84,7 +84,7 @@
 
                 <span class="menu-bar__name">{{ __('translate.Manage Service') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__car_list"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown {{ Route::is('admin.listings*') || Route::is('admin.select-listing-purpose') || Route::is('admin.awaiting-listing') || Route::is('admin.review-list') || Route::is('admin.review-detail') ||  Route::is('admin.job-posts')  ? 'show' : '' }}" id="menu-item__car_list"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.listings.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Service') }}</span></span></a></li>
@@ -122,7 +122,7 @@
                 </a>
             </li>
 
-            <li class="{{ Route::is('admin.category.*') || Route::is('admin.sub-category.*') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__category"><span class="menu-bar__text">
+            <li class="{{ Route::is('admin.category.*') || Route::is('admin.sub-category.*') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__category" class="{{ Route::is('admin.category.*') || Route::is('admin.sub-category.*') ? '' : 'collapsed' }}"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.5 5.83333H17.5" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -133,7 +133,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Manage Categories') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__category"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown {{ Route::is('admin.category.*') || Route::is('admin.sub-category.*') ? 'show' : '' }}" id="menu-item__category"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
                         <li><a href="{{ route('admin.category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Category') }}</span></span></a></li>
                         <li><a href="{{ route('admin.category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Category List') }}</span></span></a></li>
@@ -144,7 +144,7 @@
             </li>
 
 
-            <li class="{{ Route::is('admin.blog.*') || Route::is('admin.blog-category.*') || Route::is('admin.comment-list') || Route::is('admin.show-comment') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__blog"><span class="menu-bar__text">
+            <li class="{{ Route::is('admin.blog.*') || Route::is('admin.blog-category.*') || Route::is('admin.comment-list') || Route::is('admin.show-comment') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__blog" class="{{ Route::is('admin.blog.*') || Route::is('admin.blog-category.*') || Route::is('admin.comment-list') || Route::is('admin.show-comment') ? '' : 'collapsed' }}"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M21.9165 10.5001C21.9351 10.6557 21.9495 10.8127 21.9598 10.9708C22.0134 11.801 22.0134 12.6608 21.9598 13.491C21.6856 17.7333 18.3536 21.1126 14.1706 21.3906C12.7435 21.4855 11.2536 21.4853 9.82937 21.3906C9.33893 21.358 8.80437 21.241 8.34398 21.0514C7.83174 20.8404 7.57557 20.7349 7.44541 20.7509C7.31524 20.7669 7.12637 20.9062 6.74865 21.1847C6.08265 21.6758 5.24364 22.0286 3.9994 21.9983C3.37023 21.983 3.05565 21.9753 2.91481 21.7352C2.77398 21.4951 2.94938 21.1627 3.30018 20.4979C3.78671 19.5759 4.09498 18.5204 3.62788 17.6747C2.8234 16.4667 2.14007 15.0361 2.04021 13.491C1.98656 12.6608 1.98656 11.801 2.04021 10.9708C2.31438 6.7285 5.64636 3.34925 9.82937 3.07119C11.0318 2.99126 12.2812 2.97868 13.5 3.0338" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -155,7 +155,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Manage Blog') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__blog"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown {{ Route::is('admin.blog.*') || Route::is('admin.blog-category.*') || Route::is('admin.comment-list') || Route::is('admin.show-comment') ? 'show' : '' }}" id="menu-item__blog"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.blog-category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Categroy') }}</span></span></a></li>
@@ -172,7 +172,7 @@
             </li>
 
 
-            <li class="{{ Route::is('admin.terms-conditions') || Route::is('admin.privacy-policy') || Route::is('admin.faq.*') || Route::is('admin.custom-page.*') || Route::is('admin.contact-us') || Route::is('admin.about-us') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__pages"><span class="menu-bar__text">
+            <li class="{{ Route::is('admin.terms-conditions') || Route::is('admin.privacy-policy') || Route::is('admin.faq.*') || Route::is('admin.custom-page.*') || Route::is('admin.contact-us') || Route::is('admin.about-us') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__pages" class="{{ Route::is('admin.terms-conditions') || Route::is('admin.privacy-policy') || Route::is('admin.faq.*') || Route::is('admin.custom-page.*') || Route::is('admin.contact-us') || Route::is('admin.about-us') ? '' : 'collapsed' }}"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M12 2H6C3.79086 2 2 3.79086 2 6V18C2 20.2091 3.79086 22 6 22H12M12 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H12M12 2V22M15.5 6H18.5M5.5 6H8.5M15.5 10H18.5M5.5 10H8.5" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -183,7 +183,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Manage Pages') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__pages"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown {{ Route::is('admin.terms-conditions') || Route::is('admin.privacy-policy') || Route::is('admin.faq.*') || Route::is('admin.custom-page.*') || Route::is('admin.contact-us') || Route::is('admin.about-us') ? 'show' : '' }}" id="menu-item__pages"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.contact-us', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Contact Us') }}</span></span></a></li>
@@ -202,7 +202,7 @@
             </li>
 
 
-            <li class="{{  Route::is('admin.testimonial.*') || Route::is('admin.footer') || Route::is('admin.explore-section') || Route::is('admin.slider.*') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__for_section"><span class="menu-bar__text">
+            <li class="{{  Route::is('admin.testimonial.*') || Route::is('admin.footer') || Route::is('admin.explore-section') || Route::is('admin.slider.*') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__for_section" class="{{ Route::is('admin.testimonial.*') || Route::is('admin.footer') || Route::is('admin.explore-section') || Route::is('admin.slider.*') ? '' : 'collapsed' }}"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7.6 13.8L7 14.25H7L7.6 13.8ZM8.8 15.4L9.4 14.95L8.8 15.4ZM15.2 15.4L14.6 14.95L15.2 15.4ZM16.4 13.8L15.8 13.35L15.8 13.35L16.4 13.8ZM9 9.25C8.58579 9.25 8.25 9.58579 8.25 10C8.25 10.4142 8.58579 10.75 9 10.75V9.25ZM12 10.75C12.4142 10.75 12.75 10.4142 12.75 10C12.75 9.58579 12.4142 9.25 12 9.25V10.75ZM9 5.25C8.58579 5.25 8.25 5.58579 8.25 6C8.25 6.41421 8.58579 6.75 9 6.75V5.25ZM15 6.75C15.4142 6.75 15.75 6.41421 15.75 6C15.75 5.58579 15.4142 5.25 15 5.25V6.75ZM21.25 16V19H22.75V16H21.25ZM19 21.25H5V22.75H19V21.25ZM2.75 19V16H1.25V19H2.75ZM5 13.75H6V12.25H5V13.75ZM7 14.25L8.2 15.85L9.4 14.95L8.2 13.35L7 14.25ZM18 13.75H19V12.25H18V13.75ZM15.8 15.85L17 14.25L15.8 13.35L14.6 14.95L15.8 15.85ZM12 17.75C13.4951 17.75 14.9029 17.0461 15.8 15.85L14.6 14.95C13.9862 15.7684 13.023 16.25 12 16.25V17.75ZM18 12.25C17.1344 12.25 16.3194 12.6575 15.8 13.35L17 14.25C17.2361 13.9352 17.6066 13.75 18 13.75V12.25ZM8.2 15.85C9.09706 17.0461 10.5049 17.75 12 17.75V16.25C10.977 16.25 10.0138 15.7684 9.4 14.95L8.2 15.85ZM6 13.75C6.39345 13.75 6.76393 13.9352 7 14.25L8.2 13.35C7.68065 12.6575 6.86558 12.25 6 12.25V13.75ZM5 21.25C3.75736 21.25 2.75 20.2426 2.75 19H1.25C1.25 21.0711 2.92893 22.75 5 22.75V21.25ZM21.25 19C21.25 20.2426 20.2426 21.25 19 21.25V22.75C21.0711 22.75 22.75 21.0711 22.75 19H21.25ZM22.75 16C22.75 13.9289 21.0711 12.25 19 12.25V13.75C20.2426 13.75 21.25 14.7574 21.25 16H22.75ZM2.75 16C2.75 14.7574 3.75736 13.75 5 13.75V12.25C2.92893 12.25 1.25 13.9289 1.25 16H2.75ZM20.75 13V6H19.25V13H20.75ZM16 1.25H8V2.75H16V1.25ZM3.25 6V13H4.75V6H3.25ZM8 1.25C5.37665 1.25 3.25 3.37665 3.25 6H4.75C4.75 4.20507 6.20507 2.75 8 2.75V1.25ZM20.75 6C20.75 3.37665 18.6234 1.25 16 1.25V2.75C17.7949 2.75 19.25 4.20507 19.25 6H20.75ZM9 10.75H12V9.25H9V10.75ZM9 6.75H15V5.25H9V6.75Z" fill="currentcolor"/>
@@ -212,7 +212,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Manage Section') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__for_section"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown {{ Route::is('admin.testimonial.*') || Route::is('admin.footer') || Route::is('admin.explore-section') || Route::is('admin.slider.*') ? 'show' : '' }}" id="menu-item__for_section"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
 
@@ -282,7 +282,7 @@
             </li>
 
 
-            <li class="{{ Route::is('admin.language.*') || Route::is('admin.theme-language') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__languages"><span class="menu-bar__text">
+            <li class="{{ Route::is('admin.language.*') || Route::is('admin.theme-language') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__languages" class="{{ Route::is('admin.language.*') || Route::is('admin.theme-language') ? '' : 'collapsed' }}"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_8307_130" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
@@ -308,7 +308,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Language') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__languages"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown {{ Route::is('admin.language.*') || Route::is('admin.theme-language') ? 'show' : '' }}" id="menu-item__languages"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.language.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Languages') }}</span></span></a></li>
@@ -320,7 +320,7 @@
             </li>
 
 
-            <li class="{{ Route::is('admin.email-setting') || Route::is('admin.email-template') || Route::is('admin.edit-email-template') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__apps_email_config"><span class="menu-bar__text">
+            <li class="{{ Route::is('admin.email-setting') || Route::is('admin.email-template') || Route::is('admin.edit-email-template') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__apps_email_config" class="{{ Route::is('admin.email-setting') || Route::is('admin.email-template') || Route::is('admin.edit-email-template') ? '' : 'collapsed' }}"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7 7.5L9.94202 9.23943C11.6572 10.2535 12.3428 10.2535 14.058 9.23943L17 7.5" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -332,7 +332,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Email Configuration') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__apps_email_config"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown {{ Route::is('admin.email-setting') || Route::is('admin.email-template') || Route::is('admin.edit-email-template') ? 'show' : '' }}" id="menu-item__apps_email_config"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.email-setting') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Configuration') }}</span></span></a></li>
@@ -345,7 +345,7 @@
             </li>
 
 
-            <li class="{{ Route::is('admin.cookie-consent') || Route::is('admin.error-image') || Route::is('admin.login-image') || Route::is('admin.breadcrumb') || Route::is('admin.social-login') || Route::is('admin.default-avatar') || Route::is('admin.maintenance-mode') || Route::is('admin.admin-login-image') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__apps"><span class="menu-bar__text">
+            <li class="{{ Route::is('admin.cookie-consent') || Route::is('admin.error-image') || Route::is('admin.login-image') || Route::is('admin.breadcrumb') || Route::is('admin.social-login') || Route::is('admin.default-avatar') || Route::is('admin.maintenance-mode') || Route::is('admin.admin-login-image') ? 'active' : '' }}"><a href="#!" data-bs-toggle="collapse" data-bs-target="#menu-item__apps" class="{{ Route::is('admin.cookie-consent') || Route::is('admin.error-image') || Route::is('admin.login-image') || Route::is('admin.breadcrumb') || Route::is('admin.social-login') || Route::is('admin.default-avatar') || Route::is('admin.maintenance-mode') || Route::is('admin.admin-login-image') ? '' : 'collapsed' }}"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.0029 2H10.0062C6.72443 2 5.08355 2 3.92039 2.81382C3.49006 3.1149 3.11577 3.48891 2.81445 3.91891C2 5.08116 2 6.72077 2 10C2 13.2792 2 14.9188 2.81445 16.0811C3.11577 16.5111 3.49006 16.8851 3.92039 17.1862C5.08355 18 6.72443 18 10.0062 18H14.0093C17.2911 18 18.932 18 20.0951 17.1862C20.5254 16.8851 20.8997 16.5111 21.2011 16.0811C21.8156 15.2042 21.9663 14.0941 22 13" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round"/>
@@ -359,7 +359,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Website Setup') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown" id="menu-item__apps"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown {{ Route::is('admin.cookie-consent') || Route::is('admin.error-image') || Route::is('admin.login-image') || Route::is('admin.breadcrumb') || Route::is('admin.social-login') || Route::is('admin.default-avatar') || Route::is('admin.maintenance-mode') || Route::is('admin.admin-login-image') ? 'show' : '' }}" id="menu-item__apps"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.cookie-consent') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Cookie Consent') }}</span></span></a></li>
