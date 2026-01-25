@@ -1,4 +1,42 @@
 @extends('master_layout')
+@section('title')
+    @php
+        $seoTitle = __('translate.Pricing Plan') . ' - ' . ($general_setting->site_name ?? config('app.name'));
+        $seoDescription = __('translate.View our pricing plans and packages') . ' - ' . ($general_setting->site_name ?? config('app.name'));
+        $canonicalUrl = url('/pricing-plan');
+    @endphp
+    <title>{{ $seoTitle }}</title>
+    <meta name="title" content="{{ $seoTitle }}">
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDescription }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="{{ $canonicalUrl }}">
+    <meta property="twitter:title" content="{{ $seoTitle }}">
+    <meta property="twitter:description" content="{{ $seoDescription }}">
+    
+    <!-- Structured Data -->
+    @php
+        $structuredData = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebPage',
+            'name' => $seoTitle,
+            'description' => strip_tags($seoDescription),
+            'url' => $canonicalUrl,
+        ];
+    @endphp
+    <script type="application/ld+json">
+    {!! json_encode($structuredData, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+    </script>
+@endsection
 @section('new-layout')
     @php
         $currentLang = session()->get('front_lang');

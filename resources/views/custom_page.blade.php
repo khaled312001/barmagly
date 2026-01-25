@@ -1,7 +1,42 @@
 @extends('master_layout')
 
 @section('title')
-<title>{{ $custom_page->page_name }}</title>
+    @php
+        $pageTitle = $custom_page->page_name;
+        $pageDescription = strip_tags(clean($custom_page->description ?? ''));
+        $canonicalUrl = url('/custom-page/' . $custom_page->slug);
+    @endphp
+    <title>{{ $pageTitle }}</title>
+    <meta name="title" content="{{ $pageTitle }}">
+    <meta name="description" content="{{ $pageDescription }}">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $pageDescription }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="{{ $canonicalUrl }}">
+    <meta property="twitter:title" content="{{ $pageTitle }}">
+    <meta property="twitter:description" content="{{ $pageDescription }}">
+    
+    <!-- Structured Data -->
+    @php
+        $structuredData = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebPage',
+            'name' => $pageTitle,
+            'description' => strip_tags($pageDescription),
+            'url' => $canonicalUrl,
+        ];
+    @endphp
+    <script type="application/ld+json">
+    {!! json_encode($structuredData, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+    </script>
 @endsection
 
 @section('new-layout')

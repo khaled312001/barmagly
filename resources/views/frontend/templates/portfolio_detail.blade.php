@@ -1,8 +1,69 @@
 @extends('master_layout')
 @section('title')
-    <title>{{ $project->translate->seo_title ?? $project->translate->title }} || {{ $project->title ?? $project->translate->title }}</title>
-    <meta name="title" content="{{ __($project->translate->seo_title) }}">
-    <meta name="description" content="{{ __($project->translate->seo_description) }}">
+    @php
+        $seoTitle = $project->translate->seo_title ?? $project->translate->title ?? $project->title;
+        $seoDescription = $project->translate->seo_description ?? strip_tags(clean($project->translate->description ?? ''));
+        $projectTitle = $project->title ?? $project->translate->title;
+        $canonicalUrl = url('/portfolio/' . $project->slug);
+        $projectImage = asset($project->thumb_image);
+    @endphp
+    <title>{{ $seoTitle }} || {{ $projectTitle }}</title>
+    <meta name="title" content="{{ $seoTitle }}">
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDescription }}">
+    <meta property="og:image" content="{{ $projectImage }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ $canonicalUrl }}">
+    <meta property="twitter:title" content="{{ $seoTitle }}">
+    <meta property="twitter:description" content="{{ $seoDescription }}">
+    <meta property="twitter:image" content="{{ $projectImage }}">
+    
+    <!-- Structured Data -->
+    @php
+        $structuredData = [
+            '@context' => 'https://schema.org',
+            '@type' => 'CreativeWork',
+            'name' => $projectTitle,
+            'description' => strip_tags($seoDescription),
+            'image' => $projectImage,
+            'url' => $canonicalUrl,
+        ];
+        
+        if($project->website_url) {
+            $structuredData['mainEntityOfPage'] = [
+                '@type' => 'WebPage',
+                '@id' => $project->website_url
+            ];
+        }
+        
+        if($project->project_date) {
+            $structuredData['datePublished'] = $project->project_date;
+        }
+        
+        if($project->category && $project->category->translate) {
+            $structuredData['about'] = [
+                '@type' => 'Thing',
+                'name' => $project->category->translate->name ?? ''
+            ];
+        }
+        
+        $structuredData['creator'] = [
+            '@type' => 'Organization',
+            'name' => $general_setting->site_name ?? config('app.name')
+        ];
+    @endphp
+    <script type="application/ld+json">
+    {!! json_encode($structuredData, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+    </script>
 @endsection
 
 @section('new-layout')
@@ -30,7 +91,7 @@
                 <div class="row">
                     <div class="col-xl-8 col-lg-7">
                         <div class="Barmagly-pd-thumb" data-aos="fade-up" data-aos-duration="800">
-                <img src="{{ asset($project->thumb_image) }}" alt="Dardnak Image">
+                <img src="{{ asset($project->thumb_image) }}" alt="{{ $project->title ?? $project->translate->title }}">
             </div>
                         <div class="Barmagly-pd-content-wrap">
                             <div class="Barmagly-service-details-item">
@@ -41,7 +102,7 @@
                                 <div class="row">
                                     @foreach($project->gallery as $gallery)
                                     <div class="col-md-6" data-aos="fade-up" data-aos-duration="600">
-                                        <img src="{{ asset($gallery->image) }}" alt="Gallery Image">
+                                        <img src="{{ asset($gallery->image) }}" alt="{{ $project->title ?? $project->translate->title }} - Gallery">
                                     </div>
                                     @endforeach
                                 </div>

@@ -59,6 +59,7 @@ Route::group(['middleware' => ['HtmlSpecialchars', 'MaintenanceMode']], function
     Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(function () {
         Route::get('/view', 'cart')->name('cart');
         Route::post('add-to-cart', 'addToCart')->name('add');
+        Route::get('add-to-cart', 'redirectToCart')->name('add.get'); // Handle GET requests gracefully
         Route::delete('/cart/{id}','destroy')->name('delete');
         Route::post('update', 'update')->name('update');
         Route::get('get-cart-total', 'getCartTotal')->name('getCartTotal');

@@ -29,6 +29,15 @@ class CartController extends Controller
         return view('ecommerce::frontend.cart', compact('seo_setting', 'carts'));
     }
 
+    /**
+     * Handle GET requests to add-to-cart (for crawlers and direct access)
+     * Redirects to cart page since this endpoint requires POST
+     */
+    public function redirectToCart()
+    {
+        return redirect()->route('cart.cart');
+    }
+
     public function addToCart(Request $request)
     {
         try {

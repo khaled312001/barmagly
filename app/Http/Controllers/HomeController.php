@@ -233,6 +233,11 @@ class HomeController extends Controller
 
     public function blog($slug)
     {
+        // Reject invalid slugs (empty, only dashes, or just special characters)
+        if (empty($slug) || trim($slug, '-') === '' || preg_match('/^[^a-zA-Z0-9]+$/', $slug)) {
+            abort(404);
+        }
+        
         $blog = Blog::with('author', 'front_translate', 'category.front_translate')
             ->where('status', 1)
             ->whereHas('translations', function($query) {
@@ -373,9 +378,29 @@ class HomeController extends Controller
 
     public function teamPerson($slug)
     {
-
-        $team = Team::with('translate')->where('slug', $slug)->firstOrFail();
-        $pageTitle = $team->translate->name;
+        // Reject invalid slugs
+        if (empty($slug) || trim($slug, '-') === '' || preg_match('/^[^a-zA-Z0-9]+$/', $slug)) {
+            abort(404);
+        }
+        
+        $frontLang = front_lang();
+        $team = Team::where('teams.slug', $slug)
+            ->join('team_translations', function($join) use ($frontLang) {
+                $join->on('teams.id', '=', 'team_translations.team_id')
+                     ->where('team_translations.lang_code', '=', $frontLang);
+            })
+            ->select('teams.*')
+            ->first();
+        
+        // Check if team exists and has translation
+        if (!$team) {
+            abort(404);
+        }
+        
+        // Load the translation relationship
+        $team->load('translate', 'front_translate');
+        
+        $pageTitle = $team->front_translate->name ?? $team->translate->name;
 
         return view('frontend.team_single', compact('team', 'pageTitle'));
     }
@@ -410,7 +435,27 @@ class HomeController extends Controller
 
     public function custom_page($slug)
     {
-        $custom_page = CustomPage::where('slug', $slug)->firstOrFail();
+        // Reject invalid slugs
+        if (empty($slug) || trim($slug, '-') === '' || preg_match('/^[^a-zA-Z0-9]+$/', $slug)) {
+            abort(404);
+        }
+        
+        $frontLang = front_lang();
+        $custom_page = CustomPage::where('custom_pages.slug', $slug)
+            ->where('custom_pages.status', 1)
+            ->join('custom_page_translations', function($join) use ($frontLang) {
+                $join->on('custom_pages.id', '=', 'custom_page_translations.custom_page_id')
+                     ->where('custom_page_translations.lang_code', '=', $frontLang);
+            })
+            ->select('custom_pages.*')
+            ->first();
+        
+        if (!$custom_page) {
+            abort(404);
+        }
+        
+        // Load the translation relationship
+        $custom_page->load('front_translate');
 
         return view('custom_page', ['custom_page' => $custom_page]);
     }
@@ -432,6 +477,11 @@ class HomeController extends Controller
 
     public function service(Request $request, $slug)
     {
+        // Reject invalid slugs
+        if (empty($slug) || trim($slug, '-') === '' || preg_match('/^[^a-zA-Z0-9]+$/', $slug)) {
+            abort(404);
+        }
+        
         $service = Listing::where(['status' => 'enable', 'slug' => $slug])->firstOrFail();
 
         $showServices = Listing::where('id', '!=', $service->id)->where('status', 'enable')->latest()->take(5)->get();
@@ -514,9 +564,37 @@ class HomeController extends Controller
 
     public function portfolioShow($slug)
     {
-        $project = Project::where('slug', $slug)->firstOrFail();
-        $previousProject = Project::where('id', '<', $project->id)->orderBy('id', 'desc')->first();
-        $nextProject = Project::where('id', '>', $project->id)->orderBy('id', 'asc')->first();
+        // Reject invalid slugs
+        if (empty($slug) || trim($slug, '-') === '' || preg_match('/^[^a-zA-Z0-9]+$/', $slug)) {
+            abort(404);
+        }
+        
+        $frontLang = front_lang();
+        $project = Project::where('projects.slug', $slug)
+            ->where('projects.status', 'enable')
+            ->join('project_translations', function($join) use ($frontLang) {
+                $join->on('projects.id', '=', 'project_translations.project_id')
+                     ->where('project_translations.lang_code', '=', $frontLang);
+            })
+            ->select('projects.*')
+            ->first();
+        
+        if (!$project) {
+            abort(404);
+        }
+        
+        // Load the translation relationship
+        $project->load('front_translate');
+        
+        $previousProject = Project::where('status', 'enable')
+            ->where('id', '<', $project->id)
+            ->orderBy('id', 'desc')
+            ->first();
+        
+        $nextProject = Project::where('status', 'enable')
+            ->where('id', '>', $project->id)
+            ->orderBy('id', 'asc')
+            ->first();
 
         return view('frontend.templates.portfolio_detail', ['project' => $project, 'previousProject' => $previousProject, 'nextProject' => $nextProject]);
     }
@@ -589,7 +667,15 @@ class HomeController extends Controller
             // Dynamic pages - Portfolio/Projects
             $projectPages = [];
             try {
-                $projects = Project::where('status', 'enable')->whereNotNull('slug')->get();
+                $frontLang = front_lang();
+                $projects = Project::where('projects.status', 'enable')
+                    ->whereNotNull('projects.slug')
+                    ->join('project_translations', function($join) use ($frontLang) {
+                        $join->on('projects.id', '=', 'project_translations.project_id')
+                             ->where('project_translations.lang_code', '=', $frontLang);
+                    })
+                    ->select('projects.*')
+                    ->get();
                 foreach ($projects as $project) {
                     if ($project->slug) {
                         $lastmod = $project->updated_at ? $project->updated_at->format('Y-m-d\TH:i:s\Z') : $currentDate;
@@ -608,7 +694,15 @@ class HomeController extends Controller
             // Dynamic pages - Team Members
             $teamPages = [];
             try {
-                $teams = Team::where('status', 1)->whereNotNull('slug')->get();
+                $frontLang = front_lang();
+                // Team model doesn't have status field, so just check for slug and translation
+                $teams = Team::whereNotNull('teams.slug')
+                    ->join('team_translations', function($join) use ($frontLang) {
+                        $join->on('teams.id', '=', 'team_translations.team_id')
+                             ->where('team_translations.lang_code', '=', $frontLang);
+                    })
+                    ->select('teams.*')
+                    ->get();
                 foreach ($teams as $team) {
                     if ($team->slug) {
                         $lastmod = $team->updated_at ? $team->updated_at->format('Y-m-d\TH:i:s\Z') : $currentDate;
@@ -627,7 +721,15 @@ class HomeController extends Controller
             // Dynamic pages - Custom Pages
             $customPageUrls = [];
             try {
-                $customPages = CustomPage::where('status', 1)->whereNotNull('slug')->get();
+                $frontLang = front_lang();
+                $customPages = CustomPage::where('custom_pages.status', 1)
+                    ->whereNotNull('custom_pages.slug')
+                    ->join('custom_page_translations', function($join) use ($frontLang) {
+                        $join->on('custom_pages.id', '=', 'custom_page_translations.custom_page_id')
+                             ->where('custom_page_translations.lang_code', '=', $frontLang);
+                    })
+                    ->select('custom_pages.*')
+                    ->get();
                 foreach ($customPages as $page) {
                     if ($page->slug) {
                         $lastmod = $page->updated_at ? $page->updated_at->format('Y-m-d\TH:i:s\Z') : $currentDate;

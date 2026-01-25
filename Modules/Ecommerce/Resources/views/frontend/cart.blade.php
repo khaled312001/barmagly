@@ -1,8 +1,15 @@
 @extends('master_layout')
 @section('title')
-    <title>{{ $seo_setting->seo_title }}</title>
-    <meta name="title" content="{{ $seo_setting->seo_title }}">
-    <meta name="description" content="{!! strip_tags(clean($seo_setting->seo_description)) !!}">
+    @php
+        $seoTitle = $seo_setting->seo_title ?? __('translate.My Cart');
+        $seoDescription = strip_tags(clean($seo_setting->seo_description ?? ''));
+        $canonicalUrl = url('/cart/view');
+    @endphp
+    <title>{{ $seoTitle }}</title>
+    <meta name="title" content="{{ $seoTitle }}">
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
 @endsection
 
 @section('new-layout')

@@ -5,6 +5,33 @@
 
     RewriteEngine On
 
+    # Force HTTPS and WWW (only in production)
+    # Skip for localhost and .local domains
+    RewriteCond %{HTTP_HOST} ^localhost [NC,OR]
+    RewriteCond %{HTTP_HOST} \.local$ [NC,OR]
+    RewriteCond %{HTTP_HOST} ^127\.0\.0\.1 [NC]
+    RewriteRule ^ - [L]
+
+    # Case 1: No www and no https -> redirect to https://www
+    # BUT: Allow robots.txt and sitemap.xml to be accessed before redirect
+    RewriteCond %{REQUEST_URI} !^/robots\.txt$ [NC]
+    RewriteCond %{REQUEST_URI} !^/sitemap\.xml$ [NC]
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Case 2: Has www but no https -> redirect to https://www
+    RewriteCond %{HTTP_HOST} ^www\. [NC]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Case 3: Has https but no www -> redirect to https://www
+    # BUT: Allow robots.txt to be accessed before redirect
+    RewriteCond %{REQUEST_URI} !^/robots\.txt$ [NC]
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteCond %{HTTPS} on
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

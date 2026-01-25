@@ -1,8 +1,53 @@
 @extends('layout')
 @section('title')
-    <title>{{ $seo_setting->seo_title }}</title>
-    <meta name="title" content="{{ $seo_setting->seo_title }}">
-    <meta name="description" content="{!! strip_tags(clean($seo_setting->seo_description)) !!}">
+    @php
+        $seoTitle = $seo_setting->seo_title ?? config('app.name');
+        $seoDescription = strip_tags(clean($seo_setting->seo_description ?? ''));
+        // Get the base URL from config and ensure it uses www
+        $baseUrl = config('app.url');
+        $parsedUrl = parse_url($baseUrl);
+        $host = $parsedUrl['host'] ?? 'barmagly.tech';
+        // Ensure www prefix
+        if (strpos($host, 'www.') !== 0) {
+            $host = 'www.' . $host;
+        }
+        $canonicalUrl = ($parsedUrl['scheme'] ?? 'https') . '://' . $host . '/';
+    @endphp
+    <title>{{ $seoTitle }}</title>
+    <meta name="title" content="{{ $seoTitle }}">
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDescription }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ $canonicalUrl }}">
+    <meta property="twitter:title" content="{{ $seoTitle }}">
+    <meta property="twitter:description" content="{{ $seoDescription }}">
+    
+    <!-- Structured Data -->
+    @php
+        $structuredData = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebSite',
+            'name' => $seoTitle,
+            'description' => strip_tags($seoDescription),
+            'url' => $canonicalUrl,
+        ];
+        
+        if(isset($general_setting->logo)) {
+            $structuredData['logo'] = asset($general_setting->logo);
+        }
+    @endphp
+    <script type="application/ld+json">
+    {!! json_encode($structuredData, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+    </script>
 @endsection
 @section('front-content')
 
