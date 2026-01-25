@@ -58,9 +58,9 @@
                 <div class="collapse crancy__dropdown {{ Route::is('admin.user-list') || Route::is('admin.pending-user') || Route::is('admin.user-show') ? 'show' : '' }}" id="menu-item__users"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
-                        <li><a href="{{ route('admin.user-list') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.User List') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.user-list') ? 'active' : '' }}"><a href="{{ route('admin.user-list') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.User List') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.pending-user') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Pending User') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.pending-user') ? 'active' : '' }}"><a href="{{ route('admin.pending-user') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Pending User') }}</span></span></a></li>
                     </ul>
                 </div>
             </li>
@@ -87,9 +87,9 @@
                 <div class="collapse crancy__dropdown {{ Route::is('admin.listings*') || Route::is('admin.select-listing-purpose') || Route::is('admin.awaiting-listing') || Route::is('admin.review-list') || Route::is('admin.review-detail') ||  Route::is('admin.job-posts')  ? 'show' : '' }}" id="menu-item__car_list"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
-                        <li><a href="{{ route('admin.listings.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Service') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.listings.create') ? 'active' : '' }}"><a href="{{ route('admin.listings.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Service') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.listings.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Service List') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.listings.index') ? 'active' : '' }}"><a href="{{ route('admin.listings.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Service List') }}</span></span></a></li>
 
                     </ul>
                 </div>
@@ -135,10 +135,10 @@
                 <!-- Dropdown Menu -->
                 <div class="collapse crancy__dropdown {{ Route::is('admin.category.*') || Route::is('admin.sub-category.*') ? 'show' : '' }}" id="menu-item__category"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
-                        <li><a href="{{ route('admin.category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Category') }}</span></span></a></li>
-                        <li><a href="{{ route('admin.category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Category List') }}</span></span></a></li>
-                        <li><a href="{{ route('admin.sub-category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Sub Category') }}</span></span></a></li>
-                        <li><a href="{{ route('admin.sub-category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Sub Category List') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.category.create') ? 'active' : '' }}"><a href="{{ route('admin.category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Category') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.category.index') ? 'active' : '' }}"><a href="{{ route('admin.category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Category List') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.sub-category.create') ? 'active' : '' }}"><a href="{{ route('admin.sub-category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Sub Category') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.sub-category.index') ? 'active' : '' }}"><a href="{{ route('admin.sub-category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Sub Category List') }}</span></span></a></li>
                     </ul>
                 </div>
             </li>
@@ -158,15 +158,15 @@
                 <div class="collapse crancy__dropdown {{ Route::is('admin.blog.*') || Route::is('admin.blog-category.*') || Route::is('admin.comment-list') || Route::is('admin.show-comment') ? 'show' : '' }}" id="menu-item__blog"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
-                        <li><a href="{{ route('admin.blog-category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Categroy') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.blog-category.create') ? 'active' : '' }}"><a href="{{ route('admin.blog-category.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Categroy') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.blog-category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Categroy List') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.blog-category.index') ? 'active' : '' }}"><a href="{{ route('admin.blog-category.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Categroy List') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.blog.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Blog') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.blog.create') ? 'active' : '' }}"><a href="{{ route('admin.blog.create') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Create Blog') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.blog.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Blog List') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.blog.index') ? 'active' : '' }}"><a href="{{ route('admin.blog.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Blog List') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.comment-list') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Comment List') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.comment-list') || Route::is('admin.show-comment') ? 'active' : '' }}"><a href="{{ route('admin.comment-list') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Comment List') }}</span></span></a></li>
                     </ul>
                 </div>
             </li>
@@ -186,16 +186,16 @@
                 <div class="collapse crancy__dropdown {{ Route::is('admin.terms-conditions') || Route::is('admin.privacy-policy') || Route::is('admin.faq.*') || Route::is('admin.custom-page.*') || Route::is('admin.contact-us') || Route::is('admin.about-us') ? 'show' : '' }}" id="menu-item__pages"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
-                        <li><a href="{{ route('admin.contact-us', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Contact Us') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.contact-us') ? 'active' : '' }}"><a href="{{ route('admin.contact-us', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Contact Us') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.terms-conditions', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Terms and Conditions') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.terms-conditions') ? 'active' : '' }}"><a href="{{ route('admin.terms-conditions', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Terms and Conditions') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.privacy-policy', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Privacy Policy') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.privacy-policy') ? 'active' : '' }}"><a href="{{ route('admin.privacy-policy', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Privacy Policy') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.faq.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.FAQ') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.faq.*') ? 'active' : '' }}"><a href="{{ route('admin.faq.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.FAQ') }}</span></span></a></li>
 
 
-                        <li><a href="{{ route('admin.custom-page.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Custom Page') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.custom-page.*') ? 'active' : '' }}"><a href="{{ route('admin.custom-page.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Custom Page') }}</span></span></a></li>
 
                     </ul>
                 </div>
@@ -216,12 +216,12 @@
                     <ul class="menu-bar__one-dropdown">
 
 
-                        <li><a href="{{ route('admin.slider.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Slider') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.slider.*') ? 'active' : '' }}"><a href="{{ route('admin.slider.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Slider') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.footer', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Footer Info') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.footer') ? 'active' : '' }}"><a href="{{ route('admin.footer', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Footer Info') }}</span></span></a></li>
 
 
-                        <li><a href="{{ route('admin.testimonial.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Testimonial') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.testimonial.*') ? 'active' : '' }}"><a href="{{ route('admin.testimonial.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Testimonial') }}</span></span></a></li>
 
                     </ul>
                 </div>
@@ -311,9 +311,9 @@
                 <div class="collapse crancy__dropdown {{ Route::is('admin.language.*') || Route::is('admin.theme-language') ? 'show' : '' }}" id="menu-item__languages"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
-                        <li><a href="{{ route('admin.language.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Languages') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.language.*') ? 'active' : '' }}"><a href="{{ route('admin.language.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Languages') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.theme-language', ['lang_code' => 'en']) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Theme Languages') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.theme-language') ? 'active' : '' }}"><a href="{{ route('admin.theme-language', ['lang_code' => 'en']) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Theme Languages') }}</span></span></a></li>
 
                     </ul>
                 </div>
@@ -335,9 +335,9 @@
                 <div class="collapse crancy__dropdown {{ Route::is('admin.email-setting') || Route::is('admin.email-template') || Route::is('admin.edit-email-template') ? 'show' : '' }}" id="menu-item__apps_email_config"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
-                        <li><a href="{{ route('admin.email-setting') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Configuration') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.email-setting') ? 'active' : '' }}"><a href="{{ route('admin.email-setting') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Configuration') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.email-template') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Email Template') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.email-template') || Route::is('admin.edit-email-template') ? 'active' : '' }}"><a href="{{ route('admin.email-template') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Email Template') }}</span></span></a></li>
 
 
                     </ul>
@@ -362,22 +362,22 @@
                 <div class="collapse crancy__dropdown {{ Route::is('admin.cookie-consent') || Route::is('admin.error-image') || Route::is('admin.login-image') || Route::is('admin.breadcrumb') || Route::is('admin.social-login') || Route::is('admin.default-avatar') || Route::is('admin.maintenance-mode') || Route::is('admin.admin-login-image') ? 'show' : '' }}" id="menu-item__apps"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
-                        <li><a href="{{ route('admin.cookie-consent') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Cookie Consent') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.cookie-consent') ? 'active' : '' }}"><a href="{{ route('admin.cookie-consent') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Cookie Consent') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.error-image') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Error Page') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.error-image') ? 'active' : '' }}"><a href="{{ route('admin.error-image') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Error Page') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.login-image') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Login Page') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.login-image') ? 'active' : '' }}"><a href="{{ route('admin.login-image') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Login Page') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.admin-login-image') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Admin Login') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.admin-login-image') ? 'active' : '' }}"><a href="{{ route('admin.admin-login-image') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Admin Login') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.breadcrumb') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Breadcrumb Image') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.breadcrumb') ? 'active' : '' }}"><a href="{{ route('admin.breadcrumb') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Breadcrumb Image') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.social-login') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Social Login') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.social-login') ? 'active' : '' }}"><a href="{{ route('admin.social-login') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Social Login') }}</span></span></a></li>
 
 
-                        <li><a href="{{ route('admin.default-avatar') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Default Avatar') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.default-avatar') ? 'active' : '' }}"><a href="{{ route('admin.default-avatar') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Default Avatar') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.maintenance-mode') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Maintenance mode') }}</span></span></a></li>
+                        <li class="{{ Route::is('admin.maintenance-mode') ? 'active' : '' }}"><a href="{{ route('admin.maintenance-mode') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Maintenance mode') }}</span></span></a></li>
 
                     </ul>
                 </div>
