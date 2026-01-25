@@ -5,6 +5,7 @@ namespace Modules\Category\Http\Controllers;
 use Image, File;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Str;
 use Modules\Category\Entities\Category;
 use Modules\Category\Entities\SubCategory;
 use Modules\Language\App\Models\Language;
@@ -12,6 +13,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Modules\Category\Entities\CategoryTranslation;
 use Modules\Category\Http\Requests\CategoryRequest;
 use Modules\Ecommerce\Entities\Product;
+use Modules\Project\App\Models\Project;
+use Modules\Listing\Entities\Listing;
 
 class CategoryController extends Controller
 {
@@ -45,17 +48,19 @@ class CategoryController extends Controller
     {
         $category = new Category();
 
-        if($request->image){
-            $image_name = 'category-'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
-            $image_name ='uploads/custom-images/'.$image_name;
-            Image::make($request->image)
-                ->encode('webp', 80)
-                ->save(public_path().'/'.$image_name);
-            $category->icon = $image_name;
+        // Generate slug automatically from name
+        $slug = \Str::slug($request->name);
+        $originalSlug = $slug;
+        $counter = 1;
+        
+        // Ensure slug is unique
+        while(Category::where('slug', $slug)->exists()){
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
         }
 
-        $category->slug = $request->slug;
-        $category->status = $request->status ? 'enable' : 'disable';
+        $category->slug = $slug;
+        $category->status = 'enable'; // Default to enabled
         $category->save();
 
         $languages = Language::all();
@@ -69,7 +74,7 @@ class CategoryController extends Controller
 
         $notify_message= trans('translate.Created Successfully');
         $notify_message=array('message'=>$notify_message,'alert-type'=>'success');
-        return redirect()->route('admin.category.edit', ['category' => $category->id, 'lang_code' => admin_lang()])->with($notify_message);
+        return redirect()->route('admin.category.index')->with($notify_message);
     }
 
     /**
@@ -139,31 +144,51 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+        $category = Category::findOrFail($id);
 
-
-        $listing_qty = Product::where('category_id', $id)->count();
-
+        // Check for related records
+        $product_qty = Product::where('category_id', $id)->count();
+        $project_qty = Project::where('category_id', $id)->count();
+        $listing_qty = Listing::where('category_id', $id)->count();
         $sub_category_qty = SubCategory::where('category_id', $id)->count();
 
-        if($listing_qty > 0 || $sub_category_qty > 0){
-            $notify_message = trans('translate.Multiple listing and jobpost created under it, so you can not delete it');
-            $notify_message = array('message'=>$notify_message,'alert-type'=>'error');
+        // Build error message with details
+        $related_items = [];
+        if($product_qty > 0) {
+            $related_items[] = $product_qty . ' ' . ($product_qty == 1 ? trans('translate.product') : trans('translate.products'));
+        }
+        if($project_qty > 0) {
+            $related_items[] = $project_qty . ' ' . ($project_qty == 1 ? trans('translate.project') : trans('translate.projects'));
+        }
+        if($listing_qty > 0) {
+            $related_items[] = $listing_qty . ' ' . ($listing_qty == 1 ? trans('translate.service') : trans('translate.services'));
+        }
+        if($sub_category_qty > 0) {
+            $related_items[] = $sub_category_qty . ' ' . ($sub_category_qty == 1 ? trans('translate.Sub Category') : trans('translate.Sub Categories'));
+        }
+
+        if($product_qty > 0 || $project_qty > 0 || $listing_qty > 0 || $sub_category_qty > 0){
+            $error_message = trans('translate.Cannot delete category') . ': ' . implode(', ', $related_items) . ' ' . trans('translate.are associated with this category');
+            $notify_message = array('message' => $error_message, 'alert-type' => 'error');
             return redirect()->back()->with($notify_message);
         }
 
-        $sub_category = Category::findOrFail($id);
-        $old_icon = $sub_category->icon;
-
+        // Delete category icon if exists
+        $old_icon = $category->icon;
         if($old_icon){
-            if(File::exists(public_path().'/'.$old_icon))unlink(public_path().'/'.$old_icon);
+            if(File::exists(public_path().'/'.$old_icon)) {
+                unlink(public_path().'/'.$old_icon);
+            }
         }
 
-        $sub_category->delete();
-
+        // Delete category translations
         CategoryTranslation::where('category_id', $id)->delete();
 
-        $notify_message= trans('translate.Delete Successfully');
-        $notify_message=array('message'=>$notify_message,'alert-type'=>'success');
+        // Delete category
+        $category->delete();
+
+        $notify_message = trans('translate.Delete Successfully');
+        $notify_message = array('message' => $notify_message, 'alert-type' => 'success');
         return redirect()->route('admin.category.index')->with($notify_message);
     }
 

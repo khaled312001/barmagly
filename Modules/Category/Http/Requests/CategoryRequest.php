@@ -16,23 +16,13 @@ class CategoryRequest extends FormRequest
         if ($this->isMethod('post')) {
             $rules = [
                 'name'=>'required|unique:category_translations',
-                'slug'=>'required|unique:categories',
-                'image'=>'required',
             ];
         }
 
         if ($this->isMethod('put')) {
-            if($this->request->get('lang_code') == admin_lang()){
-                $rules = [
-                    'name'=>'required',
-                    'slug'=> 'required|unique:categories,slug,'.$this->category.',id',
-                ];
-            }else{
-                $rules = [
-                    'name'=>'required',
-                ];
-            }
-
+            $rules = [
+                'name'=>'required',
+            ];
         }
 
         return $rules;
@@ -54,9 +44,6 @@ class CategoryRequest extends FormRequest
         return [
             'name.required' => trans('translate.Name is required'),
             'name.unique' => trans('translate.Name already exist'),
-            'slug.required' => trans('translate.Slug is required'),
-            'image.required' => trans('translate.Image is required'),
-            'slug.unique' => trans('translate.Slug already exist'),
         ];
     }
 }
