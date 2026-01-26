@@ -949,6 +949,11 @@
   '1791 Yorkshire Circle Kitty Hawk' => '1791 Yorkshire Circle Kitty Hawk',
   '123-343-4444' => '123-343-4444',
   'no-reply@Jovero.com' => 'no-reply@Jovero.com',
+  'We are here to help you with your programming, website design, and UI/UX needs.' => 'We are here to help you with your programming, website design, and UI/UX needs.',
+  'Call anytime' => 'Call anytime',
+  'Email address' => 'Email address',
+  'Monday - Friday: 9:00 AM - 6:00 PM' => 'Monday - Friday: 9:00 AM - 6:00 PM',
+  'Explore flexible pricing for you' => 'Explore flexible pricing for you',
 
   // Menu Management
   'Menu Management' => 'Menu Management',

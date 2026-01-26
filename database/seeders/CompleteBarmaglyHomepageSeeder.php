@@ -64,15 +64,15 @@ class CompleteBarmaglyHomepageSeeder extends Seeder
         $contactUs = ContactUs::first();
         if (!$contactUs) {
             $contactUs = new ContactUs();
-            $contactUs->email = 'info@barmagly.com';
-            $contactUs->email2 = 'info@barmagly.com';
+            $contactUs->email = 'info@barmagly.tech';
+            $contactUs->email2 = 'info@barmagly.tech';
             $contactUs->phone = '+201010254819';
             $contactUs->phone2 = '+201010254819';
             $contactUs->map_code = '';
             $contactUs->save();
         } else {
-            $contactUs->email = 'info@barmagly.com';
-            $contactUs->email2 = 'info@barmagly.com';
+            $contactUs->email = 'info@barmagly.tech';
+            $contactUs->email2 = 'info@barmagly.tech';
             $contactUs->phone = '+201010254819';
             $contactUs->phone2 = '+201010254819';
             $contactUs->save();
@@ -91,7 +91,7 @@ class CompleteBarmaglyHomepageSeeder extends Seeder
         
         $transEn->title = 'Contact Us';
         $transEn->description = 'Get in touch with Barmagly for professional web development, design, and UI/UX services.';
-        $transEn->address = 'Qena-Egypt';
+        $transEn->address = 'Cairo-Egypt';
         $transEn->contact_description = 'We are here to help you transform your digital presence with our expert programming, website design, and UI/UX services.';
         $transEn->save();
 
@@ -127,9 +127,9 @@ class CompleteBarmaglyHomepageSeeder extends Seeder
             $footer = new Footer();
         }
         
-        $footer->address = 'Qena-Egypt';
+        $footer->address = 'Cairo-Egypt';
         $footer->phone = '+201010254819';
-        $footer->email = 'info@barmagly.com';
+        $footer->email = 'info@barmagly.tech';
         $footer->copyright = 'Copyright 2026, Barmagly. All Rights Reserved.';
         $footer->facebook = 'https://www.facebook.com/BarmaglyOfficial';
         $footer->save();
@@ -937,8 +937,8 @@ class CompleteBarmaglyHomepageSeeder extends Seeder
             [
                 'question_en' => 'How can I get started with Barmagly?',
                 'question_ar' => 'كيف يمكنني البدء مع برمجلي؟',
-                'answer_en' => 'Getting started is easy! Simply contact us through our website, email (info@barmagly.com), or phone (+201010254819). We offer a free consultation to discuss your project requirements, provide recommendations, and create a customized plan that fits your budget and timeline.',
-                'answer_ar' => 'البدء سهل! ببساطة تواصل معنا عبر موقعنا أو البريد الإلكتروني (info@barmagly.com) أو الهاتف (+201010254819). نقدم استشارة مجانية لمناقشة متطلبات مشروعك وتقديم التوصيات وإنشاء خطة مخصصة تناسب ميزانيتك والجدول الزمني.',
+                'answer_en' => 'Getting started is easy! Simply contact us through our website, email (info@barmagly.tech), or phone (+201010254819). We offer a free consultation to discuss your project requirements, provide recommendations, and create a customized plan that fits your budget and timeline.',
+                'answer_ar' => 'البدء سهل! ببساطة تواصل معنا عبر موقعنا أو البريد الإلكتروني (info@barmagly.tech) أو الهاتف (+201010254819). نقدم استشارة مجانية لمناقشة متطلبات مشروعك وتقديم التوصيات وإنشاء خطة مخصصة تناسب ميزانيتك والجدول الزمني.',
             ],
         ];
 

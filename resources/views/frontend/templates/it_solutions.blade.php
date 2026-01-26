@@ -4,6 +4,15 @@
     <meta name="title" content="{{ $seo_setting->seo_title }}">
     <meta name="description" content="{!! strip_tags(clean($seo_setting->seo_description)) !!}">
 @endsection
+@push('style_section')
+    @php
+        $heroContent = getContent('it_solutions_hero_section.content', true);
+        $heroImageUrl = $heroContent ? asset(getImage($heroContent, 'hero_image')) : null;
+    @endphp
+    @if($heroImageUrl)
+    <link rel="preload" as="image" href="{{ $heroImageUrl }}" fetchpriority="high">
+    @endif
+@endpush
 @section('front-content')
     @php
         $currentLang = session()->get('front_lang');
@@ -116,7 +125,7 @@
     <div class="container">
         <div class="Barmagly-hero-content center">
             <div class="Barmagly-hero-power">
-                <img src="{{ $general_setting->favicon }}" alt="" width="88" height="88" fetchpriority="high">
+                <img src="{{ $general_setting->favicon }}" alt="" width="88" height="88" fetchpriority="high" loading="eager">
             </div>
             <h1>{{ getTranslatedValue($heroContent, 'heading', $currentLang) }}</h1>
             <p>{{ getTranslatedValue($heroContent, 'description', $currentLang) }}</p>

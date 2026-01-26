@@ -59,15 +59,15 @@ class UpdateBarmaglyContentSeeder extends Seeder
         $contactUs = ContactUs::first();
         if (!$contactUs) {
             $contactUs = new ContactUs();
-            $contactUs->email = 'info@barmagly.com';
-            $contactUs->email2 = 'info@barmagly.com';
+            $contactUs->email = 'info@barmagly.tech';
+            $contactUs->email2 = 'info@barmagly.tech';
             $contactUs->phone = '+201010254819';
             $contactUs->phone2 = '+201010254819';
             $contactUs->map_code = '';
             $contactUs->save();
         } else {
-            $contactUs->email = 'info@barmagly.com';
-            $contactUs->email2 = 'info@barmagly.com';
+            $contactUs->email = 'info@barmagly.tech';
+            $contactUs->email2 = 'info@barmagly.tech';
             $contactUs->phone = '+201010254819';
             $contactUs->phone2 = '+201010254819';
             $contactUs->save();
@@ -86,7 +86,7 @@ class UpdateBarmaglyContentSeeder extends Seeder
         
         $transEn->title = 'Contact Us';
         $transEn->description = 'Get in touch with us for your web development and design needs.';
-        $transEn->address = 'Qena-Egypt';
+        $transEn->address = 'Cairo-Egypt';
         $transEn->contact_description = 'We are here to help you with your programming, website design, and UI/UX needs.';
         $transEn->save();
 
@@ -122,9 +122,9 @@ class UpdateBarmaglyContentSeeder extends Seeder
             $footer = new Footer();
         }
         
-        $footer->address = 'Qena-Egypt';
+        $footer->address = 'Cairo-Egypt';
         $footer->phone = '+201010254819';
-        $footer->email = 'info@barmagly.com';
+        $footer->email = 'info@barmagly.tech';
         $footer->copyright = 'Copyright 2026, Barmagly. All Rights Reserved.';
         $footer->facebook = 'https://www.facebook.com/BarmaglyOfficial';
         $footer->save();
@@ -276,6 +276,50 @@ class UpdateBarmaglyContentSeeder extends Seeder
             'right_text' => [
                 'en' => 'Happy Clients',
                 'ar' => 'عميل سعيد'
+            ],
+        ]);
+
+        // IT Solutions Hero Section
+        $this->updateContent('it_solutions_hero_section.content', [
+            'heading' => [
+                'en' => 'The Next Step to Enhance Your Business',
+                'ar' => 'الخطوة التالية لتعزيز نشاطك التجاري'
+            ],
+            'description' => [
+                'en' => 'Enhance your presence with Barmagly',
+                'ar' => 'عزز تواجدك مع برمجلي'
+            ],
+            'button_text' => [
+                'en' => 'Get Started Now',
+                'ar' => 'إبدأ الآن'
+            ],
+        ]);
+
+        // IT Solutions About Us Section
+        $this->updateContent('it_solutions_about_us.content', [
+            'heading' => [
+                'en' => 'We provide perfect IT solutions & technology',
+                'ar' => 'نقدم حلول تكنولوجيا المعلومات والتكنولوجيا المثالية'
+            ],
+            'description' => [
+                'en' => 'During this time, we\'ve built a reputation for excellent customer satisfaction as evidenced by our quality services and professional team.',
+                'ar' => 'خلال هذه الفترة، بنينا سمعة لرضا العملاء الممتاز كما يتضح من خدماتنا عالية الجودة وفريقنا المحترف.'
+            ],
+            'feature_text_1' => [
+                'en' => 'Providing skill services',
+                'ar' => 'تقديم خدمات المهارات'
+            ],
+            'feature_text_2' => [
+                'en' => 'Urgent customer support',
+                'ar' => 'دعم العملاء العاجل'
+            ],
+            'feature_text_3' => [
+                'en' => 'Advanced information technology solutions',
+                'ar' => 'حلول تكنولوجيا المعلومات المتقدمة'
+            ],
+            'button_text' => [
+                'en' => 'More About Us',
+                'ar' => 'المزيد عنا'
             ],
         ]);
 

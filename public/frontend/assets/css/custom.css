@@ -2165,3 +2165,28 @@ img:not([width]):not([height]) {
         min-height: 120%;
     }
 }
+
+/* Optimize hero background image loading */
+.Barmagly-hero-section2 {
+    will-change: background-image;
+    content-visibility: auto;
+}
+
+/* Image format optimization hints */
+.light-version-logo,
+.Barmagly-hero-power img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Reduce image quality for better performance on mobile */
+@media (max-width: 767px) {
+    .Barmagly-hero-section2 {
+        background-size: cover;
+        background-position: center;
+    }
+    
+    img {
+        image-rendering: auto;
+    }
+}
