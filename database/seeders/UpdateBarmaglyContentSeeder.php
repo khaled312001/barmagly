@@ -567,40 +567,52 @@ class UpdateBarmaglyContentSeeder extends Seeder
 
         $services = [
             [
+                'title_en' => 'Odoo Systems',
+                'title_ar' => 'Odoo أنظمة',
+                'description_en' => 'We provide comprehensive services for developing, customizing, and integrating Odoo ERP systems to match your business needs, improving management, reducing costs, and increasing operational efficiency.',
+                'description_ar' => 'نقدم خدمات متكاملة لتطوير، تخصيص، وربط نظام أودو (Odoo ERP) بما يتناسب مع طبيعة عمل شركتك، لتحسين الإدارة، تقليل التكاليف، وزيادة الكفاءة التشغيلية.',
+                'short_description_en' => 'We provide comprehensive services for developing, customizing, and integrating Odoo ERP systems to match your business needs, improving management, reducing costs, and increasing operational efficiency.',
+                'short_description_ar' => 'نقدم خدمات متكاملة لتطوير، تخصيص، وربط نظام أودو (Odoo ERP) بما يتناسب مع طبيعة عمل شركتك، لتحسين الإدارة، تقليل التكاليف، وزيادة الكفاءة التشغيلية.',
+            ],
+            [
                 'title_en' => 'Web Development',
                 'title_ar' => 'تطوير المواقع',
                 'description_en' => 'Professional web development with the latest technologies',
                 'description_ar' => 'تطوير مواقع احترافي بأحدث التقنيات',
+                'short_description_en' => 'Professional web development with the latest technologies',
+                'short_description_ar' => 'تطوير مواقع احترافي بأحدث التقنيات',
             ],
             [
                 'title_en' => 'Website Design',
                 'title_ar' => 'تصميم المواقع',
-                'description_en' => 'Beautiful, responsive website designs',
-                'description_ar' => 'تصاميم مواقع جميلة ومتجاوبة',
+                'description_en' => 'User-centered design for better experiences',
+                'description_ar' => 'تصميم يركز على المستخدم لتجارب أفضل',
+                'short_description_en' => 'User-centered design for better experiences',
+                'short_description_ar' => 'تصميم يركز على المستخدم لتجارب أفضل',
             ],
             [
                 'title_en' => 'UI/UX Design',
                 'title_ar' => 'تصميم UI/UX',
-                'description_en' => 'User-centered design for better experiences',
-                'description_ar' => 'تصميم يركز على المستخدم لتجارب أفضل',
+                'description_en' => 'iOS and Android app development',
+                'description_ar' => 'تطوير تطبيقات iOS و Android',
+                'short_description_en' => 'iOS and Android app development',
+                'short_description_ar' => 'تطوير تطبيقات iOS و Android',
             ],
             [
                 'title_en' => 'Mobile App Development',
                 'title_ar' => 'تطوير تطبيقات الهاتف',
-                'description_en' => 'iOS and Android app development',
-                'description_ar' => 'تطوير تطبيقات iOS و Android',
+                'description_en' => 'Complete e-commerce solutions',
+                'description_ar' => 'حلول متاجر إلكترونية كاملة',
+                'short_description_en' => 'Complete e-commerce solutions',
+                'short_description_ar' => 'حلول متاجر إلكترونية كاملة',
             ],
             [
-                'title_en' => 'E-commerce Development',
+                'title_en' => 'E-commerce Platform Development',
                 'title_ar' => 'تطوير المتاجر الإلكترونية',
                 'description_en' => 'Complete e-commerce solutions',
                 'description_ar' => 'حلول متاجر إلكترونية كاملة',
-            ],
-            [
-                'title_en' => 'Data Security Tracking',
-                'title_ar' => 'أمان تتبع البيانات',
-                'description_en' => 'Develop a comprehensive IT strategy aligned with your goals.',
-                'description_ar' => 'تطوير استراتيجية تكنولوجيا معلومات شاملة تتماشى مع أهدافك.',
+                'short_description_en' => 'Complete e-commerce solutions',
+                'short_description_ar' => 'حلول متاجر إلكترونية كاملة',
             ],
         ];
 
@@ -632,6 +644,7 @@ class UpdateBarmaglyContentSeeder extends Seeder
             
             $transEn->title = $service['title_en'];
             $transEn->description = $service['description_en'];
+            $transEn->short_description = $service['short_description_en'] ?? $service['description_en'];
             if (DB::getSchemaBuilder()->hasColumn('listing_translations', 'address')) {
                 $transEn->address = $service['description_en'];
             }
@@ -650,6 +663,7 @@ class UpdateBarmaglyContentSeeder extends Seeder
             
             $transAr->title = $service['title_ar'];
             $transAr->description = $service['description_ar'];
+            $transAr->short_description = $service['short_description_ar'] ?? $service['description_ar'];
             if (DB::getSchemaBuilder()->hasColumn('listing_translations', 'address')) {
                 $transAr->address = $service['description_ar'];
             }

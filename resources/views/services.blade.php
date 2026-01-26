@@ -62,13 +62,13 @@
     </div>
     @php
         $currentLang = session()->get('front_lang');
-        $getServiceContent = getContent('main_demo_service_section.content', true)
+        $getServiceContent = getContent('main_demo_service_section.content', true);
     @endphp
     <!-- End section -->
     <div class="section Barmagly-section-padding2 bg-light1">
         <div class="container">
             <div class="Barmagly-section-title center">
-                <h2></h2>
+                <h2>{{ getTranslatedValue($getServiceContent, 'heading', $currentLang) ?? __('translate.Our Services') }}</h2>
             </div>
             <div class="row">
 
@@ -80,8 +80,8 @@
                             <img src="{{ asset($service->thumb_image) }}" alt="Image" width="123" height="41" loading="lazy">
                         </div>
                         <div class="Barmagly-iconbox-data">
-                            <h5>{{ $service->translate?->title }}</h5>
-                            <p>{{ $service->translate?->short_description }}</p>
+                            <h5>{{ $service->title }}</h5>
+                            <p>{{ $service->short_description }}</p>
                             <a class="Barmagly-icon-btn" href="{{ route('service', $service->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
                                 <span>{{ __('translate.Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
                         </div>

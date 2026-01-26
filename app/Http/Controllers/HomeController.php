@@ -462,7 +462,10 @@ class HomeController extends Controller
 
     public function services(Request $request)
     {
-        $services = Listing::where(['status' => 'enable'])->latest()->get();
+        $services = Listing::where(['status' => 'enable'])
+            ->with('front_translate')
+            ->latest()
+            ->get();
 
         $seo_setting = SeoSetting::where('id', 10)->first();
 

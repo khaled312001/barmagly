@@ -36,27 +36,26 @@
 
 
 
-<!-- Jquery -->
-
+<!-- Critical JavaScript - Load immediately -->
 <script src="{{ asset('global/js/jquery-3.7.1.min.js') }}"></script>
-<script src="{{ asset('global/select2/select2.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/menu/menu.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/slick.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/countdown.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/skillbar.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/slick-animation.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/faq.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/isotope.pkgd.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/tabs-slider.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/top-to-bottom.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/aos.js') }}"></script>
 
-
-<script src="{{ asset('frontend/assets/js/cart.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/app.js') }}"></script>
-<script src="{{ asset('global/toastr/toastr.min.js') }}"></script>
+<!-- Non-critical JavaScript - Defer loading -->
+<script defer src="{{ asset('global/select2/select2.min.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/jquery.magnific-popup.min.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/slick.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/countdown.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/skillbar.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/slick-animation.min.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/faq.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/isotope.pkgd.min.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/tabs-slider.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/top-to-bottom.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/aos.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/cart.js') }}"></script>
+<script defer src="{{ asset('frontend/assets/js/app.js') }}"></script>
+<script defer src="{{ asset('global/toastr/toastr.min.js') }}"></script>
 
 
 <script>

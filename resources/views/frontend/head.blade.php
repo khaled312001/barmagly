@@ -14,12 +14,27 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://connect.facebook.net">
+    
+    <!-- Preload critical images -->
+    @if(isset($general_setting) && $general_setting->logo)
+    <link rel="preload" as="image" href="{{ asset($general_setting->logo) }}" fetchpriority="high">
+    @endif
+    @if(isset($general_setting) && $general_setting->favicon)
+    <link rel="preload" as="image" href="{{ asset($general_setting->favicon) }}" fetchpriority="high">
+    @endif
 
-    <!-- Critical CSS - Load immediately (above-the-fold content) -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/app.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}">
+    <!-- Critical CSS - Inline or load immediately (above-the-fold content) -->
+    <link rel="preload" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ asset('frontend/assets/css/main.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ asset('frontend/assets/css/app.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('frontend/assets/css/app.min.css') }}"></noscript>
+    
+    <link rel="preload" href="{{ asset('frontend/assets/css/custom.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}"></noscript>
 
     <!-- Non-critical CSS - Load asynchronously to prevent render blocking -->
     <link rel="preload" href="{{ asset('global/select2/select2.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">

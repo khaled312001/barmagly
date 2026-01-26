@@ -1,4 +1,5 @@
 @php
+    $currentLang = session()->get('front_lang') ?? 'ar';
     $getProcessData = getContent('main_demo_process_section.content', true);
 @endphp
 

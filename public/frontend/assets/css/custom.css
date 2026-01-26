@@ -2170,6 +2170,7 @@ img:not([width]):not([height]) {
 .Barmagly-hero-section2 {
     will-change: background-image;
     content-visibility: auto;
+    contain: layout style paint;
 }
 
 /* Image format optimization hints */
@@ -2177,6 +2178,8 @@ img:not([width]):not([height]) {
 .Barmagly-hero-power img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 /* Reduce image quality for better performance on mobile */
@@ -2184,9 +2187,22 @@ img:not([width]):not([height]) {
     .Barmagly-hero-section2 {
         background-size: cover;
         background-position: center;
+        will-change: auto;
     }
     
     img {
         image-rendering: auto;
     }
+}
+
+/* Optimize rendering performance */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce layout shifts */
+.Barmagly-hero-section2,
+.Barmagly-hero-content {
+    min-height: 1px;
 }
