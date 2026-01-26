@@ -263,9 +263,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="Barmagly-thumb extra-mr">
-                        <img data-aos="fade-up" data-aos-duration="600" src="{{ url(@$aboutUsContent->data_values['images']['image_1']) }}" alt="">
+                        <img data-aos="fade-up" data-aos-duration="600" src="{{ url(@$aboutUsContent->data_values['images']['image_1']) }}" alt="" width="612" height="402" loading="lazy">
                         <div class="Barmagly-thumb-position" data-aos="fade-up" data-aos-duration="800">
-                            <img src="{{ url(@$aboutUsContent->data_values['images']['image_2']) }}" alt="">
+                            <img src="{{ url(@$aboutUsContent->data_values['images']['image_2']) }}" alt="" width="1200" height="800" loading="lazy">
                         </div>
                         <div class="Barmagly-shape1">
                             <span>
@@ -532,7 +532,7 @@
                    @foreach($listings as $listing)
                     <div class="Barmagly-iconbox-wrap">
                         <div class="Barmagly-iconbox-icon">
-                            <img src="{{ asset($listing->thumb_image) }}" alt="Icon">
+                            <img src="{{ asset($listing->thumb_image) }}" alt="Icon" width="123" height="41" loading="lazy">
                         </div>
                         <div class="Barmagly-iconbox-data">
                             <h5> {{ $listing->title ?? $listing->translate?->title }} </h5>

@@ -77,7 +77,7 @@
                 <div class="col-lg-6" data-aos="fade-up" data-aos-duration="600">
                     <div class="Barmagly-iconbox-wrap style-two">
                         <div class="Barmagly-iconbox-icon">
-                            <img src="{{ asset($service->thumb_image) }}" alt="Image">
+                            <img src="{{ asset($service->thumb_image) }}" alt="Image" width="123" height="41" loading="lazy">
                         </div>
                         <div class="Barmagly-iconbox-data">
                             <h5>{{ $service->translate?->title }}</h5>

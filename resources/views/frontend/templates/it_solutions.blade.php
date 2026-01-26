@@ -81,7 +81,7 @@
                 <!-- Brand Logo-->
                 <div class="brand-logo">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset($general_setting->white_logo) }}" alt="Homepage Logo" class="light-version-logo">
+                        <img src="{{ asset($general_setting->white_logo) }}" alt="Homepage Logo" class="light-version-logo" width="224" height="88" loading="eager">
                     </a>
                 </div>
 
@@ -116,7 +116,7 @@
     <div class="container">
         <div class="Barmagly-hero-content center">
             <div class="Barmagly-hero-power">
-                <img src="{{ $general_setting->favicon }}" alt="">
+                <img src="{{ $general_setting->favicon }}" alt="" width="88" height="88" fetchpriority="high">
             </div>
             <h1>{{ getTranslatedValue($heroContent, 'heading', $currentLang) }}</h1>
             <p>{{ getTranslatedValue($heroContent, 'description', $currentLang) }}</p>
@@ -477,7 +477,13 @@
                 @foreach($projects->take(6) as $index => $project)
                 <div class="project-card-item" data-aos="fade-up" data-aos-duration="{{ ($index + 1) * 100 }}">
                     <div class="project-card-image">
-                        <img src="{{ asset($project->thumb_image) }}" alt="{{ $project->title ?? $project->translate?->title }}" class="project-img">
+                        <img src="{{ asset($project->thumb_image) }}" 
+                             alt="{{ $project->title ?? $project->translate?->title }}" 
+                             class="project-img"
+                             loading="lazy"
+                             width="679"
+                             height="auto"
+                             style="width: 100%; height: auto; object-fit: cover;">
                         <div class="project-card-overlay">
                             @if($project->website_url)
                             <a href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer" class="project-view-btn">

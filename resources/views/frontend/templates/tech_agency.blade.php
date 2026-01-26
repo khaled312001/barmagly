@@ -796,7 +796,13 @@
                 @foreach($projects->take(6) as $index => $project)
                 <div class="project-card-item" data-aos="fade-up" data-aos-duration="{{ ($index + 1) * 100 }}">
                     <div class="project-card-image">
-                        <img src="{{ asset($project->thumb_image) }}" alt="{{ $project->title ?? $project->translate?->title }}" class="project-img">
+                        <img src="{{ asset($project->thumb_image) }}" 
+                             alt="{{ $project->title ?? $project->translate?->title }}" 
+                             class="project-img"
+                             loading="lazy"
+                             width="679"
+                             height="auto"
+                             style="width: 100%; height: auto; object-fit: cover;">
                         <div class="project-card-overlay">
                             @if($project->website_url)
                             <a href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer" class="project-view-btn">

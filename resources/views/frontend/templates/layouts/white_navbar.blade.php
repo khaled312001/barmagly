@@ -74,7 +74,7 @@
                 <!-- Brand Logo-->
                 <div class="brand-logo">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset($general_setting->logo) }}" alt="logo" class="light-version-logo">
+                        <img src="{{ asset($general_setting->logo) }}" alt="logo" class="light-version-logo" width="224" height="88" loading="eager">
                     </a>
                 </div>
 

@@ -32,9 +32,9 @@
             <div class="row" @if(Session::get('lang_dir', 'right_to_left') == 'right_to_left') style="flex-direction: row-reverse !important; direction: rtl !important;" @endif>
                 <div class="col-lg-6">
                     <div class="Barmagly-thumb extra-mr">
-                        <img data-aos="fade-up" data-aos-duration="600" src="{{ asset(getImage($aboutUsContent, 'image_1')) }}" alt="">
+                        <img data-aos="fade-up" data-aos-duration="600" src="{{ asset(getImage($aboutUsContent, 'image_1')) }}" alt="" width="612" height="402" loading="lazy">
                         <div class="Barmagly-thumb-position" data-aos="fade-up" data-aos-duration="800">
-                            <img src="{{ asset(getImage($aboutUsContent, 'image_2')) }}" alt="">
+                            <img src="{{ asset(getImage($aboutUsContent, 'image_2')) }}" alt="" width="1200" height="800" loading="lazy">
                         </div>
                         <div class="Barmagly-shape1">
                             <span>

@@ -804,6 +804,33 @@ body[dir="rtl"] .Barmagly-3column-slider .slick-track {
     object-position: top center;
     transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transform: translateY(0);
+    max-width: 100%;
+    display: block;
+}
+
+/* Mobile responsive optimizations for project images */
+@media (max-width: 767px) {
+    .project-card-image {
+        height: 220px;
+    }
+    
+    .project-card-image .project-img {
+        min-height: 100%;
+    }
+    
+    .project-card-item:hover .project-img {
+        transform: translateY(calc(-100% + 220px));
+    }
+}
+
+@media (max-width: 575px) {
+    .project-card-image {
+        height: 180px;
+    }
+    
+    .project-card-item:hover .project-img {
+        transform: translateY(calc(-100% + 180px));
+    }
 }
 
 .project-card-item:hover .project-img {
@@ -2060,4 +2087,81 @@ iframe[title*="Tawk"] {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
+}
+
+/* Mobile Responsive Image Optimizations */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure all images are responsive */
+.Barmagly-thumb img,
+.Barmagly-portfolio-thumb img,
+.project-img,
+.light-version-logo,
+.Barmagly-hero-power img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Mobile optimizations for hero section */
+@media (max-width: 767px) {
+    .Barmagly-hero-section2 {
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+    }
+    
+    .Barmagly-hero-power img {
+        max-width: 80px;
+        height: auto;
+    }
+}
+
+/* Optimize background images for mobile */
+@media (max-width: 575px) {
+    .bg-cover {
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .Barmagly-hero-section2 {
+        background-attachment: scroll;
+    }
+}
+
+/* Prevent layout shift for images */
+.project-card-image,
+.Barmagly-portfolio-thumb,
+.Barmagly-thumb {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.project-card-image img,
+.Barmagly-portfolio-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ensure all images have proper dimensions to prevent CLS */
+img:not([width]):not([height]) {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Desktop-specific optimizations */
+@media (min-width: 992px) {
+    .project-card-image {
+        height: 280px;
+    }
+    
+    .project-card-image .project-img {
+        width: 100%;
+        height: auto;
+        min-height: 120%;
+    }
 }

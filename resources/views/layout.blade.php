@@ -27,7 +27,9 @@
         </div>
     </div>
 
-    @yield('front-content')
+    <main>
+        @yield('front-content')
+    </main>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/201010254819" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
