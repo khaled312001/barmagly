@@ -63,7 +63,11 @@ class HomeController extends Controller
             ->take(10)
             ->get();
 
-        $services = Listing::latest()->take(5)->get();
+        $services = Listing::where('status', 'enable')
+            ->with('front_translate')
+            ->latest()
+            ->take(5)
+            ->get();
 
         $blogPosts = Blog::with('front_translate', 'category.front_translate')
             ->whereHas('translations', function($query) {

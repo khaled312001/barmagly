@@ -62,7 +62,11 @@ class AppServiceProvider extends ServiceProvider
                 $language_list = Language::where('status', 1)->get();
                 $currency_list = Currency::where('status', 'active')->get();
                 $custom_pages = CustomPage::where('status', 1)->get();
-                $services = Listing::latest()->take(5)->get();
+                $services = Listing::where('status', 'enable')
+                    ->with('front_translate')
+                    ->latest()
+                    ->take(5)
+                    ->get();
 
                 $footer_categories = Category::where('status', 'enable')->latest()->take(7)->get();
                 $footer_blog_categories = BlogCategory::where('status', 1)->latest()->take(7)->get();
