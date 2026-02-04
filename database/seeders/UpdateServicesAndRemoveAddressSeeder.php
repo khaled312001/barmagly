@@ -105,7 +105,8 @@ class UpdateServicesAndRemoveAddressSeeder extends Seeder
         $services = [
             [
                 'slug' => 'web-design-development',
-                'thumb_image' => 'uploads/services/web_design_icon.png',
+                'thumb_image' => 'uploads/services/icon_web_design.png',
+                'background_image' => 'uploads/services/web_design_banner.png',
                 'title_en' => 'Web Design & Development',
                 'title_ar' => 'برمجة وتصميم مواقع',
                 'description_en' => 'Professional website design and development services using the latest technologies. We create responsive, fast, and SEO-optimized websites tailored to your business needs. Our team specializes in Laravel, Vue.js, React, WordPress, and modern web technologies to deliver exceptional digital experiences.',
@@ -115,7 +116,8 @@ class UpdateServicesAndRemoveAddressSeeder extends Seeder
             ],
             [
                 'slug' => 'mobile-app-development',
-                'thumb_image' => 'uploads/services/mobile_app_icon.png',
+                'thumb_image' => 'uploads/services/icon_mobile.png',
+                'background_image' => 'uploads/services/mobile_app_banner.png',
                 'title_en' => 'Mobile Applications',
                 'title_ar' => 'موبايل',
                 'description_en' => 'Native and cross-platform mobile app development for iOS and Android. We build high-performance mobile applications using React Native, Flutter, and native technologies. From concept to launch, we deliver mobile solutions that engage users and drive business growth.',
@@ -125,7 +127,8 @@ class UpdateServicesAndRemoveAddressSeeder extends Seeder
             ],
             [
                 'slug' => 'digital-marketing',
-                'thumb_image' => 'uploads/services/digital_marketing_icon.png',
+                'thumb_image' => 'uploads/services/icon_marketing.png',
+                'background_image' => 'uploads/services/marketing_banner.png',
                 'title_en' => 'Digital Marketing',
                 'title_ar' => 'تسويق',
                 'description_en' => 'Comprehensive digital marketing services to grow your online presence. We offer SEO optimization, social media marketing, content marketing, email campaigns, and paid advertising. Our data-driven strategies help you reach your target audience and achieve measurable results.',
@@ -135,7 +138,8 @@ class UpdateServicesAndRemoveAddressSeeder extends Seeder
             ],
             [
                 'slug' => 'sales-crm-solutions',
-                'thumb_image' => 'uploads/services/sales_crm_icon.png',
+                'thumb_image' => 'uploads/services/icon_sales.png',
+                'background_image' => 'uploads/services/sales_crm_banner.png',
                 'title_en' => 'Sales & CRM Solutions',
                 'title_ar' => 'سيلز',
                 'description_en' => 'Custom sales and CRM solutions to streamline your business processes. We develop and integrate CRM systems, sales automation tools, and customer management platforms. Boost your sales team productivity and improve customer relationships with our tailored solutions.',
@@ -145,7 +149,8 @@ class UpdateServicesAndRemoveAddressSeeder extends Seeder
             ],
             [
                 'slug' => 'web-hosting-domains',
-                'thumb_image' => 'uploads/services/hosting_domains_icon.png',
+                'thumb_image' => 'uploads/services/icon_hosting.png',
+                'background_image' => 'uploads/services/hosting_banner.png',
                 'title_en' => 'Web Hosting & Domains',
                 'title_ar' => 'استضافة مواقع ودومينات',
                 'description_en' => 'Reliable web hosting services and domain registration. We offer secure, fast, and scalable hosting solutions for all types of websites. From shared hosting to dedicated servers and cloud solutions, we ensure your website is always online with 99.9% uptime guarantee.',
@@ -161,6 +166,7 @@ class UpdateServicesAndRemoveAddressSeeder extends Seeder
             $listing->category_id = $category->id;
             $listing->sub_category_id = 0;
             $listing->thumb_image = $service['thumb_image'];
+            $listing->background_image = $service['background_image'];
             $listing->slug = $service['slug'];
             
             // Set price fields only if they exist
