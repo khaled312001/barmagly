@@ -44,7 +44,12 @@
                         </div>
                         <ul>
                             @foreach($services as $service)
-                                <li><a href="{{ route('service', $service->slug) }}">{{ $service->title }}</a></li>
+                                <li>
+                                    <a href="{{ route('service', $service->slug) }}">
+                                        {{ $service->title }} 
+                                        <!-- DEBUG: Lang: {{ front_lang() }}, TransCode: {{ $service->front_translate ? $service->front_translate->lang_code : 'NULL' }} -->
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
