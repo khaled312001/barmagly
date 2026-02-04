@@ -25,6 +25,9 @@ class MenuManagementController extends Controller
         $menuItems = [];
         if ($menuConfig) {
             $menuItems = json_decode($menuConfig->value, true) ?? [];
+            // Merge defaults if Arabic labels are missing (migration for existing data)
+            $defaultItems = $this->getDefaultMenuItems();
+            $menuItems = $this->mergeDefaults($menuItems, $defaultItems);
         } else {
             // Default menu items based on current menu structure
             $menuItems = $this->getDefaultMenuItems();
@@ -53,6 +56,10 @@ class MenuManagementController extends Controller
             $notify_message = array('message' => $notify_message, 'alert-type' => 'error');
             return redirect()->back()->with($notify_message);
         }
+
+        // Normalize keys (handle camelCase from JS to snake_case)
+        $menuItems = $this->normalizeMenuKeys($menuItems);
+        $menuData = json_encode($menuItems);
 
         // Save to GlobalSetting
         $menuConfig = GlobalSetting::where('key', 'menu_config')->first();
@@ -185,6 +192,86 @@ class MenuManagementController extends Controller
         // This will be handled by the view generation
         // For now, we'll just save the config
         // The actual menu rendering will read from GlobalSetting
+    }
+
+    /**
+     * Normalize menu keys from camelCase to snake_case
+     */
+    private function normalizeMenuKeys($items)
+    {
+        $normalized = [];
+        foreach ($items as $item) {
+            // Handle specific keys that might come in as camelCase from jQuery data
+            if (isset($item['labelAr'])) {
+                $item['label_ar'] = $item['labelAr'];
+                unset($item['labelAr']);
+            }
+            if (isset($item['label-ar'])) {
+                $item['label_ar'] = $item['label-ar'];
+                unset($item['label-ar']);
+            }
+
+            // Recursively handle children
+            if (isset($item['children']) && is_array($item['children'])) {
+                $item['children'] = $this->normalizeMenuKeys($item['children']);
+            }
+            
+            $normalized[] = $item;
+        }
+        return $normalized;
+    }
+
+    /**
+     * Merge items with defaults to fill missing translations
+     */
+    private function mergeDefaults($items, $defaults)
+    {
+        foreach ($items as &$item) {
+            // Try to find matching default by ID or Label
+            if (empty($item['label_ar'])) {
+                foreach ($defaults as $default) {
+                    if (
+                        (isset($item['id']) && isset($default['id']) && $item['id'] == $default['id']) ||
+                        (isset($item['label']) && isset($default['label']) && $item['label'] == $default['label'])
+                    ) {
+                        if (isset($default['label_ar'])) {
+                            $item['label_ar'] = $default['label_ar'];
+                        }
+                        break;
+                    }
+                    
+                    // Check children of default
+                    if (isset($default['children'])) {
+                        $this->findAndFillChild($item, $default['children']);
+                    }
+                }
+            }
+
+            // Recursively handle children
+            if (isset($item['children']) && is_array($item['children'])) {
+                $item['children'] = $this->mergeDefaults($item['children'], $defaults);
+            }
+        }
+        return $items;
+    }
+
+    private function findAndFillChild(&$item, $defaults) {
+        if (!empty($item['label_ar'])) return;
+
+        foreach ($defaults as $default) {
+            if (
+                (isset($item['id']) && isset($default['id']) && $item['id'] == $default['id']) ||
+                (isset($item['label']) && isset($default['label']) && $item['label'] == $default['label'])
+            ) {
+                if (isset($default['label_ar'])) {
+                    $item['label_ar'] = $default['label_ar'];
+                }
+                return;
+            }
+             if (isset($default['children'])) {
+                $this->findAndFillChild($item, $default['children']);
+            }
+        }
     }
 }
 
