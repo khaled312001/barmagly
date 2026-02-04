@@ -99,6 +99,24 @@
                             <a href="{{ route('user.login') }}" class="login-btn">{{ __('translate.Login') }}</a>
                         @endauth
                         </div>
+                        <div class="Barmagly-social-icon-box style-two">
+                            <ul>
+                                @if(@$footer->facebook)
+                                <li>
+                                    <a href="{{ @$footer->facebook }}" target="_blank">
+                                        <i class="ri-facebook-fill"></i>
+                                    </a>
+                                </li>
+                                @endif
+                                @if(@$footer->linkedin)
+                                <li>
+                                    <a href="{{ @$footer->linkedin }}" target="_blank">
+                                        <i class="ri-linkedin-fill"></i>
+                                    </a>
+                                </li>
+                                @endif
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
