@@ -969,5 +969,7 @@
   'Sub Items' => 'Sub Items',
   'Save Changes' => 'Save Changes',
   'Cancel' => 'Cancel',
+  'English Name' => 'English Name',
+  'Arabic Name' => 'Arabic Name',
 );
 ?>

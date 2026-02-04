@@ -102,11 +102,11 @@
                         <input type="hidden" id="edit-id">
                         <div class="row">
                             <div class="col-12 mb-3">
-                                <label class="form-label">الاسم (إنجليزي) <span class="text-danger">*</span></label>
+                                <label class="form-label">{{ __('translate.English Name') }} <span class="text-danger">*</span></label>
                                 <input type="text" id="edit-label" class="form-control" required>
                             </div>
                             <div class="col-12 mb-3">
-                                <label class="form-label">الاسم (عربي)</label>
+                                <label class="form-label">{{ __('translate.Arabic Name') }}</label>
                                 <input type="text" id="edit-label-ar" class="form-control">
                             </div>
                             <div class="col-12 mb-3">
@@ -239,9 +239,16 @@
                 var $item = $('li.dd-item[data-id="' + id + '"]');
                 
                 if ($item.length > 0) {
-                    // Update existing
+                    // Update existing - Use .attr to ensure Nestable2 sees the changes in the DOM
+                    $item.attr('data-label', label);
+                    $item.attr('data-label-ar', labelAr);
+                    $item.attr('data-route', route);
+                    $item.attr('data-type', type);
+                    $item.attr('data-visible', visible);
+                    
+                    // Also update internal jQuery data cache
                     $item.data('label', label);
-                    $item.data('label-ar', labelAr);
+                    $item.data('labelAr', labelAr);
                     $item.data('route', route);
                     $item.data('type', type);
                     $item.data('visible', visible);
