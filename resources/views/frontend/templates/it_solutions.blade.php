@@ -31,8 +31,8 @@
 
     @endphp
 
-<header class="site-header Barmagly-header-section site-header--menu-right Barmagly-header-two" id="sticky-menu">
-    <div class="Barmagly-header-top p-0">
+<header class="site-header Barmagly-header-section site-header--menu-right Barmagly-header-two glass-effect" id="sticky-menu" style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
+    <div class="Barmagly-header-top p-0" style="background: transparent; border-bottom: 1px solid rgba(0,0,0,0.05);">
         <div class="container">
             <div class="extra-border-bottom">
                 <div class="Barmagly-header-info-wrap">
@@ -115,10 +115,8 @@
                     <div class="Barmagly-header-icon">
 
 
-                        <a class="Barmagly-default-btn Barmagly-header-btn" href="{{ route('contact-us') }}" data-text="{{ __('translate.Get in Touch') }}">
-                            <span
-                                class="btn-wraper">{{ __('translate.Get in Touch') }}
-                            </span>
+                        <a class="Barmagly-default-btn Barmagly-header-btn premium-btn" href="{{ route('contact-us') }}" data-text="{{ __('translate.Get in Touch') }}">
+                            <span class="btn-wraper">{{ __('translate.Get in Touch') }}</span>
                         </a>
                     </div>
 
@@ -134,16 +132,23 @@
 
 </header>
 
-<div class="Barmagly-hero-section2 bg-cover" style="background-image: url({{ asset(getImage($heroContent, 'hero_image')) }})">
-    <div class="container">
-        <div class="Barmagly-hero-content center">
-
-            <h1>{{ getTranslatedValue($heroContent, 'heading', $currentLang) }}</h1>
-            <p>{{ getTranslatedValue($heroContent, 'description', $currentLang) }}</p>
-            <div class="Barmagly-extra-mt" data-aos="fade-up" data-aos-duration="800">
-                <a class="Barmagly-default-btn" href="{{ route('contact-us') }}" data-text="{{ getTranslatedValue($heroContent, 'button_text', $currentLang) }}"><span class="btn-wraper">{{ getTranslatedValue($heroContent, 'button_text', $currentLang) }}</span></a>
+<div class="Barmagly-hero-section2 bg-cover floating-elements" style="background-image: url({{ asset(getImage($heroContent, 'hero_image')) }}); padding: 180px 0 120px; position: relative; overflow: hidden;">
+    <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(10, 22, 94, 0.85) 0%, rgba(43, 77, 255, 0.6) 100%); z-index: 1;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="Barmagly-hero-content center white-color">
+            <h1 style="font-size: 4rem; line-height: 1.1; margin-bottom: 25px; text-shadow: 0 4px 10px rgba(0,0,0,0.3); font-weight: 800;">{!! nl2br(e(getTranslatedValue($heroContent, 'heading', $currentLang))) !!}</h1>
+            <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto 40px; color: rgba(255,255,255,0.9); line-height: 1.6;">{{ getTranslatedValue($heroContent, 'description', $currentLang) }}</p>
+            <div class="Barmagly-extra-mt" data-aos="fade-up" data-aos-duration="1000">
+                <a class="Barmagly-default-btn premium-btn large" href="{{ route('contact-us') }}" data-text="{{ getTranslatedValue($heroContent, 'button_text', $currentLang) }}" style="padding: 15px 45px; font-size: 1.1rem; letter-spacing: 1px;">
+                    <span class="btn-wraper">{{ getTranslatedValue($heroContent, 'button_text', $currentLang) }}</span>
+                </a>
             </div>
         </div>
+    </div>
+    <div class="hero-shape-bottom" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px; overflow: hidden; line-height: 0; transform: rotate(180deg);">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 100px; fill: #f7fafc;">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
     </div>
 </div>
 <!-- End section -->
@@ -152,10 +157,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="Barmagly-thumb extra-mr">
-                    <img data-aos="fade-up" data-aos-duration="600" src="{{ asset(getImage($aboutUsContent, 'image_1')) }}" alt="">
-                    <div class="Barmagly-thumb-position" data-aos="fade-up" data-aos-duration="800">
-                        <img src="{{ asset(getImage($aboutUsContent, 'image_2')) }}" alt="">
+                <div class="Barmagly-thumb extra-mr" style="position: relative;">
+                    <img data-aos="fade-right" data-aos-duration="1000" src="{{ asset(getImage($aboutUsContent, 'image_1')) }}" alt="" style="border-radius: 30px; box-shadow: var(--premium-shadow); border: 4px solid #fff;">
+                    <div class="Barmagly-thumb-position" data-aos="fade-up" data-aos-duration="1200" style="bottom: -30px; right: -30px;">
+                        <img src="{{ asset(getImage($aboutUsContent, 'image_2')) }}" alt="" style="border-radius: 20px; box-shadow: var(--premium-shadow); border: 4px solid #fff; max-width: 250px;">
                     </div>
                     <div class="Barmagly-shape1">
                         <span>
@@ -418,42 +423,41 @@
     <div class="container">
         <div id="Barmagly-counter"></div>
         <div class="Barmagly-counter-wrap">
-            <div class="Barmagly-counter-data" data-aos="fade-up" data-aos-duration="1600">
-                <div class="Barmagly-counter-icon">
-                    <img src="{{ url(@$counterContent->data_values['images']['image_1']) }}" alt="Image 1">
-
+            <div class="Barmagly-counter-data glass-effect" data-aos="zoom-in" data-aos-duration="800" style="padding: 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.4); box-shadow: var(--soft-shadow);">
+                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: rgba(43, 77, 255, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                    <img src="{{ url(@$counterContent->data_values['images']['image_1']) }}" alt="Image 1" style="width: 30px;">
                 </div>
-                <div class="Barmagly-counter-number">
+                <div class="Barmagly-counter-number" style="font-size: 2.5rem; font-weight: 800; color: #0a165e; margin-bottom: 10px;">
                     <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_1', $currentLang) }}" class="Barmagly-counter"></span>+
                 </div>
-                <p>{{ getTranslatedValue($counterContent, 'title_1', $currentLang) }}</p>
+                <p style="font-weight: 600; color: #4a5568; margin-bottom: 0;">{{ getTranslatedValue($counterContent, 'title_1', $currentLang) }}</p>
             </div>
-            <div class="Barmagly-counter-data" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_2', $currentLang) }}">
-                <div class="Barmagly-counter-icon">
-                    <img src="{{ asset(getImage($counterContent, 'image_2')) }}" alt="Image 2">
+            <div class="Barmagly-counter-data glass-effect" data-aos="zoom-in" data-aos-duration="1000" style="padding: 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.4); box-shadow: var(--soft-shadow);">
+                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: rgba(43, 77, 255, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                    <img src="{{ asset(getImage($counterContent, 'image_2')) }}" alt="Image 2" style="width: 30px;">
                 </div>
-                <div class="Barmagly-counter-number">
+                <div class="Barmagly-counter-number" style="font-size: 2.5rem; font-weight: 800; color: #0a165e; margin-bottom: 10px;">
                     <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_2', $currentLang) }}" class="Barmagly-counter"></span>+
                 </div>
-                <p>{{ getTranslatedValue($counterContent, 'title_2', $currentLang) }}</p>
+                <p style="font-weight: 600; color: #4a5568; margin-bottom: 0;">{{ getTranslatedValue($counterContent, 'title_2', $currentLang) }}</p>
             </div>
-            <div class="Barmagly-counter-data" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_3', $currentLang) }}">
-                <div class="Barmagly-counter-icon">
-                    <img src="{{ asset(getImage($counterContent, 'image_3')) }}" alt="Image 3">
+            <div class="Barmagly-counter-data glass-effect" data-aos="zoom-in" data-aos-duration="1200" style="padding: 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.4); box-shadow: var(--soft-shadow);">
+                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: rgba(43, 77, 255, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                    <img src="{{ asset(getImage($counterContent, 'image_3')) }}" alt="Image 3" style="width: 30px;">
                 </div>
-                <div class="Barmagly-counter-number">
+                <div class="Barmagly-counter-number" style="font-size: 2.5rem; font-weight: 800; color: #0a165e; margin-bottom: 10px;">
                     <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_3', $currentLang) }}" class="Barmagly-counter"></span>+
                 </div>
-                <p>{{ getTranslatedValue($counterContent, 'title_3', $currentLang) }}</p>
+                <p style="font-weight: 600; color: #4a5568; margin-bottom: 0;">{{ getTranslatedValue($counterContent, 'title_3', $currentLang) }}</p>
             </div>
-            <div class="Barmagly-counter-data" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_4', $currentLang) }}">
-                <div class="Barmagly-counter-icon">
-                    <img src="{{ asset(getImage($counterContent, 'image_4')) }}" alt="">
+            <div class="Barmagly-counter-data glass-effect" data-aos="zoom-in" data-aos-duration="1400" style="padding: 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.4); box-shadow: var(--soft-shadow);">
+                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: rgba(43, 77, 255, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                    <img src="{{ asset(getImage($counterContent, 'image_4')) }}" alt="" style="width: 30px;">
                 </div>
-                <div class="Barmagly-counter-number">
+                <div class="Barmagly-counter-number" style="font-size: 2.5rem; font-weight: 800; color: #0a165e; margin-bottom: 10px;">
                     <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_4', $currentLang) }}" class="Barmagly-counter"></span>%
                 </div>
-                <p>{{ getTranslatedValue($counterContent, 'title_4', $currentLang) }}</p>
+                <p style="font-weight: 600; color: #4a5568; margin-bottom: 0;">{{ getTranslatedValue($counterContent, 'title_4', $currentLang) }}</p>
             </div>
 
         </div>
@@ -468,18 +472,20 @@
         </div>
         <div class="row">
             @foreach($listings as $listing)
-            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="500">
-                <div class="Barmagly-iconbox-wrap style-two">
-                    <div class="Barmagly-iconbox-icon">
-                        <img src="{{ asset($listing->thumb_image) }}" alt="">
+            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="{{ 400 + ($loop->index * 100) }}">
+                <div class="Barmagly-iconbox-wrap style-two glass-effect-card" style="padding: 40px; border-radius: 20px; transition: var(--transition-smooth); background: #ffffff; box-shadow: var(--soft-shadow); border: 1px solid rgba(0,0,0,0.03); height: 100%; display: flex; flex-direction: column; position: relative; overflow: hidden;">
+                    <div class="Barmagly-iconbox-icon" style="width: 70px; height: 70px; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 8px 20px rgba(43, 77, 255, 0.2);">
+                        <img src="{{ asset($listing->thumb_image) }}" alt="" style="width: 35px; filter: brightness(0) invert(1);">
                     </div>
                     <div class="Barmagly-iconbox-data">
-                        <h5>{{ $listing->title ?? $listing->translate?->title }}</h5>
-                        <p>{{ $listing->short_description ?? $listing->translate?->short_description }}</p>
-                        <a class="Barmagly-icon-btn" href="{{ route('service', $listing->slug) }}">
-                            <i class="icon-show ri-arrow-right-line"></i>
-                            <span>{{ __('translate.Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
+                        <h5 style="font-size: 1.5rem; margin-bottom: 15px; color: #0a165e;">{{ $listing->title ?? $listing->translate?->title }}</h5>
+                        <p style="color: #718096; line-height: 1.6; margin-bottom: 25px;">{{ \Illuminate\Support\Str::limit($listing->short_description ?? $listing->translate?->short_description, 100) }}</p>
+                        <a class="Barmagly-icon-btn premium-link" href="{{ route('service', $listing->slug) }}" style="color: #2b4dff; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                            <span>{{ __('translate.Learn More') }}</span>
+                            <i class="ri-arrow-right-line" style="transition: transform 0.3s ease;"></i>
+                        </a>
                     </div>
+                    <div class="card-hover-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--primary-gradient); opacity: 0; transition: var(--transition-smooth); z-index: -1;"></div>
                 </div>
             </div>
             @endforeach
@@ -493,35 +499,33 @@
         <div class="Barmagly-section-title center">
             <h2>{{ __('translate.Explore our recent projects') }}</h2>
         </div>
-            <div class="projects-showcase-grid">
+            <div class="projects-showcase-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px;">
                 @foreach($projects->take(6) as $index => $project)
-                <div class="project-card-item" data-aos="fade-up" data-aos-duration="{{ ($index + 1) * 100 }}">
-                    <div class="project-card-image">
+                <div class="project-card-item" data-aos="fade-up" data-aos-duration="{{ 400 + ($index * 100) }}" style="border-radius: 20px; overflow: hidden; position: relative; box-shadow: var(--soft-shadow); transition: var(--transition-smooth); background: #fff;">
+                    <div class="project-card-image" style="position: relative; overflow: hidden; height: 280px;">
                         <img src="{{ asset($project->thumb_image) }}" 
                              alt="{{ $project->title ?? $project->translate?->title }}" 
                              class="project-img"
                              loading="lazy"
-                             width="679"
-                             height="auto"
-                             style="width: 100%; height: auto; object-fit: cover;">
-                        <div class="project-card-overlay">
+                             style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+                        <div class="project-card-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(10, 22, 94, 0.9) 0%, rgba(43, 77, 255, 0.4) 100%); opacity: 0; transition: var(--transition-smooth); display: flex; align-items: center; justify-content: center;">
                             @if($project->website_url)
-                            <a href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer" class="project-view-btn">
-                                <i class="ri-arrow-right-up-line"></i>
+                            <a href="{{ $project->website_url }}" target="_blank" rel="noopener noreferrer" class="project-view-btn" style="background: #fff; color: #0a165e; padding: 12px 25px; border-radius: 50px; font-weight: 700; text-decoration: none; transform: translateY(20px); transition: var(--transition-smooth); display: flex; align-items: center; gap: 8px;">
+                                <i class="ri-external-link-line"></i>
                                 <span>{{ __('translate.Visit Website') }}</span>
                             </a>
                             @endif
                         </div>
                     </div>
-                        <div class="project-card-content">
-                            <h4 class="project-title">{{ $project->title ?? $project->translate?->title }}</h4>
-                            @if($project->front_translate?->client_name)
-                            <p class="project-client-name">{{ $project->front_translate->client_name }}</p>
-                            @endif
-                            @if($project->category)
-                            <p class="project-category">{{ $project->category->name ?? $project->category->translate?->name }}</p>
-                            @endif
-                        </div>
+                    <div class="project-card-content" style="padding: 25px; position:relative; background: #fff; z-index: 2;">
+                        @if($project->category)
+                        <span class="project-category" style="font-size: 0.8rem; color: #2b4dff; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block;">{{ $project->category->name ?? $project->category->translate?->name }}</span>
+                        @endif
+                        <h4 class="project-title" style="font-size: 1.4rem; margin-bottom: 10px; color: #0a165e;">{{ $project->title ?? $project->translate?->title }}</h4>
+                        @if($project->front_translate?->client_name)
+                        <p class="project-client-name" style="font-size: 0.9rem; color: #718096; margin-bottom: 0;">{{ $project->front_translate->client_name }}</p>
+                        @endif
+                    </div>
                 </div>
                 @endforeach
             </div>
@@ -548,22 +552,30 @@
             <div class="row">
                 @if(is_array($packageInformation))
                     @foreach($packageInformation as $packageKey => $package)
-                        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="{{ $loop->iteration == 1 ? '500' : ($loop->iteration == 2 ? '700' : '900') }}">
-                            <div class="Barmagly-pricing-wrap {{ $loop->iteration == 2 ? 'active' : '' }}">
-                                <div class="Barmagly-pricing-header">
-                                    <h4>{{ $package['title'] ?? '' }}</h4>
-                                    <p>{{ $package['description'] ?? '' }}</p>
+                        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="{{ 500 + ($loop->index * 200) }}">
+                            <div class="Barmagly-pricing-wrap {{ $loop->iteration == 2 ? 'active featured' : '' }}" style="padding: 50px 40px; border-radius: 25px; transition: var(--transition-smooth); background: {{ $loop->iteration == 2 ? 'var(--primary-gradient)' : '#ffffff' }}; color: {{ $loop->iteration == 2 ? '#fff' : 'inherit' }}; box-shadow: {{ $loop->iteration == 2 ? 'var(--premium-shadow)' : 'var(--soft-shadow)' }}; border: 1px solid rgba(0,0,0,0.05); position: relative; height: 100%; display: flex; flex-direction: column;">
+                                @if($loop->iteration == 2)
+                                <div class="featured-badge" style="position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">{{ __('translate.Popular') }}</div>
+                                @endif
+                                <div class="Barmagly-pricing-header" style="margin-bottom: 30px;">
+                                    <h4 style="font-size: 1.8rem; margin-bottom: 15px; border-bottom: 2px solid {{ $loop->iteration == 2 ? 'rgba(255,255,255,0.2)' : 'rgba(43, 77, 255, 0.1)' }}; padding-bottom: 15px;">{{ $package['title'] ?? '' }}</h4>
+                                    <p style="font-size: 1rem; color: {{ $loop->iteration == 2 ? 'rgba(255,255,255,0.8)' : '#718096' }}; line-height: 1.5;">{{ $package['description'] ?? '' }}</p>
                                 </div>
-                                <div class="Barmagly-pricing-feature">
-                                    <ul>
+                                <div class="Barmagly-pricing-feature" style="margin-bottom: 40px; flex-grow: 1;">
+                                    <ul style="list-style: none; padding: 0;">
                                         @if(isset($package['features']) && is_array($package['features']))
                                             @foreach($package['features'] as $featureKey => $feature)
-                                                <li><i class="ri-check-line"></i>{{ $feature }}</li>
+                                                <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                                                    <i class="ri-checkbox-circle-fill" style="color: {{ $loop->parent->iteration == 2 ? '#fff' : '#2b4dff' }}; font-size: 1.2rem;"></i>
+                                                    {{ $feature }}
+                                                </li>
                                             @endforeach
                                         @endif
                                     </ul>
                                 </div>
-                                <a class="Barmagly-pricing-btn" href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a>
+                                <a class="Barmagly-pricing-btn {{ $loop->iteration == 2 ? 'light' : 'primary' }}" href="{{ route('contact-us') }}" style="display: block; text-align: center; padding: 15px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: var(--transition-smooth); background: {{ $loop->iteration == 2 ? '#ffffff' : 'var(--primary-gradient)' }}; color: {{ $loop->iteration == 2 ? '#2b4dff' : '#fff' }};">
+                                    {{ __('translate.Contact Us') }}
+                                </a>
                             </div>
                         </div>
                     @endforeach
@@ -587,23 +599,27 @@
         </div>
         <div class="row">
             @foreach($blogPosts->take(3) as $blog)
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="500">
-                <div class="Barmagly-blog-wrap2">
-                    <div class="Barmagly-blog-thumb2">
-                        <img src="{{ asset($blog->image) }}" alt="BLog Image">
-                        <div class="Barmagly-blog-content2">
-                            <div class="Barmagly-blog-meta">
-                                <ul>
-                                    <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->front_translate?->name ?? $blog->category->name ?? $blog->category->translate->name ?? '' }}</a></li>
-                                    <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->created_at->diffForHumans() }}</a></li>
-                                </ul>
-                            </div>
-                            <a href="{{ route('blog', $blog->slug) }}">
-                                <h4>{{ \Illuminate\Support\Str::limit($blog->front_translate?->title ?? $blog->title ?? $blog->translate->title, 100) }}</h4>
-                            </a>
-                            <a class="Barmagly-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
-                                <span>{{ __('translate.Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
+                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="{{ 500 + ($loop->index * 200) }}">
+                <div class="Barmagly-blog-wrap2 glass-effect-card" style="border-radius: 20px; overflow: hidden; background: #fff; box-shadow: var(--soft-shadow); transition: var(--transition-smooth); height: 100%; border: 1px solid rgba(0,0,0,0.03);">
+                    <div class="Barmagly-blog-thumb2" style="position: relative; overflow: hidden; height: 240px;">
+                        <img src="{{ asset($blog->image) }}" alt="BLog Image" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+                        <div class="blog-date-badge" style="position: absolute; top: 20px; left: 20px; background: var(--primary-gradient); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; z-index: 2;">
+                            {{ $blog->created_at->format('M d, Y') }}
                         </div>
+                    </div>
+                    <div class="Barmagly-blog-content2" style="padding: 30px;">
+                        <div class="Barmagly-blog-meta" style="margin-bottom: 15px;">
+                            <ul style="list-style: none; padding: 0; display: flex; gap: 15px; font-size: 0.85rem; color: #2b4dff; font-weight: 600;">
+                                <li><i class="ri-folder-line"></i> {{ $blog->category->front_translate?->name ?? $blog->category->name ?? $blog->category->translate->name ?? '' }}</li>
+                            </ul>
+                        </div>
+                        <a href="{{ route('blog', $blog->slug) }}" style="text-decoration: none;">
+                            <h4 style="font-size: 1.3rem; margin-bottom: 20px; color: #0a165e; line-height: 1.4; transition: var(--transition-smooth);">{{ \Illuminate\Support\Str::limit($blog->front_translate?->title ?? $blog->title ?? $blog->translate->title, 70) }}</h4>
+                        </a>
+                        <a class="Barmagly-icon-btn premium-link" href="{{ route('blog', $blog->slug) }}" style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 700; color: #2b4dff; text-decoration: none;">
+                            <span>{{ __('translate.Learn More') }}</span>
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
                     </div>
                 </div>
             </div>

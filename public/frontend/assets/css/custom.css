@@ -2024,11 +2024,29 @@ body[dir="rtl"] .portfolio-grid-modern {
     }
 }
 
-/* RTL Support for Social Icons */
-body.rtl .Barmagly-header-social-icons,
-html[dir="rtl"] .Barmagly-header-social-icons {
-    margin-right: 0;
-    margin-left: 15px;
+/* Social Icon Refinements */
+.Barmagly-social-icon-box.style-two ul li a {
+    background: rgba(43, 77, 255, 0.1) !important;
+    color: #2b4dff !important;
+    border-radius: 50% !important;
+    width: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.Barmagly-social-icon-box.style-two ul li a:hover {
+    background: var(--primary-gradient) !important;
+    color: #fff !important;
+    transform: translateY(-3px);
+}
+
+.Barmagly-header-social-icons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
 }
 
 /* Floating WhatsApp Button */
