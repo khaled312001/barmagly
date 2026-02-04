@@ -4,14 +4,12 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Frontend;
+use Illuminate\Support\Facades\DB;
 
 class UpdateSidebarCTASeeder extends Seeder
 {
     /**
      * Update the Sidebar CTA section with Arabic translation and new contact link.
-     * 
-     * This updates the "Don't hesitate to contact" section to Arabic
-     * and changes the button link to https://www.barmagly.tech/contact-us
      */
     public function run(): void
     {
@@ -21,10 +19,33 @@ class UpdateSidebarCTASeeder extends Seeder
         $sidebarCTA = Frontend::where('data_keys', 'main_demo_sidebar_cta_section.content')->first();
         
         if ($sidebarCTA) {
-            // Get the raw data_values and decode if it's a string
-            $dataValues = $sidebarCTA->getAttributes()['data_values'] ?? '{}';
-            if (is_string($dataValues)) {
-                $dataValues = json_decode($dataValues, true) ?? [];
+            // Get the raw value directly from database
+            $rawValue = DB::table('frontends')
+                ->where('id', $sidebarCTA->id)
+                ->value('data_values');
+            
+            $this->command->info('Raw value type: ' . gettype($rawValue));
+            
+            // Try to decode - handle multiple levels of encoding
+            $dataValues = $rawValue;
+            
+            // Keep decoding until we get an array
+            $maxAttempts = 3;
+            $attempts = 0;
+            while (is_string($dataValues) && $attempts < $maxAttempts) {
+                $decoded = json_decode($dataValues, true);
+                if ($decoded !== null) {
+                    $dataValues = $decoded;
+                } else {
+                    break;
+                }
+                $attempts++;
+            }
+            
+            // If still not an array, create a new one
+            if (!is_array($dataValues)) {
+                $this->command->warn('Could not decode existing data, creating new structure');
+                $dataValues = [];
             }
             
             // Update with Arabic translations and new link
@@ -33,26 +54,27 @@ class UpdateSidebarCTASeeder extends Seeder
             $dataValues['button_text'] = 'تواصل معنا';
             $dataValues['button_link'] = 'https://www.barmagly.tech/contact-us';
             
-            // Save the updated values
-            $sidebarCTA->data_values = json_encode($dataValues);
-            $sidebarCTA->save();
+            // Update directly in database
+            DB::table('frontends')
+                ->where('id', $sidebarCTA->id)
+                ->update(['data_values' => json_encode($dataValues)]);
             
             $this->command->info('✅ Sidebar CTA section updated successfully!');
             $this->command->info('   Heading: لا تتردد في التواصل معنا');
-            $this->command->info('   Description: في برمجلي، نحن ملتزمون بتقديم خدمات استثنائية');
-            $this->command->info('   Button Text: تواصل معنا');
             $this->command->info('   Button Link: https://www.barmagly.tech/contact-us');
         } else {
             // Create new record if it doesn't exist
-            $newSidebarCTA = new Frontend();
-            $newSidebarCTA->data_keys = 'main_demo_sidebar_cta_section.content';
-            $newSidebarCTA->data_values = json_encode([
-                'heading' => 'لا تتردد في التواصل معنا',
-                'description' => 'في برمجلي، نحن ملتزمون بتقديم خدمات استثنائية',
-                'button_text' => 'تواصل معنا',
-                'button_link' => 'https://www.barmagly.tech/contact-us',
+            DB::table('frontends')->insert([
+                'data_keys' => 'main_demo_sidebar_cta_section.content',
+                'data_values' => json_encode([
+                    'heading' => 'لا تتردد في التواصل معنا',
+                    'description' => 'في برمجلي، نحن ملتزمون بتقديم خدمات استثنائية',
+                    'button_text' => 'تواصل معنا',
+                    'button_link' => 'https://www.barmagly.tech/contact-us',
+                ]),
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
-            $newSidebarCTA->save();
             
             $this->command->info('✅ Sidebar CTA section created successfully!');
         }
