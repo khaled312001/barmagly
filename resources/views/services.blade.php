@@ -57,14 +57,11 @@
     </div>
     <!-- End breadcrumb -->
 
-    <div class="section Barmagly-section-padding5">
-        @include('frontend.templates.layouts.process_section')
-    </div>
     @php
         $currentLang = session()->get('front_lang');
         $getServiceContent = getContent('main_demo_service_section.content', true);
     @endphp
-    <!-- End section -->
+    <!-- Services Section -->
     <div class="section Barmagly-section-padding2 bg-light1">
         <div class="container">
             <div class="Barmagly-section-title center">
@@ -91,7 +88,13 @@
             </div>
         </div>
     </div>
-    <!-- End section -->
+    <!-- End Services Section -->
+
+    <!-- How We Work Section -->
+    <div class="section Barmagly-section-padding5">
+        @include('frontend.templates.layouts.process_section')
+    </div>
+    <!-- End How We Work Section -->
 @endsection
 
 

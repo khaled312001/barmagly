@@ -21,7 +21,11 @@ class UpdateSidebarCTASeeder extends Seeder
         $sidebarCTA = Frontend::where('data_keys', 'main_demo_sidebar_cta_section.content')->first();
         
         if ($sidebarCTA) {
-            $dataValues = $sidebarCTA->data_values;
+            // Get the raw data_values and decode if it's a string
+            $dataValues = $sidebarCTA->getAttributes()['data_values'] ?? '{}';
+            if (is_string($dataValues)) {
+                $dataValues = json_decode($dataValues, true) ?? [];
+            }
             
             // Update with Arabic translations and new link
             $dataValues['heading'] = 'لا تتردد في التواصل معنا';
