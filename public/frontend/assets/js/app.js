@@ -34,7 +34,8 @@
         /*--------------------------------------------------------------
         Barmagly PRELOADER JS INIT
         --------------------------------------------------------------*/
-        $(".Barmagly-preloader-wrap").fadeOut(500);
+        // Preloader fadeout moved to window load event in script.blade.php or added below
+        // $(".Barmagly-preloader-wrap").fadeOut(500);
 
         /*--------------------------------------------------------------
         Barmagly HEADER SEARCH JS INIT

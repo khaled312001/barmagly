@@ -38,62 +38,34 @@ class MenuManagementController extends Controller
      */
     public function update(Request $request)
     {
-        // Normalize checkbox values before validation
-        $menuItems = $request->input('menu_items', []);
-        foreach ($menuItems as $index => $item) {
-            // Set visible to false if checkbox is not checked
-            if (!isset($item['visible']) || $item['visible'] != '1') {
-                $menuItems[$index]['visible'] = false;
-            } else {
-                $menuItems[$index]['visible'] = true;
-            }
-            
-            // Handle children visible
-            if (isset($item['children']) && is_array($item['children'])) {
-                foreach ($item['children'] as $childIndex => $child) {
-                    if (!isset($child['visible']) || $child['visible'] != '1') {
-                        $menuItems[$index]['children'][$childIndex]['visible'] = false;
-                    } else {
-                        $menuItems[$index]['children'][$childIndex]['visible'] = true;
-                    }
-                }
-            }
+        $menuData = $request->input('menu_data');
+        
+        if (!$menuData) {
+            $notify_message = trans('translate.No data provided');
+            $notify_message = array('message' => $notify_message, 'alert-type' => 'error');
+            return redirect()->back()->with($notify_message);
         }
-        
-        // Replace request input with normalized data
-        $request->merge(['menu_items' => $menuItems]);
-        
-        $request->validate([
-            'menu_items' => 'required|array',
-            'menu_items.*.id' => 'required|string',
-            'menu_items.*.label' => 'required|string',
-            'menu_items.*.route' => 'nullable|string',
-            'menu_items.*.order' => 'required|integer',
-            'menu_items.*.visible' => 'sometimes|boolean',
-        ]);
 
-        $menuItems = $request->input('menu_items');
-        
-        // Sort by order
-        usort($menuItems, function($a, $b) {
-            return $a['order'] <=> $b['order'];
-        });
+        $menuItems = json_decode($menuData, true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            $notify_message = trans('translate.Invalid data format');
+            $notify_message = array('message' => $notify_message, 'alert-type' => 'error');
+            return redirect()->back()->with($notify_message);
+        }
 
         // Save to GlobalSetting
         $menuConfig = GlobalSetting::where('key', 'menu_config')->first();
         
         if ($menuConfig) {
-            $menuConfig->value = json_encode($menuItems);
+            $menuConfig->value = $menuData;
             $menuConfig->save();
         } else {
             $menuConfig = new GlobalSetting();
             $menuConfig->key = 'menu_config';
-            $menuConfig->value = json_encode($menuItems);
+            $menuConfig->value = $menuData;
             $menuConfig->save();
         }
-
-        // Update the menu file
-        $this->updateMenuFile($menuItems);
 
         $notify_message = trans('translate.Updated Successfully');
         $notify_message = array('message' => $notify_message, 'alert-type' => 'success');

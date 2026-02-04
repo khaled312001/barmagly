@@ -41,11 +41,16 @@
 <script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/menu/menu.js') }}"></script>
 
-<!-- Hide preloader immediately when DOM is ready -->
+<!-- Hide preloader after all resources (images, icons) are fully loaded -->
 <script>
-    $(document).ready(function() {
+    $(window).on('load', function() {
         $(".Barmagly-preloader-wrap").fadeOut(500);
     });
+    
+    // Safety fallback: if everything takes too long, hide it anyway after 5 seconds
+    setTimeout(function() {
+        $(".Barmagly-preloader-wrap").fadeOut(500);
+    }, 5000);
 </script>
 
 <!-- Non-critical JavaScript - Defer loading -->
