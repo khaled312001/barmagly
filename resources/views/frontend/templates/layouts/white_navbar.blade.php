@@ -13,7 +13,6 @@
             <div class="Barmagly-header-info-wrap">
                 <div class="Barmagly-header-info dark-color">
                     <ul>
-                        <li><i class="ri-map-pin-2-fill"></i>{{ $footer->address }}</li>
                         <li><a href="tel:{{ $footer->phone }}"><i class="ri-phone-fill"></i>{{ $footer->phone }}</a></li>
                         <li><a href="mailto:{{ $footer->email }}"><i class="ri-mail-fill"></i> {{ $footer->email }}</a></li>
                     </ul>
