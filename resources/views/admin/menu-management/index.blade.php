@@ -151,7 +151,7 @@
         .dd-collapsed .dd-list { display: none; }
         .dd-item, .dd-empty, .dd-placeholder { display: block; position: relative; margin: 0; padding: 0; min-height: 20px; font-size: 13px; line-height: 20px; }
         .dd-handle { 
-            display: block; height: 50px; margin: 5px 0; padding: 14px 25px; color: #333; text-decoration: none; font-weight: bold; border: 1px solid #ccc; 
+            display: block; height: 50px; margin: 5px 0; padding: 14px 25px; padding-right: 100px; color: #333; text-decoration: none; font-weight: bold; border: 1px solid #ccc; 
             background: #fafafa; border-radius: 3px; box-sizing: border-box; -moz-box-sizing: border-box; cursor: move;
         }
         .dd-handle:hover { color: #2ea8e5; background: #fff; }
@@ -166,10 +166,11 @@
         .dd-dragel { position: absolute; pointer-events: none; z-index: 9999; }
         .dd-dragel > .dd-item .dd-handle { margin-top: 0; }
         .dd-dragel .dd-handle { -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1); box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1); }
-        .item-actions { position: absolute; right: 10px; top: 12px; }
-        .item-actions .btn { padding: 2px 8px; font-size: 12px; }
-        .dd-handle .label-text { display: inline-block; max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .dd-handle .badge { margin-left: 10px; font-weight: normal; }
+        .item-actions { position: absolute; right: 10px; top: 10px; display: flex; gap: 5px; }
+        .item-actions .btn { padding: 4px 10px; font-size: 14px; }
+        .dd-handle .label-text { display: inline-block; max-width: 350px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 22px; }
+        .dd-handle .badge { margin-right: 10px; font-weight: normal; font-size: 12px; }
+        .badge-visibility { vertical-align: middle; }
     </style>
     @endpush
 
@@ -233,6 +234,8 @@
                     return;
                 }
 
+                var labelDisplay = labelAr && labelAr !== label ? `<strong>${labelAr}</strong> <small class="text-muted">(${label})</small>` : `<strong>${labelAr || label}</strong>`;
+
                 var $item = $('li.dd-item[data-id="' + id + '"]');
                 
                 if ($item.length > 0) {
@@ -243,14 +246,14 @@
                     $item.data('type', type);
                     $item.data('visible', visible);
                     
-                    $item.find('> .dd-handle .label-text').html(`<strong>${labelAr || label}</strong> / <small class="text-muted">${label}</small>`);
+                    $item.find('> .dd-handle .label-text').html(labelDisplay);
                     $item.find('> .dd-handle .badge-visibility').html(visible == 1 ? '<span class="badge bg-success">ظاهر</span>' : '<span class="badge bg-danger">مخفي</span>');
                 } else {
                     // Add new
                     var newItemHtml = `
                         <li class="dd-item" data-id="${id}" data-label="${label}" data-label-ar="${labelAr}" data-route="${route}" data-type="${type}" data-visible="${visible}">
                             <div class="dd-handle">
-                                <span class="label-text"><strong>${labelAr || label}</strong> / <small class="text-muted">${label}</small></span>
+                                <span class="label-text">${labelDisplay}</span>
                                 <span class="badge-visibility">${visible == 1 ? '<span class="badge bg-success">ظاهر</span>' : '<span class="badge bg-danger">مخفي</span>'}</span>
                             </div>
                             <div class="item-actions">

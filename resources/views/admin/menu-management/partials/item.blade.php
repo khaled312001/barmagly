@@ -8,7 +8,11 @@
     
     <div class="dd-handle">
         <span class="label-text">
-            <strong>{{ $item['label_ar'] ?? $item['label'] }}</strong> / <small class="text-muted">{{ $item['label'] }}</small>
+            @if(isset($item['label_ar']) && $item['label_ar'] != $item['label'])
+                <strong>{{ $item['label_ar'] }}</strong> <small class="text-muted">({{ $item['label'] }})</small>
+            @else
+                <strong>{{ $item['label_ar'] ?? $item['label'] }}</strong>
+            @endif
         </span>
         <span class="badge-visibility">
             @if($item['visible'] ?? true)
