@@ -124,9 +124,7 @@
 <div class="Barmagly-hero-section2 bg-cover" style="background-image: url({{ asset(getImage($heroContent, 'hero_image')) }})">
     <div class="container">
         <div class="Barmagly-hero-content center">
-            <div class="Barmagly-hero-power">
-                <img src="{{ $general_setting->favicon }}" alt="" width="88" height="88" fetchpriority="high" loading="eager">
-            </div>
+
             <h1>{{ getTranslatedValue($heroContent, 'heading', $currentLang) }}</h1>
             <p>{{ getTranslatedValue($heroContent, 'description', $currentLang) }}</p>
             <div class="Barmagly-extra-mt" data-aos="fade-up" data-aos-duration="800">
