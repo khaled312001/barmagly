@@ -3283,3 +3283,25 @@ body.rtl .Barmagly-pricing-feature ul li i {
     left: auto !important;
     right: 0 !important;
 }
+
+/* ============================================
+   Fix for Blog Card Spacing (Gap between image and text)
+   ============================================ */
+.Barmagly-blog-thumb img,
+.Barmagly-blog-thumb2 img {
+    display: block !important;
+    width: 100% !important;
+    min-height: 100% !important;
+}
+
+.Barmagly-blog-thumb,
+.Barmagly-blog-thumb2 {
+    line-height: 0 !important;
+    font-size: 0 !important;
+}
+
+.Barmagly-blog-content,
+.Barmagly-blog-content2 {
+    margin-top: 0 !important;
+}
+
