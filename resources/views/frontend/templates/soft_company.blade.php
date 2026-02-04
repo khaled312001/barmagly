@@ -672,7 +672,7 @@
                             </div>
                             <ul>
                                 @foreach($services as $service)
-                                    <li><a href="{{ $service->slug }}">{{ $service->translate?->title }}</a></li>
+                                    <li><a href="{{ $service->slug }}">{{ $service->title }}</a></li>
                                 @endforeach
                             </ul>
                         </div>

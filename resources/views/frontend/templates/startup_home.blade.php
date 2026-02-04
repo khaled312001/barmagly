@@ -399,7 +399,7 @@
                             </div>
                             <ul>
                                 @foreach($services as $service)
-                                    <li><a href="{{ route('service', $service->slug) }}">{{ $service->title ?? $service->translate?->title }}</a></li>
+                                    <li><a href="{{ route('service', $service->slug) }}">{{ $service->title }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
