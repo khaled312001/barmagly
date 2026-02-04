@@ -25,9 +25,17 @@ class MenuManagementController extends Controller
         $menuItems = [];
         if ($menuConfig) {
             $menuItems = json_decode($menuConfig->value, true) ?? [];
+            
             // Merge defaults if Arabic labels are missing (migration for existing data)
             $defaultItems = $this->getDefaultMenuItems();
-            $menuItems = $this->mergeDefaults($menuItems, $defaultItems);
+            $mergedItems = $this->mergeDefaults($menuItems, $defaultItems);
+            
+            // Check if we backfilled anything (simple comparison)
+            if (json_encode($menuItems) !== json_encode($mergedItems)) {
+                $menuItems = $mergedItems;
+                $menuConfig->value = json_encode($menuItems);
+                $menuConfig->save();
+            }
         } else {
             // Default menu items based on current menu structure
             $menuItems = $this->getDefaultMenuItems();
