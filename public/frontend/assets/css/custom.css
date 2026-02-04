@@ -782,79 +782,11 @@ body[dir="rtl"] .Barmagly-3column-slider .slick-track {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
-    transition: var(--transition-smooth);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-/* Premium Card Hover Animations */
-.premium-hover-card {
-    transition: var(--transition-smooth) !important;
-}
-
-.premium-hover-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(43, 77, 255, 0.15) !important;
-    border-color: rgba(43, 77, 255, 0.2) !important;
-}
-
-.premium-hover-card:hover .Barmagly-iconbox-icon {
-    background: var(--primary-gradient) !important;
-    transform: rotate(5deg) scale(1.1);
-}
-
-.premium-hover-card:hover .Barmagly-iconbox-icon img {
-    filter: brightness(0) invert(1) !important;
-}
-
-/* Premium Learn More Button */
-.premium-learn-more {
-    position: relative;
-    overflow: hidden;
-}
-
-.premium-learn-more:hover {
-    background: var(--primary-gradient) !important;
-    color: #fff !important;
-    padding-right: 25px !important;
-}
-
-.premium-learn-more:hover i {
-    transform: translateX(5px);
-    color: #fff !important;
-}
-
-/* Project Image Scroll Effect */
-.project-card-image {
-    height: 300px !important;
-    overflow: hidden !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.project-card-image img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: initial !important;
-    transition: transform 3s ease-in-out !important;
-    /* Slow smooth scroll */
-    transform: translateY(0);
-}
-
-.project-card-item:hover .project-card-image img {
-    transform: translateY(calc(-100% + 300px));
-    /* Scrolls to the bottom */
-}
-
-/* Premium Counter Styles */
-.premium-counter:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    transform: scale(1.05);
-}
-
-.premium-counter:hover .Barmagly-counter-icon {
-    transform: translateY(-5px);
 }
 
 .project-card-item:hover {
@@ -2092,29 +2024,11 @@ body[dir="rtl"] .portfolio-grid-modern {
     }
 }
 
-/* Social Icon Refinements */
-.Barmagly-social-icon-box.style-two ul li a {
-    background: rgba(43, 77, 255, 0.1) !important;
-    color: #2b4dff !important;
-    border-radius: 50% !important;
-    width: 38px !important;
-    height: 38px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: var(--transition-smooth) !important;
-}
-
-.Barmagly-social-icon-box.style-two ul li a:hover {
-    background: var(--primary-gradient) !important;
-    color: #fff !important;
-    transform: translateY(-3px);
-}
-
-.Barmagly-header-social-icons {
-    display: flex;
-    gap: 12px;
-    align-items: center;
+/* RTL Support for Social Icons */
+body.rtl .Barmagly-header-social-icons,
+html[dir="rtl"] .Barmagly-header-social-icons {
+    margin-right: 0;
+    margin-left: 15px;
 }
 
 /* Floating WhatsApp Button */
