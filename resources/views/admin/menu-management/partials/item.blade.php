@@ -8,13 +8,13 @@
     
     <div class="dd-handle">
         <span class="label-text">
-            <strong>{{ $item['label'] }}</strong> / {{ $item['label_ar'] ?? '---' }}
+            <strong>{{ $item['label_ar'] ?? $item['label'] }}</strong> / <small class="text-muted">{{ $item['label'] }}</small>
         </span>
         <span class="badge-visibility">
             @if($item['visible'] ?? true)
-                <span class="badge bg-success">Visible / ظاهر</span>
+                <span class="badge bg-success">ظاهر</span>
             @else
-                <span class="badge bg-danger">Hidden / مخفي</span>
+                <span class="badge bg-danger">مخفي</span>
             @endif
         </span>
     </div>
