@@ -7,12 +7,14 @@
     data-visible="{{ ($item['visible'] ?? true) ? 1 : 0 }}">
     
     <div class="dd-handle">
-        <span class="label-text">{{ $item['label'] }}</span>
+        <span class="label-text">
+            <strong>{{ $item['label'] }}</strong> / {{ $item['label_ar'] ?? '---' }}
+        </span>
         <span class="badge-visibility">
             @if($item['visible'] ?? true)
-                <span class="badge bg-success">Visible</span>
+                <span class="badge bg-success">Visible / ظاهر</span>
             @else
-                <span class="badge bg-danger">Hidden</span>
+                <span class="badge bg-danger">Hidden / مخفي</span>
             @endif
         </span>
     </div>

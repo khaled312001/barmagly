@@ -4,7 +4,7 @@
 @endsection
 
 @section('body-header')
-    <h3 class="crancy-header__title m-0">{{ __('translate.Menu Management') }}</h3>
+    <h3 class="crancy-header__title m-0">{{ __('translate.Menu Management') }} / إدارة القوائم</h3>
     <p class="crancy-header__text">{{ __('translate.Manage Content') }} >> {{ __('translate.Menu Management') }}</p>
 @endsection
 
@@ -20,11 +20,11 @@
                                     <div class="card crancy-card">
                                         <div class="card-header d-flex justify-content-between align-items-center">
                                             <div>
-                                                <h5 class="card-title mb-0">{{ __('translate.Menu Structure') }}</h5>
-                                                <small class="text-muted">{{ __('translate.Drag each item to the order you prefer. Click on edit to change labels or routes.') }}</small>
+                                                <h5 class="card-title mb-0">{{ __('translate.Menu Structure') }} / هيكل القائمة</h5>
+                                                <small class="text-muted">{{ __('translate.Drag each item to the order you prefer.') }} / اسحب كل عنصر للترتيب الذي تفضله.</small>
                                             </div>
                                             <button type="button" class="btn btn-success btn-sm" id="addItemBtn">
-                                                <i class="fas fa-plus"></i> {{ __('translate.Add New Item') }}
+                                                <i class="fas fa-plus"></i> {{ __('translate.Add New Item') }} / إضافة عنصر جديد
                                             </button>
                                         </div>
                                         <div class="card-body">
@@ -36,13 +36,13 @@
                                                 </ol>
                                             </div>
                                         </div>
-                                        <div class="card-footer">
+                                        <div class="card-footer text-end">
                                             <form action="{{ route('admin.menu-management.update') }}" method="POST" id="saveMenuForm">
                                                 @csrf
                                                 @method('PUT')
                                                 <input type="hidden" name="menu_data" id="nestable-output">
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="fas fa-save"></i> {{ __('translate.Save Changes') }}
+                                                <button type="submit" class="btn btn-primary btn-lg">
+                                                    <i class="fas fa-save"></i> {{ __('translate.Save Changes') }} / حفظ التغييرات
                                                 </button>
                                             </form>
                                         </div>
@@ -51,32 +51,32 @@
                                 <div class="col-lg-4">
                                     <div class="card crancy-card">
                                         <div class="card-header">
-                                            <h5 class="card-title mb-0">{{ __('translate.Helpful Information') }}</h5>
+                                            <h5 class="card-title mb-0">{{ __('translate.Helpful Information') }} / معلومات مفيدة</h5>
                                         </div>
                                         <div class="card-body">
-                                            <h6>{{ __('translate.Common Routes') }}</h6>
+                                            <h6>{{ __('translate.Common Routes') }} / الروابط الشائعة</h6>
                                             <ul class="list-group list-group-flush mt-2">
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Home <span><code>home</code></span>
+                                                    Home / الرئيسية <span><code>home</code></span>
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Services <span><code>services</code></span>
+                                                    Services / الخدمات <span><code>services</code></span>
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Blog <span><code>blogs</code></span>
+                                                    Blog / المدونة <span><code>blogs</code></span>
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Portfolio <span><code>portfolio</code></span>
+                                                    Portfolio / أعمالنا <span><code>portfolio</code></span>
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    About Us <span><code>about-us</code></span>
+                                                    About Us / من نحن <span><code>about-us</code></span>
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Contact <span><code>contact-us</code></span>
+                                                    Contact / اتصل بنا <span><code>contact-us</code></span>
                                                 </li>
                                             </ul>
                                             <div class="alert alert-info mt-3">
-                                                <p class="mb-0"><small><i class="fas fa-info-circle"></i> {{ __('translate.Use "dropdown" type for items that will have children. Regular "link" items should have a route.') }}</small></p>
+                                                <p class="mb-0"><small><i class="fas fa-info-circle"></i> {{ __('translate.Use "dropdown" type for submenus.') }} / استخدم نوع "dropdown" للقوائم الفرعية.</small></p>
                                             </div>
                                         </div>
                                     </div>
@@ -102,36 +102,41 @@
                         <input type="hidden" id="edit-id">
                         <div class="row">
                             <div class="col-12 mb-3">
-                                <label class="form-label">{{ __('translate.Label (English)') }} <span class="text-danger">*</span></label>
+                                <label class="form-label"><strong>{{ __('translate.Label (English)') }}</strong> / الاسم (إنجليزي) <span class="text-danger">*</span></label>
                                 <input type="text" id="edit-label" class="form-control" required>
                             </div>
                             <div class="col-12 mb-3">
-                                <label class="form-label">{{ __('translate.Label (Arabic)') }}</label>
+                                <label class="form-label"><strong>{{ __('translate.Label (Arabic)') }}</strong> / الاسم (عربي)</label>
                                 <input type="text" id="edit-label-ar" class="form-control">
                             </div>
                             <div class="col-12 mb-3">
-                                <label class="form-label">{{ __('translate.Route') }}</label>
+                                <label class="form-label">{{ __('translate.Route') }} / الرابط</label>
                                 <input type="text" id="edit-route" class="form-control" placeholder="e.g., home">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">{{ __('translate.Type') }}</label>
+                                <label class="form-label">{{ __('translate.Type') }} / النوع</label>
                                 <select id="edit-type" class="form-control">
-                                    <option value="link">{{ __('translate.Link') }}</option>
-                                    <option value="dropdown">{{ __('translate.Dropdown') }}</option>
+                                    <option value="link">{{ __('translate.Link') }} / رابط</option>
+                                    <option value="dropdown">{{ __('translate.Dropdown') }} / قائمة منسدلة</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3 d-flex align-items-end">
                                 <div class="form-check form-switch mb-2">
                                     <input type="checkbox" id="edit-visible" class="form-check-input" value="1" checked>
-                                    <label class="form-check-label">{{ __('translate.Visible') }}</label>
+                                    <label class="form-check-label">{{ __('translate.Visible') }} / ظاهر</label>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translate.Close') }}</button>
-                    <button type="button" class="btn btn-primary" id="saveItemBtn">{{ __('translate.Update Item') }}</button>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-danger" id="modalDeleteItemBtn">
+                        <i class="fas fa-trash"></i> {{ __('translate.Delete Item') }} / حذف العنصر
+                    </button>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translate.Close') }} / إغلاق</button>
+                        <button type="button" class="btn btn-primary" id="saveItemBtn">{{ __('translate.Update Item') }}</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -197,8 +202,9 @@
                 $('#edit-type').val(data.type);
                 $('#edit-visible').prop('checked', data.visible == 1);
                 
-                $('#itemModalLabel').text('{{ __("translate.Edit Menu Item") }}');
-                $('#saveItemBtn').text('{{ __("translate.Update Item") }}').removeClass('btn-success').addClass('btn-primary');
+                $('#itemModalLabel').text('{{ __("translate.Edit Menu Item") }} / تعديل عنصر القائمة');
+                $('#saveItemBtn').text('{{ __("translate.Update Item") }} / تحديث العنصر').removeClass('btn-success').addClass('btn-primary');
+                $('#modalDeleteItemBtn').show();
                 $('#itemModal').modal('show');
             });
 
@@ -206,9 +212,10 @@
             $('#addItemBtn').on('click', function() {
                 $('#itemForm')[0].reset();
                 $('#edit-id').val('new_' + Date.now());
-                $('#itemModalLabel').text('{{ __("translate.Add Menu Item") }}');
-                $('#saveItemBtn').text('{{ __("translate.Add Item") }}').removeClass('btn-primary').addClass('btn-success');
+                $('#itemModalLabel').text('{{ __("translate.Add Menu Item") }} / إضافة عنصر للقائمة');
+                $('#saveItemBtn').text('{{ __("translate.Add Item") }} / إضافة العنصر').removeClass('btn-primary').addClass('btn-success');
                 $('#edit-visible').prop('checked', true);
+                $('#modalDeleteItemBtn').hide();
                 $('#itemModal').modal('show');
             });
 
@@ -222,7 +229,7 @@
                 var visible = $('#edit-visible').is(':checked') ? 1 : 0;
 
                 if (!label) {
-                    toastr.error('{{ __("translate.Label is required") }}');
+                    toastr.error('Label is required / العنوان مطلوب');
                     return;
                 }
 
@@ -236,15 +243,15 @@
                     $item.data('type', type);
                     $item.data('visible', visible);
                     
-                    $item.find('> .dd-handle .label-text').text(label);
-                    $item.find('> .dd-handle .badge-visibility').html(visible == 1 ? '<span class="badge bg-success">Visible</span>' : '<span class="badge bg-danger">Hidden</span>');
+                    $item.find('> .dd-handle .label-text').html(`<strong>${label}</strong> / ${labelAr || '---'}`);
+                    $item.find('> .dd-handle .badge-visibility').html(visible == 1 ? '<span class="badge bg-success">Visible / ظاهر</span>' : '<span class="badge bg-danger">Hidden / مخفي</span>');
                 } else {
                     // Add new
                     var newItemHtml = `
                         <li class="dd-item" data-id="${id}" data-label="${label}" data-label-ar="${labelAr}" data-route="${route}" data-type="${type}" data-visible="${visible}">
                             <div class="dd-handle">
-                                <span class="label-text">${label}</span>
-                                <span class="badge-visibility">${visible == 1 ? '<span class="badge bg-success">Visible</span>' : '<span class="badge bg-danger">Hidden</span>'}</span>
+                                <span class="label-text"><strong>${label}</strong> / ${labelAr || '---'}</span>
+                                <span class="badge-visibility">${visible == 1 ? '<span class="badge bg-success">Visible / ظاهر</span>' : '<span class="badge bg-danger">Hidden / مخفي</span>'}</span>
                             </div>
                             <div class="item-actions">
                                 <button type="button" class="btn btn-primary edit-item"><i class="fas fa-edit"></i></button>
@@ -264,9 +271,19 @@
 
             // Delete Item
             $(document).on('click', '.delete-item', function() {
-                if (confirm('{{ __("translate.Are you sure you want to delete this item?") }}')) {
+                if (confirm('Are you sure you want to delete this item? / هل أنت متأكد من حذف هذا العنصر؟')) {
                     $(this).closest('.dd-item').remove();
                     updateOutput();
+                }
+            });
+
+            // Delete from Modal
+            $('#modalDeleteItemBtn').on('click', function() {
+                var id = $('#edit-id').val();
+                if (confirm('Are you sure you want to delete this item? / هل أنت متأكد من حذف هذا العنصر؟')) {
+                    $('li.dd-item[data-id="' + id + '"]').remove();
+                    updateOutput();
+                    $('#itemModal').modal('hide');
                 }
             });
 
