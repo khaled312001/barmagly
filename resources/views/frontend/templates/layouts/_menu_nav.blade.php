@@ -13,7 +13,7 @@
 
             @php
                 $currentTheme = Modules\GlobalSetting\App\Models\GlobalSetting::where('key', 'selected_theme')->first()?->value ?? 'all_theme';
-                $currentLang = app()->getLocale();
+                $currentLang = front_lang() ?? app()->getLocale();
                 $langDir = Session::get('lang_dir', 'right_to_left') == 'right_to_left' ? 'rtl-arrow' : '';
                 
                 // Get menu items from database
