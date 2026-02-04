@@ -31,7 +31,7 @@
 
     @endphp
 
-<header class="site-header Barmagly-header-section site-header--menu-right Barmagly-header-two glass-effect" id="sticky-menu" style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
+<header class="site-header Barmagly-header-section site-header--menu-right Barmagly-header-two glass-effect" id="sticky-menu" style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.3); position: absolute; top: 0; left: 0; width: 100%; z-index: 1000;">
     <div class="Barmagly-header-top p-0" style="background: transparent; border-bottom: 1px solid rgba(0,0,0,0.05);">
         <div class="container">
             <div class="extra-border-bottom">
@@ -132,7 +132,7 @@
 
 </header>
 
-<div class="Barmagly-hero-section2 bg-cover floating-elements" style="background-image: url({{ asset(getImage($heroContent, 'hero_image')) }}); padding: 180px 0 120px; position: relative; overflow: hidden;">
+<div class="Barmagly-hero-section2 bg-cover floating-elements" style="background-image: url({{ asset(getImage($heroContent, 'hero_image')) }}); padding: 140px 0 100px; position: relative; overflow: hidden;">
     <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(10, 22, 94, 0.85) 0%, rgba(43, 77, 255, 0.6) 100%); z-index: 1;"></div>
     <div class="container" style="position: relative; z-index: 2;">
         <div class="Barmagly-hero-content center white-color">
@@ -423,41 +423,41 @@
     <div class="container">
         <div id="Barmagly-counter"></div>
         <div class="Barmagly-counter-wrap">
-            <div class="Barmagly-counter-data glass-effect" data-aos="zoom-in" data-aos-duration="800" style="padding: 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.4); box-shadow: var(--soft-shadow);">
-                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: rgba(43, 77, 255, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
-                    <img src="{{ url(@$counterContent->data_values['images']['image_1']) }}" alt="Image 1" style="width: 30px;">
+            <div class="Barmagly-counter-data glass-effect premium-counter" data-aos="zoom-in" data-aos-duration="800" style="padding: 40px 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.2); box-shadow: var(--premium-shadow); border-radius: 20px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);">
+                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: var(--primary-gradient); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 10px 20px rgba(43, 77, 255, 0.3);">
+                    <img src="{{ url(@$counterContent->data_values['images']['image_1']) }}" alt="Image 1" style="width: 32px; filter: brightness(0) invert(1);">
                 </div>
-                <div class="Barmagly-counter-number" style="font-size: 2.5rem; font-weight: 800; color: #0a165e; margin-bottom: 10px;">
+                <div class="Barmagly-counter-number" style="font-size: 2.8rem; font-weight: 800; color: #ffffff; margin-bottom: 15px; text-shadow: 0 5px 15px rgba(0,0,0,0.2);">
                     <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_1', $currentLang) }}" class="Barmagly-counter"></span>+
                 </div>
-                <p style="font-weight: 600; color: #4a5568; margin-bottom: 0;">{{ getTranslatedValue($counterContent, 'title_1', $currentLang) }}</p>
+                <p style="font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 0; font-size: 1.1rem; letter-spacing: 0.5px;">{{ getTranslatedValue($counterContent, 'title_1', $currentLang) }}</p>
             </div>
-            <div class="Barmagly-counter-data glass-effect" data-aos="zoom-in" data-aos-duration="1000" style="padding: 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.4); box-shadow: var(--soft-shadow);">
-                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: rgba(43, 77, 255, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
-                    <img src="{{ asset(getImage($counterContent, 'image_2')) }}" alt="Image 2" style="width: 30px;">
+            <div class="Barmagly-counter-data glass-effect premium-counter" data-aos="zoom-in" data-aos-duration="1000" style="padding: 40px 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.2); box-shadow: var(--premium-shadow); border-radius: 20px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);">
+                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: var(--primary-gradient); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 10px 20px rgba(43, 77, 255, 0.3);">
+                    <img src="{{ asset(getImage($counterContent, 'image_2')) }}" alt="Image 2" style="width: 32px; filter: brightness(0) invert(1);">
                 </div>
-                <div class="Barmagly-counter-number" style="font-size: 2.5rem; font-weight: 800; color: #0a165e; margin-bottom: 10px;">
+                <div class="Barmagly-counter-number" style="font-size: 2.8rem; font-weight: 800; color: #ffffff; margin-bottom: 15px; text-shadow: 0 5px 15px rgba(0,0,0,0.2);">
                     <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_2', $currentLang) }}" class="Barmagly-counter"></span>+
                 </div>
-                <p style="font-weight: 600; color: #4a5568; margin-bottom: 0;">{{ getTranslatedValue($counterContent, 'title_2', $currentLang) }}</p>
+                <p style="font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 0; font-size: 1.1rem; letter-spacing: 0.5px;">{{ getTranslatedValue($counterContent, 'title_2', $currentLang) }}</p>
             </div>
-            <div class="Barmagly-counter-data glass-effect" data-aos="zoom-in" data-aos-duration="1200" style="padding: 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.4); box-shadow: var(--soft-shadow);">
-                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: rgba(43, 77, 255, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
-                    <img src="{{ asset(getImage($counterContent, 'image_3')) }}" alt="Image 3" style="width: 30px;">
+            <div class="Barmagly-counter-data glass-effect premium-counter" data-aos="zoom-in" data-aos-duration="1200" style="padding: 40px 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.2); box-shadow: var(--premium-shadow); border-radius: 20px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);">
+                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: var(--primary-gradient); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 10px 20px rgba(43, 77, 255, 0.3);">
+                    <img src="{{ asset(getImage($counterContent, 'image_3')) }}" alt="Image 3" style="width: 32px; filter: brightness(0) invert(1);">
                 </div>
-                <div class="Barmagly-counter-number" style="font-size: 2.5rem; font-weight: 800; color: #0a165e; margin-bottom: 10px;">
+                <div class="Barmagly-counter-number" style="font-size: 2.8rem; font-weight: 800; color: #ffffff; margin-bottom: 15px; text-shadow: 0 5px 15px rgba(0,0,0,0.2);">
                     <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_3', $currentLang) }}" class="Barmagly-counter"></span>+
                 </div>
-                <p style="font-weight: 600; color: #4a5568; margin-bottom: 0;">{{ getTranslatedValue($counterContent, 'title_3', $currentLang) }}</p>
+                <p style="font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 0; font-size: 1.1rem; letter-spacing: 0.5px;">{{ getTranslatedValue($counterContent, 'title_3', $currentLang) }}</p>
             </div>
-            <div class="Barmagly-counter-data glass-effect" data-aos="zoom-in" data-aos-duration="1400" style="padding: 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.4); box-shadow: var(--soft-shadow);">
-                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: rgba(43, 77, 255, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
-                    <img src="{{ asset(getImage($counterContent, 'image_4')) }}" alt="" style="width: 30px;">
+            <div class="Barmagly-counter-data glass-effect premium-counter" data-aos="zoom-in" data-aos-duration="1400" style="padding: 40px 30px; margin: 10px; flex: 1; min-width: 200px; text-align: center; transition: var(--transition-smooth); border: 1px solid rgba(255,255,255,0.2); box-shadow: var(--premium-shadow); border-radius: 20px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);">
+                <div class="Barmagly-counter-icon" style="margin-bottom: 20px; background: var(--primary-gradient); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 10px 20px rgba(43, 77, 255, 0.3);">
+                    <img src="{{ asset(getImage($counterContent, 'image_4')) }}" alt="" style="width: 32px; filter: brightness(0) invert(1);">
                 </div>
-                <div class="Barmagly-counter-number" style="font-size: 2.5rem; font-weight: 800; color: #0a165e; margin-bottom: 10px;">
+                <div class="Barmagly-counter-number" style="font-size: 2.8rem; font-weight: 800; color: #ffffff; margin-bottom: 15px; text-shadow: 0 5px 15px rgba(0,0,0,0.2);">
                     <span data-percentage="{{ getTranslatedValue($counterContent, 'counter_4', $currentLang) }}" class="Barmagly-counter"></span>%
                 </div>
-                <p style="font-weight: 600; color: #4a5568; margin-bottom: 0;">{{ getTranslatedValue($counterContent, 'title_4', $currentLang) }}</p>
+                <p style="font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 0; font-size: 1.1rem; letter-spacing: 0.5px;">{{ getTranslatedValue($counterContent, 'title_4', $currentLang) }}</p>
             </div>
 
         </div>
@@ -473,16 +473,16 @@
         <div class="row">
             @foreach($listings as $listing)
             <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="{{ 400 + ($loop->index * 100) }}">
-                <div class="Barmagly-iconbox-wrap style-two glass-effect-card" style="padding: 40px; border-radius: 20px; transition: var(--transition-smooth); background: #ffffff; box-shadow: var(--soft-shadow); border: 1px solid rgba(0,0,0,0.03); height: 100%; display: flex; flex-direction: column; position: relative; overflow: hidden;">
-                    <div class="Barmagly-iconbox-icon" style="width: 70px; height: 70px; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 8px 20px rgba(43, 77, 255, 0.2);">
-                        <img src="{{ asset($listing->thumb_image) }}" alt="" style="width: 35px; filter: brightness(0) invert(1);">
+                <div class="Barmagly-iconbox-wrap style-two glass-effect-card premium-hover-card" style="padding: 40px; border-radius: 20px; transition: var(--transition-smooth); background: #ffffff; box-shadow: var(--soft-shadow); border: 1px solid rgba(0,0,0,0.03); height: 100%; display: flex; flex-direction: column; position: relative; overflow: hidden;">
+                    <div class="Barmagly-iconbox-icon" style="width: 75px; height: 75px; background: rgba(43, 77, 255, 0.08); display: flex; align-items: center; justify-content: center; border-radius: 18px; margin-bottom: 25px; transition: var(--transition-smooth);">
+                        <img src="{{ asset($listing->thumb_image) }}" alt="" style="width: 38px; filter: none;">
                     </div>
                     <div class="Barmagly-iconbox-data">
-                        <h5 style="font-size: 1.5rem; margin-bottom: 15px; color: #0a165e;">{{ $listing->title ?? $listing->translate?->title }}</h5>
-                        <p style="color: #718096; line-height: 1.6; margin-bottom: 25px;">{{ \Illuminate\Support\Str::limit($listing->short_description ?? $listing->translate?->short_description, 100) }}</p>
-                        <a class="Barmagly-icon-btn premium-link" href="{{ route('service', $listing->slug) }}" style="color: #2b4dff; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                        <h5 style="font-size: 1.5rem; margin-bottom: 15px; color: #0a165e; font-weight: 700;">{{ $listing->title ?? $listing->translate?->title }}</h5>
+                        <p style="color: #718096; line-height: 1.6; margin-bottom: 30px; font-size: 0.95rem;">{{ \Illuminate\Support\Str::limit($listing->short_description ?? $listing->translate?->short_description, 110) }}</p>
+                        <a class="Barmagly-icon-btn premium-learn-more" href="{{ route('service', $listing->slug) }}" style="color: #2b4dff; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; padding: 10px 20px; background: rgba(43, 77, 255, 0.05); border-radius: 50px; transition: var(--transition-smooth);">
                             <span>{{ __('translate.Learn More') }}</span>
-                            <i class="ri-arrow-right-line" style="transition: transform 0.3s ease;"></i>
+                            <i class="ri-arrow-right-line" style="font-size: 1.1rem; transition: transform 0.3s ease;"></i>
                         </a>
                     </div>
                     <div class="card-hover-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--primary-gradient); opacity: 0; transition: var(--transition-smooth); z-index: -1;"></div>
