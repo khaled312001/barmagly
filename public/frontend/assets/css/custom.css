@@ -3266,3 +3266,20 @@ img:not([width]):not([height]) {
     transform: scale(1.05);
     transition: transform 0.3s ease;
 }
+/* RTL Support for Icon Lists and Pricing Features */
+html[dir='rtl'] .Barmagly-icon-list ul li,
+body.rtl .Barmagly-icon-list ul li,
+html[dir='rtl'] .Barmagly-pricing-feature ul li,
+body.rtl .Barmagly-pricing-feature ul li {
+    padding-left: 0 !important;
+    padding-right: 30px !important;
+    text-align: right !important;
+}
+
+html[dir='rtl'] .Barmagly-icon-list ul li i,
+body.rtl .Barmagly-icon-list ul li i,
+html[dir='rtl'] .Barmagly-pricing-feature ul li i,
+body.rtl .Barmagly-pricing-feature ul li i {
+    left: auto !important;
+    right: 0 !important;
+}
