@@ -196,7 +196,7 @@ class LanguageController extends Controller
             DB::table('languages')->update(['is_default' => 'No']);
         }
 
-        if($language->is_default == 'Yes'){
+        if($language->is_default == 'Yes' && !$request->is_default){
             DB::table('languages')->where('id', 1)->update(['is_default' => 'Yes']);
         }
 
