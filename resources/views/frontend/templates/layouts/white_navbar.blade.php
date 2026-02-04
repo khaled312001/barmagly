@@ -20,16 +20,12 @@
 
                 <div class="Barmagly-header-info-right two">
                     <div class="Barmagly-header-social-icons">
-                        @if($footer->facebook)
-                        <a href="{{ $footer->facebook }}" target="_blank" class="social-icon-link" aria-label="Facebook">
+                        <a href="{{ $footer->facebook ?? '#' }}" target="_blank" class="social-icon-link" aria-label="Facebook">
                             <i class="ri-facebook-fill"></i>
                         </a>
-                        @endif
-                        @if($footer->linkedin)
-                        <a href="{{ $footer->linkedin }}" target="_blank" class="social-icon-link" aria-label="LinkedIn">
+                        <a href="{{ $footer->linkedin ?? '#' }}" target="_blank" class="social-icon-link" aria-label="LinkedIn">
                             <i class="ri-linkedin-fill"></i>
                         </a>
-                        @endif
                     </div>
                     <div class="cur_lun_login_item">
                        <span>
