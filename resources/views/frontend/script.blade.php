@@ -41,6 +41,13 @@
 <script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/menu/menu.js') }}"></script>
 
+<!-- Hide preloader immediately when DOM is ready -->
+<script>
+    $(document).ready(function() {
+        $(".Barmagly-preloader-wrap").fadeOut(500);
+    });
+</script>
+
 <!-- Non-critical JavaScript - Defer loading -->
 <script defer src="{{ asset('global/select2/select2.min.js') }}"></script>
 <script defer src="{{ asset('frontend/assets/js/jquery.magnific-popup.min.js') }}"></script>

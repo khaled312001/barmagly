@@ -11,7 +11,6 @@
                 <div class="Barmagly-header-info-wrap">
                     <div class="Barmagly-header-info ">
                         <ul>
-                            <li><i class="ri-map-pin-2-fill"></i>{{ $footer->address }}</li>
                             <li><a href="tel:{{ $footer->phone }}"><i class="ri-phone-fill"></i>{{ $footer->phone }}</a></li>
                             <li><a href="mailto:{{ $footer->email }}"><i class="ri-mail-fill"></i> {{ $footer->email }}</a></li>
                         </ul>
@@ -126,7 +125,6 @@
 
                 <div class="Barmagly-contact-info-wrap mt-2">
                     <div class="Barmagly-contact-info">
-                        <i class="ri-map-pin-2-fill"></i>
                         <h5>{{ __('translate.Address') }}</h5>
                         <p>{{ $footer->address }}</p>
                     </div>

@@ -11,7 +11,6 @@
                     <p>{{ getTranslatedValue($contactInfoContent, 'description', $currentLang) }}</p>
                     <div class="Barmagly-contact-info-column">
                         <div class="Barmagly-contact-info">
-                            <i class="ri-map-pin-2-fill"></i>
                             <h5>{{ __('translate.Address') }}</h5>
                             <p>{{ $footer->address }}</p>
                         </div>
